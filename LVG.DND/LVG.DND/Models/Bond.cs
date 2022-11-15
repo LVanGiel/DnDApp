@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Bond : Base
+    public class Bond : Base
     {
         public string Description { get; set; }
     }

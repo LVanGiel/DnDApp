@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Weapon
+    public class Weapon
     {
         public string Name { get; set; }
         public Dice DamageDice { get; set; }

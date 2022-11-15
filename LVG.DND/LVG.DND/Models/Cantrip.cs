@@ -2,7 +2,7 @@
 
 namespace LVG.DND.Models
 {
-    internal class Cantrip : Base
+    public class Cantrip : Base
     {
     }
 }

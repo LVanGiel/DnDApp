@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class AbilityScore : Base
+    public class AbilityScore : Base
     {
         public int Amount { get; set; }
         public int Ability { get; set; }

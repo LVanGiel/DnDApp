@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Skill
+    public class Skill
     {
     }
 }

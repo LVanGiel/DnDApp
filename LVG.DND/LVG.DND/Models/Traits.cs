@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Traits
+    public class Traits
     {
+        public Traits()
+        {
+
+        }
     }
 }

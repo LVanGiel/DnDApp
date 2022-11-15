@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace LVG.DND.Models
 {
-    internal class CharacterCollection : ObservableObject
+    public class CharacterCollection : ObservableObject
     {
         [ObservableProperty]
-        public List<Character> Characters;
+        ObservableCollection<Character> CharacterList = new ObservableCollection<Character>();
     }
 }

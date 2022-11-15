@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class MoneyBag
+    public class MoneyBag
     {
         public int Copper { get; set; }
         public int Silver { get; set; }

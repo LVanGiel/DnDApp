@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Character : Base
+    public class Character : Base
     {
         public Dice HitpointDice { get; set; }
 

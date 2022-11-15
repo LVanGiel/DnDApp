@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Background : Base
+    public class Background : Base
     {
         public Background()
         {

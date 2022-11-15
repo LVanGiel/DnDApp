@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Language : Base
+    public class Language : Base
     {
         public string Name { get; set; }
         public string Description { get; set; }

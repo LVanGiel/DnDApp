@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models.basemodel
 {
-    internal class Base
+    public class Base
     {
         public Guid Id { get; set; }
     }

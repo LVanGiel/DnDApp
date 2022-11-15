@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Flaw : Base
+    public class Flaw : Base
     {
         public string Description { get; set; }
     }

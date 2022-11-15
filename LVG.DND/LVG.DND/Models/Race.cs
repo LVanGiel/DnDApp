@@ -2,7 +2,7 @@
 
 namespace LVG.DND.Models
 {
-    internal class Race : Base
+    public class Race : Base
     {
         public List<AbilityScore> AbilityScores { get; set; }
         public int MaxAge { get; set; }

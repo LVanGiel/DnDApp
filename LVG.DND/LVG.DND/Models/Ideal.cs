@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class Ideal : Base
+    public class Ideal : Base
     {
         public string Description { get; set; }
     }

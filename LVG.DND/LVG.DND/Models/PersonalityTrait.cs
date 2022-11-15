@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    internal class PersonalityTrait : Base
+    public class PersonalityTrait : Base
     {
         public string Description { get; set; }
     }
