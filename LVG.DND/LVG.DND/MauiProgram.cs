@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using LVG.DND.Models;
 using LVG.DND.Pages;
 using LVG.DND.ViewModel;
 
@@ -22,6 +23,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainViewModel>();
 
         builder.Services.AddTransient<DndDice>();
+        builder.Services.AddTransient<DndDiceViewModel>();
+
+        builder.Services.AddTransient<CharacterCollection>();
         builder.Services.AddTransient<DndDiceViewModel>();
 
         return builder.Build();

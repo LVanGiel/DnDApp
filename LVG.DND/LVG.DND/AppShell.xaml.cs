@@ -8,6 +8,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(DndDice), typeof(DndDice));
-	}
+        Routing.RegisterRoute(nameof(DndDice), typeof(DndDice));
+        Routing.RegisterRoute(nameof(CharacterCollectionPage), typeof(CharacterCollectionPage));
+    }
 }

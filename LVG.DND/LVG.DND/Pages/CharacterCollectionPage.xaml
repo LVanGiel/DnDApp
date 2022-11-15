@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Pages.CharacterCollectionPage"
+             xmlns:views="clr-namespace:LVG.DND.Views">
+    <VerticalStackLayout x:Name="mainStack">
+        <CarouselView ItemsSource="{Binding Characters}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="models:"
+                <StackLayout>
+                    <Label Text="Level" />
+                    <Label Text="Name" />
+                    <Label Text="Race" />
+                    <Label Text="Class" />
+                    <Label Text="Health" />
+                    <Label Text="Armor" />
+                </StackLayout>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </VerticalStackLayout>
+</ContentPage>
