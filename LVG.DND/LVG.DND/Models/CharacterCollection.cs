@@ -4,9 +4,12 @@ using System.Collections.ObjectModel;
 
 namespace LVG.DND.Models
 {
-    public class CharacterCollection : ObservableObject
+    public partial class CharacterCollection : ObservableObject
     {
         [ObservableProperty]
-        ObservableCollection<Character> CharacterList = new ObservableCollection<Character>();
+        ObservableCollection<Character> characters;
+
+        [ObservableProperty]
+        int position;
     }
 }

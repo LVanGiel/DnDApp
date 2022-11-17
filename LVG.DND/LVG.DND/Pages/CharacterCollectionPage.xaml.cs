@@ -1,4 +1,5 @@
 using LVG.DND.Models;
+using System.Collections.ObjectModel;
 
 namespace LVG.DND.Pages;
 
@@ -11,9 +12,12 @@ public partial class CharacterCollectionPage : ContentPage
 	}
 	void init()
 	{
-		var characteres = new List<Character>();
-		characteres.Add(new Character());
-        characteres.Add(new Character());
-		BindingContext = this;
+		var characteres = new ObservableCollection<Character>();
+		characteres.Add(new Character() {Id = new Guid() });
+        characteres.Add(new Character() {Id = new Guid() });
+		var characters = new CharacterCollection();
+		characters.Characters = characteres;
+		characters.Position = 1;
+		BindingContext = characters;
     }
 }

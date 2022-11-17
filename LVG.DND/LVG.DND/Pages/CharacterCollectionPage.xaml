@@ -4,14 +4,17 @@
              x:Class="LVG.DND.Pages.CharacterCollectionPage"
              Title="CharacterCollectionPage">
     <VerticalStackLayout>
-        <CarouselView ItemsSource="">
-            <DataTemplate x:DataType="models:Character">
-                <StackLayout>
-                    <Label Text="test" />
-                    <Label Text="test" />
-                    <Label Text="test" />
-                </StackLayout>
-            </DataTemplate>
+        <CarouselView  ItemsSource="{Binding Characters}"
+                      Position="{Binding Position}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="test" />
+                        <Label Text="test" />
+                        <Label Text="test" />
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
         </CarouselView>
     </VerticalStackLayout>
 </ContentPage>
