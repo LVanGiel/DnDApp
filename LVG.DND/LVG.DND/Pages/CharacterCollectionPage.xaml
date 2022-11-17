@@ -5,14 +5,15 @@
              Title="CharacterCollectionPage">
     <VerticalStackLayout>
         <CarouselView  ItemsSource="{Binding Characters}"
-                      Position="{Binding Position}">
+                      Position="{Binding Position}"
+                       Loop="False"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Label Text="test" />
-                        <Label Text="test" />
-                        <Label Text="test" />
-                    </StackLayout>
+                    <Grid RowDefinitions="60*,40*">
+                        <Label Text="test" Grid.Row="0" />
+                        <Label Text="{Binding Id}" Grid.Row="1"/>
+                    </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
