@@ -18,7 +18,7 @@ public partial class MainPage : ContentPage
 	}
     private async void OnCharClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(CharacterCollectionPage));
+        await Shell.Current.GoToAsync(nameof(CharacterCreationPage));
     }
 }
 
