@@ -1,0 +1,1 @@
+[{"Name":"Blood Hunter","AbilityScores":null,"MaxAge":0,"MaxHeight":0,"BaseSpeed":0,"Traits":null,"Languages":null,"Cantrips":null,"WeaponProficiencies":null,"ArmorProficiencies":null,"ItemProficiencies":null,"SavingThrowProficiencies":null,"SkillProficiencies":null,"Id":"00000000-0000-0000-0000-000000000000"}]

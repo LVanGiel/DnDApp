@@ -4,6 +4,7 @@ namespace LVG.DND.Models
 {
     public class Race : Base
     {
+        public string Name { get; set; }
         public List<AbilityScore> AbilityScores { get; set; }
         public int MaxAge { get; set; }
         public int MaxHeight { get; set; }

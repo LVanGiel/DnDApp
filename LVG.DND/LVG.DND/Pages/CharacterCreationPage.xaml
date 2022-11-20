@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.CharacterCreationPage"
              Title="CharacterCreationPage">
-    <VerticalStackLayout>
-        <Button Text="Start"></Button>
+    <VerticalStackLayout x:Name="creationStack">
+        
     </VerticalStackLayout>
 </ContentPage>

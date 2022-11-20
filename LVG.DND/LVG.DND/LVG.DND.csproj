@@ -51,6 +51,7 @@
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -63,7 +64,7 @@
 	  <MauiXaml Update="Pages\DndDice.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CharCreationView.xaml">
+	  <MauiXaml Update="Views\charcreation\RaceSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DicePopup.xaml">
