@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using LVG.DND.Models;
+using LVG.DND.ViewModel;
 using LVG.DND.Views.charcreation.AbilityScores;
 using Newtonsoft.Json;
 
@@ -21,12 +22,12 @@ public partial class AbilityScoreCreator : ContentView
 
         if (isRoll) { 
 			RollOrNotBtn.Text = "Manually input ability scores";
-            ASStack.Add(new ASRollInput(new ViewModel.AbilityScoresViewModel()));
+            ASStack.Add(new ASRollInput(new AbilityScoresViewModel()));
         }
 		else
 		{
             RollOrNotBtn.Text = "Roll for ability scores";
-            ASStack.Add(new ASManualInput(new ViewModel.AbilityScoresViewModel()));
+            ASStack.Add(new ASManualInput(new AbilityScoresViewModel()));
         }
 		isRoll = !isRoll;
     }

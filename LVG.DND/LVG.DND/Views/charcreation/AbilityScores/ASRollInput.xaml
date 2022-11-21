@@ -4,6 +4,15 @@
              x:Class="LVG.DND.Views.charcreation.AbilityScores.ASRollInput">
     <VerticalStackLayout>
         <Button Text="Roll scores" Clicked="RollBtn_Clicked"></Button>
+
+        <CollectionView x:Name="DiceRollCollection" 
+                        SelectionMode="Multiple"
+                        x:Datatype="int">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+        
         <HorizontalStackLayout>
             <Label Text="Strength"></Label>
             <Button  Text="{Binding Strength}"></Button>

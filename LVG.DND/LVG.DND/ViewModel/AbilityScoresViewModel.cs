@@ -5,6 +5,8 @@ namespace LVG.DND.ViewModel
     public partial class AbilityScoresViewModel : ObservableObject
     {
         [ObservableProperty]
+        List<int> diceScores = new List<int>();
+        [ObservableProperty]
         int strength;
         [ObservableProperty]
         int dexterity;
@@ -16,5 +18,6 @@ namespace LVG.DND.ViewModel
         int wisdom;
         [ObservableProperty]
         int charisma;
+
     }
 }
