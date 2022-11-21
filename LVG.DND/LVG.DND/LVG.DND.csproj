@@ -67,6 +67,12 @@
 	  <MauiXaml Update="Views\charcreation\AbilityScoreCreator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\charcreation\AbilityScores\ASManualInput.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\charcreation\AbilityScores\ASRollInput.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Views.charcreation.AbilityScores.ASManualInput">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Strength"></Label>
+            <Entry Text="{Binding Strength}"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Dexterity"></Label>
+            <Entry Text="{Binding Dexterity}"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Constitution"></Label>
+            <Entry Text="{Binding Constitution}"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Intelligence"></Label>
+            <Entry Text="{Binding Intelligence}"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Wisdom"></Label>
+            <Entry Text="{Binding Wisdom}"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Charisma"></Label>
+            <Entry Text="{Binding Charisma}"></Entry>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Views.charcreation.AbilityScores.ASRollInput">
+    <VerticalStackLayout>
+        <Button Text="Roll scores" Clicked="RollBtn_Clicked"></Button>
+        <HorizontalStackLayout>
+            <Label Text="Strength"></Label>
+            <Button  Text="{Binding Strength}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Dexterity"></Label>
+            <Button Text="{Binding Dexterity}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Constitution"></Label>
+            <Button Text="{Binding Constitution}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Intelligence"></Label>
+            <Button Text="{Binding Intelligence}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Wisdom"></Label>
+            <Button Text="{Binding Wisdom}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Charisma"></Label>
+            <Button Text="{Binding Charisma}"></Button>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentView>
