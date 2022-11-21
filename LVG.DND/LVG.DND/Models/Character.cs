@@ -13,8 +13,8 @@ namespace LVG.DND.Models
         public Dice HitpointDice { get; set; }
 
         //internal variables
-        public string Class { get; set; }
-        public string Race { get; set; }
+        public CharClass Class { get; set; }
+        public Race Race { get; set; }
         public string Background { get; set; }
 
         //roleplay stats

@@ -64,6 +64,12 @@
 	  <MauiXaml Update="Pages\DndDice.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\charcreation\AbilityScoreCreator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\charcreation\RaceSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

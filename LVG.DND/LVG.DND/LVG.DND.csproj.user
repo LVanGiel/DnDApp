@@ -24,6 +24,12 @@
     <MauiXaml Update="Pages\DndDice.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\charcreation\AbilityScoreCreator.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\charcreation\RaceSelector.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

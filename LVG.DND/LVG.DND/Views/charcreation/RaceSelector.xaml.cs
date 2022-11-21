@@ -15,6 +15,6 @@ public partial class RaceSelector : ContentView
 
 	private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-        _vm.Character = e.CurrentSelection.FirstOrDefault() as Character;
+        _vm.Character.Race = e.CurrentSelection.FirstOrDefault() as Race;
 	}
 }
