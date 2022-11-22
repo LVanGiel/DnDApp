@@ -24,15 +24,9 @@ public partial class DicePopup : Popup
 
     private void GenerateDice()
     {
-        var scrollView = new ScrollView();
         for (int i = 0; i < _diceSizes.Count; i++)
         {
             var diceView = new DiceView(_diceSizes[i]);
-            if (_diceSizes.Count > 1)
-            {
-                scrollView.Content = diceView;
-                DicePopupStack.Add(scrollView);
-            }
             DicePopupStack.Add(diceView);
         }
     }
@@ -47,7 +41,7 @@ public partial class DicePopup : Popup
 
     private void NextRollBtn_Clicked(object sender, EventArgs e)
     {
-        foreach (DiceView diceview in DicePopupStack)
+        foreach (DiceView diceview in DicePopupStack.Children.ToList())
         {
             _diceResults.Add(diceview.dice.Number);
         }

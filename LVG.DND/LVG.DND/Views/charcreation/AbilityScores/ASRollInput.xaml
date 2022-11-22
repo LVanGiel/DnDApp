@@ -5,36 +5,45 @@
     <VerticalStackLayout>
         <Button Text="Roll scores" Clicked="RollBtn_Clicked"></Button>
         <Label Text="Select 3 of 4 dice"></Label>
+        
         <CollectionView x:Name="DiceRollCollection" 
                         SelectionMode="Multiple">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
             </CollectionView.ItemsLayout>
         </CollectionView>
-        
+        <Button Text="submit dice" Clicked="submitDiceBtn_Clicked"></Button>
+
+        <CollectionView x:Name="AbilityScoreCollection" 
+                        SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+
         <HorizontalStackLayout>
-            <Label Text="Strength"></Label>
-            <Button  Text="{Binding Strength}"></Button>
+            <Button  Text="Strength"></Button>
+            <Label Text="{Binding Strength}"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Dexterity"></Label>
-            <Button Text="{Binding Dexterity}"></Button>
+            <Button Text="Dexterity"></Button>
+            <Label Text="{Binding Dexterity}"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Constitution"></Label>
-            <Button Text="{Binding Constitution}"></Button>
+            <Button Text="Constitution"></Button>
+            <Label Text="{Binding Constitution}"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Intelligence"></Label>
-            <Button Text="{Binding Intelligence}"></Button>
+            <Button Text="Intelligence"></Button>
+            <Label Text="{Binding Intelligence}"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Wisdom"></Label>
-            <Button Text="{Binding Wisdom}"></Button>
+            <Button Text="Wisdom"></Button>
+            <Label Text="{Binding Wisdom}"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Charisma"></Label>
-            <Button Text="{Binding Charisma}"></Button>
+            <Button Text="Charisma"></Button>
+            <Label Text="{Binding Charisma}"></Label>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentView>
