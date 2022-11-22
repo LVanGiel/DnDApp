@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Views.DiceView">
+    <Grid ColumnDefinitions="Auto"
+             RowDefinitions="Auto" 
+             HeightRequest="250"
+               WidthRequest="285">
+        <Image Source="{Binding DiceImageUrl}" Aspect="AspectFill" HeightRequest="250" />
+        <Button x:Name="btnRollDice" Background="#00000000" 
+                                BorderColor="#00000000" 
+                                Text="{Binding Number}" ZIndex="{Binding DiceSize}"
+                                FontSize="50" 
+                                Clicked="btnDice_Clicked"/>
+    </Grid>
+</ContentView>
