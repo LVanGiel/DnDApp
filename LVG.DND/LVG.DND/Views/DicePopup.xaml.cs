@@ -5,36 +5,53 @@ namespace LVG.DND.Views;
 
 public partial class DicePopup : Popup
 {
-    public Dice dice;
     public bool needsReturn;
+    List<int> _diceSizes;
+    List<int> _diceResults;
     public DicePopup()
 	{
 		InitializeComponent();
-        dice = new Dice();
-        dice.ChangeSize(20);
-        BindingContext = dice;
     }
-	public DicePopup(int diceSize, bool returnValue = false)
+	public DicePopup(List<int> diceSizes, bool returnValue = false)
 	{
         InitializeComponent();
-        dice = new Dice();
-        dice.ChangeSize(diceSize);
-        BindingContext = dice;
         needsReturn = returnValue;
+        _diceSizes = diceSizes;
+        _diceResults = new List<int>();
+        GenerateDice();
+        AddButton();
     }
-    private async void btnDice_Clicked(object sender, EventArgs e)
-	{
-        Button btnDice = sender as Button;
 
-        await dice.RollDice(btnDice.ZIndex);
-        await Task.Delay(500);
-
-        if (needsReturn)
+    private void GenerateDice()
+    {
+        var scrollView = new ScrollView();
+        for (int i = 0; i < _diceSizes.Count; i++)
         {
-            this.Close(dice.Number);
+            var diceView = new DiceView(_diceSizes[i]);
+            if (_diceSizes.Count > 1)
+            {
+                scrollView.Content = diceView;
+                DicePopupStack.Add(scrollView);
+            }
+            DicePopupStack.Add(diceView);
+        }
+    }
+    private void AddButton()
+    {
+        var btnNextRoll = new Button();
+        btnNextRoll.Clicked += new EventHandler(NextRollBtn_Clicked);
+        btnNextRoll.Text = "Done rolling";
+
+        DicePopupPrimairyStack.Add(btnNextRoll);
+    }
+
+    private void NextRollBtn_Clicked(object sender, EventArgs e)
+    {
+        foreach (DiceView diceview in DicePopupStack)
+        {
+            _diceResults.Add(diceview.dice.Number);
         }
         
+        this.Close(_diceResults);
     }
-
-
 }

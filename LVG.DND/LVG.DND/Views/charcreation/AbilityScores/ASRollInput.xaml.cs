@@ -30,13 +30,23 @@ public partial class ASRollInput : ContentView
         int originalCount = _vm.DiceScores.Count;
         while (_vm.DiceScores.Count <= originalCount)
         {
-            var popup = new DicePopup(6, true);
-            var popupResult = await (this.Parent.Parent.Parent.Parent.Parent as ContentPage).ShowPopupAsync(popup);
-            if (popupResult is int intResult)
+            var dicelist = new List<int>();
+            for (int i = 0; i < 4; i++)
             {
-                _vm.DiceScores.Add(intResult);
-                scores.Add(intResult.ToString());
+                dicelist.Add(6);
+            }
+            var popup = new DicePopup(dicelist, true);
+            var page = this.Parent.Parent.Parent.Parent.Parent as ContentPage;
+            var popupResult = await (page).ShowPopupAsync(popup);
+            if (popupResult is List<int> intResult)
+            {
+                foreach (var result in intResult)
+                {
+                    _vm.DiceScores.Add(result);
+                    scores.Add(result.ToString());
+                }
             }
         }
+        DiceRollCollection.ItemsSource = scores;
     }
 }

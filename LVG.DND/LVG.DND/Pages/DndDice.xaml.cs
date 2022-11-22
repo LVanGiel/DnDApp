@@ -29,7 +29,9 @@ public partial class DndDice : ContentPage
         int maxValue;
 		if (int.TryParse(btnDice.Text, out maxValue))
 		{
-            var popup = new DicePopup(maxValue);
+			var valueList = new List<int>();
+			valueList.Add(maxValue);
+            var popup = new DicePopup(valueList);
 
             this.ShowPopupAsync(popup);
 		}

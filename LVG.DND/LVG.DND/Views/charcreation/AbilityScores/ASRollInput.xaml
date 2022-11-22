@@ -4,10 +4,9 @@
              x:Class="LVG.DND.Views.charcreation.AbilityScores.ASRollInput">
     <VerticalStackLayout>
         <Button Text="Roll scores" Clicked="RollBtn_Clicked"></Button>
-
+        <Label Text="Select 3 of 4 dice"></Label>
         <CollectionView x:Name="DiceRollCollection" 
-                        SelectionMode="Multiple"
-                        x:Datatype="int">
+                        SelectionMode="Multiple">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
             </CollectionView.ItemsLayout>
