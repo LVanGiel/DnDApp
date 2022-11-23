@@ -9,25 +9,32 @@ namespace LVG.DND.Views.charcreation;
 public partial class AbilityScoreCreator : ContentView
 {
 	private bool isRoll;
-	public AbilityScoreCreator()
+    AbilityScoresViewModel _vm;
+    public AbilityScoreCreator(AbilityScoresViewModel vm)
 	{
 		InitializeComponent();
 		isRoll = false;
-        ASStack.Add(new ASManualInput(new ViewModel.AbilityScoresViewModel()));
-
+        _vm = vm;
+        ASStack.Add(new ASManualInput(_vm));
     }
-	private void RollOrNotBtn_Clicked(object sender, EventArgs e)
+    public AbilityScoreCreator()
+    {
+        InitializeComponent();
+        isRoll = false;
+        ASStack.Add(new ASManualInput(_vm));
+    }
+    private void RollOrNotBtn_Clicked(object sender, EventArgs e)
     {
         ASStack.Children.RemoveAt(1);
 
         if (isRoll) { 
 			RollOrNotBtn.Text = "Manually input ability scores";
-            ASStack.Add(new ASRollInput(new AbilityScoresViewModel()));
+            ASStack.Add(new ASRollInput(_vm));
         }
 		else
 		{
             RollOrNotBtn.Text = "Roll for ability scores";
-            ASStack.Add(new ASManualInput(new AbilityScoresViewModel()));
+            ASStack.Add(new ASManualInput(_vm));
         }
 		isRoll = !isRoll;
     }

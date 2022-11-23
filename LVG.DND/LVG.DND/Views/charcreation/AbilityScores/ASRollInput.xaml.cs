@@ -16,11 +16,36 @@ public partial class ASRollInput : ContentView
         BindingContext = vm;
         _vm = vm;
         _vm.DiceScores = new List<int>();
+        FillAbilityScores();
+    }
+    private void FillAbilityScores()
+    {
+        AbilitySCoresStack.Add(AddAS("Strength"));
+        AbilitySCoresStack.Add(AddAS("Dexterity"));
+        AbilitySCoresStack.Add(AddAS("Constitution"));
+        AbilitySCoresStack.Add(AddAS("Intelligence"));
+        AbilitySCoresStack.Add(AddAS("Wisdom"));
+        AbilitySCoresStack.Add(AddAS("Charisma"));
+    }
+    private HorizontalStackLayout AddAS(string ability)
+    {
+        var abilityBtn = new Button();
+        abilityBtn.Text = ability;
+        abilityBtn.Clicked += new EventHandler(AbilityBtn_Clicked);
+
+        var abilityLabel = new Label();
+        abilityLabel.SetBinding(Label.TextProperty, "Character." + ability);
+
+        var abilityStack = new HorizontalStackLayout();
+        abilityStack.Add(abilityBtn);
+        abilityStack.Add(abilityLabel);
+        abilityStack.HorizontalOptions = LayoutOptions.Center;
+
+        return abilityStack;
     }
     private async void RollBtn_Clicked(object sender, EventArgs e)
     {
         _vm.DiceScores = new List<int>();
-        int rollCountGoal = 6;
 
         await DisplayDicePopup();
 
@@ -50,7 +75,60 @@ public partial class ASRollInput : ContentView
         rollCounter++;
     }
 
-    private void submitDiceBtn_Clicked(object sender, EventArgs e)
+    private void AbilityBtn_Clicked(object sender, EventArgs e)
+    {
+        var btn = sender as Button;
+        var parent = new HorizontalStackLayout();
+        var neighbour = new Label();
+        var selectedScore = int.Parse(AbilityScoreCollection.SelectedItem.ToString());
+        switch (btn.Text)
+        {
+            case "Strength":
+                _vm.Character.Strength = selectedScore;
+                parent = btn.Parent as HorizontalStackLayout;
+                neighbour = parent.Children[1] as Label;
+                neighbour.Text = selectedScore.ToString();
+                break;
+            case "Dexterity":
+                _vm.Character.Dexterity = selectedScore;
+                parent = btn.Parent as HorizontalStackLayout;
+                neighbour = parent.Children[1] as Label;
+                neighbour.Text = selectedScore.ToString();
+                break;
+            case "Constitution":
+                _vm.Character.Constitution = selectedScore;
+                parent = btn.Parent as HorizontalStackLayout;
+                neighbour = parent.Children[1] as Label;
+                neighbour.Text = selectedScore.ToString();
+                break;
+            case "Intelligence":
+                _vm.Character.Intelligence = selectedScore;
+                parent = btn.Parent as HorizontalStackLayout;
+                neighbour = parent.Children[1] as Label;
+                neighbour.Text = selectedScore.ToString();
+                break;
+            case "Wisdom":
+                _vm.Character.Wisdom = selectedScore;
+                parent = btn.Parent as HorizontalStackLayout;
+                neighbour = parent.Children[1] as Label;
+                neighbour.Text = selectedScore.ToString();
+                break;
+            case "Charisma":
+                _vm.Character.Charisma = selectedScore;
+                parent = btn.Parent as HorizontalStackLayout;
+                neighbour = parent.Children[1] as Label;
+                neighbour.Text = selectedScore.ToString();
+                break;
+            default:
+                break;
+        }
+        abilityScoresStrings.Remove(selectedScore.ToString());
+        AbilityScoreCollection.ItemsSource = new List<string>();
+        AbilityScoreCollection.ItemsSource = abilityScoresStrings;
+
+    }
+
+    private async void submitDiceBtn_Clicked(object sender, EventArgs e)
     {
         var diceSelection = DiceRollCollection.SelectedItems;
 
@@ -64,10 +142,17 @@ public partial class ASRollInput : ContentView
         _vm.DiceScores = new List<int>();
         DiceRollCollection.ItemsSource = scores;
 
-        abilityScoresStrings.Add(total.ToString());
-        AbilityScoreCollection.ItemsSource = new List<string>();
-        AbilityScoreCollection.ItemsSource = abilityScoresStrings;
+        if (abilityScoresStrings.Count() < 6)
+        {
+            abilityScoresStrings.Add(total.ToString());
+            AbilityScoreCollection.ItemsSource = new List<string>();
+            AbilityScoreCollection.ItemsSource = abilityScoresStrings;
 
-        AbilityScoreCollection.SelectedItems.Clear();
+            AbilityScoreCollection.SelectedItems.Clear();
+            if (abilityScoresStrings.Count() < 6)
+            {
+                await DisplayDicePopup();
+            }
+        }
     }
 }

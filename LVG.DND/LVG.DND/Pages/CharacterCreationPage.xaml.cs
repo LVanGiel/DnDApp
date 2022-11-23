@@ -28,7 +28,7 @@ public partial class CharacterCreationPage : ContentPage
                 step++;
                 break;
             case 1:
-                creationStack.Add(new AbilityScoreCreator(/*new AbilityScoreCreator(character)*/));
+                creationStack.Add(new AbilityScoreCreator(new AbilityScoresViewModel(character)));
                 step++;
                 break;
             default:
