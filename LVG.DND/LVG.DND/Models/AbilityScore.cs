@@ -10,6 +10,14 @@ namespace LVG.DND.Models
     public class AbilityScore : Base
     {
         public int Amount { get; set; }
-        public int Ability { get; set; }
+        public string Ability { get; set; }
+        public AbilityScore()
+        {
+        }
+        public AbilityScore(string ability, int amount)
+        {
+            Amount = amount;
+            Ability = ability;
+        }
     }
 }

@@ -21,29 +21,8 @@
             </CollectionView.ItemsLayout>
         </CollectionView>
 
-        <HorizontalStackLayout>
-            <Button  Text="Strength"></Button>
-            <Label Text="{Binding Strength}"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="Dexterity"></Button>
-            <Label Text="{Binding Dexterity}"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="Constitution"></Button>
-            <Label Text="{Binding Constitution}"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="Intelligence"></Button>
-            <Label Text="{Binding Intelligence}"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="Wisdom"></Button>
-            <Label Text="{Binding Wisdom}"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="Charisma"></Button>
-            <Label Text="{Binding Charisma}"></Label>
-        </HorizontalStackLayout>
+        <VerticalStackLayout x:Name="AbilitySCoresStack">
+
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentView>

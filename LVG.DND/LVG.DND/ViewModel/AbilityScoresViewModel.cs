@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using LVG.DND.Models;
+using Newtonsoft.Json;
 
 namespace LVG.DND.ViewModel
 {
@@ -6,18 +8,18 @@ namespace LVG.DND.ViewModel
     {
         [ObservableProperty]
         List<int> diceScores = new List<int>();
-        [ObservableProperty]
-        int strength;
-        [ObservableProperty]
-        int dexterity;
-        [ObservableProperty]
-        int constitution;
-        [ObservableProperty]
-        int intelligence;
-        [ObservableProperty]
-        int wisdom;
-        [ObservableProperty]
-        int charisma;
 
+        [ObservableProperty]
+        Character character = new Character();
+
+        public AbilityScoresViewModel()
+        {
+
+        }
+
+        public AbilityScoresViewModel(Character character)
+        {
+            Character = character;
+        }
     }
 }
