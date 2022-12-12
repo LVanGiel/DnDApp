@@ -13,7 +13,7 @@ namespace LVG.DND.streaming
         List<Race> races = new List<Race>();
         public Streaming()
         {
-            var path = @"C:\DnDApp\data\data.txt";
+            var path = Path.Combine(FileSystem.Current.AppDataDirectory, @".\data.txt");
             AddRaces();
 
             if (!File.Exists(path))

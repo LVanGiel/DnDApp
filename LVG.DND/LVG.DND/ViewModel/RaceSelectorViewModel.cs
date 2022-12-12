@@ -11,10 +11,10 @@ namespace LVG.DND.ViewModel
 
         [ObservableProperty]
         Character character = new Character();
-
+        string path = Path.Combine(FileSystem.Current.AppDataDirectory, @".\data.txt");
         public RaceSelectorViewModel(Character character)
         {
-            var jsonText = File.ReadAllText("C:\\DnDApp\\data\\data.txt");
+            var jsonText = File.ReadAllText(path);
             var dejson = JsonConvert.DeserializeObject<List<Race>>(jsonText);
             races = dejson;
 
@@ -22,7 +22,7 @@ namespace LVG.DND.ViewModel
         }
         public RaceSelectorViewModel()
         {
-            var jsonText = File.ReadAllText("C:\\DnDApp\\data\\data.txt");
+            var jsonText = File.ReadAllText(path);
             var dejson = JsonConvert.DeserializeObject<List<Race>>(jsonText);
             races = dejson;
         }

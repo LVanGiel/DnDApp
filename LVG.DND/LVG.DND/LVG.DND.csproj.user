@@ -45,5 +45,8 @@
     <MauiXaml Update="Views\DiceView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\functional\ItemListView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
 </Project>

@@ -11,15 +11,16 @@ namespace LVG.DND.ViewModel
 
         [ObservableProperty]
         Character character = new Character();
+        string path = Path.Combine(FileSystem.Current.AppDataDirectory, @".\data.txt");
         public ClassSelectorViewModel()
         {
-            var jsonText = File.ReadAllText("C:\\DnDApp\\data\\data.txt");
+            var jsonText = File.ReadAllText(path);
             var dejson = JsonConvert.DeserializeObject<List<CharClass>>(jsonText);
             classes = dejson;
         }
         public ClassSelectorViewModel(Character character)
         {
-            var jsonText = File.ReadAllText("C:\\DnDApp\\data\\data.txt");
+            var jsonText = File.ReadAllText(path);
             var dejson = JsonConvert.DeserializeObject<List<CharClass>>(jsonText);
             classes = dejson;
 
