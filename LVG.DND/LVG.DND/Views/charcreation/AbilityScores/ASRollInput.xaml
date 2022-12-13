@@ -5,13 +5,25 @@
     <VerticalStackLayout>
         <Button Text="Roll scores" Clicked="RollBtn_Clicked"></Button>
         <Label Text="Select 3 of 4 dice"></Label>
+        <Grid ColumnDefinitions="1*, 1*">
+            <CollectionView x:Name="DiceRollCollection" 
+                        SelectionMode="Single"
+                            SelectionChanged="DiceRollCollection_SelectionChanged"
+                            BackgroundColor="Orange"
+                            Grid.Column="0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+            <CollectionView x:Name="DiceRollCollectionSelected" 
+                        SelectionMode="None"
+                            Grid.Column="2">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </Grid>
         
-        <CollectionView x:Name="DiceRollCollection" 
-                        SelectionMode="Multiple">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
-            </CollectionView.ItemsLayout>
-        </CollectionView>
         <Button Text="submit dice" Clicked="submitDiceBtn_Clicked"></Button>
 
         <CollectionView x:Name="AbilityScoreCollection" 

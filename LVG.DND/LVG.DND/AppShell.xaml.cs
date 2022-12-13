@@ -10,5 +10,6 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(DndDice), typeof(DndDice));
         Routing.RegisterRoute(nameof(CharacterCreationPage), typeof(CharacterCreationPage));
+        Routing.RegisterRoute(nameof(testpage), typeof(testpage));
     }
 }

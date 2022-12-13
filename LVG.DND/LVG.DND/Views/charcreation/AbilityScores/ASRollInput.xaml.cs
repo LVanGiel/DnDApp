@@ -8,6 +8,7 @@ public partial class ASRollInput : ContentView
 {
     AbilityScoresViewModel _vm = new AbilityScoresViewModel();
     List<string> scores = new List<string>();
+    List<string> selectedScores = new List<string>();
     int rollCounter = 0;
     List<string> abilityScoresStrings = new List<string>();
     public ASRollInput(AbilityScoresViewModel vm)
@@ -55,6 +56,7 @@ public partial class ASRollInput : ContentView
     {
         int originalCount = _vm.DiceScores.Count;
         scores = new List<string>();
+        selectedScores = new List<string>();
         var dicelist = new List<int>();
         for (int i = 0; i < 4; i++)
         {
@@ -71,6 +73,7 @@ public partial class ASRollInput : ContentView
                 scores.Add(result.ToString());
             }
         }
+        DiceRollCollectionSelected.ItemsSource = selectedScores;
         DiceRollCollection.ItemsSource = scores;
         rollCounter++;
     }
@@ -130,7 +133,7 @@ public partial class ASRollInput : ContentView
 
     private async void submitDiceBtn_Clicked(object sender, EventArgs e)
     {
-        var diceSelection = DiceRollCollection.SelectedItems;
+        var diceSelection = selectedScores;
 
         int total = 0;
         foreach (var diceNumber in diceSelection)
@@ -139,6 +142,7 @@ public partial class ASRollInput : ContentView
         }
 
         scores = new List<string>();
+        selectedScores = new List<string>();
         _vm.DiceScores = new List<int>();
         DiceRollCollection.ItemsSource = scores;
 
@@ -154,5 +158,31 @@ public partial class ASRollInput : ContentView
                 await DisplayDicePopup();
             }
         }
+    }
+
+    private void DiceRollCollection_SelectionChanged(Object sender, SelectionChangedEventArgs e)
+    {
+        if (DiceRollCollection.SelectedItem == null)
+        {
+            return;
+        }
+
+        if (selectedScores.Count >= 3)
+        {
+            scores.Add(selectedScores[0]);
+            selectedScores.RemoveAt(0);
+        }
+
+        selectedScores.Add(DiceRollCollection.SelectedItem.ToString());
+
+        scores.Remove(DiceRollCollection.SelectedItem.ToString());
+
+        DiceRollCollection.SelectedItem = null;
+
+        DiceRollCollectionSelected.ItemsSource = new List<string>();
+        DiceRollCollection.ItemsSource = new List<string>();
+
+        DiceRollCollectionSelected.ItemsSource = selectedScores;
+        DiceRollCollection.ItemsSource = scores;
     }
 }
