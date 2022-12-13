@@ -4,9 +4,9 @@
              x:Class="LVG.DND.Views.DiceView">
     <Grid ColumnDefinitions="Auto"
              RowDefinitions="Auto" 
-             HeightRequest="250"
-               WidthRequest="285">
-        <Image Source="{Binding DiceImageUrl}" Aspect="AspectFill" HeightRequest="250" />
+             HeightRequest="200"
+               WidthRequest="215">
+        <Image Source="{Binding DiceImageUrl}" Aspect="AspectFill" HeightRequest="200" />
         <Button x:Name="btnRollDice" Background="#00000000" 
                                 BorderColor="#00000000" 
                                 Text="{Binding Number}" ZIndex="{Binding DiceSize}"
