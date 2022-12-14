@@ -15,7 +15,7 @@ namespace LVG.DND.Models
         //internal variables
         public CharClass Class { get; set; }
         public Race Race { get; set; }
-        public string Background { get; set; }
+        public Background Background { get; set; }
 
         //roleplay stats
         public int Age { get; set; }

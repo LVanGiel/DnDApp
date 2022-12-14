@@ -76,6 +76,9 @@
 	  <MauiXaml Update="Views\charcreation\AbilityScores\ASRollInput.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\charcreation\BackgroundSelector.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

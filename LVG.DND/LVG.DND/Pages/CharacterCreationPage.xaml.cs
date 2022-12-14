@@ -28,6 +28,10 @@ public partial class CharacterCreationPage : ContentPage
                 step++;
                 break;
             case 1:
+                creationStack.Add(new BackgroundSelector(new BackgroundSelectorViewModel(character)));
+                step++;
+                break;
+            case 2:
                 creationStack.Add(new AbilityScoreCreator(new AbilityScoresViewModel(character)));
                 step++;
                 break;
