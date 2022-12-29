@@ -24,7 +24,7 @@ public partial class MainPage : ContentPage
     }
     private async void OnTestClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(testpage));
+        await Shell.Current.GoToAsync(nameof(CharacterViewPage));
     }
 }
 
