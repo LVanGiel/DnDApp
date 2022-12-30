@@ -10,5 +10,9 @@ namespace LVG.DND.Models
     public class Ideal : Base
     {
         public string Description { get; set; }
+        public Ideal()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

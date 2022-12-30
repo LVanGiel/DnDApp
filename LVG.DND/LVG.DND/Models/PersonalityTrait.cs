@@ -10,5 +10,9 @@ namespace LVG.DND.Models
     public class PersonalityTrait : Base
     {
         public string Description { get; set; }
+        public PersonalityTrait()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

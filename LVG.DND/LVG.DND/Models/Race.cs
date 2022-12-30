@@ -17,5 +17,9 @@ namespace LVG.DND.Models
         public List<Item> ItemProficiencies { get; set; }
         public List<AbilityScore> SavingThrowProficiencies { get; set; }
         public List<Skill> SkillProficiencies { get; set; }
+        public Race()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

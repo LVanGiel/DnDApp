@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LVG.DND.Models.basemodel;
 
 namespace LVG.DND.Models
 {
-    public class Armor
+    public class Armor : Base
     {
+        public Armor()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

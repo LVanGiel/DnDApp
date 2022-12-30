@@ -8,5 +8,9 @@ namespace LVG.DND.Models
 {
     public class ClassLevel
     {
+        public ClassLevel()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

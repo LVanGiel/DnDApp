@@ -11,5 +11,9 @@ namespace LVG.DND.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public Language()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

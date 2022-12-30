@@ -1,4 +1,5 @@
 ﻿using LVG.DND.Models.basemodel;
+using Xamarin.Google.Crypto.Tink.Proto;
 
 namespace LVG.DND.Models
 {
@@ -15,5 +16,9 @@ namespace LVG.DND.Models
         public List<Skill> SkillProficiencies { get; set; }
         public List<Item> Equipment { get; set; }
         public List<Traits> Traits { get; set; }
+        public CharClass()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

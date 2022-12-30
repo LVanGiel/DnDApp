@@ -11,7 +11,7 @@ namespace LVG.DND.Models
     {
         public Background()
         {
-
+            Id = Guid.NewGuid();
         }
         public List<Bond> Bonds { get; set; }
         public List<Flaw> Flaws { get; set; }

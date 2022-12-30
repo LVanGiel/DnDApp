@@ -70,6 +70,7 @@ namespace LVG.DND.Models
 
         public Character()
         {
+            Id = Guid.NewGuid();
         }
     }
 }

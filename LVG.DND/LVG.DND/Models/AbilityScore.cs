@@ -13,11 +13,13 @@ namespace LVG.DND.Models
         public string Ability { get; set; }
         public AbilityScore()
         {
+            Id = Guid.NewGuid();
         }
         public AbilityScore(string ability, int amount)
         {
             Amount = amount;
             Ability = ability;
+            Id = Guid.NewGuid();
         }
     }
 }

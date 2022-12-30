@@ -10,5 +10,9 @@ namespace LVG.DND.Models
     public class Bond : Base
     {
         public string Description { get; set; }
+        public Bond()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

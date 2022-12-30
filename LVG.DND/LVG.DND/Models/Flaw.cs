@@ -10,5 +10,9 @@ namespace LVG.DND.Models
     public class Flaw : Base
     {
         public string Description { get; set; }
+        public Flaw()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }
