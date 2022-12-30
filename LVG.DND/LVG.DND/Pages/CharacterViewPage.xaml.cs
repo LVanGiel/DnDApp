@@ -1,4 +1,6 @@
 using CommunityToolkit.Maui.Views;
+using LVG.DND.Pages.characterViews;
+using LVG.DND.ViewModel;
 using LVG.DND.Views;
 using LVG.DND.Views.general;
 using Microsoft.Maui.Controls;
@@ -7,43 +9,51 @@ namespace LVG.DND.Pages;
 
 public partial class CharacterViewPage : ContentPage
 {
+    List<ContentPage> pages = new List<ContentPage>();
 	public CharacterViewPage()
 	{
 		InitializeComponent();
+        FillPageList();
         FillCharViewStack();
+        AddRouting();
     }
-	private void Test()
-	{
-        var valueList = new List<int>();
-        valueList.Add(4);
-        var popup = new DicePopup(valueList);
-
-        this.ShowPopupAsync(popup);
-    }
-
     private void FillCharViewStack()
     {
-        var cmd = new Command(
-            execute: () =>
-            {
-                Test();
-            }
-        );
-        var imgBtnList = new List<ImageButtonView>();
-
-        imgBtnList.Add(new ImageButtonView("Stats", "dice_red20.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Skills & Abilityscores", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Proficiencies", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Inventory", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Weapons", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Spells", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Features & traits", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Storytelling", "dice_red4.png", cmd));
-        imgBtnList.Add(new ImageButtonView("Death saves", "dice_red4.png", cmd));
-
-        foreach (var imgBtn in imgBtnList)
+        foreach (var page in pages)
         {
+            var imgBtn = new ImageButtonView(page.Title, "dice_red4.png", CreateCommand(page));
             CharViewStack.Add(imgBtn);
         }
+    }
+
+    private void FillPageList()
+    {
+        pages.Add(new DeathSavesPage());
+        pages.Add(new FeaturesAndTraitsPage());
+        pages.Add(new InventoryPage());
+        pages.Add(new ProficienciesPage());
+        pages.Add(new SkillsAndAbilityScoresPage());
+        pages.Add(new SpellsPage());
+        pages.Add(new StatsPage());
+        pages.Add(new StorytellingPage());
+        pages.Add(new WeaponsPage());
+    }
+
+    private void AddRouting()
+    {
+        foreach (var page in pages)
+        {
+            Routing.RegisterRoute(page.Title, page.GetType());
+        }
+    }
+    private Command CreateCommand(ContentPage page)
+    {
+        var cmd = new Command(
+            execute: async () =>
+            {
+                await Shell.Current.GoToAsync(page.Title);
+            }
+        );
+        return cmd;
     }
 }
