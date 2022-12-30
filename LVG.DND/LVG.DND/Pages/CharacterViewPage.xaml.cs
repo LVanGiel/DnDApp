@@ -19,15 +19,15 @@ public partial class CharacterViewPage : ContentPage
     }
     private void FillPageList()
     {
-        pages.Add(new DeathSavesPage());
+        pages.Add(new StatsPage());
+        pages.Add(new SkillsAndAbilityScoresPage());
         pages.Add(new FeaturesAndTraitsPage());
+        pages.Add(new WeaponsPage());
+        pages.Add(new SpellsPage());
         pages.Add(new InventoryPage());
         pages.Add(new ProficienciesPage());
-        pages.Add(new SkillsAndAbilityScoresPage());
-        pages.Add(new SpellsPage());
-        pages.Add(new StatsPage());
         pages.Add(new StorytellingPage());
-        pages.Add(new WeaponsPage());
+        pages.Add(new DeathSavesPage());
     }
 
     private void FillCharViewStack()
