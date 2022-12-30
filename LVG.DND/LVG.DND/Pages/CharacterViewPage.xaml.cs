@@ -14,18 +14,9 @@ public partial class CharacterViewPage : ContentPage
 	{
 		InitializeComponent();
         FillPageList();
-        FillCharViewStack();
         AddRouting();
+        FillCharViewStack();
     }
-    private void FillCharViewStack()
-    {
-        foreach (var page in pages)
-        {
-            var imgBtn = new ImageButtonView(page.Title, "dice_red4.png", CreateCommand(page));
-            CharViewStack.Add(imgBtn);
-        }
-    }
-
     private void FillPageList()
     {
         pages.Add(new DeathSavesPage());
@@ -39,6 +30,15 @@ public partial class CharacterViewPage : ContentPage
         pages.Add(new WeaponsPage());
     }
 
+    private void FillCharViewStack()
+    {
+        foreach (var page in pages)
+        {
+            var imgBtn = new ImageButtonView(page.Title, "dice_red4.png", CreateCommand(page));
+            CharViewStack.Add(imgBtn);
+        }
+    }
+
     private void AddRouting()
     {
         foreach (var page in pages)
@@ -46,6 +46,7 @@ public partial class CharacterViewPage : ContentPage
             Routing.RegisterRoute(page.Title, page.GetType());
         }
     }
+
     private Command CreateCommand(ContentPage page)
     {
         var cmd = new Command(
