@@ -6,7 +6,7 @@
              xmlns:viewmodel="clr-namespace:LVG.DND.ViewModel"
              xmlns:views="clr-namespace:LVG.DND.Views"
              xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general"
-             BackgroundColor="Gray">
+             BackgroundColor="LightGray">
     <Shell.TitleView>
         <Grid>
             <Label Text="characterview" HorizontalOptions="Center" VerticalOptions="Center" />

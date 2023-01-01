@@ -1,18 +1,32 @@
 ﻿using LVG.DND.Models.basemodel;
-using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
     public class Character : Base
     {
         public Dice HitpointDice { get; set; }
+        //Stats
+        public int MaxHealth { get; set; }
+        public int CurrentHealth { get; set; }
+        public int Initiative { get; set; }
+        public int BaseSpeed { get; set; }
+        public int Level { get; set; }
+        public int ArmorPoints { get; set; }
 
-        //internal variables
+        //skills and abilities
+        public int PassivePerception { get; set; }
+        public int StrengthBonus { get; set; }
+        public int DexterityBonus { get; set; }
+        public int ConstitutionBonus { get; set; }
+        public int IntelligenceBonus { get; set; }
+        public int WisdomBonus { get; set; }
+        public int CharismaBonus { get; set; }
+        public List<Skill> SkillProficiencies { get; set; }
+        public List<Skill> Skills { get; set; }
+
+        //-------------to do
+
+
         public CharClass Class { get; set; }
         public Race Race { get; set; }
         public Background Background { get; set; }
@@ -32,9 +46,6 @@ namespace LVG.DND.Models
         public List<Armor> ArmorProficiencies { get; set; }
         public List<Item> ItemProficiencies { get; set; }
         public List<AbilityScore> SavingThrowProficiencies { get; set; }
-        public List<Skill> SkillProficiencies { get; set; }
-        //public List<AbilityScore> AbilityScores { get; set; }
-        public List<Skill> Skills { get; set; }
 
         //spells and cantrips
         public List<string> Spells { get; set; }
@@ -56,11 +67,6 @@ namespace LVG.DND.Models
         public int Charisma { get; set; }
 
         //other points
-        public int Perception { get; set; }
-        public int ArmorPoints { get; set; }
-        public int Health { get; set; }
-        public int Initiative { get; set; }
-        public int BaseSpeed { get; set; }
         public int Xp { get; set; }
         public bool UsesXp { get; set; }
 

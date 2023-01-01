@@ -1,4 +1,5 @@
 using LVG.DND.AppConstants;
+using LVG.DND.ViewModel.characterViewModels;
 using LVG.DND.Views.characterviews;
 using LVG.DND.Views.general;
 
@@ -19,7 +20,7 @@ public partial class CharacterViewMenuPage : ContentPage
     }
     private void FillCharViewStack()
     {
-        AddImageButton(new CharacterStatsView(), CharacterViewConstants.STATS_PAGE);
+        AddImageButton(new CharacterStatsView(new CharacterStatsViewModel()), CharacterViewConstants.STATS_PAGE);
         AddImageButton(new CharacterSkillsAndAbilitiesView(), CharacterViewConstants.SKILLS_ABILITYSCORES_PAGE);
         AddImageButton(new CharacterFeaturesAndTraitsView(), CharacterViewConstants.FEATURES_AND_TRAITS_PAGE);
         AddImageButton(new CharacterWeaponsView(), CharacterViewConstants.WEAPONS_PAGE);

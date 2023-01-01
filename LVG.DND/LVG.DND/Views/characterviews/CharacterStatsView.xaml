@@ -3,9 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Views.characterviews.CharacterStatsView">
     <VerticalStackLayout>
-        <Label 
-            Text="STATS"
+        <HorizontalStackLayout>
+            <Label 
+            Text="Level"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Character.Level}" IsEnabled="False"></Entry>
+            <Button x:Name="btnLevel" Text="Edit" Clicked="btnLevel_Clicked"></Button>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+            Text="Armor Class"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtArmor" Text="{Binding Character.ArmorPoints}" IsEnabled="False"></Entry>
+            <Button x:Name="btnArmor" Text="Edit" Clicked="btnArmor_Clicked"></Button>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout>
+            <Label 
+            Text="Initiative"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInitiative" Text="{Binding Character.Initiative}" IsEnabled="False"></Entry>
+            <Button x:Name="btnInitiative" Text="Edit" Clicked="btnInitiative_Clicked"></Button>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout>
+            <Label 
+            Text="Speed"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSpeed" Text="{Binding Character.BaseSpeed}" IsEnabled="False"></Entry>
+            <Button x:Name="btnSpeed" Text="Edit" Clicked="btnSpeed_Clicked"></Button>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout>
+            <Label 
+            Text="Max Health"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtMaxHp" Text="{Binding Character.MaxHealth}" IsEnabled="False"></Entry>
+            <Button x:Name="btnMaxHp" Text="Edit" Clicked="btnMaxHp_Clicked"></Button>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout>
+            <Label 
+            Text="Current Health"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtHp" Text="{Binding Character.CurrentHealth}" Completed="txtHp_Completed"></Entry>
+        </HorizontalStackLayout>
+        
     </VerticalStackLayout>
 </ContentView>

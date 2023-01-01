@@ -16,16 +16,13 @@ public partial class CharacterViewPage : ContentPage
         } }
     public ContentView SelectedPage { get; set; }
 
-    CharacterViewPageModel _vm = new CharacterViewPageModel();
     public CharacterViewPage()
 	{
-        //BindingContext = new CharacterViewPageModel();
-
         InitializeComponent();
     }
-    private void AddToStack(string page)
+    private async void AddToStack(string page)
     {
-        SelectedPage = _constants.GetCorrectPage(page);
+        SelectedPage = await _constants.GetCorrectPage(page);
         CharViewStack.Add(SelectedPage);
     }
 
