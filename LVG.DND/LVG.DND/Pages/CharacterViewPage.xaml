@@ -7,8 +7,11 @@
              xmlns:views="clr-namespace:LVG.DND.Views"
              xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general"
              BackgroundColor="Gray">
-    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <VerticalStackLayout x:Name="CharViewStack">
-        </VerticalStackLayout>
-    </ScrollView>
+    <Shell.TitleView>
+        <Grid>
+            <Label Text="characterview" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Shell.TitleView>
+    <VerticalStackLayout x:Name="CharViewStack">
+    </VerticalStackLayout>
 </ContentPage>

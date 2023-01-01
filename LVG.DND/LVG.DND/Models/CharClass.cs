@@ -1,5 +1,4 @@
 ﻿using LVG.DND.Models.basemodel;
-using Xamarin.Google.Crypto.Tink.Proto;
 
 namespace LVG.DND.Models
 {
