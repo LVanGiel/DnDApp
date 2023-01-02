@@ -1,4 +1,5 @@
-﻿using LVG.DND.Models.basemodel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using LVG.DND.Models.basemodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,26 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    public class Skill : Base
+    public class Skill : ObservableObject
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public int Bonus { get; set; }
+        public string BonusText { get; set; }
+        public int Level { get; set; }
         public Skill()
         {
-            Id = Guid.NewGuid();
         }
-        public Skill(string name, int bonus)
+        public Skill(string name, int abilityScoreLevel = 0, bool isAbilityScore = false)
         {
             Id = Guid.NewGuid();
             Name = name;
-            Bonus = bonus;
+            Bonus = (abilityScoreLevel - 10) / 2;
+            BonusText = (Bonus >= 0)? $"+{Bonus}": $"{Bonus}";
+            if (isAbilityScore)
+            {
+                Level = abilityScoreLevel;
+            }
         }
     }
 }

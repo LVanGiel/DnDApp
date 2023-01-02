@@ -60,11 +60,15 @@ namespace LVG.DND.streaming
             }
             string characterString = await File.ReadAllTextAsync(path);
 
-            var character = JsonConvert.DeserializeObject<Character>(characterString);
+            Character character = new Character();
+            character.Skills.Clear();
+            character.AbilityScores.Clear();
+            character = JsonConvert.DeserializeObject<Character>(characterString);
+            character.AbilityScores.RemoveRange(6, character.AbilityScores.Count - 6);
+            character.Skills.RemoveRange(6, character.Skills.Count - 18);
 
             if (character != null)
             {
-
                 return character;
             }
             else

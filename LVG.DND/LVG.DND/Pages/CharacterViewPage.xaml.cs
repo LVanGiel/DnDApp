@@ -12,7 +12,7 @@ public partial class CharacterViewPage : ContentPage
         {
             page = Uri.UnescapeDataString(value ?? string.Empty);
             OnPropertyChanged();
-            AddToStack(page);
+            AddToStack();
         } }
     public ContentView SelectedPage { get; set; }
 
@@ -20,9 +20,9 @@ public partial class CharacterViewPage : ContentPage
 	{
         InitializeComponent();
     }
-    private async void AddToStack(string page)
+    private async void AddToStack()
     {
-        SelectedPage = await _constants.GetCorrectPage(page);
+        SelectedPage = await _constants.GetCorrectPage(Page);
         CharViewStack.Add(SelectedPage);
     }
 

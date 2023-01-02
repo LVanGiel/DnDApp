@@ -86,15 +86,23 @@ namespace LVG.DND.Models
 
         private void GenerateSkills()
         {
-            foreach (string skillName in skillNames.SkillNames)
+            Skills = new List<Skill>();
+            AbilityScores = new List<Skill>();
+            if (Skills.Count < 18)
             {
-                var skill = new Skill(skillName, 0);
-                Skills.Add(skill);
+                foreach (string skillName in skillNames.SkillNames)
+                {
+                    var skill = new Skill(skillName, 0);
+                    Skills.Add(skill);
+                }
             }
-            foreach (string abilityScoreName in skillNames.AbilityScoreNames)
+            if (AbilityScores.Count < 6)
             {
-                var AbilityScore = new Skill(abilityScoreName, 0);
-                AbilityScores.Add(AbilityScore);
+                foreach (string abilityScoreName in skillNames.AbilityScoreNames)
+                {
+                    var AbilityScore = new Skill(abilityScoreName, 0);
+                    AbilityScores.Add(AbilityScore);
+                }
             }
         }
     }

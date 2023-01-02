@@ -2,14 +2,11 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Views.SkillView">
-    <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Label 
-            Text="Level"
+    <VerticalStackLayout x:Name="SkillViewStack">
+        <Label
+            Text="{Binding Name}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-            <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Character.Level}" IsEnabled="False"></Entry>
-            <Button x:Name="btnLevel" Text="Edit" Clicked="btnLevel_Clicked"></Button>
-        </HorizontalStackLayout>
+        <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding BonusText}" IsEnabled="False"></Entry>
     </VerticalStackLayout>
 </ContentView>

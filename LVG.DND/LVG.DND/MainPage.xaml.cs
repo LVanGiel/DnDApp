@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+using LVG.DND.Models;
 using LVG.DND.Pages;
 using LVG.DND.streaming;
 using LVG.DND.Views;
@@ -26,5 +27,9 @@ public partial class MainPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(CharacterViewMenuPage));
     }
+	private async void OnResetCharacterClicked(object sender, EventArgs e)
+	{
+		await streaming.SaveCharacter(new Character());
+	}
 }
 

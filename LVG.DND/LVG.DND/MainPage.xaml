@@ -25,7 +25,11 @@
                 Text="Test"
                 Clicked="OnTestClicked"
                 HorizontalOptions="Center" />
-
+            <Button
+                x:Name="ResetCharacter"
+                Text="Reset Character"
+                Clicked="OnResetCharacterClicked"
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
 
