@@ -64,8 +64,8 @@ namespace LVG.DND.streaming
             character.Skills.Clear();
             character.AbilityScores.Clear();
             character = JsonConvert.DeserializeObject<Character>(characterString);
-            character.AbilityScores.RemoveRange(6, character.AbilityScores.Count - 6);
-            character.Skills.RemoveRange(6, character.Skills.Count - 18);
+            character.AbilityScores.RemoveRange(0, character.AbilityScores.Count - 6);
+            character.Skills.RemoveRange(0, character.Skills.Count - 18);
 
             if (character != null)
             {

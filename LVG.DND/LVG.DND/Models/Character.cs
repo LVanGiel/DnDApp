@@ -16,15 +16,21 @@ namespace LVG.DND.Models
 
         //skills and abilities
         public int PassivePerception { get; set; }
-        public int StrengthBonus { get; set; }
-        public int DexterityBonus { get; set; }
-        public int ConstitutionBonus { get; set; }
-        public int IntelligenceBonus { get; set; }
-        public int WisdomBonus { get; set; }
-        public int CharismaBonus { get; set; }
         public List<Skill> SkillProficiencies { get; set; }
         public List<Skill> Skills { get; set; }
-        public List<Skill> AbilityScores { get; set; }
+
+        private List<AbilityScore> abilityScores;
+        public List<AbilityScore> AbilityScores {
+            get
+            {
+                return abilityScores;
+            }
+            set
+            {
+                abilityScores = value;
+                UpdateSkills(value);
+            }
+        }
 
         //-------------to do
 
@@ -87,7 +93,7 @@ namespace LVG.DND.Models
         private void GenerateSkills()
         {
             Skills = new List<Skill>();
-            AbilityScores = new List<Skill>();
+            AbilityScores = new List<AbilityScore>();
             if (Skills.Count < 18)
             {
                 foreach (string skillName in skillNames.SkillNames)
@@ -100,8 +106,22 @@ namespace LVG.DND.Models
             {
                 foreach (string abilityScoreName in skillNames.AbilityScoreNames)
                 {
-                    var AbilityScore = new Skill(abilityScoreName, 0);
-                    AbilityScores.Add(AbilityScore);
+                    var abilityScore = new AbilityScore(abilityScoreName, 0);
+                    AbilityScores.Add(abilityScore);
+                }
+            }
+        }
+        public void UpdateSkills(List<AbilityScore> abilityScores)
+        {
+            foreach (var skill in Skills)
+            {
+                foreach (var score in abilityScores)
+                {
+                    if (skill.AbilityScoreName == score.Name)
+                    {
+                        skill.Bonus = score.Bonus;
+                        skill.BonusText = score.BonusText;
+                    }
                 }
             }
         }

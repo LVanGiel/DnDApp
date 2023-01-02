@@ -1,29 +1,26 @@
 using LVG.DND.AppConstants;
 using LVG.DND.Models;
+using LVG.DND.streaming;
+using LVG.DND.ViewModel.characterViewModels;
 
 namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterSkillsAndAbilitiesView : ContentView
 {
-	Character _character = new Character();
-	public CharacterSkillsAndAbilitiesView(Character character)
-	{
-		_character = character;
-        InitializeComponent();
-		AddAbilitiesAndSkills();
+    CharacterSkillsAndAbilityscoresViewModel _vm;
+    Streaming stream = new Streaming();
 
-    }
-	private void AddAbilitiesAndSkills()
+    public CharacterSkillsAndAbilitiesView(CharacterSkillsAndAbilityscoresViewModel vm)
 	{
-        foreach (var aS in _character.AbilityScores)
-        {
-			var skillView = new SkillView(aS);
-            AbilityScoresStack.Add(skillView);
-        }
-        foreach (var skill in _character.Skills)
-        {
-            var skillView = new SkillView(skill);
-            SkillsStack.Add(skillView);
-        }
+        _vm = vm;
+        BindingContext= _vm;
+        InitializeComponent();
+    }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        ASListView.ItemsSource = null;
+        ASListView.ItemsSource = _vm.Character.AbilityScores;
+        await stream.SaveCharacter(_vm.Character);
     }
 }

@@ -6,9 +6,7 @@
                x:Class="LVG.DND.Views.DicePopup">
     <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
         <VerticalStackLayout x:Name="DicePopupPrimairyStack" VerticalOptions="FillAndExpand">
-            <ScrollView VerticalOptions="FillAndExpand">
-                <VerticalStackLayout x:Name="DicePopupStack" VerticalOptions="FillAndExpand"></VerticalStackLayout>
-            </ScrollView>
+            <VerticalStackLayout x:Name="DicePopupStack" VerticalOptions="FillAndExpand"></VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </toolkit:Popup>

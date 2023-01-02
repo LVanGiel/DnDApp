@@ -7,6 +7,8 @@
             Text="{Binding Name}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding BonusText}" IsEnabled="False"></Entry>
+        <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtBonus" Text="{Binding BonusText}" IsEnabled="False"></Entry>
+        <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Level}" IsEnabled="False" IsVisible="false"></Entry>
+        <Button Text="Edit" Clicked="Button_Clicked" IsVisible="false" x:Name="btnAbilityScore"></Button>
     </VerticalStackLayout>
 </ContentView>

@@ -4,19 +4,21 @@ using LVG.DND.streaming;
 
 namespace LVG.DND.ViewModel.characterViewModels
 {
-    public partial class CharacterStatsViewModel : ObservableObject
+    public partial class CharacterSkillsAndAbilityscoresViewModel : ObservableObject
     {
         [ObservableProperty]
         public Character character;
+        [ObservableProperty]
+        public bool isLevelEditable = false;
 
         Streaming _stream = new Streaming();
-        public CharacterStatsViewModel()
+        public CharacterSkillsAndAbilityscoresViewModel()
         {
             LoadCharacter();
         }
         private async void LoadCharacter()
         {
-            character = await _stream.LoadCharacter();
+            Character = await _stream.LoadCharacter();
         }
     }
 }

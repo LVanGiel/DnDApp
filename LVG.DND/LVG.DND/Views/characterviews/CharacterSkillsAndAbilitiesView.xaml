@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LVG.DND.Views.characterviews.CharacterSkillsAndAbilitiesView">
-    <HorizontalStackLayout x:Name="SkillsAndAbilitiesViewStack">
-        <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
-            <VerticalStackLayout x:Name="AbilityScoresStack">
-                <Label Text="Ability Scores"></Label>
+             x:Class="LVG.DND.Views.characterviews.CharacterSkillsAndAbilitiesView"
+             xmlns:views="clr-namespace:LVG.DND.Views">
+    <Grid x:Name="SkillsAndAbilitiesViewStack">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout x:Name="AbilityScoresStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="0">
+                <Label Text="Ability Scores" HorizontalOptions="Center"></Label>
+            <ListView SelectionMode="None" ItemsSource="{Binding Character.AbilityScores}" x:Name="ASListView">
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtBonus" Text="{Binding BonusText}" IsEnabled="False"></Entry>
+                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Level}"></Entry>
+                                <Button Text="Edit" Clicked="Button_Clicked"></Button>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </VerticalStackLayout>
-        </ScrollView>
-        <ScrollView HeightRequest="900" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
-            <VerticalStackLayout x:Name="SkillsStack">
-                <Label Text="Skills"></Label>
-            </VerticalStackLayout>
-        </ScrollView>
-    </HorizontalStackLayout>
+            <VerticalStackLayout x:Name="SkillsStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="1">
+            <Label Text="Skills" HorizontalOptions="Center"></Label>
+            <ListView SelectionMode="None" ItemsSource="{Binding Character.Skills}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtBonus" Text="{Binding BonusText}" IsEnabled="False"></Entry>
+                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Level}" IsEnabled="{Binding IsLevelEditable}"></Entry>
+                                <Button Text="Edit" Clicked="Button_Clicked"></Button>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+        </Grid>
 </ContentView>

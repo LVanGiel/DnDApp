@@ -12,6 +12,7 @@
             <Label Text="characterview" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </Shell.TitleView>
-    <VerticalStackLayout x:Name="CharViewStack">
-    </VerticalStackLayout>
+    <ScrollView VerticalOptions="FillAndExpand" x:Name="CharacterViewPageScroll" VerticalScrollBarVisibility="Always">
+        <VerticalStackLayout x:Name="CharViewStack"></VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

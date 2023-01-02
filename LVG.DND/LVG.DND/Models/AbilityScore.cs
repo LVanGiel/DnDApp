@@ -9,17 +9,38 @@ namespace LVG.DND.Models
 {
     public class AbilityScore : Base
     {
-        public int Amount { get; set; }
-        public string Ability { get; set; }
-        public AbilityScore()
-        {
-            Id = Guid.NewGuid();
+        private int level;
+        public string Name { get; set; }
+        public int Bonus { get; set; }
+        public string BonusText { get; set; }
+        public int Level {
+            get
+            {
+                return level;
+            }
+            set
+            {
+                level = value;
+                UpdateBonus(value);
+            } 
         }
-        public AbilityScore(string ability, int amount)
+        public bool IsLevelEditable { get; set; }
+        public AbilityScore(string name, int abilityScoreLevel = 0, bool isAbilityScore = false)
         {
-            Amount = amount;
-            Ability = ability;
             Id = Guid.NewGuid();
+            Name = name;
+            Bonus = (abilityScoreLevel - 10) / 2;
+            BonusText = (Bonus >= 0)? $"+{Bonus}": $"{Bonus}";
+            if (isAbilityScore)
+            {
+                Level = abilityScoreLevel;
+            }
+            IsLevelEditable = false;
+        }
+        private void UpdateBonus(int levelValue)
+        {
+            Bonus = (int)Math.Floor(decimal.Parse((levelValue - 10).ToString()) / 2);
+            BonusText = (Bonus >= 0) ? $"+{Bonus}" : $"{Bonus}";
         }
     }
 }
