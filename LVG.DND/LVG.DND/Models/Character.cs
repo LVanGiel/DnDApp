@@ -1,4 +1,5 @@
-﻿using LVG.DND.Models.basemodel;
+﻿using LVG.DND.AppConstants;
+using LVG.DND.Models.basemodel;
 
 namespace LVG.DND.Models
 {
@@ -23,6 +24,7 @@ namespace LVG.DND.Models
         public int CharismaBonus { get; set; }
         public List<Skill> SkillProficiencies { get; set; }
         public List<Skill> Skills { get; set; }
+        public List<Skill> AbilityScores { get; set; }
 
         //-------------to do
 
@@ -45,7 +47,6 @@ namespace LVG.DND.Models
         public List<Weapon> WeaponProficiencies { get; set; }
         public List<Armor> ArmorProficiencies { get; set; }
         public List<Item> ItemProficiencies { get; set; }
-        public List<AbilityScore> SavingThrowProficiencies { get; set; }
 
         //spells and cantrips
         public List<string> Spells { get; set; }
@@ -74,9 +75,27 @@ namespace LVG.DND.Models
         public int Success { get; set; }
         public int Fail { get; set; }
 
+        //variables
+        private SkillNameConstants skillNames = new SkillNameConstants();
+
         public Character()
         {
             Id = Guid.NewGuid();
+            GenerateSkills();
+        }
+
+        private void GenerateSkills()
+        {
+            foreach (string skillName in skillNames.SkillNames)
+            {
+                var skill = new Skill(skillName, 0);
+                Skills.Add(skill);
+            }
+            foreach (string abilityScoreName in skillNames.AbilityScoreNames)
+            {
+                var AbilityScore = new Skill(abilityScoreName, 0);
+                AbilityScores.Add(AbilityScore);
+            }
         }
     }
 }
