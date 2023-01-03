@@ -16,8 +16,30 @@ namespace LVG.DND.Models
 
         //skills and abilities
         public int PassivePerception { get; set; }
-        public List<Skill> SkillProficiencies { get; set; }
 
+        private int proficiencyBonus;
+        public int ProficiencyBonus
+        {
+            get
+            {
+                return proficiencyBonus;
+            }
+            set
+            {
+                proficiencyBonus = value;
+                UpdateProficiencyBonus(value);
+            }
+        }
+        #region Death Saves
+        public Skill StrengthSave { get; set; }
+        public Skill DexteritySave { get; set; }
+        public Skill ConstitutionSave { get; set; }
+        public Skill IntelligenceSave { get; set; }
+        public Skill WisdomSave { get; set; }
+        public Skill CharismaSave { get; set; }
+        #endregion
+
+        #region Ability Scores
         //get set variables
         private AbilityScore strength;
         private AbilityScore dexterity;
@@ -91,7 +113,28 @@ namespace LVG.DND.Models
                 UpdateAbilityScore(value);
             }
         }
-        public SkillGroup Skills { get; set; }
+        #endregion
+
+        #region Skills
+        public Skill Acrobatics { get; set; }
+        public Skill AnimalHandling { get; set; }
+        public Skill Arcana { get; set; }
+        public Skill Athletics { get; set; }
+        public Skill Deception { get; set; }
+        public Skill History { get; set; }
+        public Skill Insight { get; set; }
+        public Skill Intimidation { get; set; }
+        public Skill Investigation { get; set; }
+        public Skill Medicine { get; set; }
+        public Skill Nature { get; set; }
+        public Skill Perception { get; set; }
+        public Skill Performance { get; set; }
+        public Skill Persuasion { get; set; }
+        public Skill Religion { get; set; }
+        public Skill SleightOfHand { get; set; }
+        public Skill Stealth { get; set; }
+        public Skill Survival { get; set; }
+        #endregion
 
         //-------------to do
 
@@ -137,12 +180,42 @@ namespace LVG.DND.Models
         public Character()
         {
             Id = Guid.NewGuid();
-            FillAbilityScores();
             FillSkills();
+            FillDeathSaves();
+            FillAbilityScores();
+        }
+        private void FillDeathSaves()
+        {
+            StrengthSave = new Skill(SkillNameConstants.Strength);
+            ConstitutionSave = new Skill(SkillNameConstants.Constitution);
+            DexteritySave = new Skill(SkillNameConstants.Dexterity);
+            IntelligenceSave = new Skill(SkillNameConstants.Intelligence);
+            WisdomSave = new Skill(SkillNameConstants.Wisdom);
+            CharismaSave = new Skill(SkillNameConstants.Charisma);
         }
         private void FillSkills()
         {
-            Skills = new SkillGroup();
+            Acrobatics = new Skill(SkillNameConstants.Acrobatics);
+            AnimalHandling = new Skill(SkillNameConstants.AnimalHandling);
+            Arcana = new Skill(SkillNameConstants.Arcana);
+            Athletics = new Skill(SkillNameConstants.Athletics);
+            Deception = new Skill(SkillNameConstants.Deception);
+
+            History = new Skill(SkillNameConstants.History);
+            Insight = new Skill(SkillNameConstants.Insight);
+            Intimidation = new Skill(SkillNameConstants.Intimidation);
+            Investigation = new Skill(SkillNameConstants.Investigation);
+            Medicine = new Skill(SkillNameConstants.Medicine);
+
+            Nature = new Skill(SkillNameConstants.Nature);
+            Perception = new Skill(SkillNameConstants.Perception);
+            Performance = new Skill(SkillNameConstants.Performance);
+            Persuasion = new Skill(SkillNameConstants.Persuasion);
+            Religion = new Skill(SkillNameConstants.Religion);
+
+            SleightOfHand = new Skill(SkillNameConstants.SleightOfHand);
+            Stealth = new Skill(SkillNameConstants.Stealth);
+            Survival = new Skill(SkillNameConstants.Survival);
         }
         private void FillAbilityScores()
         {
@@ -162,47 +235,81 @@ namespace LVG.DND.Models
         }
         public void UpdateAbilityScore(AbilityScore abilityScore)
         {
-            if (Skills == null)
-            {
-                FillSkills();
-            }
             if (abilityScore.Name == SkillNameConstants.Strength)
             {
-                Skills.Athletics.Bonus = abilityScore.Bonus + Skills.Athletics.ClassBonus;
+                StrengthSave.Bonus = abilityScore.Bonus;
+                Athletics.Bonus = abilityScore.Bonus;
             }
             if (abilityScore.Name == SkillNameConstants.Dexterity)
             {
-                Skills.Acrobatics.Bonus = abilityScore.Bonus + Skills.Acrobatics.ClassBonus;
-                Skills.SleightOfHand.Bonus = abilityScore.Bonus + Skills.SleightOfHand.ClassBonus;
-                Skills.Stealth.Bonus = abilityScore.Bonus + Skills.Stealth.ClassBonus ;
+                DexteritySave.Bonus = abilityScore.Bonus;
+                Acrobatics.Bonus = abilityScore.Bonus;
+                SleightOfHand.Bonus = abilityScore.Bonus;
+                Stealth.Bonus = abilityScore.Bonus;
             }
             if (abilityScore.Name == SkillNameConstants.Constitution)
             {
-
+                ConstitutionSave.Bonus = abilityScore.Bonus;
             }
             if (abilityScore.Name == SkillNameConstants.Intelligence)
             {
-                Skills.Arcana.Bonus = abilityScore.Bonus + Skills.Arcana.ClassBonus;
-                Skills.History.Bonus = abilityScore.Bonus + Skills.History.ClassBonus;
-                Skills.Investigation.Bonus = abilityScore.Bonus + Skills.Investigation.ClassBonus;
-                Skills.Nature.Bonus = abilityScore.Bonus + Skills.Nature.ClassBonus;
-                Skills.Religion.Bonus = abilityScore.Bonus + Skills.Religion.ClassBonus;
+                IntelligenceSave.Bonus = abilityScore.Bonus;
+                Arcana.Bonus = abilityScore.Bonus;
+                History.Bonus = abilityScore.Bonus;
+                Investigation.Bonus = abilityScore.Bonus;
+                Nature.Bonus = abilityScore.Bonus;
+                Religion.Bonus = abilityScore.Bonus;
             }
             if (abilityScore.Name == SkillNameConstants.Wisdom)
             {
-                Skills.AnimalHandling.Bonus = abilityScore.Bonus + Skills.AnimalHandling.ClassBonus;
-                Skills.Insight.Bonus = abilityScore.Bonus + Skills.Insight.ClassBonus;
-                Skills.Medicine.Bonus = abilityScore.Bonus + Skills.Medicine.ClassBonus;
-                Skills.Perception.Bonus = abilityScore.Bonus + Skills.Perception.ClassBonus ;
-                Skills.Survival.Bonus = abilityScore.Bonus + Skills.Survival.ClassBonus ;
+                WisdomSave.Bonus = abilityScore.Bonus;
+                AnimalHandling.Bonus = abilityScore.Bonus;
+                Insight.Bonus = abilityScore.Bonus;
+                Medicine.Bonus = abilityScore.Bonus;
+                Perception.Bonus = abilityScore.Bonus ;
+                Survival.Bonus = abilityScore.Bonus ;
             }
             if (abilityScore.Name == SkillNameConstants.Charisma)
             {
-                Skills.Deception.Bonus = abilityScore.Bonus + Skills.Deception.ClassBonus;
-                Skills.Intimidation.Bonus = abilityScore.Bonus + Skills.Intimidation.ClassBonus;
-                Skills.Performance.Bonus = abilityScore.Bonus + Skills.Performance.ClassBonus;
-                Skills.Persuasion.Bonus = abilityScore.Bonus + Skills.Persuasion.ClassBonus;
+                CharismaSave.Bonus = abilityScore.Bonus;
+                Deception.Bonus = abilityScore.Bonus;
+                Intimidation.Bonus = abilityScore.Bonus;
+                Performance.Bonus = abilityScore.Bonus;
+                Persuasion.Bonus = abilityScore.Bonus;
             }
+        }
+        public void UpdateSkills()
+        {
+            UpdateAbilityScore(Strength);
+            UpdateAbilityScore(Constitution);
+            UpdateAbilityScore(Dexterity);
+            UpdateAbilityScore(Intelligence);
+            UpdateAbilityScore(Wisdom);
+            UpdateAbilityScore(Charisma);
+        }
+        private void UpdateProficiencyBonus(int bonus)
+        {
+            Acrobatics.ProficiencyBonus = Acrobatics.ProficiencyBonus > 0 ? bonus : 0;
+            AnimalHandling.ProficiencyBonus = AnimalHandling.ProficiencyBonus > 0 ? bonus : 0;
+            Arcana.ProficiencyBonus = Arcana.ProficiencyBonus > 0 ? bonus : 0;
+            Athletics.ProficiencyBonus = Athletics.ProficiencyBonus > 0 ? bonus : 0;
+            Deception.ProficiencyBonus = Deception.ProficiencyBonus > 0 ? bonus : 0;
+
+            History.ProficiencyBonus = History.ProficiencyBonus > 0 ? bonus : 0;
+            Insight.ProficiencyBonus = Insight.ProficiencyBonus > 0 ? bonus : 0;
+            Intimidation.ProficiencyBonus = Intimidation.ProficiencyBonus > 0 ? bonus : 0;
+            Investigation.ProficiencyBonus = Investigation.ProficiencyBonus > 0 ? bonus : 0;
+            Medicine.ProficiencyBonus = Medicine.ProficiencyBonus > 0 ? bonus : 0;
+
+            Nature.ProficiencyBonus = Nature.ProficiencyBonus > 0 ? bonus : 0;
+            Perception.ProficiencyBonus = Perception.ProficiencyBonus > 0 ? bonus : 0;
+            Performance.ProficiencyBonus = Performance.ProficiencyBonus > 0 ? bonus : 0;
+            Persuasion.ProficiencyBonus = Persuasion.ProficiencyBonus > 0 ? bonus : 0;
+            SleightOfHand.ProficiencyBonus = SleightOfHand.ProficiencyBonus > 0 ? bonus : 0;
+
+            Stealth.ProficiencyBonus = Stealth.ProficiencyBonus > 0 ? bonus : 0;
+            Survival.ProficiencyBonus = Survival.ProficiencyBonus > 0 ? bonus : 0;
+            Acrobatics.ProficiencyBonus = Acrobatics.ProficiencyBonus > 0 ? bonus : 0;
         }
     }
 }

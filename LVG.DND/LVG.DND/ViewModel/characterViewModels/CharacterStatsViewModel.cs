@@ -10,9 +10,9 @@ namespace LVG.DND.ViewModel.characterViewModels
         public Character character;
 
         Streaming _stream = new Streaming();
-        public CharacterStatsViewModel()
+        public CharacterStatsViewModel(Character _character)
         {
-            LoadCharacter();
+            Character = _character;
         }
         private async void LoadCharacter()
         {

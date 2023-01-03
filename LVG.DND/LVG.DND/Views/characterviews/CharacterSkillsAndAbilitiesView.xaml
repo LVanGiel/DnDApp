@@ -7,7 +7,8 @@
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -53,101 +54,216 @@
                 <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtCharismaLevel" Text="{Binding Character.Charisma.Level}" IsEnabled="False"></Entry>
             </VerticalStackLayout>
 
+            <VerticalStackLayout>
+                <Label Text="Proficiency Bonus" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtProficiencyBonus" Text="{Binding Character.ProficiencyBonus}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
         </VerticalStackLayout>
-        <VerticalStackLayout x:Name="SkillsStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+
+
+        <VerticalStackLayout x:Name="DeathSavesStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+            <Label Text="Death Saves" HorizontalOptions="Center"></Label>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkStrength" CheckedChanged="Check_CheckedChanged" IsChecked="{Binding Character.StrengthSave.IsProficient}" IsEnabled="false"></CheckBox>
+                    <Label Text="{Binding Character.StrengthSave.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtStrengthSaveBonus" Text="{Binding Character.StrengthSave.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkDexterity" CheckedChanged="Check_CheckedChanged" IsChecked="{Binding Character.DexteritySave.IsProficient}" IsEnabled="false"></CheckBox>
+                <Label Text="{Binding Character.DexteritySave.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtDexteritySaveBonus" Text="{Binding Character.DexteritySave.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkConstitution" CheckedChanged="Check_CheckedChanged" IsChecked="{Binding Character.ConstitutionSave.IsProficient}" IsEnabled="false"></CheckBox>
+                <Label Text="{Binding Character.ConstitutionSave.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtConstitutionSaveBonus" Text="{Binding Character.ConstitutionSave.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkIntelligence" CheckedChanged="Check_CheckedChanged" IsChecked="{Binding Character.IntelligenceSave.IsProficient}" IsEnabled="false"></CheckBox>
+                <Label Text="{Binding Character.IntelligenceSave.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtIntelligenceSaveBonus" Text="{Binding Character.IntelligenceSave.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkWisdom" CheckedChanged="Check_CheckedChanged" IsChecked="{Binding Character.WisdomSave.IsProficient}" IsEnabled="false"></CheckBox>
+                <Label Text="{Binding Character.WisdomSave.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtWisdomSaveBonus" Text="{Binding Character.WisdomSave.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkCharisma" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.CharismaSave.IsProficient}"></CheckBox>
+                    <Label Text="{Binding Character.CharismaSave.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtCharismaSaveBonus" Text="{Binding Character.CharismaSave.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout x:Name="SkillsStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="2" Grid.Row="1">
             <Label Text="Skills" HorizontalOptions="Center"></Label>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Acrobatics.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAcrobaticsBonus" Text="{Binding Character.Skills.Acrobatics.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Acrobatics.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkAcrobatics" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Acrobatics.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAcrobaticsBonus" Text="{Binding Character.Acrobatics.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.AnimalHandling.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAnimalHandlingBonus" Text="{Binding Character.Skills.AnimalHandling.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.AnimalHandling.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkAnimalHandling" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.AnimalHandling.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAnimalHandlingBonus" Text="{Binding Character.AnimalHandling.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Arcana.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtArcanaBonus" Text="{Binding Character.Skills.Arcana.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Arcana.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkArcana" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Arcana.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtArcanaBonus" Text="{Binding Character.Arcana.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Athletics.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAthleticsBonus" Text="{Binding Character.Skills.Athletics.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Athletics.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkAthletics" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Athletics.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAthleticsBonus" Text="{Binding Character.Athletics.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Deception.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtDeceptionBonus" Text="{Binding Character.Skills.Deception.BonusText}" IsEnabled="False"></Entry>
-            </VerticalStackLayout>
-
-
-            <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.History.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtHistoryBonus" Text="{Binding Character.Skills.History.BonusText}" IsEnabled="False"></Entry>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Insight.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInsightBonus" Text="{Binding Character.Skills.Insight.BonusText}" IsEnabled="False"></Entry>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Intimidation.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtIntimidationBonus" Text="{Binding Character.Skills.Intimidation.BonusText}" IsEnabled="False"></Entry>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Investigation.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInvestigationBonus" Text="{Binding Character.Skills.Investigation.BonusText}" IsEnabled="False"></Entry>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Medicine.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtMedicineBonus" Text="{Binding Character.Skills.Medicine.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Deception.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkDeception" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Deception.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtDeceptionBonus" Text="{Binding Character.Deception.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Nature.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtNatureBonus" Text="{Binding Character.Skills.Nature.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.History.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkHistory" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.History.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtHistoryBonus" Text="{Binding Character.History.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Perception.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPerceptionBonus" Text="{Binding Character.Skills.Perception.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Insight.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkInsight" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Insight.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInsightBonus" Text="{Binding Character.Insight.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Performance.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPerformanceBonus" Text="{Binding Character.Skills.Performance.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Intimidation.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkIntimidation" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Intimidation.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtIntimidationBonus" Text="{Binding Character.Intimidation.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Persuasion.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPersuasionBonus" Text="{Binding Character.Skills.Persuasion.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Investigation.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkInvestigation" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Investigation.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInvestigationBonus" Text="{Binding Character.Investigation.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Religion.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtReligionBonus" Text="{Binding Character.Skills.Religion.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Medicine.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkMedicine" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Medicine.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtMedicineBonus" Text="{Binding Character.Medicine.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.SleightOfHand.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSleightOfHandBonus" Text="{Binding Character.Skills.SleightOfHand.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Nature.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkNature" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Nature.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtNatureBonus" Text="{Binding Character.Nature.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Stealth.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtStealthBonus" Text="{Binding Character.Skills.Stealth.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Perception.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkPerception" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Perception.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPerceptionBonus" Text="{Binding Character.Perception.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="{Binding Character.Skills.Survival.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSurvivalBonus" Text="{Binding Character.Skills.Survival.BonusText}" IsEnabled="False"></Entry>
+                <Label Text="{Binding Character.Performance.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkPerformance" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Performance.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPerformanceBonus" Text="{Binding Character.Performance.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Persuasion.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkPersuasion" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Persuasion.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPersuasionBonus" Text="{Binding Character.Persuasion.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Religion.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkReligion" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Religion.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtReligionBonus" Text="{Binding Character.Religion.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.SleightOfHand.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkSleightOfHand" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.SleightOfHand.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSleightOfHandBonus" Text="{Binding Character.SleightOfHand.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Stealth.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkStealth" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Stealth.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtStealthBonus" Text="{Binding Character.Stealth.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Survival.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <HorizontalStackLayout>
+                    <CheckBox x:Name="checkSurvival" CheckedChanged="Check_CheckedChanged" IsEnabled="false" IsChecked="{Binding Character.Survival.IsProficient}"></CheckBox>
+                    <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSurvivalBonus" Text="{Binding Character.Survival.BonusText}" IsEnabled="False"></Entry>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
 
         </VerticalStackLayout>

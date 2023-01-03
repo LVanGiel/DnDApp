@@ -32,25 +32,25 @@ namespace LVG.DND.AppConstants
             switch (requestString)
             {
                 case STATS_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case SKILLS_ABILITYSCORES_PAGE:
-                    return new CharacterSkillsAndAbilitiesView(new CharacterSkillsAndAbilityscoresViewModel());
+                    return new CharacterSkillsAndAbilitiesView(new CharacterSkillsAndAbilityscoresViewModel(character));
                 case FEATURES_AND_TRAITS_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case WEAPONS_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case SPELLS_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case INVENTORY_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case PROFICIENCIES_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case STORY_TELLING_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case SAVES_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case DEATHSAVES_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel());
+                    return new CharacterStatsView(new CharacterStatsViewModel(character));
                 default:
                     return null;
             }

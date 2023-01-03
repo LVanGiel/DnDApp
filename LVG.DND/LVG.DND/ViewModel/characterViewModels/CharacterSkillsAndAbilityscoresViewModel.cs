@@ -12,13 +12,9 @@ namespace LVG.DND.ViewModel.characterViewModels
         public bool isLevelEditable = false;
 
         Streaming _stream = new Streaming();
-        public CharacterSkillsAndAbilityscoresViewModel()
+        public CharacterSkillsAndAbilityscoresViewModel(Character _character)
         {
-            LoadCharacter();
-        }
-        private async void LoadCharacter()
-        {
-            Character = await _stream.LoadCharacter();
+            Character = _character;
         }
     }
 }
