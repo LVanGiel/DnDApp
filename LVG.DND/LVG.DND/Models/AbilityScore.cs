@@ -21,7 +21,7 @@ namespace LVG.DND.Models
             set
             {
                 level = value;
-                UpdateBonus(value);
+                UpdateLevel(value);
             } 
         }
         public bool IsLevelEditable { get; set; }
@@ -37,7 +37,7 @@ namespace LVG.DND.Models
             }
             IsLevelEditable = false;
         }
-        private void UpdateBonus(int levelValue)
+        private void UpdateLevel(int levelValue)
         {
             Bonus = (int)Math.Floor(decimal.Parse((levelValue - 10).ToString()) / 2);
             BonusText = (Bonus >= 0) ? $"+{Bonus}" : $"{Bonus}";

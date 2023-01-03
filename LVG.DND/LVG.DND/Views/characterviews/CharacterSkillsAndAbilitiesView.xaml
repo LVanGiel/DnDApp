@@ -8,39 +8,148 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <VerticalStackLayout x:Name="AbilityScoresStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Text="Edit" Clicked="Button_Clicked" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" WidthRequest="70"></Button>
+
+        <VerticalStackLayout x:Name="AbilityScoresStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
                 <Label Text="Ability Scores" HorizontalOptions="Center"></Label>
-            <ListView SelectionMode="None" ItemsSource="{Binding Character.AbilityScores}" x:Name="ASListView">
-                    <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtBonus" Text="{Binding BonusText}" IsEnabled="False"></Entry>
-                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Level}"></Entry>
-                                <Button Text="Edit" Clicked="Button_Clicked"></Button>
-                            </VerticalStackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+        
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Strength.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtStrengthBonus" Text="{Binding Character.Strength.BonusText}" IsEnabled="False"></Entry>
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtStrengthLevel" Text="{Binding Character.Strength.Level}" IsEnabled="False"></Entry>
             </VerticalStackLayout>
-            <VerticalStackLayout x:Name="SkillsStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="1">
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Dexterity.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtDexterityBonus" Text="{Binding Character.Dexterity.BonusText}" IsEnabled="False"></Entry>
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtDexterityLevel" Text="{Binding Character.Dexterity.Level}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Constitution.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtConstitutionBonus" Text="{Binding Character.Constitution.BonusText}" IsEnabled="False"></Entry>
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtConstitutionLevel" Text="{Binding Character.Constitution.Level}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Intelligence.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtIntelligenceBonus" Text="{Binding Character.Intelligence.BonusText}" IsEnabled="False"></Entry>
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtIntelligenceLevel" Text="{Binding Character.Intelligence.Level}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Wisdom.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtWisdomBonus" Text="{Binding Character.Wisdom.BonusText}" IsEnabled="False"></Entry>
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtWisdomLevel" Text="{Binding Character.Wisdom.Level}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Charisma.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtCharismaBonus" Text="{Binding Character.Charisma.BonusText}" IsEnabled="False"></Entry>
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtCharismaLevel" Text="{Binding Character.Charisma.Level}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+        <VerticalStackLayout x:Name="SkillsStack" HorizontalOptions="Center" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
             <Label Text="Skills" HorizontalOptions="Center"></Label>
-            <ListView SelectionMode="None" ItemsSource="{Binding Character.Skills}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtBonus" Text="{Binding BonusText}" IsEnabled="False"></Entry>
-                                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtLevel" Text="{Binding Level}" IsEnabled="{Binding IsLevelEditable}"></Entry>
-                                <Button Text="Edit" Clicked="Button_Clicked"></Button>
-                            </VerticalStackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Acrobatics.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAcrobaticsBonus" Text="{Binding Character.Skills.Acrobatics.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.AnimalHandling.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAnimalHandlingBonus" Text="{Binding Character.Skills.AnimalHandling.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Arcana.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtArcanaBonus" Text="{Binding Character.Skills.Arcana.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Athletics.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtAthleticsBonus" Text="{Binding Character.Skills.Athletics.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Deception.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtDeceptionBonus" Text="{Binding Character.Skills.Deception.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.History.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtHistoryBonus" Text="{Binding Character.Skills.History.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Insight.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInsightBonus" Text="{Binding Character.Skills.Insight.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Intimidation.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtIntimidationBonus" Text="{Binding Character.Skills.Intimidation.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Investigation.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtInvestigationBonus" Text="{Binding Character.Skills.Investigation.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Medicine.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtMedicineBonus" Text="{Binding Character.Skills.Medicine.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Nature.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtNatureBonus" Text="{Binding Character.Skills.Nature.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Perception.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPerceptionBonus" Text="{Binding Character.Skills.Perception.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Performance.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPerformanceBonus" Text="{Binding Character.Skills.Performance.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Persuasion.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtPersuasionBonus" Text="{Binding Character.Skills.Persuasion.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Religion.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtReligionBonus" Text="{Binding Character.Skills.Religion.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.SleightOfHand.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSleightOfHandBonus" Text="{Binding Character.Skills.SleightOfHand.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Stealth.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtStealthBonus" Text="{Binding Character.Skills.Stealth.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="{Binding Character.Skills.Survival.Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry Margin="10,10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtSurvivalBonus" Text="{Binding Character.Skills.Survival.BonusText}" IsEnabled="False"></Entry>
+            </VerticalStackLayout>
+
         </VerticalStackLayout>
         </Grid>
 </ContentView>

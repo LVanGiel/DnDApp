@@ -87,37 +87,37 @@ public partial class ASRollInput : ContentView
         switch (btn.Text)
         {
             case "Strength":
-                _vm.Character.Strength = selectedScore;
+                _vm.Character.Strength.Level = selectedScore;
                 parent = btn.Parent as HorizontalStackLayout;
                 neighbour = parent.Children[1] as Label;
                 neighbour.Text = selectedScore.ToString();
                 break;
             case "Dexterity":
-                _vm.Character.Dexterity = selectedScore;
+                _vm.Character.Dexterity.Level = selectedScore;
                 parent = btn.Parent as HorizontalStackLayout;
                 neighbour = parent.Children[1] as Label;
                 neighbour.Text = selectedScore.ToString();
                 break;
             case "Constitution":
-                _vm.Character.Constitution = selectedScore;
+                _vm.Character.Constitution.Level = selectedScore;
                 parent = btn.Parent as HorizontalStackLayout;
                 neighbour = parent.Children[1] as Label;
                 neighbour.Text = selectedScore.ToString();
                 break;
             case "Intelligence":
-                _vm.Character.Intelligence = selectedScore;
+                _vm.Character.Intelligence.Level = selectedScore;
                 parent = btn.Parent as HorizontalStackLayout;
                 neighbour = parent.Children[1] as Label;
                 neighbour.Text = selectedScore.ToString();
                 break;
             case "Wisdom":
-                _vm.Character.Wisdom = selectedScore;
+                _vm.Character.Wisdom.Level = selectedScore;
                 parent = btn.Parent as HorizontalStackLayout;
                 neighbour = parent.Children[1] as Label;
                 neighbour.Text = selectedScore.ToString();
                 break;
             case "Charisma":
-                _vm.Character.Charisma = selectedScore;
+                _vm.Character.Charisma.Level = selectedScore;
                 parent = btn.Parent as HorizontalStackLayout;
                 neighbour = parent.Children[1] as Label;
                 neighbour.Text = selectedScore.ToString();

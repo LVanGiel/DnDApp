@@ -17,20 +17,81 @@ namespace LVG.DND.Models
         //skills and abilities
         public int PassivePerception { get; set; }
         public List<Skill> SkillProficiencies { get; set; }
-        public List<Skill> Skills { get; set; }
 
-        private List<AbilityScore> abilityScores;
-        public List<AbilityScore> AbilityScores {
+        //get set variables
+        private AbilityScore strength;
+        private AbilityScore dexterity;
+        private AbilityScore constitution;
+        private AbilityScore intelligence;
+        private AbilityScore wisdom;
+        private AbilityScore charisma;
+        public AbilityScore Strength {
             get
             {
-                return abilityScores;
+                return strength;
             }
             set
             {
-                abilityScores = value;
-                UpdateSkills(value);
+                strength = value;
+                UpdateAbilityScore(value);
             }
         }
+        public AbilityScore Dexterity {
+            get
+            {
+                return dexterity;
+            }
+            set
+            {
+                dexterity = value;
+                UpdateAbilityScore(value);
+            }
+        }
+        public AbilityScore Constitution {
+            get
+            {
+                return constitution;
+            }
+            set
+            {
+                constitution = value;
+                UpdateAbilityScore(value);
+            }
+        }
+        public AbilityScore Intelligence {
+            get
+            {
+                return intelligence;
+            }
+            set
+            {
+                intelligence = value;
+                UpdateAbilityScore(value);
+            }
+        }
+        public AbilityScore Wisdom {
+            get
+            {
+                return wisdom;
+            }
+            set
+            {
+                wisdom = value;
+                UpdateAbilityScore(value);
+            }
+        }
+        public AbilityScore Charisma {
+            get
+            {
+                return charisma;
+            }
+            set
+            {
+                charisma = value;
+                UpdateAbilityScore(value);
+            }
+        }
+        public SkillGroup Skills { get; set; }
 
         //-------------to do
 
@@ -65,14 +126,6 @@ namespace LVG.DND.Models
         public string ChosenBond { get; set; }
         public string ChosenFlaw { get; set; }
 
-        //character saving throws       MAYBE make seperate class for these
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Constitution { get; set; }
-        public int Intelligence { get; set; }
-        public int Wisdom { get; set; }
-        public int Charisma { get; set; }
-
         //other points
         public int Xp { get; set; }
         public bool UsesXp { get; set; }
@@ -81,48 +134,74 @@ namespace LVG.DND.Models
         public int Success { get; set; }
         public int Fail { get; set; }
 
-        //variables
-        private SkillNameConstants skillNames = new SkillNameConstants();
-
         public Character()
         {
             Id = Guid.NewGuid();
-            GenerateSkills();
+            FillAbilityScores();
+            FillSkills();
         }
+        private void FillSkills()
+        {
+            Skills = new SkillGroup();
+        }
+        private void FillAbilityScores()
+        {
+            Strength = new AbilityScore(SkillNameConstants.Strength);
+            Constitution = new AbilityScore(SkillNameConstants.Constitution);
+            Dexterity = new AbilityScore(SkillNameConstants.Dexterity);
+            Intelligence = new AbilityScore(SkillNameConstants.Intelligence);
+            Wisdom = new AbilityScore(SkillNameConstants.Wisdom);
+            Charisma = new AbilityScore(SkillNameConstants.Charisma);
 
-        private void GenerateSkills()
-        {
-            Skills = new List<Skill>();
-            AbilityScores = new List<AbilityScore>();
-            if (Skills.Count < 18)
-            {
-                foreach (string skillName in skillNames.SkillNames)
-                {
-                    var skill = new Skill(skillName, 0);
-                    Skills.Add(skill);
-                }
-            }
-            if (AbilityScores.Count < 6)
-            {
-                foreach (string abilityScoreName in skillNames.AbilityScoreNames)
-                {
-                    var abilityScore = new AbilityScore(abilityScoreName, 0);
-                    AbilityScores.Add(abilityScore);
-                }
-            }
+            UpdateAbilityScore(Strength);
+            UpdateAbilityScore(Constitution);
+            UpdateAbilityScore(Dexterity);
+            UpdateAbilityScore(Intelligence);
+            UpdateAbilityScore(Wisdom);
+            UpdateAbilityScore(Charisma);
         }
-        public void UpdateSkills(List<AbilityScore> abilityScores)
+        public void UpdateAbilityScore(AbilityScore abilityScore)
         {
-            foreach (var skill in Skills)
+            if (Skills == null)
             {
-                foreach (var score in abilityScores)
-                {
-                    if (skill.AbilityScoreName == score.Name)
-                    {
-                        skill.Bonus = score.Bonus;
-                        skill.BonusText = score.BonusText;
-                    }
-                }
+                FillSkills();
+            }
+            if (abilityScore.Name == SkillNameConstants.Strength)
+            {
+                Skills.Athletics.Bonus = abilityScore.Bonus + Skills.Athletics.ClassBonus;
+            }
+            if (abilityScore.Name == SkillNameConstants.Dexterity)
+            {
+                Skills.Acrobatics.Bonus = abilityScore.Bonus + Skills.Acrobatics.ClassBonus;
+                Skills.SleightOfHand.Bonus = abilityScore.Bonus + Skills.SleightOfHand.ClassBonus;
+                Skills.Stealth.Bonus = abilityScore.Bonus + Skills.Stealth.ClassBonus ;
+            }
+            if (abilityScore.Name == SkillNameConstants.Constitution)
+            {
+
+            }
+            if (abilityScore.Name == SkillNameConstants.Intelligence)
+            {
+                Skills.Arcana.Bonus = abilityScore.Bonus + Skills.Arcana.ClassBonus;
+                Skills.History.Bonus = abilityScore.Bonus + Skills.History.ClassBonus;
+                Skills.Investigation.Bonus = abilityScore.Bonus + Skills.Investigation.ClassBonus;
+                Skills.Nature.Bonus = abilityScore.Bonus + Skills.Nature.ClassBonus;
+                Skills.Religion.Bonus = abilityScore.Bonus + Skills.Religion.ClassBonus;
+            }
+            if (abilityScore.Name == SkillNameConstants.Wisdom)
+            {
+                Skills.AnimalHandling.Bonus = abilityScore.Bonus + Skills.AnimalHandling.ClassBonus;
+                Skills.Insight.Bonus = abilityScore.Bonus + Skills.Insight.ClassBonus;
+                Skills.Medicine.Bonus = abilityScore.Bonus + Skills.Medicine.ClassBonus;
+                Skills.Perception.Bonus = abilityScore.Bonus + Skills.Perception.ClassBonus ;
+                Skills.Survival.Bonus = abilityScore.Bonus + Skills.Survival.ClassBonus ;
+            }
+            if (abilityScore.Name == SkillNameConstants.Charisma)
+            {
+                Skills.Deception.Bonus = abilityScore.Bonus + Skills.Deception.ClassBonus;
+                Skills.Intimidation.Bonus = abilityScore.Bonus + Skills.Intimidation.ClassBonus;
+                Skills.Performance.Bonus = abilityScore.Bonus + Skills.Performance.ClassBonus;
+                Skills.Persuasion.Bonus = abilityScore.Bonus + Skills.Persuasion.ClassBonus;
             }
         }
     }
