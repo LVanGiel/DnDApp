@@ -3,9 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Views.characterviews.CharacterWeaponsView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <HorizontalStackLayout x:Name="WeaponPresentingStack">
+                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding DiceWithBonusAndDamagetype}" IsEnabled="False"></Entry>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout x:Name="WeaponEditStack">
+                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding Name}" IsEnabled="False"></Entry>
+                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding Dice}" IsEnabled="False"></Entry>
+                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding DamageBonus}" IsEnabled="False"></Entry>
+                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding DamageType}" IsEnabled="False"></Entry>
+                            </HorizontalStackLayout>
+                            <Button x:Name="btnLevel" Text="Edit" Clicked="btnLevel_Clicked"></Button>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentView>

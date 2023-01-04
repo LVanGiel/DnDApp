@@ -53,8 +53,16 @@
             Text="Current Health"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtHp" Text="{Binding Character.CurrentHealth}" Completed="txtHp_Completed"></Entry>
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtHp" Text="{Binding Character.CurrentHealth}" TextChanged="txtCurrentHp_Completed"></Entry>
         </HorizontalStackLayout>
-        
+
+        <HorizontalStackLayout>
+            <Label 
+            Text="Temporary Health"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtTempHp" Text="{Binding Character.TemporaryHealth}" TextChanged="txtTemporaryHp_Completed"></Entry>
+        </HorizontalStackLayout>
+
     </VerticalStackLayout>
 </ContentView>

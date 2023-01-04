@@ -86,7 +86,11 @@ public partial class CharacterStatsView : ContentView
     {
         (sender as Button).Text = await EnableEdit(5);
     }
-    private async void txtHp_Completed(object sender, EventArgs e)
+    private async void txtCurrentHp_Completed(object sender, EventArgs e)
+    {
+        await _stream.SaveCharacter(_vm.character);
+    }
+    private async void txtTemporaryHp_Completed(object sender, EventArgs e)
     {
         await _stream.SaveCharacter(_vm.character);
     }

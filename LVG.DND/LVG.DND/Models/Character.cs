@@ -9,6 +9,7 @@ namespace LVG.DND.Models
         //Stats
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; set; }
+        public int TemporaryHealth { get; set; }
         public int Initiative { get; set; }
         public int BaseSpeed { get; set; }
         public int Level { get; set; }
@@ -136,7 +137,10 @@ namespace LVG.DND.Models
         public Skill Survival { get; set; }
         #endregion
 
-        //-------------to do
+        //equipment
+        public List<Weapon> Weapons { get; set; }
+        public List<Armor> Armor { get; set; }
+        public List<string> Items { get; set; }
 
 
         public CharClass Class { get; set; }
@@ -148,10 +152,7 @@ namespace LVG.DND.Models
         public int Weight { get; set; }
         public int Hieght { get; set; }
 
-        //equipment
-        public List<Weapon> Weapons { get; set; }
-        public List<Armor> Armor { get; set; }
-        public List<string> Items { get; set; }
+
 
         //abilities and skills
         public List<Weapon> WeaponProficiencies { get; set; }
