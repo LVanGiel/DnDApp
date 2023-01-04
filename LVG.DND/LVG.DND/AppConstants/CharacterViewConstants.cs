@@ -40,7 +40,7 @@ namespace LVG.DND.AppConstants
                 case WEAPONS_PAGE:
                     return new CharacterWeaponsView(new CharacterWeaponsViewModel(character));
                 case SPELLS_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel(character));
+                    return new CharacterSpellsView(new CharacterSpellsViewModel(character));
                 case INVENTORY_PAGE:
                     return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case PROFICIENCIES_PAGE:

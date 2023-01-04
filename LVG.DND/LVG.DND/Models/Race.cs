@@ -11,7 +11,7 @@ namespace LVG.DND.Models
         public int BaseSpeed { get; set; }
         public List<Traits> Traits { get; set; }
         public List<Language> Languages { get; set; }
-        public List<Cantrip> Cantrips { get; set; }
+        public List<Spell> Cantrips { get; set; }
         public List<Weapon> WeaponProficiencies { get; set; }
         public List<Armor> ArmorProficiencies { get; set; }
         public List<Item> ItemProficiencies { get; set; }

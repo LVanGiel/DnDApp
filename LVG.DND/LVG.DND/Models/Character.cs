@@ -137,8 +137,37 @@ namespace LVG.DND.Models
         public Skill Survival { get; set; }
         #endregion
 
-        //equipment
         public List<Weapon> Weapons { get; set; }
+
+        //spells and cantrips
+        public List<Spell> Spells { get; set; }
+        public List<Spell> Cantrips { get; set; }
+        public string SpellClass { get; set; }
+        public string CastingAbility { get; set; }
+        public int SpellSaveDC { get; set; }
+        public int SpellAttackBonus { get; set; }
+
+        #region Spellslots
+        public int SpellSlotsLevel1 { get; set; }
+        public int SpellSlotsLevel2 { get; set; }
+        public int SpellSlotsLevel3 { get; set; }
+        public int SpellSlotsLevel4 { get; set; }
+        public int SpellSlotsLevel5 { get; set; }
+        public int SpellSlotsLevel6 { get; set; }
+        public int SpellSlotsLevel7 { get; set; }
+        public int SpellSlotsLevel8 { get; set; }
+        public int SpellSlotsLevel9 { get; set; }
+        public int SpellSlotsLevel1Max { get; set; }
+        public int SpellSlotsLevel2Max { get; set; }
+        public int SpellSlotsLevel3Max { get; set; }
+        public int SpellSlotsLevel4Max { get; set; }
+        public int SpellSlotsLevel5Max { get; set; }
+        public int SpellSlotsLevel6Max { get; set; }
+        public int SpellSlotsLevel7Max { get; set; }
+        public int SpellSlotsLevel8Max { get; set; }
+        public int SpellSlotsLevel9Max { get; set; }
+        #endregion
+
         public List<Armor> Armor { get; set; }
         public List<string> Items { get; set; }
 
@@ -158,10 +187,6 @@ namespace LVG.DND.Models
         public List<Weapon> WeaponProficiencies { get; set; }
         public List<Armor> ArmorProficiencies { get; set; }
         public List<Item> ItemProficiencies { get; set; }
-
-        //spells and cantrips
-        public List<string> Spells { get; set; }
-        public List<string> Cantrips { get; set; }
 
         //chosen personalities
         public string ChosenBackground { get; set; }
@@ -185,6 +210,8 @@ namespace LVG.DND.Models
             FillSkills();
             FillDeathSaves();
             FillAbilityScores();
+            Spells = new List<Spell>();
+            Cantrips = new List<Spell>();
         }
         private void FillDeathSaves()
         {

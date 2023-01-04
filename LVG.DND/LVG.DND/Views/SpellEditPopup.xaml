@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="LVG.DND.Views.SpellEditPopup">
+    <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+        <VerticalStackLayout>
+            <Label Text="Name" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Entry Text="{Binding Spell.Name}" BackgroundColor="White" Placeholder="Name"></Entry>
+            <Entry Text="{Binding Spell.CastingTime}" BackgroundColor="White" Placeholder="Casting Time"></Entry>
+            <Entry Text="{Binding Spell.Range}" BackgroundColor="White" Placeholder="Range"></Entry>
+            <Entry Text="{Binding Spell.Duration}" BackgroundColor="White" Placeholder="Duration"></Entry>
+            <HorizontalStackLayout>
+                <Label Text="Level (0=Cantrip)"/>
+                <Entry Text="{Binding Spell.SpellLevel}" BackgroundColor="White"/>
+            </HorizontalStackLayout>
+            <Editor Text="{Binding Spell.Description}" BackgroundColor="White" HeightRequest="100" Placeholder="description"></Editor>
+            <Button Text="Add spell/cantrip" Clicked="SpellButton_Clicked"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</toolkit:Popup>

@@ -5,8 +5,7 @@
              Title="CharacterViewPage"
              xmlns:viewmodel="clr-namespace:LVG.DND.ViewModel"
              xmlns:views="clr-namespace:LVG.DND.Views"
-             xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general"
-             BackgroundColor="LightGray">
+             xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general">
     <Shell.TitleView>
         <Grid>
             <Label Text="characterview" HorizontalOptions="Center" VerticalOptions="Center" />

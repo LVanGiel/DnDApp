@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="LVG.DND.Views.AddSpellSlotPopup">
+    <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+        <VerticalStackLayout>
+            <Label Text="Edit Spell slots"/>
+            <HorizontalStackLayout>
+                <Label Text="Level 1"/>
+                <Entry Text=""  x:Name="Lvl1"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 2"/>
+                <Entry Text="" x:Name="Lvl2" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 3"/>
+                <Entry Text="" x:Name="Lvl3"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 4"/>
+                <Entry Text="" x:Name="Lvl4"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 5"/>
+                <Entry Text="" x:Name="Lvl5"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 6"/>
+                <Entry Text="" x:Name="Lvl6"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 7"/>
+                <Entry Text="" x:Name="Lvl7"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 8"/>
+                <Entry Text="" x:Name="Lvl8"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Level 9"/>
+                <Entry Text="" x:Name="Lvl9"/>
+            </HorizontalStackLayout>
+            <Button Text="Save" Clicked="Button_Clicked"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</toolkit:Popup>
