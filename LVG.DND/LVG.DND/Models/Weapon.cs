@@ -10,8 +10,10 @@ namespace LVG.DND.Models
     public class Weapon : Base
     {
         public string Name { get; set; }
-        public Dice DamageDice { get; set; }
-        public int DamageBonus { get; set; }
+        public Dice Dice { get; set; }
+        public int AttackBonus { get; set; }
+        public int AbilityScoreBonus { get; set; }
+        public string DiceWithBonus { get; set; }
         public string DamageType { get; set; }
         public Weapon()
         {

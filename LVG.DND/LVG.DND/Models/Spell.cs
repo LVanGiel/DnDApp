@@ -2,11 +2,11 @@
 
 namespace LVG.DND.Models
 {
-    public class Cantrip : Base
+    public class Spell : Base
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Cantrip()
+        public Spell()
         {
             Id = Guid.NewGuid();
         }

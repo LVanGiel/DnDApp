@@ -4,13 +4,13 @@ using LVG.DND.streaming;
 
 namespace LVG.DND.ViewModel.characterViewModels
 {
-    public partial class CharacterStatsViewModel : ObservableObject
+    public partial class CharacterWeaponsViewModel : ObservableObject
     {
         [ObservableProperty]
         public Character character;
 
         Streaming _stream = new Streaming();
-        public CharacterStatsViewModel(Character _character)
+        public CharacterWeaponsViewModel(Character _character)
         {
             Character = _character;
         }

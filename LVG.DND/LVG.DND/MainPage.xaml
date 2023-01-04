@@ -22,7 +22,7 @@
                 HorizontalOptions="Center" />
             <Button
                 x:Name="TestBtn"
-                Text="Test"
+                Text="Character Sheet"
                 Clicked="OnTestClicked"
                 HorizontalOptions="Center" />
             <Button

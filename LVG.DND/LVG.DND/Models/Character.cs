@@ -181,6 +181,7 @@ namespace LVG.DND.Models
         public Character()
         {
             Id = Guid.NewGuid();
+            Weapons = new List<Weapon>();
             FillSkills();
             FillDeathSaves();
             FillAbilityScores();

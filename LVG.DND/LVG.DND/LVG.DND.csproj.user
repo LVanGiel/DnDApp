@@ -33,9 +33,6 @@
     <MauiXaml Update="Pages\testpage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\characterviews\CharacterDeathSavesView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Views\characterviews\CharacterFeaturesAndTraitsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

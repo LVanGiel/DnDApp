@@ -3,26 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Views.characterviews.CharacterWeaponsView">
     <VerticalStackLayout>
-        <ListView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Name" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+            <Label Text="Atk" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+            <Label Text="Damage" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+            <Label Text="Damage Type" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
+        </Grid>
+        <ListView x:Name="WeaponListView" ItemsSource="{Binding Character.Weapons}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <HorizontalStackLayout>
-                            <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" />
-                            <HorizontalStackLayout x:Name="WeaponPresentingStack">
-                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding DiceWithBonusAndDamagetype}" IsEnabled="False"></Entry>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout x:Name="WeaponEditStack">
-                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding Name}" IsEnabled="False"></Entry>
-                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding Dice}" IsEnabled="False"></Entry>
-                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding DamageBonus}" IsEnabled="False"></Entry>
-                                <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txt" Text="{Binding DamageType}" IsEnabled="False"></Entry>
-                            </HorizontalStackLayout>
-                            <Button x:Name="btnLevel" Text="Edit" Clicked="btnLevel_Clicked"></Button>
-                        </HorizontalStackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="70"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid x:Name="WeaponPresentingStack" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+                                <Label Text="{Binding AttackBonus}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Label Text="{Binding DiceWithBonus}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Label Text="{Binding DamageType}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
+                            </Grid>
+                            <Grid x:Name="WeaponEditStack" IsVisible="False" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry BackgroundColor="White" Text="{Binding Name}" Grid.Column="0"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding AttackBonus}" Grid.Column="1"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding DiceWithBonus}" Grid.Column="2"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding DamageType}" Grid.Column="3"></Entry>
+                            </Grid>
+                            <Button Text="Edit" Clicked="btnEdit_Clicked" Grid.Column="2"></Button>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Grid x:Name="WeaponEditStack" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Entry BackgroundColor="White" x:Name="txtWeaponNameAdd" Placeholder="Name"  Grid.Column="0"></Entry>
+            <Entry BackgroundColor="White" Margin="10,0,10,0" WidthRequest="20" x:Name="txtWeaponBonusAttackAdd" Placeholder="Attackroll Bonus"  Grid.Column="1"></Entry>
+            <Entry BackgroundColor="White" Margin="0,0,10,0" WidthRequest="70" x:Name="txtDiceWithBonusAdd" Placeholder="Damage" Grid.Column="2"></Entry>
+            <Entry BackgroundColor="White" Margin="0,0,10,0" WidthRequest="90" x:Name="txtWeaponDamageTypeAdd" Placeholder="Damagetype" Grid.Column="3"></Entry>
+            <Button x:Name="btnWeaponAdd" Text="Add" Clicked="btnWeaponAdd_Clicked" Grid.Column="4"></Button>
+        </Grid>
     </VerticalStackLayout>
 </ContentView>

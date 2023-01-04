@@ -23,11 +23,10 @@ public partial class CharacterViewMenuPage : ContentPage
     {
         AddImageButton(CharacterViewConstants.STATS_PAGE);
         AddImageButton(CharacterViewConstants.SKILLS_ABILITYSCORES_PAGE);
-        AddImageButton(CharacterViewConstants.FEATURES_AND_TRAITS_PAGE);
         AddImageButton(CharacterViewConstants.WEAPONS_PAGE);
         AddImageButton(CharacterViewConstants.SPELLS_PAGE);
+        AddImageButton(CharacterViewConstants.FEATURES_AND_TRAITS_PAGE);
         AddImageButton(CharacterViewConstants.INVENTORY_PAGE);
-        AddImageButton(CharacterViewConstants.PROFICIENCIES_PAGE);
         AddImageButton(CharacterViewConstants.STORY_TELLING_PAGE);
         AddImageButton(CharacterViewConstants.DEATHSAVES_PAGE);
     }

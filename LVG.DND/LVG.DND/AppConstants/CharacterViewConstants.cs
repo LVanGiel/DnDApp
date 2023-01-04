@@ -16,7 +16,7 @@ namespace LVG.DND.AppConstants
         internal Streaming _stream = new Streaming();
 
         internal const string STATS_PAGE = "Stats";
-        internal const string SKILLS_ABILITYSCORES_PAGE = "Skills and Ability Scores";
+        internal const string SKILLS_ABILITYSCORES_PAGE = "Skills and Abilities";
         internal const string FEATURES_AND_TRAITS_PAGE = "Features and Traits";
         internal const string WEAPONS_PAGE = "Weapons";
         internal const string SPELLS_PAGE = "Spells";
@@ -36,9 +36,9 @@ namespace LVG.DND.AppConstants
                 case SKILLS_ABILITYSCORES_PAGE:
                     return new CharacterSkillsAndAbilitiesView(new CharacterSkillsAndAbilityscoresViewModel(character));
                 case FEATURES_AND_TRAITS_PAGE:
-                    return new CharacterWeaponsView(new CharacterWeaponsViewModel(character));
-                case WEAPONS_PAGE:
                     return new CharacterStatsView(new CharacterStatsViewModel(character));
+                case WEAPONS_PAGE:
+                    return new CharacterWeaponsView(new CharacterWeaponsViewModel(character));
                 case SPELLS_PAGE:
                     return new CharacterStatsView(new CharacterStatsViewModel(character));
                 case INVENTORY_PAGE:
