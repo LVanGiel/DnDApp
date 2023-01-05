@@ -3,9 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Views.characterviews.CharacterProficienciesView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button Text="+" Clicked="AddButton_Clicked" WidthRequest="40" HorizontalOptions="End"/>
+        <Label Text="Armor" VerticalOptions="Center" FontSize="Title"/>
+        <ListView x:Name="armorList" ItemsSource="{Binding Character.ArmorProficiencies}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry Text="{Binding}" Grid.Column="0"/>
+                            <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Weapons" VerticalOptions="Center" FontSize="Title"/>
+        <ListView ItemsSource="{Binding Character.WeaponProficiencies}" x:Name="weaponsList" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry Text="{Binding}" Grid.Column="0"></Entry>
+                            <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Other Items" VerticalOptions="Center" FontSize="Title"/>
+        <ListView ItemsSource="{Binding Character.ItemProficiencies}" x:Name="itemsList" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry Text="{Binding}" Grid.Column="0"></Entry>
+                            <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Languages" VerticalOptions="Center" FontSize="Title"/>
+        <ListView ItemsSource="{Binding Character.LanguageProficiencies}" x:Name="languagesList" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry Text="{Binding}" Grid.Column="0"></Entry>
+                            <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentView>

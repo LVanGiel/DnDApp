@@ -15,7 +15,9 @@ public partial class CharacterStatsView : ContentView
         _vm = vm;
         BindingContext = _vm;
 		InitializeComponent();
-	}
+        FailSaveProgress.Progress = (double)_vm.Character.DeathSaveFail / 3;
+        SuccesSaveProgress.Progress = (double)_vm.Character.DeathSaveSuccess / 3;
+    }
 
 	private async Task<string> EnableEdit(int stat)
 	{
@@ -92,6 +94,26 @@ public partial class CharacterStatsView : ContentView
     }
     private async void txtTemporaryHp_Completed(object sender, EventArgs e)
     {
+        await _stream.SaveCharacter(_vm.character);
+    }
+    private async void DeathSaveFailButton_Clicked(object sender, EventArgs e)
+    {
+        string addOrRemove = (sender as Button).Text;
+        double valueAdded = addOrRemove == "+" ? 1 : -1;
+        FailSaveProgress.Progress += valueAdded / 3;
+        if ((valueAdded == 1 && _vm.Character.DeathSaveFail >= 3) ||
+    (valueAdded == -1 && _vm.Character.DeathSaveFail <= 0)) { return; }
+        _vm.Character.DeathSaveFail += (int)valueAdded;
+        await _stream.SaveCharacter(_vm.character);
+    }
+    private async void DeathSaveSuccesButton_Clicked(object sender, EventArgs e)
+    {
+        string addOrRemove = (sender as Button).Text;
+        double valueAdded = addOrRemove == "+" ? 1 : -1;
+        SuccesSaveProgress.Progress += valueAdded / 3;
+        if((valueAdded == 1 && _vm.Character.DeathSaveSuccess >= 3)||
+            (valueAdded == -1 && _vm.Character.DeathSaveSuccess <= 0)) { return; }
+        _vm.Character.DeathSaveSuccess += (int)valueAdded;
         await _stream.SaveCharacter(_vm.character);
     }
     #endregion

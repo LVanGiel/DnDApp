@@ -8,7 +8,6 @@ namespace LVG.DND.Views;
 
 public partial class SpellEditPopup : Popup
 {
-    Streaming _stream = new Streaming();
     SpellPopupViewModel _vm;
     public SpellEditPopup(SpellPopupViewModel vm)
     {

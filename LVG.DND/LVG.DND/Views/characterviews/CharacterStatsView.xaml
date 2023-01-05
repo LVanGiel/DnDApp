@@ -63,6 +63,19 @@
             HorizontalOptions="Center" />
             <Entry Margin="10, 10,10,10" WidthRequest="50" BackgroundColor="White" x:Name="txtTempHp" Text="{Binding Character.TemporaryHealth}" TextChanged="txtTemporaryHp_Completed"></Entry>
         </HorizontalStackLayout>
+        <Label FontSize="Subtitle" Text="Death Saves"/>
+        <Label Text="Succes"/>
+        <HorizontalStackLayout>
+            <Button Clicked="DeathSaveSuccesButton_Clicked" Text="-" WidthRequest="40"/>
+            <ProgressBar x:Name="SuccesSaveProgress" WidthRequest="100"/>
+            <Button Clicked="DeathSaveSuccesButton_Clicked" Text="+" WidthRequest="40"/>
+        </HorizontalStackLayout>
+        <Label Text="Fail"/>
+        <HorizontalStackLayout>
+            <Button Clicked="DeathSaveFailButton_Clicked"  Text="-" WidthRequest="40"/>
+            <ProgressBar x:Name="FailSaveProgress" WidthRequest="100"/>
+            <Button Clicked="DeathSaveFailButton_Clicked" Text="+" WidthRequest="40"/>
+        </HorizontalStackLayout>
 
     </VerticalStackLayout>
 </ContentView>

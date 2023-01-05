@@ -36,9 +36,6 @@
     <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\characterviews\CharacterFeaturesAndTraitsView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Views\characterviews\CharacterInventoryView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -55,9 +52,6 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\characterviews\CharacterStorytellingView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\characterviews\CharacterViewMenu.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\characterviews\CharacterWeaponsView.xaml">
@@ -88,6 +82,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\general\ImageButtonView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ProficiencyEditPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\SpellEditPopup.xaml">

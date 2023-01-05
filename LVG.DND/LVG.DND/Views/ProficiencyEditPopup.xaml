@@ -1,0 +1,12 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="LVG.DND.Views.ProficiencyEditPopup">
+    <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+        <VerticalStackLayout>
+            <Entry Text="" x:Name="txtName"/>
+            <Picker x:Name="ProficiencyTypePicker" WidthRequest="200"/>
+            <Button Text="Save" Clicked="Button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</toolkit:Popup>

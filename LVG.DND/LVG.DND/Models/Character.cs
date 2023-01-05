@@ -6,6 +6,7 @@ namespace LVG.DND.Models
     public class Character : Base
     {
         public Dice HitpointDice { get; set; }
+        #region stats
         //Stats
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; set; }
@@ -15,6 +16,12 @@ namespace LVG.DND.Models
         public int Level { get; set; }
         public int ArmorPoints { get; set; }
 
+        //death saves
+        public int DeathSaveSuccess { get; set; }
+        public int DeathSaveFail { get; set; }
+        #endregion
+
+        #region skills and abilities
         //skills and abilities
         public int PassivePerception { get; set; }
 
@@ -136,9 +143,11 @@ namespace LVG.DND.Models
         public Skill Stealth { get; set; }
         public Skill Survival { get; set; }
         #endregion
+        #endregion
 
         public List<Weapon> Weapons { get; set; }
 
+        #region spells and cantrips
         //spells and cantrips
         public List<Spell> Spells { get; set; }
         public List<Spell> Cantrips { get; set; }
@@ -167,10 +176,21 @@ namespace LVG.DND.Models
         public int SpellSlotsLevel8Max { get; set; }
         public int SpellSlotsLevel9Max { get; set; }
         #endregion
+        #endregion
 
+        #region proficiencies
+
+        //abilities and skills
+        public List<string> WeaponProficiencies { get; set; }
+        public List<string> ArmorProficiencies { get; set; }
+        public List<string> ItemProficiencies { get; set; }
+        public List<string> LanguageProficiencies { get; set; }
+        #endregion
+
+        #region inventory
         public List<Armor> Armor { get; set; }
         public List<string> Items { get; set; }
-
+        #endregion
 
         public CharClass Class { get; set; }
         public Race Race { get; set; }
@@ -180,13 +200,6 @@ namespace LVG.DND.Models
         public int Age { get; set; }
         public int Weight { get; set; }
         public int Hieght { get; set; }
-
-
-
-        //abilities and skills
-        public List<Weapon> WeaponProficiencies { get; set; }
-        public List<Armor> ArmorProficiencies { get; set; }
-        public List<Item> ItemProficiencies { get; set; }
 
         //chosen personalities
         public string ChosenBackground { get; set; }
@@ -199,11 +212,11 @@ namespace LVG.DND.Models
         public int Xp { get; set; }
         public bool UsesXp { get; set; }
 
-        //death saves
-        public int Success { get; set; }
-        public int Fail { get; set; }
-
         public Character()
+        {
+            LoadProperties();
+        }
+        private void LoadProperties()
         {
             Id = Guid.NewGuid();
             Weapons = new List<Weapon>();
@@ -212,6 +225,12 @@ namespace LVG.DND.Models
             FillAbilityScores();
             Spells = new List<Spell>();
             Cantrips = new List<Spell>();
+            List<string> WeaponProficiencies = new List<string>();
+            List<string> ArmorProficiencies = new List<string>();
+            List<string> ItemProficiencies = new List<string>();
+            List<string> LanguageProficiencies = new List<string>();
+            DeathSaveSuccess = 0;
+            DeathSaveFail = 0;
         }
         private void FillDeathSaves()
         {

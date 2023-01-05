@@ -289,8 +289,8 @@ public partial class CharacterSpellsView : ContentView
 
     private async void DeleteSpell_Clicked(object sender, EventArgs e)
     {
-        var senderParent = (sender as Button).Parent as HorizontalStackLayout;
-        var neighbour = senderParent.Children[1] as VerticalStackLayout;
+        var senderParent = (sender as Button).Parent as Grid;
+        var neighbour = senderParent.Children[0] as VerticalStackLayout;
         var nameLabel = neighbour.Children[0] as Label;
         int level = int.Parse((neighbour.Children[1] as Label).Text);
         if (level == 0)
