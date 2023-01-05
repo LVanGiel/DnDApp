@@ -7,7 +7,30 @@
             <Button Text="Edit spellslots" Clicked="AddSpellSlotButton_Clicked"></Button>
             <Button Text="+ spell of cantrip" Clicked="AddSpellButton_Clicked"></Button>
         </HorizontalStackLayout>
-        
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Spellcasting Class" Grid.Column="0" Grid.Row="0"/>
+            <Label Text="Spellcasting Ability" Grid.Column="1" Grid.Row="0"/>
+            <Label Text="Spell Save DC" Grid.Column="2" Grid.Row="0"/>
+            <Label Text="Spell Attack Bonus" Grid.Column="3" Grid.Row="0"/>
+
+            <Entry x:Name="txtSpellClass" Text="{Binding Character.SpellClass}" Placeholder="Spellcasting Class" IsEnabled="False" Grid.Column="0" Grid.Row="1"/>
+            <Entry x:Name="txtSpellAbility"  Text="{Binding Character.CastingAbility}" Placeholder="Spellcasting Ability" IsEnabled="False" Grid.Column="1" Grid.Row="1"/>
+            <Entry x:Name="txtSpellSaveDC"  Text="{Binding Character.SpellSaveDC}" Placeholder="Spell Save DC" IsEnabled="False" Grid.Column="2" Grid.Row="1"/>
+            <Entry x:Name="txtSpellAttackBonus" Text="{Binding Character.SpellAttackBonus}" Placeholder="Spell Attack Bonus" IsEnabled="False" Grid.Column="3" Grid.Row="1"/>
+            <Button Text="Edit" Clicked="EditSpellClass_Clicked" Grid.Column="4" Grid.Row="1"/>
+        </Grid>
         
         <Label Text="Cantrips" VerticalOptions="Center" FontSize="Title"/>
         <ListView x:Name="CantripsList" ItemsSource="{Binding Character.Cantrips}">

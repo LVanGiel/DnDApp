@@ -290,7 +290,7 @@ public partial class CharacterSpellsView : ContentView
     private async void DeleteSpell_Clicked(object sender, EventArgs e)
     {
         var senderParent = (sender as Button).Parent as HorizontalStackLayout;
-        var neighbour = senderParent.Children[0] as VerticalStackLayout;
+        var neighbour = senderParent.Children[1] as VerticalStackLayout;
         var nameLabel = neighbour.Children[0] as Label;
         int level = int.Parse((neighbour.Children[1] as Label).Text);
         if (level == 0)
@@ -304,5 +304,23 @@ public partial class CharacterSpellsView : ContentView
         ReloadBindings();
         await _stream.SaveCharacter(_vm.Character);
         HideUnneededStacks();
+    }
+    private async void EditSpellClass_Clicked(object sender, EventArgs e)
+    {
+        txtSpellClass.IsEnabled = !txtSpellClass.IsEnabled;
+        txtSpellAbility.IsEnabled = !txtSpellAbility.IsEnabled;
+        txtSpellSaveDC.IsEnabled = !txtSpellSaveDC.IsEnabled;
+        txtSpellAttackBonus.IsEnabled = !txtSpellAttackBonus.IsEnabled;
+        if ((sender as Button).Text == "Edit")
+        {
+            (sender as Button).Text = "Save";
+        }
+        else
+        {
+            (sender as Button).Text = "Edit";
+            await _stream.SaveCharacter(_vm.Character);
+        }
+
+        
     }
 }
