@@ -9,6 +9,8 @@ namespace LVG.DND.Models
 {
     public class Item : Base
     {
+        public string Name { get; set; }
+        public string Value { get; set; }
         public Item()
         {
             Id = Guid.NewGuid();

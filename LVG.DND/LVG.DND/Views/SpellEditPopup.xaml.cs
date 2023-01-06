@@ -18,6 +18,10 @@ public partial class SpellEditPopup : Popup
 
     private void SpellButton_Clicked(object sender, EventArgs e)
     {
+        if (_vm.Spell.Name == "" || _vm.Spell.Name == null)
+        {
+            return;
+        }
         this.Close(_vm.Spell);
     }
 }

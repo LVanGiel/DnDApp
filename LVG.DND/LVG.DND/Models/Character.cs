@@ -193,8 +193,8 @@ namespace LVG.DND.Models
         #endregion
 
         #region inventory
-        public string MoneyPouch { get; set; }
-        public List<string> Items { get; set; }
+        public MoneyBag MoneyPouch { get; set; }
+        public List<Item> Items { get; set; }
         #endregion
 
         public List<Trait> Traits { get; set; }
@@ -239,6 +239,17 @@ namespace LVG.DND.Models
             DeathSaveSuccess = 0;
             DeathSaveFail = 0;
             Traits = new List<Trait>();
+            Items = new List<Item>();
+            FillMoneyPouch();
+        }
+        private void FillMoneyPouch()
+        {
+            MoneyPouch = new MoneyBag();
+            MoneyPouch.Copper = 0;
+            MoneyPouch.Silver = 0;
+            MoneyPouch.Electrum = 0;
+            MoneyPouch.Gold = 0;
+            MoneyPouch.Platinum = 0;
         }
         private void FillDeathSaves()
         {

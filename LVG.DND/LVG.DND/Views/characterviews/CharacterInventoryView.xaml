@@ -3,20 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Views.characterviews.CharacterInventoryView">
     <VerticalStackLayout>
-        <Button Text="+" Clicked="AddButton_Clicked" WidthRequest="40" HorizontalOptions="End"/>
-        <CollectionView x:Name="traitList" ItemsSource="{Binding Character.Items}" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Copper" Grid.Column="0" Grid.Row="0"/>
+            <Entry Text="{Binding Character.MoneyPouch.Copper}" TextChanged="Entry_TextChanged" Grid.Column="0" Grid.Row="1"/>
+
+            <Label Text="Silver" Grid.Column="1" Grid.Row="0"/>
+            <Entry Text="{Binding Character.MoneyPouch.Silver}" TextChanged="Entry_TextChanged" Grid.Column="1" Grid.Row="1"/>
+
+            <Label Text="Electrum" Grid.Column="2" Grid.Row="0"/>
+            <Entry Text="{Binding Character.MoneyPouch.Electrum}" TextChanged="Entry_TextChanged" Grid.Column="2" Grid.Row="1"/>
+
+            <Label Text="Gold" Grid.Column="3" Grid.Row="0"/>
+            <Entry Text="{Binding Character.MoneyPouch.Gold}" TextChanged="Entry_TextChanged" Grid.Column="3" Grid.Row="1"/>
+
+            <Label Text="Platinum" Grid.Column="4" Grid.Row="0"/>
+            <Entry Text="{Binding Character.MoneyPouch.Platinum}" TextChanged="Entry_TextChanged" Grid.Column="4" Grid.Row="1"/>
+            
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Name" Grid.Row="0" Grid.Column="0" IsEnabled="False" TextColor="Black" />
+            <Label TextColor="Black" Grid.Row="0" Grid.Column="1" Text="{Binding value}" IsEnabled="False"/>
+
+            <Entry x:Name="txtNameAdd" Text="" Grid.Row="1" Grid.Column="0"/>
+            <Entry x:Name="txtValueAdd" Grid.Row="1" Grid.Column="1" Text=""/>
+            <Button Text="+" Clicked="AddButton_Clicked" WidthRequest="40" HorizontalOptions="End" Grid.Row="1" Grid.Column="2"/>
+        </Grid>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding Name}" Grid.Column="0" IsEnabled="False" TextColor="Black" />
+            <Label TextColor="Black" Grid.Column="1" Text="{Binding value}" IsEnabled="False"/>
+        </Grid>
+        <CollectionView x:Name="itemList" ItemsSource="{Binding Character.Items}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
                                 <ColumnDefinition Width="40"/>
                             </Grid.ColumnDefinitions>
                             <Entry Text="{Binding Name}" Grid.Column="0" IsEnabled="False" TextColor="Black" />
-                            <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="1"/>
+                            <Entry TextColor="Black" Text="{Binding value}" IsEnabled="False" Grid.Column="1"/>
+                            <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="2"/>
                         </Grid>
-                        <Editor TextColor="Black" Text="{Binding Description}" IsEnabled="False"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
