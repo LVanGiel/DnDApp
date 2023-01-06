@@ -1,10 +1,12 @@
 ﻿using LVG.DND.AppConstants;
 using LVG.DND.Models.basemodel;
+using LVG.DND.Views.characterviews;
 
 namespace LVG.DND.Models
 {
     public class Character : Base
     {
+        public string Name { get; set; }
         public Dice HitpointDice { get; set; }
         #region stats
         //Stats
@@ -145,7 +147,10 @@ namespace LVG.DND.Models
         #endregion
         #endregion
 
+        #region Armor and weapons
         public List<Weapon> Weapons { get; set; }
+        public List<Armor> Armor { get; set; }
+        #endregion
 
         #region spells and cantrips
         //spells and cantrips
@@ -188,9 +193,11 @@ namespace LVG.DND.Models
         #endregion
 
         #region inventory
-        public List<Armor> Armor { get; set; }
+        public string MoneyPouch { get; set; }
         public List<string> Items { get; set; }
         #endregion
+
+        public List<Trait> Traits { get; set; }
 
         public CharClass Class { get; set; }
         public Race Race { get; set; }
@@ -216,7 +223,7 @@ namespace LVG.DND.Models
         {
             LoadProperties();
         }
-        private void LoadProperties()
+        public void LoadProperties()
         {
             Id = Guid.NewGuid();
             Weapons = new List<Weapon>();
@@ -231,6 +238,7 @@ namespace LVG.DND.Models
             List<string> LanguageProficiencies = new List<string>();
             DeathSaveSuccess = 0;
             DeathSaveFail = 0;
+            Traits = new List<Trait>();
         }
         private void FillDeathSaves()
         {

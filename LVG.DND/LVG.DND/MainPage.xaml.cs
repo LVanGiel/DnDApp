@@ -29,7 +29,9 @@ public partial class MainPage : ContentPage
     }
 	private async void OnResetCharacterClicked(object sender, EventArgs e)
 	{
-		await streaming.SaveCharacter(new Character());
+		var character = new Character();
+		character.Name = CharacterName.Text;
+		await streaming.SaveCharacter(character);
 	}
 }
 

@@ -2,7 +2,6 @@ using CommunityToolkit.Maui.Views;
 using LVG.DND.Models;
 using LVG.DND.streaming;
 using LVG.DND.ViewModel.characterViewModels;
-using System.Reflection.Metadata.Ecma335;
 
 namespace LVG.DND.Views.characterviews;
 

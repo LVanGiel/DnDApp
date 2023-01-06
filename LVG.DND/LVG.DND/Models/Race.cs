@@ -9,7 +9,7 @@ namespace LVG.DND.Models
         public int MaxAge { get; set; }
         public int MaxHeight { get; set; }
         public int BaseSpeed { get; set; }
-        public List<Traits> Traits { get; set; }
+        public List<Trait> Traits { get; set; }
         public List<Language> Languages { get; set; }
         public List<Spell> Cantrips { get; set; }
         public List<Weapon> WeaponProficiencies { get; set; }

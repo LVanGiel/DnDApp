@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    public class Traits : Base
+    public class Trait : Base
     {
-        public Traits()
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public Trait()
         {
             Id = Guid.NewGuid();
         }

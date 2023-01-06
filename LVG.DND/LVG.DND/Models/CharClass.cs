@@ -14,7 +14,7 @@ namespace LVG.DND.Models
         public List<AbilityScore> SavingThrowProficiencies { get; set; }
         public List<Skill> SkillProficiencies { get; set; }
         public List<Item> Equipment { get; set; }
-        public List<Traits> Traits { get; set; }
+        public List<Trait> Traits { get; set; }
         public CharClass()
         {
             Id = Guid.NewGuid();

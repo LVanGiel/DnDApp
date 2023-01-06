@@ -25,6 +25,7 @@
                 Text="Character Sheet"
                 Clicked="OnTestClicked"
                 HorizontalOptions="Center" />
+            <Entry Placeholder="New Character Name" x:Name="CharacterName"/>
             <Button
                 x:Name="ResetCharacter"
                 Text="Reset Character"

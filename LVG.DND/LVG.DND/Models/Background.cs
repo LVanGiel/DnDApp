@@ -21,6 +21,6 @@ namespace LVG.DND.Models
         public List<Item> Equipment { get; set; }
         public List<Item> ItemProficiencies { get; set; }
         public MoneyBag Money { get; set; }
-        public List<Traits> Traits { get; set; }
+        public List<Trait> Traits { get; set; }
     }
 }
