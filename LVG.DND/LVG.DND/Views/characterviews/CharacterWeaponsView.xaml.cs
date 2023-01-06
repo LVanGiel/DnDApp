@@ -6,9 +6,9 @@ namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterWeaponsView : ContentView
 {
-    CharacterWeaponsViewModel _vm;
+    BaseCharacterViewModel _vm;
     Streaming _stream = new Streaming();
-    public CharacterWeaponsView(CharacterWeaponsViewModel vm)
+    public CharacterWeaponsView(BaseCharacterViewModel vm)
 	{
         _vm = vm;
         BindingContext = _vm;

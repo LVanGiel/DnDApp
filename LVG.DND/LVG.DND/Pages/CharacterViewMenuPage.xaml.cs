@@ -9,10 +9,18 @@ namespace LVG.DND.Pages;
 public partial class CharacterViewMenuPage : ContentPage
 {
     List<ContentView> pages = new List<ContentView>();
+    Character character;
     public CharacterViewMenuPage()
 	{
-		InitializeComponent();
+        LoadCharacter();
+        BindingContext = character;
+        InitializeComponent();
         FillCharViewStack();
+    }
+    private async void LoadCharacter()
+    {
+        character = new Character();
+        character = await character.GetActiveCharacter();
     }
     private void AddImageButton(string pageName)
     {

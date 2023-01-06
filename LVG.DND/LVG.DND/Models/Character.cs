@@ -1,5 +1,6 @@
 ﻿using LVG.DND.AppConstants;
 using LVG.DND.Models.basemodel;
+using LVG.DND.streaming;
 using LVG.DND.Views.characterviews;
 
 namespace LVG.DND.Models
@@ -223,7 +224,12 @@ namespace LVG.DND.Models
         {
             LoadProperties();
         }
-        public void LoadProperties()
+        public async Task<Character> GetActiveCharacter()
+        {
+            Streaming _stream = new Streaming();
+            return await _stream.LoadCharacter();
+        }
+        private void LoadProperties()
         {
             Id = Guid.NewGuid();
             Weapons = new List<Weapon>();

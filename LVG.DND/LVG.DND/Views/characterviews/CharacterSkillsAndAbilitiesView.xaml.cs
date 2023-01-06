@@ -8,11 +8,11 @@ namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterSkillsAndAbilitiesView : ContentView
 {
-    CharacterSkillsAndAbilityscoresViewModel _vm;
+    BaseCharacterViewModel _vm;
     Streaming stream = new Streaming();
     bool loaded = false;
 
-    public CharacterSkillsAndAbilitiesView(CharacterSkillsAndAbilityscoresViewModel vm)
+    public CharacterSkillsAndAbilitiesView(BaseCharacterViewModel vm)
 	{
         _vm = vm;
         BindingContext= _vm;

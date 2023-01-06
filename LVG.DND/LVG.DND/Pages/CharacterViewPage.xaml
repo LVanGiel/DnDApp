@@ -8,7 +8,7 @@
              xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general">
     <Shell.TitleView>
         <Grid>
-            <Label Text="characterview" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Text="{Binding Name}" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </Shell.TitleView>
     <ScrollView VerticalOptions="FillAndExpand" x:Name="CharacterViewPageScroll" VerticalScrollBarVisibility="Always">

@@ -1,5 +1,5 @@
 using LVG.DND.AppConstants;
-using LVG.DND.ViewModel;
+using LVG.DND.Models;
 
 namespace LVG.DND.Pages;
 
@@ -8,6 +8,7 @@ public partial class CharacterViewPage : ContentPage
 {
     CharacterViewConstants _constants = new CharacterViewConstants();
     string page = "";
+    Character character;
     public string Page { get { return page; } set
         {
             page = Uri.UnescapeDataString(value ?? string.Empty);
@@ -16,9 +17,17 @@ public partial class CharacterViewPage : ContentPage
         } }
     public ContentView SelectedPage { get; set; }
 
+    public int MyProperty { get; set; }
     public CharacterViewPage()
 	{
+        LoadCharacter();
+        BindingContext = character;
         InitializeComponent();
+    }
+    private async void LoadCharacter()
+    {
+        character = new Character();
+        character = await character.GetActiveCharacter();
     }
     private async void AddToStack()
     {

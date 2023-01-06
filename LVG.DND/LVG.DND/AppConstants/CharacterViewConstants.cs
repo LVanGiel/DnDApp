@@ -13,7 +13,6 @@ namespace LVG.DND.AppConstants
     internal class CharacterViewConstants
     {
         internal Character character = new Character();
-        internal Streaming _stream = new Streaming();
 
         internal const string STATS_PAGE = "Stats";
         internal const string SKILLS_ABILITYSCORES_PAGE = "Skills and Abilities";
@@ -28,27 +27,27 @@ namespace LVG.DND.AppConstants
 
         internal async Task<ContentView> GetCorrectPage(string requestString)
         {
-            character = await _stream.LoadCharacter();
+            character = await character.GetActiveCharacter();
             switch (requestString)
             {
                 case STATS_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel(character));
+                    return new CharacterStatsView(new BaseCharacterViewModel(character));
                 case SKILLS_ABILITYSCORES_PAGE:
                     return new CharacterSkillsAndAbilitiesView(new CharacterSkillsAndAbilityscoresViewModel(character));
                 case FEATURES_AND_TRAITS_PAGE:
-                    return new FeaturesAndTraitsView(new FeaturesAndTraitsViewModel(character));
+                    return new FeaturesAndTraitsView(new BaseCharacterViewModel(character));
                 case WEAPONS_PAGE:
-                    return new CharacterWeaponsView(new CharacterWeaponsViewModel(character));
+                    return new CharacterWeaponsView(new BaseCharacterViewModel(character));
                 case SPELLS_PAGE:
-                    return new CharacterSpellsView(new CharacterSpellsViewModel(character));
+                    return new CharacterSpellsView(new BaseCharacterViewModel(character));
                 case INVENTORY_PAGE:
-                    return new CharacterInventoryView(new CharacterInventoryViewModel(character));
+                    return new CharacterInventoryView(new BaseCharacterViewModel(character));
                 case PROFICIENCIES_PAGE:
-                    return new CharacterProficienciesView(new CharacterProficienciesViewModel(character));
+                    return new CharacterProficienciesView(new BaseCharacterViewModel(character));
                 case STORY_TELLING_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel(character));
+                    return new CharacterStatsView(new BaseCharacterViewModel(character));
                 case SAVES_PAGE:
-                    return new CharacterStatsView(new CharacterStatsViewModel(character));
+                    return new CharacterStatsView(new BaseCharacterViewModel(character));
                 default:
                     return null;
             }

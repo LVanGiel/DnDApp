@@ -7,9 +7,9 @@ namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterProficienciesView : ContentView
 {
-    CharacterProficienciesViewModel _vm;
+    BaseCharacterViewModel _vm;
     Streaming _stream = new Streaming();
-    public CharacterProficienciesView(CharacterProficienciesViewModel vm)
+    public CharacterProficienciesView(BaseCharacterViewModel vm)
     {
         _vm = vm;
         BindingContext = _vm;

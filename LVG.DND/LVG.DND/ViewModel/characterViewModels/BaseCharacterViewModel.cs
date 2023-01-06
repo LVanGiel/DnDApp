@@ -4,11 +4,11 @@ using LVG.DND.streaming;
 
 namespace LVG.DND.ViewModel.characterViewModels
 {
-    public partial class CharacterInventoryViewModel : ObservableObject
+    public partial class BaseCharacterViewModel : ObservableObject
     {
         [ObservableProperty]
         public Character character;
-        public CharacterInventoryViewModel(Character _character)
+        public BaseCharacterViewModel(Character _character)
         {
             Character = _character;
         }

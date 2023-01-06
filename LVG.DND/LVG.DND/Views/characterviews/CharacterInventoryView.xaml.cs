@@ -7,9 +7,9 @@ namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterInventoryView : ContentView
 {
-    CharacterInventoryViewModel _vm;
+    BaseCharacterViewModel _vm;
     Streaming _stream = new Streaming();
-    public CharacterInventoryView(CharacterInventoryViewModel vm)
+    public CharacterInventoryView(BaseCharacterViewModel vm)
 	{
         _vm = vm;
         BindingContext = _vm;

@@ -7,9 +7,9 @@ namespace LVG.DND.Views.characterviews;
 
 public partial class FeaturesAndTraitsView : ContentView
 {
-    FeaturesAndTraitsViewModel _vm;
+    BaseCharacterViewModel _vm;
     Streaming _stream = new Streaming();
-    public FeaturesAndTraitsView(FeaturesAndTraitsViewModel vm)
+    public FeaturesAndTraitsView(BaseCharacterViewModel vm)
     {
         _vm = vm;
         BindingContext = _vm;

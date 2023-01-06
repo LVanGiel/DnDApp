@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.CharacterViewMenuPage"
              Title="CharacterViewMenuPage" BackgroundColor="LightGray">
+    <Shell.TitleView>
+        <Grid>
+            <Label Text="{Binding Name}" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Shell.TitleView>
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <VerticalStackLayout x:Name="CharViewMenuStack">
         </VerticalStackLayout>

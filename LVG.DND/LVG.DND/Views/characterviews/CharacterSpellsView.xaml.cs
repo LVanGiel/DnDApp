@@ -10,7 +10,7 @@ namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterSpellsView : ContentView
 {
-    CharacterSpellsViewModel _vm;
+    BaseCharacterViewModel _vm;
     Streaming _stream = new Streaming();
 
     List<Spell> spells1 = new List<Spell>();
@@ -22,7 +22,7 @@ public partial class CharacterSpellsView : ContentView
     List<Spell> spells7 = new List<Spell>();
     List<Spell> spells8 = new List<Spell>();
     List<Spell> spells9 = new List<Spell>();
-    public CharacterSpellsView(CharacterSpellsViewModel vm)
+    public CharacterSpellsView(BaseCharacterViewModel vm)
     {
         _vm = vm;
         BindingContext = _vm;
