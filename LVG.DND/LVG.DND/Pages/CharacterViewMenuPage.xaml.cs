@@ -12,15 +12,16 @@ public partial class CharacterViewMenuPage : ContentPage
     Character character;
     public CharacterViewMenuPage()
 	{
-        LoadCharacter();
-        BindingContext = character;
         InitializeComponent();
+        LoadCharacterName();
         FillCharViewStack();
+        this.Title = character.Name;
     }
-    private async void LoadCharacter()
+    private async void LoadCharacterName()
     {
         character = new Character();
         character = await character.GetActiveCharacter();
+        //PageTitle.Text = character.Name;
     }
     private void AddImageButton(string pageName)
     {

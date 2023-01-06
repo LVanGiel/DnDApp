@@ -33,7 +33,7 @@ namespace LVG.DND.AppConstants
                 case STATS_PAGE:
                     return new CharacterStatsView(new BaseCharacterViewModel(character));
                 case SKILLS_ABILITYSCORES_PAGE:
-                    return new CharacterSkillsAndAbilitiesView(new CharacterSkillsAndAbilityscoresViewModel(character));
+                    return new CharacterSkillsAndAbilitiesView(new BaseCharacterViewModel(character));
                 case FEATURES_AND_TRAITS_PAGE:
                     return new FeaturesAndTraitsView(new BaseCharacterViewModel(character));
                 case WEAPONS_PAGE:

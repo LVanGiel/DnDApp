@@ -5,12 +5,13 @@
              Title="CharacterViewPage"
              xmlns:viewmodel="clr-namespace:LVG.DND.ViewModel"
              xmlns:views="clr-namespace:LVG.DND.Views"
-             xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general">
-    <Shell.TitleView>
-        <Grid>
-            <Label Text="{Binding Name}" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" />
-        </Grid>
-    </Shell.TitleView>
+             xmlns:viewsgeneral="clr-namespace:LVG.DND.Views.general"
+             x:Name="Parent">
+    <!--<Shell.TitleView>
+        <VerticalStackLayout>
+            <Label x:Name="PageTitle" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </Shell.TitleView>-->
     <ScrollView VerticalOptions="FillAndExpand" x:Name="CharacterViewPageScroll" VerticalScrollBarVisibility="Always">
         <VerticalStackLayout x:Name="CharViewStack"></VerticalStackLayout>
     </ScrollView>

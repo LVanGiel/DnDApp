@@ -1,5 +1,7 @@
 using LVG.DND.AppConstants;
 using LVG.DND.Models;
+using LVG.DND.ViewModel.characterViewModels;
+using System.Xml.Linq;
 
 namespace LVG.DND.Pages;
 
@@ -20,11 +22,11 @@ public partial class CharacterViewPage : ContentPage
     public int MyProperty { get; set; }
     public CharacterViewPage()
 	{
-        LoadCharacter();
-        BindingContext = character;
         InitializeComponent();
+        LoadCharacterName();
+        this.Title = character.Name;
     }
-    private async void LoadCharacter()
+    private async void LoadCharacterName()
     {
         character = new Character();
         character = await character.GetActiveCharacter();
