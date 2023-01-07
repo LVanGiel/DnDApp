@@ -3,11 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.CharacterViewMenuPage"
              BackgroundColor="LightGray">
-    <Shell.BackButtonBehavior>
-        <BackButtonBehavior>
-            <BackButtonBehavior.TextOverride Text="test"/>
-        </BackButtonBehavior>
-    </Shell.BackButtonBehavior>
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <VerticalStackLayout x:Name="CharViewMenuStack">
         </VerticalStackLayout>

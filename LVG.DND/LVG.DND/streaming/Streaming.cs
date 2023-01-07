@@ -10,58 +10,84 @@ namespace LVG.DND.streaming
 {
     internal class Streaming
     {
+        const string activeCharacterString = "ActiveCharacter.txt";
         string basepath = FileSystem.Current.AppDataDirectory;
         List<Race> races = new List<Race>();
         public Streaming()
         {
-            var path = Path.Combine(basepath, @".\data.txt");
+            StreamData();
+            CreateActiveCharacterFile();
+        }
+        private void CreateActiveCharacterFile()
+        {
+            var path = Path.Combine(basepath, activeCharacterString);
+            CreateFileCheck(path);
+        }
+        private void StreamData()
+        {
+            var path = Path.Combine(basepath, @"Data\Races.txt");
+            var pathString = Path.Combine(basepath, "Data\\");
             AddRaces();
 
+            System.IO.Directory.CreateDirectory(pathString);
+
+            CreateFileCheck(path);
+            File.WriteAllText(path, JsonConvert.SerializeObject(races));
+        }
+
+        private void CreateFileCheck(string path)
+        {
             if (!File.Exists(path))
             {
-                File.Create(path);
-            }
+                using (File.Create(path))
+                {
 
-            File.WriteAllText(path, JsonConvert.SerializeObject(races));
+                }
+            }
+        }
+
+        public async Task<Character> ChangeCharacter(Character character)
+        {
+            if (character.Name == null || character.Name == "")
+            {
+                return null;
+            }
+            var txtName = character.Name.Replace(" ", "") + ".txt";
+            var pathString = Path.Combine(basepath, "Characters\\");
+            var path = Path.Combine(pathString, txtName);
+            var activeCharacterPath = Path.Combine(basepath, activeCharacterString);
+
+            System.IO.Directory.CreateDirectory(pathString);
+            CreateFileCheck(path);
+            if (File.Exists(path)) { return null; }
+
+            await File.WriteAllTextAsync(activeCharacterPath, path);
+            await File.WriteAllTextAsync(path, JsonConvert.SerializeObject(character));
+
+            return character;
         }
 
         public async Task<Character> SaveCharacter(Character character)
         {
-            var path = Path.Combine(basepath, @".\Character.txt");
+            var txtName = character.Name.Replace(" ", "") + ".txt";
+            var pathString = Path.Combine(basepath, "Characters\\");
+            var path = Path.Combine(pathString, txtName);
+            
+            System.IO.Directory.CreateDirectory(pathString);
+            CreateFileCheck(path);
 
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-            }
-
-            bool whileBool = false;
-            while (!whileBool)
-            {
-                try
-                {
-                    await File.WriteAllTextAsync(path, JsonConvert.SerializeObject(character));
-                    whileBool = true;
-                }
-                catch (Exception)
-                {
-                    continue;
-                }
+            await File.WriteAllTextAsync(path, JsonConvert.SerializeObject(character));
                
-            }
             return character;
         }
         public async Task<Character> LoadCharacter()
         {
-            var path = Path.Combine(basepath, @".\Character.txt");
+            var activeCharacterPath = Path.Combine(basepath, activeCharacterString);
+            string path = await File.ReadAllTextAsync(activeCharacterPath);
 
-            if (!File.Exists(path))
-            {
-                return new Character();
-            }
             string characterString = await File.ReadAllTextAsync(path);
 
-            Character character = new Character();
-            character = JsonConvert.DeserializeObject<Character>(characterString);
+            Character character  = JsonConvert.DeserializeObject<Character>(characterString);
 
             if (character != null)
             {
