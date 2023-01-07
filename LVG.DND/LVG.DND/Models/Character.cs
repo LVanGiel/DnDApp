@@ -9,6 +9,7 @@ namespace LVG.DND.Models
     {
         public string Name { get; set; }
         public Dice HitpointDice { get; set; }
+
         #region stats
         //Stats
         public int MaxHealth { get; set; }
@@ -22,6 +23,10 @@ namespace LVG.DND.Models
         //death saves
         public int DeathSaveSuccess { get; set; }
         public int DeathSaveFail { get; set; }
+
+        //other points
+        public int Xp { get; set; }
+        public bool UsesXp { get; set; }
         #endregion
 
         #region skills and abilities
@@ -200,6 +205,7 @@ namespace LVG.DND.Models
 
         public List<Trait> Traits { get; set; }
 
+        #region StoryTelling
         public CharClass Class { get; set; }
         public Race Race { get; set; }
         public Background Background { get; set; }
@@ -207,7 +213,7 @@ namespace LVG.DND.Models
         //roleplay stats
         public int Age { get; set; }
         public int Weight { get; set; }
-        public int Hieght { get; set; }
+        public int Height { get; set; }
 
         //chosen personalities
         public string ChosenBackground { get; set; }
@@ -216,9 +222,8 @@ namespace LVG.DND.Models
         public string ChosenBond { get; set; }
         public string ChosenFlaw { get; set; }
 
-        //other points
-        public int Xp { get; set; }
-        public bool UsesXp { get; set; }
+        #endregion
+
 
         public Character()
         {

@@ -58,11 +58,18 @@ namespace LVG.DND.streaming
             var activeCharacterPath = Path.Combine(basepath, activeCharacterString);
 
             System.IO.Directory.CreateDirectory(pathString);
-            CreateFileCheck(path);
-            if (File.Exists(path)) { return null; }
+            if (File.Exists(path)) 
+            {
+                var characterstring = await File.ReadAllTextAsync(path);
+                character = JsonConvert.DeserializeObject<Character>(characterstring);
+            }
+            else
+            {
+                CreateFileCheck(path);
+                await File.WriteAllTextAsync(path, JsonConvert.SerializeObject(character));
+            }
 
             await File.WriteAllTextAsync(activeCharacterPath, path);
-            await File.WriteAllTextAsync(path, JsonConvert.SerializeObject(character));
 
             return character;
         }

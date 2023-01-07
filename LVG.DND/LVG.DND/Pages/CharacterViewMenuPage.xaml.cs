@@ -16,6 +16,31 @@ public partial class CharacterViewMenuPage : ContentPage
         LoadCharacterName();
         FillCharViewStack();
         this.Title = character.Name;
+
+        this.Loaded += OnLoaded;
+    }
+    private void OnLoaded(object sender, EventArgs e)
+    {
+        var flyoutItem = new FlyoutItem()
+        {
+            Title = "Test",
+            Route = "Test",
+            FlyoutDisplayOptions = FlyoutDisplayOptions.AsMultipleItems,
+            Items =
+            {
+                new ShellContent
+                {
+                    Title="Test1",
+                    ContentTemplate = new DataTemplate(typeof(DndDice))
+                },
+                new ShellContent
+                {
+                    Title="Test2",
+                    ContentTemplate = new DataTemplate(typeof(DndDice))
+                }
+            }
+        };
+        AppShell.Current.Items.Add(flyoutItem);
     }
     private async void LoadCharacterName()
     {
