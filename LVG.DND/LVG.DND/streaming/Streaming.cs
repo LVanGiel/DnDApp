@@ -18,6 +18,22 @@ namespace LVG.DND.streaming
             StreamData();
             CreateActiveCharacterFile();
         }
+        public async Task<List<Character>> GetAllCharacters()
+        {
+            List<Character> characters = new List<Character>();
+            var pathString = Path.Combine(basepath, "Characters\\");
+           // var path = Path.Combine(pathString, txtName);
+
+            var charactersPaths = System.IO.Directory.GetFiles(pathString);
+            foreach (var path in charactersPaths)
+            {
+                Character character = new Character();
+                string characterString = await File.ReadAllTextAsync(path);
+                character = JsonConvert.DeserializeObject<Character>(characterString);
+                characters.Add(character);
+            }
+            return characters;
+        }
         private void CreateActiveCharacterFile()
         {
             var path = Path.Combine(basepath, activeCharacterString);

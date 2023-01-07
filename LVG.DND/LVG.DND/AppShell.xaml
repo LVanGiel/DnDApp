@@ -5,6 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LVG.DND"
     Shell.FlyoutBehavior="Flyout">
+    <Shell.FlyoutContent>
+        <HorizontalStackLayout>
+            <Label Text="Menu item"/>
+        </HorizontalStackLayout>
+    </Shell.FlyoutContent>
+    
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"

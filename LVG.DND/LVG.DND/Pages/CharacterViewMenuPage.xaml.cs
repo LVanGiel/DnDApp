@@ -10,6 +10,7 @@ public partial class CharacterViewMenuPage : ContentPage
 {
     List<ContentView> pages = new List<ContentView>();
     Character character;
+    MenuConstants _menuConstants = new MenuConstants();
     public CharacterViewMenuPage()
 	{
         InitializeComponent();
@@ -18,29 +19,17 @@ public partial class CharacterViewMenuPage : ContentPage
         this.Title = character.Name;
 
         this.Loaded += OnLoaded;
+        this.Unloaded+= OnUnloaded;
     }
+
+    private void OnUnloaded(object sender, EventArgs e)
+    {
+            AppShell.Current.Items.Remove(_menuConstants.flyoutItem);
+    }
+
     private void OnLoaded(object sender, EventArgs e)
     {
-        var flyoutItem = new FlyoutItem()
-        {
-            Title = "Test",
-            Route = "Test",
-            FlyoutDisplayOptions = FlyoutDisplayOptions.AsMultipleItems,
-            Items =
-            {
-                new ShellContent
-                {
-                    Title="Test1",
-                    ContentTemplate = new DataTemplate(typeof(DndDice))
-                },
-                new ShellContent
-                {
-                    Title="Test2",
-                    ContentTemplate = new DataTemplate(typeof(DndDice))
-                }
-            }
-        };
-        AppShell.Current.Items.Add(flyoutItem);
+        AppShell.Current.Items.Add(_menuConstants.flyoutItem);
     }
     private async void LoadCharacterName()
     {

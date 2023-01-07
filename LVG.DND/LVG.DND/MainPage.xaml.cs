@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+using LVG.DND.AppConstants;
 using LVG.DND.Models;
 using LVG.DND.Pages;
 using LVG.DND.streaming;
@@ -10,12 +11,12 @@ namespace LVG.DND;
 public partial class MainPage : ContentPage
 {
 	Streaming streaming = new Streaming();
+    MenuConstants _menuConstants = new MenuConstants();
 
-	public MainPage()
+    public MainPage()
 	{
 		InitializeComponent();
-	}
-
+    }
 	private async void OnRollClicked(object sender, EventArgs e)
 	{
 		await Shell.Current.GoToAsync(nameof(DndDice));
