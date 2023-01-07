@@ -1,4 +1,7 @@
-﻿using LVG.DND.Pages;
+﻿using LVG.DND.Models;
+using LVG.DND.Pages;
+using LVG.DND.ViewModel.characterViewModels;
+using LVG.DND.Views;
 
 namespace LVG.DND;
 

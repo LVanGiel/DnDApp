@@ -3,6 +3,7 @@ using LVG.DND.AppConstants;
 using LVG.DND.Models;
 using LVG.DND.Pages;
 using LVG.DND.streaming;
+using LVG.DND.ViewModel.characterViewModels;
 using LVG.DND.Views;
 using LVG.DND.Views.characterviews;
 
@@ -34,6 +35,8 @@ public partial class MainPage : ContentPage
 		var character = new Character();
 		character.Name = CharacterName.Text;
 		await streaming.ChangeCharacter(character);
-	}
+        titleBar.UpdateCharacter(character);
+
+    }
 }
 

@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.testpage"
-             Title="testpage">
+             Title="testpage"             
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
     <VerticalStackLayout x:Name="pageStack">
-
     </VerticalStackLayout>
 </ContentPage>

@@ -2,8 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.CharacterCollectionPage"
-             Title="CharacterCollectionPage">
+             Title="CharacterCollectionPage" 
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
     <VerticalStackLayout>
+        <views:TitleBar  Margin="0,0,0,20"/>
         <CarouselView  ItemsSource="{Binding Characters}"
                       Position="{Binding Position}"
                        Loop="False"

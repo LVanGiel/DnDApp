@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.CharacterViewMenuPage"
-             BackgroundColor="LightGray">
+             BackgroundColor="LightGray"
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <VerticalStackLayout x:Name="CharViewMenuStack">
+            <views:TitleBar  Margin="0,0,0,20"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

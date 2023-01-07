@@ -5,6 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LVG.DND"
     Shell.FlyoutBehavior="Flyout">
+    <NavigationPage.TitleView>
+        <VerticalStackLayout x:Name="TitleStack">
+            <Label Text="test"/>
+
+        </VerticalStackLayout>
+    </NavigationPage.TitleView>
     <Shell.FlyoutContent>
         <HorizontalStackLayout>
             <Label Text="Menu item"/>
