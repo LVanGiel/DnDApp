@@ -214,6 +214,9 @@ namespace LVG.DND.Models
         public int Age { get; set; }
         public int Weight { get; set; }
         public int Height { get; set; }
+        public string Hair { get; set; }
+        public string Skin { get; set; }
+        public string Eyes { get; set; }
 
         //chosen personalities
         public string ChosenBackground { get; set; }
@@ -221,6 +224,8 @@ namespace LVG.DND.Models
         public string ChosenIdeal { get; set; }
         public string ChosenBond { get; set; }
         public string ChosenFlaw { get; set; }
+
+        public string Alignment { get; set; }
 
         #endregion
 
