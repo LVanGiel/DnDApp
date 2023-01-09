@@ -163,7 +163,7 @@ public partial class CharacterSpellsView : ContentView
             _vm.Character.Spells.Add(popupResult);
         }
         ReloadBindings();
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         HideUnneededStacks();
     }
 
@@ -204,7 +204,7 @@ public partial class CharacterSpellsView : ContentView
         }
         AddSpellSlots();
 
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
 
     private async void UnuseSpellSlot_Clicked(object sender, EventArgs e)
@@ -243,7 +243,7 @@ public partial class CharacterSpellsView : ContentView
                 break;
         }
         AddSpellSlots();
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
 
     private async void AddSpellSlotButton_Clicked(object sender, EventArgs e)
@@ -282,7 +282,7 @@ public partial class CharacterSpellsView : ContentView
         _vm.Character.SpellSlotsLevel9 = popupResult[8];
 
         ReloadBindings();
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         HideUnneededStacks();
         AddSpellSlots();
     }
@@ -302,7 +302,7 @@ public partial class CharacterSpellsView : ContentView
             _vm.Character.Spells.Remove(_vm.Character.Spells.First(x => x.Name == nameLabel.Text));
         }
         ReloadBindings();
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         HideUnneededStacks();
     }
     private async void EditSpellClass_Clicked(object sender, EventArgs e)
@@ -318,7 +318,7 @@ public partial class CharacterSpellsView : ContentView
         else
         {
             (sender as Button).Text = "Edit";
-            await _stream.SaveCharacter(_vm.Character);
+            await _vm.Character.SaveCharacter(_vm.Character);
         }
 
         

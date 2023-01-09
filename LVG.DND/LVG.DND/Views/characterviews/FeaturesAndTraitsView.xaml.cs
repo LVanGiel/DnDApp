@@ -28,7 +28,7 @@ public partial class FeaturesAndTraitsView : ContentView
     {
         var neighbour = ((sender as Button).Parent as Grid).Children[0] as Entry;
         _vm.Character.Traits.Remove(_vm.Character.Traits.FirstOrDefault(x => x.Name == neighbour.Text));
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         ReloadList();
     }
     private async void AddButton_Clicked(object sender, EventArgs e)
@@ -38,7 +38,7 @@ public partial class FeaturesAndTraitsView : ContentView
         if (popupResult != null)
         {
             _vm.Character.Traits.Add(popupResult);
-            await _stream.SaveCharacter(_vm.Character);
+            await _vm.Character.SaveCharacter(_vm.Character);
             ReloadList();
         }
     }

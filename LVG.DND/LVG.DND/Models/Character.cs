@@ -230,13 +230,17 @@ namespace LVG.DND.Models
         #endregion
 
 
+        Streaming _stream = new Streaming();
         public Character()
         {
             LoadProperties();
         }
-        public async Task<Character> GetActiveCharacter()
+        public async Task SaveCharacter(Character character)
         {
-            Streaming _stream = new Streaming();
+            await _stream.SaveCharacter(character);
+        }
+        public async Task<Character> GetActiveCharacter()
+        {;
             return await _stream.LoadCharacter();
         }
         private void LoadProperties()
@@ -257,6 +261,15 @@ namespace LVG.DND.Models
             Traits = new List<Trait>();
             Items = new List<Item>();
             FillMoneyPouch();
+            Height = 0;
+            Age = 0;
+            Hair = "";
+            Skin = "";
+            Eyes = "";
+            ChosenPersonalityTrait = "";
+            ChosenIdeal = "";
+            ChosenFlaw = "";
+            ChosenBond = "";
         }
         private void FillMoneyPouch()
         {

@@ -31,7 +31,7 @@ public partial class CharacterProficienciesView : ContentView
     private async void AddButton_Clicked(object sender, EventArgs e)
     {
         var popup = new ProficiencyEditPopup();
-        List<string> popupResult = await(this.Parent.Parent.Parent as ContentPage).ShowPopupAsync(popup) as List<string>;
+        List<string> popupResult = await (this.Parent.Parent.Parent as ContentPage).ShowPopupAsync(popup) as List<string>;
 
         if (popupResult == null || popupResult[0] == "" || popupResult[1] == "") { return; }
 
@@ -55,7 +55,7 @@ public partial class CharacterProficienciesView : ContentView
             if (_vm.Character.LanguageProficiencies == null) { _vm.Character.LanguageProficiencies = new List<string>(); }
             _vm.Character.LanguageProficiencies.Add(popupResult[1]);
         }
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         ReloadBindings();
     }
 
@@ -76,7 +76,7 @@ public partial class CharacterProficienciesView : ContentView
         {
             _vm.Character.LanguageProficiencies.Remove(neighbour.Text);
         }
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         ReloadBindings();
 
     }

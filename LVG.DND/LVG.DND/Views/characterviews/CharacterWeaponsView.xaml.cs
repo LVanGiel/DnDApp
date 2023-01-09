@@ -24,7 +24,7 @@ public partial class CharacterWeaponsView : ContentView
     private async void SaveCharacter()
     {
         RefreshBinding();
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
 
     private void btnEdit_Clicked(object sender, EventArgs e)

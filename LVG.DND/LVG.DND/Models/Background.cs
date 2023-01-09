@@ -13,6 +13,7 @@ namespace LVG.DND.Models
         {
             Id = Guid.NewGuid();
         }
+        public string Name { get; set; }
         public List<Bond> Bonds { get; set; }
         public List<Flaw> Flaws { get; set; }
         public List<Ideal> Ideals { get; set; }

@@ -57,7 +57,7 @@ public partial class CharacterStatsView : ContentView
 		}
 		else
 		{
-            await _stream.SaveCharacter(_vm.character);
+            await _vm.Character.SaveCharacter(_vm.Character);
             return edit;
         }
 	}
@@ -90,11 +90,11 @@ public partial class CharacterStatsView : ContentView
     }
     private async void txtCurrentHp_Completed(object sender, EventArgs e)
     {
-        await _stream.SaveCharacter(_vm.character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
     private async void txtTemporaryHp_Completed(object sender, EventArgs e)
     {
-        await _stream.SaveCharacter(_vm.character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
     private async void DeathSaveFailButton_Clicked(object sender, EventArgs e)
     {
@@ -104,7 +104,7 @@ public partial class CharacterStatsView : ContentView
         if ((valueAdded == 1 && _vm.Character.DeathSaveFail >= 3) ||
     (valueAdded == -1 && _vm.Character.DeathSaveFail <= 0)) { return; }
         _vm.Character.DeathSaveFail += (int)valueAdded;
-        await _stream.SaveCharacter(_vm.character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
     private async void DeathSaveSuccesButton_Clicked(object sender, EventArgs e)
     {
@@ -114,7 +114,7 @@ public partial class CharacterStatsView : ContentView
         if((valueAdded == 1 && _vm.Character.DeathSaveSuccess >= 3)||
             (valueAdded == -1 && _vm.Character.DeathSaveSuccess <= 0)) { return; }
         _vm.Character.DeathSaveSuccess += (int)valueAdded;
-        await _stream.SaveCharacter(_vm.character);
+        await _vm.Character.SaveCharacter(_vm.Character);
     }
     #endregion
 

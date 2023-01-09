@@ -175,7 +175,7 @@ public partial class CharacterSkillsAndAbilitiesView : ContentView
         {
             _vm.Character.UpdateSkills();
             RefreshBindings();
-            await stream.SaveCharacter(_vm.Character);
+            await _vm.Character.SaveCharacter(_vm.Character);
             EnableEdit();
             (sender as Button).Text = "Edit";
         }

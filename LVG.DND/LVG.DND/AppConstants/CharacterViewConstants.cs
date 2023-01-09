@@ -45,7 +45,7 @@ namespace LVG.DND.AppConstants
                 case PROFICIENCIES_PAGE:
                     return new CharacterProficienciesView(new BaseCharacterViewModel(character));
                 case STORY_TELLING_PAGE:
-                    return new CharacterStatsView(new BaseCharacterViewModel(character));
+                    return new CharacterStorytellingView();
                 case SAVES_PAGE:
                     return new CharacterStatsView(new BaseCharacterViewModel(character));
                 default:

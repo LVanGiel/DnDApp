@@ -22,7 +22,6 @@ namespace LVG.DND.streaming
         {
             List<Character> characters = new List<Character>();
             var pathString = Path.Combine(basepath, "Characters\\");
-           // var path = Path.Combine(pathString, txtName);
 
             var charactersPaths = System.IO.Directory.GetFiles(pathString);
             foreach (var path in charactersPaths)
@@ -108,6 +107,10 @@ namespace LVG.DND.streaming
             var activeCharacterPath = Path.Combine(basepath, activeCharacterString);
             string path = await File.ReadAllTextAsync(activeCharacterPath);
 
+            if(path == "" || path == null)
+            {
+                return new Character();
+            }
             string characterString = await File.ReadAllTextAsync(path);
 
             Character character  = JsonConvert.DeserializeObject<Character>(characterString);

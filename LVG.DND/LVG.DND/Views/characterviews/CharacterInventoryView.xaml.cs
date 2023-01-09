@@ -35,12 +35,12 @@ public partial class CharacterInventoryView : ContentView
         item.Name = txtNameAdd.Text;
         item.Value = txtValueAdd.Text;
         _vm.Character.Items.Add(item);
-        await _stream.SaveCharacter(_vm.Character);
+        await _vm.Character.SaveCharacter(_vm.Character);
         ReloadBindings();
     }
 
     private async void Entry_TextChanged(object sender, TextChangedEventArgs e)
     {
-        await _stream.SaveCharacter(_vm.Character);
+         await _vm.Character.SaveCharacter(_vm.Character);
     }
 }
