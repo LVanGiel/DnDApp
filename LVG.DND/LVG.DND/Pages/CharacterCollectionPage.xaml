@@ -6,17 +6,16 @@
              xmlns:views="clr-namespace:LVG.DND.Views"
              Shell.NavBarIsVisible = "False">
     <VerticalStackLayout>
-        <views:TitleBar  Margin="0,0,0,20"/>
-        <CarouselView  ItemsSource="{Binding Characters}"
-                      Position="{Binding Position}"
-                       Loop="False"
-                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <CarouselView x:Name="charactersCarousel" Loop="False" ItemsSource="{Binding Characters}" >
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="60*,40*">
-                        <Label Text="test" Grid.Row="0" />
-                        <Label Text="{Binding Id}" Grid.Row="1"/>
-                    </Grid>
+                    <!--<Grid RowDefinitions="3*,2*,">-->
+                    <VerticalStackLayout >
+                        <Button Text="Delete" Clicked="DeleteButton_Clicked"/>
+                        <Label Text="{Binding Name}"/>
+                        <Button Text="Set as active" Clicked="SetButton_Clicked"/>
+                    </VerticalStackLayout>
+                    <!--</Grid>-->
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>

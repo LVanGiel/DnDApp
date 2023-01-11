@@ -7,7 +7,6 @@ namespace LVG.DND.Views.characterviews;
 public partial class CharacterStatsView : ContentView
 {
     BaseCharacterViewModel _vm;
-    Streaming _stream = new Streaming();
     const string edit = "Edit";
     const string confirm = "Confirm";
 	public CharacterStatsView(BaseCharacterViewModel vm)

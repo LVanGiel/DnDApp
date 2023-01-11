@@ -1,23 +1,30 @@
 using CommunityToolkit.Maui.Views;
 using LVG.DND.Models;
+using LVG.DND.ViewModel.characterViewModels;
 
 namespace LVG.DND.Views.characterviews;
 
 public partial class CharacterStorytellingView : ContentView
 {
     Character _character;
-	public CharacterStorytellingView()
-	{
-		InitializeComponent();
+    BaseCharacterViewModel _vm;
+    public CharacterStorytellingView()
+    {
+        InitializeComponent();
         LoadCharacter();
 	}
     private async void LoadCharacter()
     {
         _character = new Character();
         _character = await _character.GetActiveCharacter();
+        backstoryTxt.Text = _character.Backstory;
     }
-	private void SaveText(string title, string text)
+	private async void SaveText(string title, string text)
 	{
+        if (text == null || text == "")
+        {
+            return;
+        }
         switch (title)
         {
             case "Height":
@@ -48,17 +55,37 @@ public partial class CharacterStorytellingView : ContentView
                 _character.ChosenBond = text;
                 break;
             case "Background":
+                _character.Background = _character.Background == null ? new Background() : _character.Background;
                 _character.Background.Name = text;
                 break;
             default:
                 break;
         }
-        //_character.Save
+        await _character.SaveCharacter(_character);
     }
     private async void Button_Clicked(object sender, EventArgs e)
     {
         var popup = new StoryTellingPopup((sender as Button).Text);
         string result = (await(this.Parent.Parent.Parent as ContentPage).ShowPopupAsync(popup)) as string;
         SaveText((sender as Button).Text, result);
+    }
+    private async void EditBackstory_Clicked(object sender, EventArgs e)
+    {
+        if (backstoryTxt.IsEnabled)
+        {
+            await _character.SaveCharacter();
+            (sender as Button).Text = "Edit";
+        }
+        else
+        {
+            (sender as Button).Text = "Save";
+        }
+        backstoryTxt.IsEnabled = !backstoryTxt.IsEnabled;
+        
+    }
+
+    private void backstoryTxt_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        _character.Backstory = backstoryTxt.Text;
     }
 }

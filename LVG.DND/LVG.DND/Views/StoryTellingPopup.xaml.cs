@@ -13,39 +13,53 @@ public partial class StoryTellingPopup : Popup
 	public StoryTellingPopup(string title)
 	{
 		InitializeComponent();
-        Titletxt.Text = title;
-        AddCharacter();
         LoadDescription(title);
     }
-    private string LoadDescription(string title)
+    private async void LoadDescription(string title)
     {
+        Titletxt.Text = title;
+        await AddCharacter();
+        string result = "";
         switch (title)
         {
             case "Height":
-                return _character.Height.ToString();
+                result= _character.Height.ToString();
+                break;
             case "Hair":
-                return _character.Hair;
+                result = _character.Hair;
+                break;
             case "Skin":
-                return _character.Skin;
+                result = _character.Skin;
+                break;
             case "Eyes":
-                return _character.Eyes;
+                result = _character.Eyes;
+                break;
             case "Age":
-                return _character.Age.ToString();
+                result = _character.Age.ToString();
+                break;
             case "Personality Trait":
-                return _character.ChosenPersonalityTrait;
+                result = _character.ChosenPersonalityTrait;
+                break;
             case "Ideal":
-                return _character.ChosenIdeal;
+                result = _character.ChosenIdeal;
+                break;
             case "Flaw":
-                return _character.ChosenFlaw;
+                result = _character.ChosenFlaw;
+                break;
             case "Bond":
-                return _character.ChosenBond;
+                result = _character.ChosenBond;
+                break;
             case "Background":
-                return _character.Background.Name;
+                _character.Background = _character.Background == null ? new Background() : _character.Background;
+                result = _character.Background.Name;
+                break;
             default:
-                return "";
+                result = "";
+                break;
         }
+        Contenttxt.Text = result;
     }
-    private async void AddCharacter()
+    private async Task AddCharacter()
     {
         _character = new Character();
         _character = await _character.GetActiveCharacter();

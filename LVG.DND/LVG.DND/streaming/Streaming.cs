@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,20 @@ namespace LVG.DND.streaming
             StreamData();
             CreateActiveCharacterFile();
         }
+
+        public async void SaveJokmir()
+        {
+            string filePath = "JokmirBravarus.txt";
+            using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync(filePath);
+            using StreamReader reader = new StreamReader(fileStream);
+            var result =  await reader.ReadToEndAsync();
+
+            Character jokmir = new Character();
+            jokmir = JsonConvert.DeserializeObject<Character>(result);
+
+            await ChangeCharacter(jokmir);
+        }
+
         public async Task<List<Character>> GetAllCharacters()
         {
             List<Character> characters = new List<Character>();

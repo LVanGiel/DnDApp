@@ -4,8 +4,9 @@
              x:Class="LVG.DND.Views.TitleBar" BackgroundColor="Aqua">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70"/>
@@ -19,5 +20,7 @@
 
         <Label x:Name="lblClass" Text="Blood Hunter" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
         <Label x:Name="lblRace" Text="Forest Gnome" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+
+        <Label x:Name="lblSubClass" Text="Order of the Lycan" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </ContentView>

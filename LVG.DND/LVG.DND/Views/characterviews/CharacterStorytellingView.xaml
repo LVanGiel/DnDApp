@@ -22,7 +22,15 @@
                 <Button Text="Bond" Clicked="Button_Clicked"/>
                 <Button Text="Flaw" Clicked="Button_Clicked"/>
 
-                <Button Text="Background"/>
+                <Label Text="Backstory" FontSize="Subtitle"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="70"/>
+                    </Grid.ColumnDefinitions>
+                    <Editor x:Name="backstoryTxt" VerticalOptions="FillAndExpand" AutoSize="TextChanges" TextChanged="backstoryTxt_TextChanged" IsEnabled="False" Grid.Column="0"/>
+                    <Button Clicked="EditBackstory_Clicked" Text="Edit" HeightRequest="70" VerticalOptions="Start" Grid.Column="1"/>
+                </Grid>
             </VerticalStackLayout>
         </Grid>
     </VerticalStackLayout>

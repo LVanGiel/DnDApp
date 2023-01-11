@@ -5,37 +5,39 @@
              xmlns:views="clr-namespace:LVG.DND.Views"
              Shell.NavBarIsVisible = "False">
     <ScrollView>
-        <VerticalStackLayout>
-            <views:TitleBar x:Name="titleBar" Margin="0,0,0,20"/>
-            <VerticalStackLayout
+        <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-            <Button
+                <Button
                 x:Name="CharBtn"
                 Text="Characters"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCharClicked"
                 HorizontalOptions="Center" />
-            <Button
+                <Button
                 x:Name="RollBtn"
                 Text="Roll Dice"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnRollClicked"
                 HorizontalOptions="Center" />
-            <Button
+                <Button
                 x:Name="TestBtn"
                 Text="Character Sheet"
                 Clicked="OnTestClicked"
                 HorizontalOptions="Center" />
-            <Entry Placeholder="New Character Name" x:Name="CharacterName"/>
-            <Button
+                <Entry Placeholder="New Character Name" x:Name="CharacterName"/>
+                <Button
                 x:Name="ResetCharacter"
                 Text="Reset Character"
                 Clicked="OnResetCharacterClicked"
                 HorizontalOptions="Center" />
+                <Button
+                x:Name="UploadFile"
+                Text="upload"
+                Clicked="OnUploadCharacterClicked"
+                HorizontalOptions="Center" />
             </VerticalStackLayout>
-        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>

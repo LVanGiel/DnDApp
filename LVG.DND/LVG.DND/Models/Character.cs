@@ -226,6 +226,7 @@ namespace LVG.DND.Models
         public string ChosenFlaw { get; set; }
 
         public string Alignment { get; set; }
+        public string Backstory { get; set; }
 
         #endregion
 
@@ -239,8 +240,20 @@ namespace LVG.DND.Models
         {
             await _stream.SaveCharacter(character);
         }
+        public async Task SaveCharacter()
+        {
+            await _stream.SaveCharacter(this);
+        }
+        public async Task ChangeCharacter(Character character)
+        {
+            await _stream.ChangeCharacter(character);
+        }
+        public async Task<List<Character>> GetAllCharacter()
+        {
+            return await _stream.GetAllCharacters();
+        }
         public async Task<Character> GetActiveCharacter()
-        {;
+        {
             return await _stream.LoadCharacter();
         }
         private void LoadProperties()
@@ -270,6 +283,8 @@ namespace LVG.DND.Models
             ChosenIdeal = "";
             ChosenFlaw = "";
             ChosenBond = "";
+            Backstory = "";
+            Background = new Background();
         }
         private void FillMoneyPouch()
         {

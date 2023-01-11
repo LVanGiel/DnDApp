@@ -17,6 +17,7 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
+        streaming.SaveJokmir();
     }
 	private async void OnRollClicked(object sender, EventArgs e)
 	{
@@ -35,8 +36,26 @@ public partial class MainPage : ContentPage
 		var character = new Character();
 		character.Name = CharacterName.Text;
 		await streaming.ChangeCharacter(character);
-        titleBar.UpdateCharacter(character);
+    }
+    private async void OnUploadCharacterClicked(object sender, EventArgs e)
+    {
+        //var options = new PickOptions();
+        //try
+        //{
+        //    var result = await FilePicker.Default.PickAsync(options);
+        //    if (result != null)
+        //    {
+        //        using var stream = await result.OpenReadAsync();
+        //        var image = ImageSource.FromStream(() => stream);
+        //    }
 
+        //    // result;
+        //}
+        //catch (Exception ex)
+        //{
+        //    // The user canceled or something went wrong
+        //}
+        await Shell.Current.GoToAsync(nameof(CharacterCollectionPage));
     }
 }
 

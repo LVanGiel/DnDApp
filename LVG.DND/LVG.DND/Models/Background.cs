@@ -12,6 +12,7 @@ namespace LVG.DND.Models
         public Background()
         {
             Id = Guid.NewGuid();
+            Name = "";
         }
         public string Name { get; set; }
         public List<Bond> Bonds { get; set; }

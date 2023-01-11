@@ -11,6 +11,7 @@ public partial class DiceView : ContentView
         dice = new Dice();
         dice.ChangeSize(20);
         BindingContext = dice;
+        RollDice();
     }
     public DiceView(int diceSize)
     {
@@ -18,13 +19,14 @@ public partial class DiceView : ContentView
         dice = new Dice();
         dice.ChangeSize(diceSize);
         BindingContext = dice;
+        RollDice();
     }
-    private async void btnDice_Clicked(object sender, EventArgs e)
+    private async void RollDice()
     {
-        Button btnDice = sender as Button;
-
-        await dice.RollDice(btnDice.ZIndex);
-        await Task.Delay(500);
-
+        await dice.RollDice(btnRollDice.ZIndex);
+    }
+    private void btnDice_Clicked(object sender, EventArgs e)
+    {
+        RollDice();
     }
 }

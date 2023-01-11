@@ -33,7 +33,7 @@
         </Grid>
         
         <Label Text="Cantrips" VerticalOptions="Center" FontSize="Title"/>
-        <ListView x:Name="CantripsList" ItemsSource="{Binding Character.Cantrips}">
+        <ListView x:Name="CantripsList" ItemsSource="{Binding Character.Cantrips}" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -44,8 +44,13 @@
                             </Grid.ColumnDefinitions>
                             <VerticalStackLayout Grid.Column="0">
                                 <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                <Label Text="{Binding SpellLevel}"></Label>
-                                <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                <Label Text="Casting Time"></Label>
+                                <Label Text="{Binding CastingTime}"></Label>
+                                <Label Text="Range"></Label>
+                                <Label Text="{Binding Range}"></Label>
+                                <Label Text="Duration"></Label>
+                                <Label Text="{Binding Duration}"></Label>
+                                <Editor Text="{Binding Description}" AutoSize="TextChanges" IsEnabled="False" TextColor="Black"></Editor>
                             </VerticalStackLayout>
                             <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                         </Grid>
@@ -79,7 +84,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -114,7 +130,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -149,7 +176,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -184,7 +222,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -219,7 +268,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -254,7 +314,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -289,7 +360,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -324,7 +406,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
@@ -359,7 +452,18 @@
                                 </Grid.ColumnDefinitions>
                                 <VerticalStackLayout Grid.Column="0">
                                     <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
-                                    <Label Text="{Binding SpellLevel}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
                                 <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>

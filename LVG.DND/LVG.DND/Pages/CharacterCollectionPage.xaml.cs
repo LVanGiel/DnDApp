@@ -1,23 +1,32 @@
 using LVG.DND.Models;
+using LVG.DND.ViewModel;
 using System.Collections.ObjectModel;
 
 namespace LVG.DND.Pages;
 
 public partial class CharacterCollectionPage : ContentPage
 {
-	public CharacterCollectionPage()
+    CharacterCollectionPageViewModel _vm;
+    public CharacterCollectionPage()
 	{
-		InitializeComponent();
-		init();
-	}
-	void init()
+        _vm = new CharacterCollectionPageViewModel();
+        BindingContext = _vm;
+        InitializeComponent();
+        init();
+    }
+	private async void init()
 	{
-		var characteres = new ObservableCollection<Character>();
-		characteres.Add(new Character() {Id = new Guid() });
-        characteres.Add(new Character() {Id = new Guid() });
-		var characters = new CharacterCollection();
-		characters.Characters = characteres;
-		characters.Position = 1;
-		BindingContext = characters;
+		Character character = new Character();
+		_vm.Characters = await character.GetAllCharacter();
+    }
+    private void DeleteButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
+    private async void SetButton_Clicked(object sender, EventArgs e)
+    {
+        Character character = new Character();
+        character.Name = (((sender as Button).Parent as VerticalStackLayout).Children[1] as Label).Text;
+        await character.ChangeCharacter(character);
     }
 }
