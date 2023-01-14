@@ -10,7 +10,7 @@
              Shell.NavBarIsVisible = "False">
     <ScrollView VerticalOptions="FillAndExpand" x:Name="CharacterViewPageScroll" VerticalScrollBarVisibility="Always">
         <VerticalStackLayout x:Name="CharViewStack">
-            <views:TitleBar  Margin="0,0,0,20"/>
+            <views:TitleBar  Margin="0,0,0,20" HeightRequest="70"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

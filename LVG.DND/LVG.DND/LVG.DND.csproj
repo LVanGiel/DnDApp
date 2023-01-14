@@ -66,6 +66,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\unknownPlayer.png" />
 	  <None Remove="Resources\Raw\JokmirBravarus.txt" />
 	</ItemGroup>
 

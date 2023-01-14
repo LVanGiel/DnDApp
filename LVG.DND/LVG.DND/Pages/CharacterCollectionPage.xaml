@@ -6,16 +6,18 @@
              xmlns:views="clr-namespace:LVG.DND.Views"
              Shell.NavBarIsVisible = "False">
     <VerticalStackLayout>
-        <CarouselView x:Name="charactersCarousel" Loop="False" ItemsSource="{Binding Characters}" >
+        <VerticalStackLayout BackgroundColor="Gray" HeightRequest="70" Margin="0,0,0,20">
+            <Label Text="Select Character" HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+        <CarouselView MinimumHeightRequest="300" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Characters}" >
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <!--<Grid RowDefinitions="3*,2*,">-->
-                    <VerticalStackLayout >
-                        <Button Text="Delete" Clicked="DeleteButton_Clicked"/>
-                        <Label Text="{Binding Name}"/>
-                        <Button Text="Set as active" Clicked="SetButton_Clicked"/>
-                    </VerticalStackLayout>
-                    <!--</Grid>-->
+                    <Grid VerticalOptions="FillAndExpand" RowDefinitions="*,6*,*" ColumnDefinitions="*,*">
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Image Aspect="AspectFit" Source="unknownPlayer.png" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Button Text="Delete" Clicked="DeleteButton_Clicked" Grid.Row="2" Grid.Column="0"/>
+                        <Button Text="Set as active"  Clicked="SetButton_Clicked" Grid.Row="2" Grid.Column="1"/>
+                    </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>

@@ -1,6 +1,5 @@
 using LVG.DND.Models;
 using LVG.DND.ViewModel;
-using System.Collections.ObjectModel;
 
 namespace LVG.DND.Pages;
 
@@ -26,7 +25,7 @@ public partial class CharacterCollectionPage : ContentPage
     private async void SetButton_Clicked(object sender, EventArgs e)
     {
         Character character = new Character();
-        character.Name = (((sender as Button).Parent as VerticalStackLayout).Children[1] as Label).Text;
+        character.Name = (((sender as Button).Parent as Grid).Children[0] as Label).Text;
         await character.ChangeCharacter(character);
     }
 }
