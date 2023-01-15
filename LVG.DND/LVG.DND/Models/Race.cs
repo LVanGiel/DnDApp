@@ -5,7 +5,12 @@ namespace LVG.DND.Models
     public class Race : Base
     {
         public string Name { get; set; }
-        public int AbilityScoreBonus { get; set; }
+        public List<SubRace> SubRaces { get; set; }
+        public int MaxAge { get; set; }
+        public int AverageHeight { get; set; }
+        public int AverageWeight { get; set; }
+        public string DefaultAlignment { get; set; }
+        public string BaseSpeed { get; set; }
 
 
 

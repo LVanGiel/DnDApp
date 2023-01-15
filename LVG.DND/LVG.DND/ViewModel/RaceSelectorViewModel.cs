@@ -11,7 +11,7 @@ namespace LVG.DND.ViewModel
 
         [ObservableProperty]
         Character character = new Character();
-        string path = Path.Combine(FileSystem.Current.AppDataDirectory, @".\data.txt");
+        string path = Path.Combine(FileSystem.Current.AppDataDirectory, @"Data\Races.txt");
         public RaceSelectorViewModel(Character character)
         {
             var jsonText = File.ReadAllText(path);
