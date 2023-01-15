@@ -1,4 +1,5 @@
 ﻿using LVG.DND.Models;
+using LVG.DND.streaming.Base;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,10 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.streaming
 {
-    internal class Streaming
+    internal class Streaming : BaseStream
     {
         const string activeCharacterString = "ActiveCharacter.txt";
         string basepath = FileSystem.Current.AppDataDirectory;
-        List<Race> races = new List<Race>();
         public Streaming()
         {
             StreamData();
@@ -65,16 +65,7 @@ namespace LVG.DND.streaming
             File.WriteAllText(path, JsonConvert.SerializeObject(races));
         }
 
-        private void CreateFileCheck(string path)
-        {
-            if (!File.Exists(path))
-            {
-                using (File.Create(path))
-                {
 
-                }
-            }
-        }
 
         public async Task<Character> ChangeCharacter(Character character)
         {
@@ -138,12 +129,6 @@ namespace LVG.DND.streaming
             {
                 return new Character();
             }
-        }
-
-        private void AddRaces()
-        {
-            var bloodHunter = new Race() { Name = "Blood Hunter", Id = new Guid() };
-            races.Add(bloodHunter);
         }
     }
 }

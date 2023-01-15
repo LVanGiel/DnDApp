@@ -16,4 +16,12 @@ public partial class ClassSelector : ContentView
     {
         _vm.Character.Class = e.CurrentSelection.FirstOrDefault() as CharClass;
     }
+    private void RaceCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        _vm.Character.Race = e.CurrentSelection.FirstOrDefault() as Race;
+    }
+    private void BackgroundCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        _vm.Character.Background = e.CurrentSelection.FirstOrDefault() as Background;
+    }
 }

@@ -22,9 +22,9 @@ namespace LVG.DND.ViewModel
         }
         public RaceSelectorViewModel()
         {
-            var jsonText = File.ReadAllText(path);
-            var dejson = JsonConvert.DeserializeObject<List<Race>>(jsonText);
-            races = dejson;
+            var racePath = File.ReadAllText(path);
+            var dejsonRace = JsonConvert.DeserializeObject<List<Race>>(racePath);
+            races = dejsonRace;
         }
     }
 }
