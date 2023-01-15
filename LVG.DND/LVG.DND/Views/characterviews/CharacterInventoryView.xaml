@@ -76,5 +76,84 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button x:Name="btnBagOfHolding" Text="Add Bag of holding" Clicked="btnBagOfHolding_Clicked"/>
+        <VerticalStackLayout x:Name="BagOfHoldingStack" IsVisible="{Binding Character.HasBagOfHolding}">
+            <Label FontSize="Subtitle" Text="Bag Of Holding"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="Copper" Grid.Column="0" Grid.Row="0"/>
+                <Entry Text="{Binding Character.BagOfHoldingMoneyPouch.Copper}" TextChanged="Entry_TextChanged" Grid.Column="0" Grid.Row="1"/>
+
+                <Label Text="Silver" Grid.Column="1" Grid.Row="0"/>
+                <Entry Text="{Binding Character.BagOfHoldingMoneyPouch.Silver}" TextChanged="Entry_TextChanged" Grid.Column="1" Grid.Row="1"/>
+
+                <Label Text="Electrum" Grid.Column="2" Grid.Row="0"/>
+                <Entry Text="{Binding Character.BagOfHoldingMoneyPouch.Electrum}" TextChanged="Entry_TextChanged" Grid.Column="2" Grid.Row="1"/>
+
+                <Label Text="Gold" Grid.Column="3" Grid.Row="0"/>
+                <Entry Text="{Binding Character.BagOfHoldingMoneyPouch.Gold}" TextChanged="Entry_TextChanged" Grid.Column="3" Grid.Row="1"/>
+
+                <Label Text="Platinum" Grid.Column="4" Grid.Row="0"/>
+                <Entry Text="{Binding Character.BagOfHoldingMoneyPouch.Platinum}" TextChanged="Entry_TextChanged" Grid.Column="4" Grid.Row="1"/>
+
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="Name" Grid.Row="0" Grid.Column="0" IsEnabled="False" TextColor="Black" />
+                <Label TextColor="Black" Grid.Row="0" Grid.Column="1" Text="{Binding value}" IsEnabled="False"/>
+
+                <Entry x:Name="txtBagOfHoldingNameAdd" Text="" Grid.Row="1" Grid.Column="0"/>
+                <Entry x:Name="txtBagOfHoldingValueAdd" Grid.Row="1" Grid.Column="1" Text=""/>
+                <Button Text="+" Clicked="AddBagOfHoldingButton_Clicked" WidthRequest="40" HorizontalOptions="End" Grid.Row="1" Grid.Column="2"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding Name}" Grid.Column="0" IsEnabled="False" TextColor="Black" />
+                <Label TextColor="Black" Grid.Column="1" Text="{Binding value}" IsEnabled="False"/>
+            </Grid>
+            <CollectionView x:Name="BagOfHoldingItemList" ItemsSource="{Binding Character.BagOfHoldingItems}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Bag" IsVisible="False"/>
+                                <Entry Text="{Binding Name}" Grid.Column="0" IsEnabled="False" TextColor="Black" />
+                                <Entry TextColor="Black" Text="{Binding value}" IsEnabled="False" Grid.Column="1"/>
+                                <Button Text="-" Clicked="RemoveButton_Clicked" Grid.Column="2"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentView>

@@ -27,6 +27,9 @@
     <MauiXaml Update="Pages\CharacterViewPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\character\CharacterHome.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\DndDice.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

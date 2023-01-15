@@ -1,11 +1,10 @@
 ﻿using LVG.DND.AppConstants;
 using LVG.DND.Models.basemodel;
 using LVG.DND.streaming;
-using LVG.DND.Views.characterviews;
 
 namespace LVG.DND.Models
 {
-    public class Character : Base
+    public class CharCopy : Base
     {
         public string Name { get; set; }
         public Dice HitpointDice { get; set; }
@@ -63,7 +62,8 @@ namespace LVG.DND.Models
         private AbilityScore intelligence;
         private AbilityScore wisdom;
         private AbilityScore charisma;
-        public AbilityScore Strength {
+        public AbilityScore Strength
+        {
             get
             {
                 return strength;
@@ -74,7 +74,8 @@ namespace LVG.DND.Models
                 UpdateAbilityScore(value);
             }
         }
-        public AbilityScore Dexterity {
+        public AbilityScore Dexterity
+        {
             get
             {
                 return dexterity;
@@ -85,7 +86,8 @@ namespace LVG.DND.Models
                 UpdateAbilityScore(value);
             }
         }
-        public AbilityScore Constitution {
+        public AbilityScore Constitution
+        {
             get
             {
                 return constitution;
@@ -96,7 +98,8 @@ namespace LVG.DND.Models
                 UpdateAbilityScore(value);
             }
         }
-        public AbilityScore Intelligence {
+        public AbilityScore Intelligence
+        {
             get
             {
                 return intelligence;
@@ -107,7 +110,8 @@ namespace LVG.DND.Models
                 UpdateAbilityScore(value);
             }
         }
-        public AbilityScore Wisdom {
+        public AbilityScore Wisdom
+        {
             get
             {
                 return wisdom;
@@ -118,7 +122,8 @@ namespace LVG.DND.Models
                 UpdateAbilityScore(value);
             }
         }
-        public AbilityScore Charisma {
+        public AbilityScore Charisma
+        {
             get
             {
                 return charisma;
@@ -238,12 +243,12 @@ namespace LVG.DND.Models
 
 
         Streaming _stream = new Streaming();
-        public Character(string name)
+        public CharCopy(string name)
         {
             LoadProperties();
             Name = name;
         }
-        public Character()
+        public CharCopy()
         {
             LoadProperties();
         }
@@ -253,7 +258,7 @@ namespace LVG.DND.Models
         }
         public async Task SaveCharacter()
         {
-            await _stream.SaveCharacter(this);
+            //await _stream.SaveCharacter(this);
         }
         public async Task ChangeCharacter(Character character)
         {
@@ -390,8 +395,8 @@ namespace LVG.DND.Models
                 AnimalHandling.Bonus = abilityScore.Bonus;
                 Insight.Bonus = abilityScore.Bonus;
                 Medicine.Bonus = abilityScore.Bonus;
-                Perception.Bonus = abilityScore.Bonus ;
-                Survival.Bonus = abilityScore.Bonus ;
+                Perception.Bonus = abilityScore.Bonus;
+                Survival.Bonus = abilityScore.Bonus;
             }
             if (abilityScore.Name == SkillNameConstants.Charisma)
             {

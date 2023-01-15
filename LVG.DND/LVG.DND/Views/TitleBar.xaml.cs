@@ -27,8 +27,8 @@ public partial class TitleBar : ContentView
         lblName.Text = character.Name;
     }
 
-    private void BackButton_Clicked(object sender, EventArgs e)
+    private async void BackButton_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PopAsync();
     }
 }

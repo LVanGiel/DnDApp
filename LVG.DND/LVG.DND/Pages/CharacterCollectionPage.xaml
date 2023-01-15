@@ -6,10 +6,11 @@
              xmlns:views="clr-namespace:LVG.DND.Views"
              Shell.NavBarIsVisible = "False">
     <VerticalStackLayout>
-        <VerticalStackLayout BackgroundColor="Gray" HeightRequest="70" Margin="0,0,0,20">
-            <Label Text="Select Character" HorizontalOptions="Center"/>
-        </VerticalStackLayout>
-        <CarouselView MinimumHeightRequest="300" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Characters}" >
+        <Grid BackgroundColor="Gray" HeightRequest="70" Margin="0,0,0,20" ColumnDefinitions="*,70">
+            <Label Text="Select Character" FontSize="Title" HorizontalOptions="Center" Grid.Column="0"/>
+            <Button x:Name="AddCharacterBtn" Text="New" Grid.Column="1" Clicked="AddCharacterBtn_Clicked"/>
+        </Grid>
+        <CarouselView x:Name="CharacterCarousel" MinimumHeightRequest="300" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Characters}" >
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <Grid VerticalOptions="FillAndExpand" RowDefinitions="*,6*,*" ColumnDefinitions="*,*">

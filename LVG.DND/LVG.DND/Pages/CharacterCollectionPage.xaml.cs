@@ -1,4 +1,5 @@
 using LVG.DND.Models;
+using LVG.DND.Pages.character;
 using LVG.DND.ViewModel;
 
 namespace LVG.DND.Pages;
@@ -17,6 +18,7 @@ public partial class CharacterCollectionPage : ContentPage
 	{
 		Character character = new Character();
 		_vm.Characters = await character.GetAllCharacter();
+
     }
     private void DeleteButton_Clicked(object sender, EventArgs e)
     {
@@ -27,5 +29,11 @@ public partial class CharacterCollectionPage : ContentPage
         Character character = new Character();
         character.Name = (((sender as Button).Parent as Grid).Children[0] as Label).Text;
         await character.ChangeCharacter(character);
+        await Shell.Current.GoToAsync(nameof(CharacterHome));
+    }
+
+    private async void AddCharacterBtn_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(CharacterCreationPage));
     }
 }
