@@ -10,21 +10,31 @@ namespace LVG.DND.ViewModel
         List<CharClass> classes = new List<CharClass>();
 
         [ObservableProperty]
+        List<Race> races = new List<Race>();
+
+        [ObservableProperty]
         Character character = new Character();
-        string path = Path.Combine(FileSystem.Current.AppDataDirectory, @".\data.txt");
+        string path = Path.Combine(FileSystem.Current.AppDataDirectory, @"Data\Races.txt");
         public ClassSelectorViewModel()
         {
-            var jsonText = File.ReadAllText(path);
-            var dejson = JsonConvert.DeserializeObject<List<CharClass>>(jsonText);
-            classes = dejson;
+            var classText = File.ReadAllText(path);
+            var dejsonClass = JsonConvert.DeserializeObject<List<CharClass>>(classText);
+            classes = dejsonClass;
+
+            var raceText = File.ReadAllText(path);
+            var dejsonRace = JsonConvert.DeserializeObject<List<Race>>(raceText);
+            Races = dejsonRace;
         }
         public ClassSelectorViewModel(Character character)
         {
-            var jsonText = File.ReadAllText(path);
-            var dejson = JsonConvert.DeserializeObject<List<CharClass>>(jsonText);
-            classes = dejson;
-
+            var classText = File.ReadAllText(path);
+            var dejsonClass = JsonConvert.DeserializeObject<List<CharClass>>(classText);
+            classes = dejsonClass;
             Character = character;
+
+            var raceText = File.ReadAllText(path);
+            var dejsonRace = JsonConvert.DeserializeObject<List<Race>>(raceText);
+            Races = dejsonRace;
         }
     }
 }
