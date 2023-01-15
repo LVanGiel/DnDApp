@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using LVG.DND.Models;
+using LVG.DND.streaming;
 using Newtonsoft.Json;
 
 namespace LVG.DND.ViewModel
@@ -14,17 +15,17 @@ namespace LVG.DND.ViewModel
         string path = Path.Combine(FileSystem.Current.AppDataDirectory, @"Data\Races.txt");
         public RaceSelectorViewModel(Character character)
         {
-            var jsonText = File.ReadAllText(path);
-            var dejson = JsonConvert.DeserializeObject<List<Race>>(jsonText);
-            races = dejson;
-
+            AddRaces();
             Character = character;
         }
+        
         public RaceSelectorViewModel()
         {
-            var racePath = File.ReadAllText(path);
-            var dejsonRace = JsonConvert.DeserializeObject<List<Race>>(racePath);
-            races = dejsonRace;
+            AddRaces();
+        }
+        private async void AddRaces()
+        {
+            Races = await new StreamRaces().GetAllRaces();
         }
     }
 }

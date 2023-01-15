@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ActiveDebugFramework>net6.0-windows10.0.19041.0</ActiveDebugFramework>
+    <ActiveDebugFramework>net6.0-android</ActiveDebugFramework>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
-    <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
+    <ActiveDebugProfile>Samsung SM-F926B (Android 13.0 - API 33)</ActiveDebugProfile>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
     <DefaultDevice>phone_l-dpi_2_7in_-_api_33</DefaultDevice>
   </PropertyGroup>
@@ -78,10 +78,10 @@
     <MauiXaml Update="Views\charcreation\BackgroundSelector.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
+    <MauiXaml Update="Pages\charcreation\ClassSelector.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\charcreation\RaceSelector.xaml">
+    <MauiXaml Update="Pages\charcreation\RaceSelector.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\DicePopup.xaml">

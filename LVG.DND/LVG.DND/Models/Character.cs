@@ -214,6 +214,7 @@ namespace LVG.DND.Models
         #region StoryTelling
         public CharClass Class { get; set; }
         public Race Race { get; set; }
+        public SubRace SubRace { get; set; }
         public Background Background { get; set; }
 
         //roleplay stats

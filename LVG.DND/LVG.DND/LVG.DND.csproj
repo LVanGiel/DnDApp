@@ -140,10 +140,10 @@
 	  <MauiXaml Update="Views\charcreation\BackgroundSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
+	  <MauiXaml Update="Pages\charcreation\ClassSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\RaceSelector.xaml">
+	  <MauiXaml Update="Pages\charcreation\RaceSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DicePopup.xaml">

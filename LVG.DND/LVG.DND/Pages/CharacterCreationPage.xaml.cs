@@ -11,8 +11,8 @@ public partial class CharacterCreationPage : ContentPage
 	public CharacterCreationPage()
 	{
 		InitializeComponent();
-        creationStack.Add(new RaceSelector(new RaceSelectorViewModel(character)));
         step = 0;
+        NextStep();
     }
     private void CharCreateNextBtn_Clicked(object sender, EventArgs e)
     {
@@ -24,7 +24,7 @@ public partial class CharacterCreationPage : ContentPage
         switch (step)
         {
             case 0:
-                creationStack.Add(new ClassSelector(new ClassSelectorViewModel(character)));
+                //creationStack.Add(new ClassSelector(new ClassSelectorViewModel()));
                 step++;
                 break;
             case 1:

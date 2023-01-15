@@ -10,9 +10,13 @@ namespace LVG.DND.Models
     public class Language : Base
     {
         public string Name { get; set; }
-        public string Description { get; set; }
         public Language()
         {
+            Id = Guid.NewGuid();
+        }
+        public Language(string name)
+        {
+            Name = name;
             Id = Guid.NewGuid();
         }
     }

@@ -55,17 +55,8 @@ namespace LVG.DND.streaming
         }
         private void StreamData()
         {
-            var path = Path.Combine(basepath, @"Data\Races.txt");
-            var pathString = Path.Combine(basepath, "Data\\");
-            AddRaces();
-
-            System.IO.Directory.CreateDirectory(pathString);
-
-            CreateFileCheck(path);
-            File.WriteAllText(path, JsonConvert.SerializeObject(races));
+            var racesStream = new StreamRaces();
         }
-
-
 
         public async Task<Character> ChangeCharacter(Character character)
         {

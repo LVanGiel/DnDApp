@@ -10,8 +10,12 @@ namespace LVG.DND.Models
     public class SubRace : Base
     {
         public string Name { get; set; }
+        public string Backstory { get; set; }
         public List<RaceAbilityScoreBonus> AbilityScoreBonus { get; set; }
-        public int MaxAge { get; set; }
-        public int Height { get; set; }
+        public List<Trait> Traits { get; set; }
+        public List<string> WeaponProficiencies { get; set; }
+        public List<Spell> SpellsAndCantrips { get; set; }
+        public List<Language> Languages { get; set; }
+        public int BaseWalkingSpeed { get; set; }
     }
 }

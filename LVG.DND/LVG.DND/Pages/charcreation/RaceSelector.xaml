@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Pages.charcreation.RaceSelector"
+             Shell.NavBarIsVisible = "False">
+    <VerticalStackLayout>
+        <Label 
+            Text="Choose a race"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <CarouselView x:Name="RaceCarousel" MinimumHeightRequest="300" VerticalOptions="FillAndExpand" 
+                      HorizontalOptions="FillAndExpand" ItemsSource="{Binding Races}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <ScrollView>
+                            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0">
+                                <Label Text="{Binding Name}" HorizontalOptions="Center" />
+                                <Editor Text="{Binding Backstory}" IsEnabled="False" TextColor="Black"/>
+                                <Label Text="Race Traits"/>
+                                <ListView HasUnevenRows="True" ItemsSource="{Binding Traits}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <VerticalStackLayout>
+                                                    <Label Text="{Binding Name}"/>
+                                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"/>
+                                                </VerticalStackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <Label Text="Ability Score Bonus"/>
+                                <ListView HasUnevenRows="True" ItemsSource="{Binding ASBonus}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <HorizontalStackLayout>
+                                                    <Label Text="{Binding AbilityScoreName}" Margin="0,0,10,0"/>
+                                                    <Label Text="{Binding Bonus}"/>
+                                                </HorizontalStackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <Label Text="Weapon Proficiencies"/>
+                                <ListView HasUnevenRows="True" ItemsSource="{Binding WeaponProficiencies}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <HorizontalStackLayout>
+                                                    <Label Text="{Binding Name}"/>
+                                                </HorizontalStackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <Label Text="Item Proficiencies"/>
+                                <ListView HasUnevenRows="True" ItemsSource="{Binding ItemProficiencies}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <HorizontalStackLayout>
+                                                    <Label Text="{Binding Name}"/>
+                                                </HorizontalStackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <HorizontalStackLayout>
+                                    <Label Text="Walking speed:"/>
+                                    <Label Text="{Binding BaseWalkingSpeed}" Margin="10,0,10,0"/>
+                                    <Label Text="Flying speed:"/>
+                                    <Label Text="{Binding BaseFlyingSpeed}" Margin="10,0,10,0"/>
+                                </HorizontalStackLayout>
+                                <ListView  x:Name="SubRaceList" HasUnevenRows="True" ItemSelected="SubRaceList_ItemSelected" ItemsSource="{Binding SubRaces}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="50"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding Name}"/>
+                                                </Grid>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            <Button Text="Next" Clicked="Button_Clicked"/>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </VerticalStackLayout>
+</ContentPage>
