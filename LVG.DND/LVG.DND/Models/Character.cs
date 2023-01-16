@@ -341,6 +341,10 @@ namespace LVG.DND.Models
             Survival = new Skill(SkillNameConstants.Survival);
             BagOfHoldingItems = new List<Item>();
             BagOfHoldingMoneyPouch = new MoneyBag();
+
+            Race = new Race();
+            SubRace = new SubRace();
+            Class = new CharClass();
         }
         private void FillAbilityScores()
         {

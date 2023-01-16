@@ -1,5 +1,6 @@
 using LVG.DND.Models;
 using LVG.DND.ViewModel;
+using Newtonsoft.Json;
 
 namespace LVG.DND.Pages.charcreation;
 
@@ -57,14 +58,17 @@ public partial class RaceSelector : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        var character = new Dictionary<string, Object> { { "Character", _vm.Character } };
-        await Shell.Current.GoToAsync(nameof(ClassSelector), character);
+        var basepath = FileSystem.Current.CacheDirectory;
+        var pathString = Path.Combine(basepath, "temporaryCharacter.txt");
+        await File.WriteAllTextAsync(pathString, JsonConvert.SerializeObject(_vm.Character));
+        await Shell.Current.GoToAsync($"{nameof(ClassSelector)}");
     }
 
     private void RacePicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         string raceName = (sender as Picker).SelectedItem as string;
         Race activeRace = _vm.Races.FirstOrDefault(x => x.Name == raceName);
+        _vm.Character.Race = activeRace;
 
         RaceNameLabel.Text = activeRace.Name;
         RaceBackstoryEditor.Text = activeRace.Backstory;
@@ -84,6 +88,8 @@ public partial class RaceSelector : ContentPage
 
         string subRaceName = (sender as Picker).SelectedItem as string;
         SubRace activeSubRace = activeRace.SubRaces.FirstOrDefault(x => x.Name == subRaceName);
+
+        _vm.Character.SubRace = activeSubRace;
 
         if (activeSubRace == null)
         {

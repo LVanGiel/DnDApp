@@ -8,9 +8,9 @@ namespace LVG.DND.ViewModel
     public partial class ClassSelectorViewModel : ObservableObject
     {
         [ObservableProperty]
-        List<CharClass> classes = new List<CharClass>();
+        List<CharClass> classes;
 
         [ObservableProperty]
-        Character character = new Character();
+        Character character;
     }
 }
