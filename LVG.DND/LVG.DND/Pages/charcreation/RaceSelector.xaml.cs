@@ -13,6 +13,38 @@ public partial class RaceSelector : ContentPage
         _vm = vm;
         BindingContext = _vm;
         InitializeComponent();
+        this.Loaded += new EventHandler(This_Loaded);
+    }
+
+    private void FillRaceNames()
+    {
+        List<string> raceNames = new List<string>();
+        raceNames.Clear();
+        foreach (Race race in _vm.Races)
+        {
+            raceNames.Add(race.Name);
+        }
+        RacePicker.ItemsSource = raceNames;
+        RacePicker.ItemsSource = RacePicker.GetItemsAsArray();
+        RacePicker.SelectedIndex = 0;
+    }
+
+    private void FillSubRaceNames(Race activeRace)
+    {
+        List<string> raceNames = new List<string>();
+        raceNames.Clear();
+        foreach (SubRace race in activeRace.SubRaces)
+        {
+            raceNames.Add(race.Name);
+        }
+        SubRacePicker.ItemsSource = raceNames;
+        SubRacePicker.ItemsSource = SubRacePicker.GetItemsAsArray();
+        SubRacePicker.SelectedIndex = 0;
+    }
+
+    private void This_Loaded(object sender, EventArgs e)
+    {
+        FillRaceNames();
     }
     private void SubRaceList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
@@ -27,5 +59,43 @@ public partial class RaceSelector : ContentPage
     {
         var character = new Dictionary<string, Object> { { "Character", _vm.Character } };
         await Shell.Current.GoToAsync(nameof(ClassSelector), character);
+    }
+
+    private void RacePicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string raceName = (sender as Picker).SelectedItem as string;
+        Race activeRace = _vm.Races.FirstOrDefault(x => x.Name == raceName);
+
+        RaceNameLabel.Text = activeRace.Name;
+        RaceBackstoryEditor.Text = activeRace.Backstory;
+        RaceTraitsList.ItemsSource = activeRace.Traits;
+        RaceAbilityScoreList.ItemsSource = activeRace.ASBonus;
+        RaceWeaponProficienciesList.ItemsSource = activeRace.WeaponProficiencies;
+        RaceItemProficienciesList.ItemsSource = activeRace.ItemProficiencies;
+        RaceWalkingSpeedLabel.Text = activeRace.BaseWalkingSpeed.ToString();
+        RaceFlyingSpeedLabel.Text = activeRace.BaseFlyingSpeed.ToString();
+        FillSubRaceNames(activeRace);
+    }
+
+    private void SubRacePicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string raceName = RacePicker.SelectedItem as string;
+        Race activeRace = _vm.Races.FirstOrDefault(x => x.Name == raceName);
+
+        string subRaceName = (sender as Picker).SelectedItem as string;
+        SubRace activeSubRace = activeRace.SubRaces.FirstOrDefault(x => x.Name == subRaceName);
+
+        if (activeSubRace == null)
+        {
+            return;
+        }
+
+        SubRaceNameLabel.Text = activeSubRace.Name;
+        SubRaceBackstoryEditor.Text = activeSubRace.Backstory;
+        SubRaceTraitsList.ItemsSource = activeSubRace.Traits;
+        SubRaceAbilityScoreList.ItemsSource = activeSubRace.AbilityScoreBonus;
+        SubRaceWeaponProficienciesList.ItemsSource = activeSubRace.WeaponProficiencies;
+        SubRaceSpellsList.ItemsSource = activeSubRace.SpellsAndCantrips;
+        SubRaceWalkingSpeedLabel.Text = activeSubRace.BaseWalkingSpeed.ToString();
     }
 }
