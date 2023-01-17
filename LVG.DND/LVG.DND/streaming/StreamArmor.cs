@@ -55,7 +55,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 11,
                     HasStealthDisadvantage = true,
                     Weight = 8,
-                    GoldCost = 5,
+                    Value = new MoneyBag{Gold = 5},
                     IsLight = true
                 }
                 ,new Armor
@@ -64,7 +64,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 11,
                     HasStealthDisadvantage = false,
                     Weight = 10,
-                    GoldCost = 10,
+                    Value = new MoneyBag{Gold = 10},
                     IsLight = true
                 }
                 ,new Armor
@@ -73,7 +73,8 @@ namespace LVG.DND.streaming
                     ArmorClass = 12,
                     HasStealthDisadvantage = false,
                     Weight = 13,
-                    GoldCost = 45,
+                    Value = new MoneyBag{Gold = 45},
+                    IsLight = true
                 },
                 #endregion
 
@@ -84,7 +85,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 12,
                     HasStealthDisadvantage = false,
                     Weight = 12,
-                    GoldCost = 10,
+                    Value = new MoneyBag{Gold = 10},
                     IsMedium = true
                 }
                 ,new Armor
@@ -93,7 +94,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 13,
                     HasStealthDisadvantage = false,
                     Weight = 20,
-                    GoldCost = 50,
+                    Value = new MoneyBag{Gold = 50 },
                     IsMedium = true
                 }
                 ,new Armor
@@ -102,7 +103,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 14,
                     HasStealthDisadvantage = true,
                     Weight = 45,
-                    GoldCost = 50,
+                    Value = new MoneyBag{Gold = 50 },
                     IsMedium = true
                 }
                 ,new Armor
@@ -111,7 +112,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 14,
                     HasStealthDisadvantage = true,
                     Weight = 45,
-                    GoldCost = 75,
+                    Value = new MoneyBag{Gold= 75 },
                     IsMedium = true
                 }
                 ,new Armor
@@ -120,7 +121,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 14,
                     HasStealthDisadvantage = false,
                     Weight = 20,
-                    GoldCost = 400,
+                    Value = new MoneyBag{Gold = 400 },
                     IsMedium = true
                 }
                 ,new Armor
@@ -129,7 +130,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 15,
                     HasStealthDisadvantage = true,
                     Weight = 40,
-                    GoldCost = 750,
+                    Value = new MoneyBag{Gold = 750 },
                     IsMedium = true
                 },
                 #endregion
@@ -141,7 +142,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 14,
                     HasStealthDisadvantage = true,
                     Weight = 40,
-                    GoldCost = 30,
+                    Value = new MoneyBag{Gold = 30 },
                     IsHeavy = true
                 }
                 ,new Armor
@@ -150,7 +151,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 16,
                     HasStealthDisadvantage = true,
                     Weight = 55,
-                    GoldCost = 75,
+                    Value = new MoneyBag{Gold = 75 },
                     IsHeavy = true,
                     StrengthRequirement = 13
                 }
@@ -160,7 +161,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 17,
                     HasStealthDisadvantage = true,
                     Weight = 60 ,
-                    GoldCost = 200,
+                    Value = new MoneyBag{Gold = 200 },
                     IsHeavy = true,
                     StrengthRequirement = 15
                 }
@@ -170,7 +171,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 18,
                     HasStealthDisadvantage = true,
                     Weight = 65,
-                    GoldCost = 1500,
+                    Value = new MoneyBag{Gold = 1500 },
                     IsHeavy = true,
                     StrengthRequirement = 15
                 },
@@ -183,7 +184,7 @@ namespace LVG.DND.streaming
                     ArmorClass = 2,
                     HasStealthDisadvantage = false,
                     Weight = 6,
-                    GoldCost = 10,
+                    Value = new MoneyBag{Gold = 10 },
                     IsShield = true
                 }
                 ,
