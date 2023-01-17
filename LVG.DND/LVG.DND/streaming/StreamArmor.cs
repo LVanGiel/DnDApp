@@ -1,10 +1,5 @@
 ﻿using LVG.DND.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LVG.DND.streaming
 {
@@ -16,13 +11,13 @@ namespace LVG.DND.streaming
         {
             PushArmor();
         }
-        private void CreateClassFile(Armor charClass, string basepath)
+        private void CreateArmorFile(Armor armor, string basepath)
         {
-            var txtName = charClass.Name.Replace(" ", "") + ".txt";
+            var txtName = armor.Name.Replace(" ", "") + ".txt";
             var path = Path.Combine(basepath, txtName);
 
             CreateFileCheck(path);
-            File.WriteAllText(path, JsonConvert.SerializeObject(charClass));
+            File.WriteAllText(path, JsonConvert.SerializeObject(armor));
         }
         private void PushArmor()
         {
@@ -35,7 +30,7 @@ namespace LVG.DND.streaming
 
             foreach (Armor armor in armors)
             {
-                CreateClassFile(armor, pathRaces);
+                CreateArmorFile(armor, pathRaces);
             }
 
         }
