@@ -12,7 +12,7 @@ namespace LVG.DND.streaming
         string basepath = FileSystem.Current.AppDataDirectory;
         public StreamClasses()
         {
-
+            PushClasses();
         }
         private void CreateClassFile(CharClass charClass, string basepath)
         {
@@ -24,7 +24,7 @@ namespace LVG.DND.streaming
         }
         private void PushClasses()
         {
-            var pathRaces = Path.Combine(basepath, @"Data\Races\");
+            var pathRaces = Path.Combine(basepath, @"Data\Classes\");
             var pathString = Path.Combine(basepath, @"Data\");
             AddClasses();
 
