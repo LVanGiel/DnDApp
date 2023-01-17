@@ -9,30 +9,30 @@ namespace LVG.DND.AppConstants
 {
     internal static class SkillNameConstants
     {
-        internal const string Acrobatics = "Acrobatics";
-        internal const string AnimalHandling = "Animal Handling";
-        internal const string Arcana = "Arcana";
-        internal const string Athletics = "Athletics";
-        internal const string Deception = "Deception";
-        internal const string History = "History";
-        internal const string Insight = "Insight";
-        internal const string Intimidation = "Intimidation";
-        internal const string Investigation = "Investigation";
-        internal const string Medicine = "Medicine";
-        internal const string Nature = "Nature";
-        internal const string Perception = "Perception";
-        internal const string Performance = "Performance";
-        internal const string Persuasion = "Persuasion";
-        internal const string Religion = "Religion";
-        internal const string SleightOfHand = "Sleight of Hand";
-        internal const string Stealth = "Stealth";
-        internal const string Survival = "Survival";
+        internal static string Acrobatics = "Acrobatics";
+        internal static string AnimalHandling = "Animal Handling";
+        internal static string Arcana = "Arcana";
+        internal static string Athletics = "Athletics";
+        internal static string Deception = "Deception";
+        internal static string History = "History";
+        internal static string Insight = "Insight";
+        internal static string Intimidation = "Intimidation";
+        internal static string Investigation = "Investigation";
+        internal static string Medicine = "Medicine";
+        internal static string Nature = "Nature";
+        internal static string Perception = "Perception";
+        internal static string Performance = "Performance";
+        internal static string Persuasion = "Persuasion";
+        internal static string Religion = "Religion";
+        internal static string SleightOfHand = "Sleight of Hand";
+        internal static string Stealth = "Stealth";
+        internal static string Survival = "Survival";
                  
-        internal const string Strength = "Strength";
-        internal const string Dexterity = "Dexterity";
-        internal const string Constitution = "Constitution";
-        internal const string Intelligence = "Intelligence";
-        internal const string Wisdom = "Wisdom";
-        internal const string Charisma = "Charisma";
+        internal static string Strength = "Strength";
+        internal static string Dexterity = "Dexterity";
+        internal static string Constitution = "Constitution";
+        internal static string Intelligence = "Intelligence";
+        internal static string Wisdom = "Wisdom";
+        internal static string Charisma = "Charisma";
     }
 }

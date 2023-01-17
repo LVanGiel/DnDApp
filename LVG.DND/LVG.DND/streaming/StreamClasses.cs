@@ -1,4 +1,5 @@
-﻿using LVG.DND.Models;
+﻿using LVG.DND.AppConstants;
+using LVG.DND.Models;
 using LVG.DND.Models.CharCreation;
 using LVG.DND.streaming.Base;
 using Newtonsoft.Json;
@@ -37,6 +38,23 @@ namespace LVG.DND.streaming
             }
 
         }
+
+        public async Task<List<CharClass>> GetAllClasses()
+        {
+            List<CharClass> classes = new List<CharClass>();
+            var pathString = Path.Combine(basepath, "Data\\Classes\\");
+
+            var charactersPaths = System.IO.Directory.GetFiles(pathString);
+            foreach (var path in charactersPaths)
+            {
+                CharClass charclass = new CharClass();
+                string classString = await File.ReadAllTextAsync(path);
+                charclass = JsonConvert.DeserializeObject<CharClass>(classString);
+                classes.Add(charclass);
+            }
+            return classes;
+        }
+
         private void AddClasses()
         {
             classes = new List<CharClass>();
@@ -50,20 +68,20 @@ namespace LVG.DND.streaming
                 Name = "Blood Hunter",
                 Description = "Blood hunters are clever warriors driven by an unending determination to destroy evils old and new. Armed with rites of secretive blood magic and a willingness to sacrifice their own vitality and humanity for their cause, they protect the realms from the shadows — even as they remain ever vigilant against being drawn to the darkness that consumes the monsters they hunt.",
                 HitDice = hitDiceBH,
-                ArmorProficiencies = new List<string> { "Light armor", "Medium armor", "Martial weapons" },
-                WeaponProficiencies = new List<string> { "Simple weapons", "Martial weapons" },
+                ArmorProficiencies = new List<string> { ArmorConstants.LIGHT_ARMOR, ArmorConstants.MEDIUM_ARMOR },
+                WeaponProficiencies = new List<string> { WeaponsConstants.SIMPLE_WEAPON, WeaponsConstants.MARTIAL_WEAPON },
                 ItemProficiencies = new List<string> { "Alchemist's supplies" },
-                AbilityScoresProficiencies = new List<string> { "Dexterity", "Intelligence" },
-                SkillProficiencies = new List<string>{ "Acrobatics", "Arcana", "Athletics", "History", "Insight", "Investigation", "Religion", "Survival" },
+                AbilityScoresProficiencies = new List<string> { SkillNameConstants.Dexterity, SkillNameConstants.Intelligence },
+                SkillProficiencies = new List<string>{ SkillNameConstants.Acrobatics, SkillNameConstants.Arcana, SkillNameConstants.Athletics, SkillNameConstants.History, SkillNameConstants.Insight, SkillNameConstants.Investigation, SkillNameConstants.Religion, SkillNameConstants.Survival },
                 MeleeWeaponsChoice = new List<ClassWeaponChoice> 
                 { 
-                    new ClassWeaponChoice{ WeaponName = "Martial weapon", Count = 1},
-                    new ClassWeaponChoice{ WeaponName = "Simple weapon", Count = 2},
+                    new ClassWeaponChoice{ WeaponName = WeaponsConstants.MARTIAL_WEAPON, Count = 1},
+                    new ClassWeaponChoice{ WeaponName = WeaponsConstants.SIMPLE_WEAPON, Count = 2},
                 },
                 RangedWeaponsChoice = new List<ClassWeaponChoice> 
                 { 
-                    new ClassWeaponChoice{ WeaponName = "Light Crossbow", Count = 1, Ammo = 20},
-                    new ClassWeaponChoice{ WeaponName = "Hand Crossbow", Count = 1, Ammo = 20}
+                    new ClassWeaponChoice{ WeaponName = "Light crossbow", Count = 1, Ammo = 20},
+                    new ClassWeaponChoice{ WeaponName = "Hand crossbow", Count = 1, Ammo = 20}
                 },
                 ArmorChoice = new List<string>{"Studded Leather Armor", "Scale mail armor"},
                 ClassLevels = new List<ClassLevel>

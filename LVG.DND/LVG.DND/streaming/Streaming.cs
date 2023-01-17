@@ -56,6 +56,9 @@ namespace LVG.DND.streaming
         private void StreamData()
         {
             var racesStream = new StreamRaces();
+            var classStream = new StreamClasses();
+            var armorStream = new StreamArmor();
+            var weaponStream = new StreamWeapons();
         }
 
         public async Task<Character> ChangeCharacter(Character character)

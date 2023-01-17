@@ -3,24 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.charcreation.ClassSelector"
              Shell.NavBarIsVisible = "False">
-    <VerticalStackLayout>
-        <Label 
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <VerticalStackLayout>
+            <Label 
             Text="Choose a class"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <CollectionView ItemsSource="{Binding Classes}"
-                        SelectionMode="Single"
-                        SelectionChanged="ClassCollectionView_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid
-                             ColumnDefinitions="*"
-                             RowDefinitions="*" Padding="20"
-                                HorizontalOptions="Center">
-                        <Label Text="{Binding Name}"></Label>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+            <Picker x:Name="ClassPicker" MinimumWidthRequest="500" HorizontalOptions="FillAndExpand" SelectedIndexChanged="ClassPicker_SelectedIndexChanged"/>
+            <Button Text="Next"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

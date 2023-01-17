@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.streaming
 {
-    internal class StreamSpells
+    public class StreamSpells
     {
     }
 }

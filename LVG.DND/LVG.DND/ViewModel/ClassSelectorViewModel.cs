@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using LVG.DND.Models;
+using LVG.DND.streaming;
 using Newtonsoft.Json;
 
 namespace LVG.DND.ViewModel
@@ -12,5 +13,18 @@ namespace LVG.DND.ViewModel
 
         [ObservableProperty]
         Character character;
+        public ClassSelectorViewModel()
+        {
+            AddClasses();
+        }
+        public ClassSelectorViewModel(Character character)
+        {
+            Character = character;
+            AddClasses();
+        }
+        private async void AddClasses()
+        {
+            Classes = await new StreamClasses().GetAllClasses();
+        }
     }
 }
