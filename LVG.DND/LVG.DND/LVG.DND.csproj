@@ -169,4 +169,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Models\Types\" />
+	</ItemGroup>
+
 </Project>
