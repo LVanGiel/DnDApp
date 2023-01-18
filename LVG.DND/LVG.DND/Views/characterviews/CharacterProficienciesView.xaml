@@ -5,7 +5,7 @@
     <VerticalStackLayout>
         <Button Text="+" Clicked="AddButton_Clicked" WidthRequest="40" HorizontalOptions="End"/>
         <Label Text="Armor" VerticalOptions="Center" FontSize="Title"/>
-        <ListView x:Name="armorList" ItemsSource="{Binding Character.ArmorProficiencies}" >
+        <ListView x:Name="armorList" HasUnevenRows="True" ItemsSource="{Binding Character.ArmorProficiencies}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -22,7 +22,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label Text="Weapons" VerticalOptions="Center" FontSize="Title"/>
-        <ListView ItemsSource="{Binding Character.WeaponProficiencies}" x:Name="weaponsList" >
+        <ListView ItemsSource="{Binding Character.WeaponProficiencies}" HasUnevenRows="True"  x:Name="weaponsList" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -39,7 +39,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label Text="Other Items" VerticalOptions="Center" FontSize="Title"/>
-        <ListView ItemsSource="{Binding Character.ItemProficiencies}" x:Name="itemsList" >
+        <ListView ItemsSource="{Binding Character.ItemProficiencies}" HasUnevenRows="True"  x:Name="itemsList" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -56,7 +56,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label Text="Languages" VerticalOptions="Center" FontSize="Title"/>
-        <ListView ItemsSource="{Binding Character.LanguageProficiencies}" x:Name="languagesList" >
+        <ListView ItemsSource="{Binding Character.LanguageProficiencies}" HasUnevenRows="True"  x:Name="languagesList" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
