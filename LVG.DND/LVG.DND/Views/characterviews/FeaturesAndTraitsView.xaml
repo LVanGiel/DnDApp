@@ -4,7 +4,7 @@
              x:Class="LVG.DND.Views.characterviews.FeaturesAndTraitsView">
     <VerticalStackLayout>
         <Button Text="+" Clicked="AddButton_Clicked" WidthRequest="40" HorizontalOptions="End"/>
-        <ListView x:Name="traitList" ItemsSource="{Binding Character.Traits}" SelectionMode="None">
+        <ListView x:Name="traitList" ItemsSource="{Binding Character.Traits}" SelectionMode="None" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
