@@ -10,6 +10,32 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
             <Picker x:Name="ClassPicker" MinimumWidthRequest="500" HorizontalOptions="FillAndExpand" SelectedIndexChanged="ClassPicker_SelectedIndexChanged"/>
+            <Editor x:Name="ClassBackstoryEditor" IsEnabled="False" TextColor="Black"/>
+            <Label x:Name="ClassHitDice"/>
+            <Grid ColumnDefinitions="*,*">
+                <ListView HasUnevenRows="True" x:Name="ClassSkillsProficienciesList" Grid.Column="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}"/>
+                                </VerticalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView HasUnevenRows="True" x:Name="ClassSelectedSkillsProficienciesList" Grid.Column="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}"/>
+                                </VerticalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
             <Button Text="Next"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
         </VerticalStackLayout>
     </ScrollView>

@@ -6,17 +6,19 @@ namespace LVG.DND.Pages.charcreation;
 public partial class ClassSelector : ContentPage
 {
     public ClassSelectorViewModel _vm;
-    public ClassSelector()
+    public ClassSelector(Character character)
     {
         ClassSelectorViewModel vm = new ClassSelectorViewModel();
         vm.Classes = new List<CharClass>();
         _vm = vm;
+        _vm.Character = character;
         BindingContext = _vm;
         InitializeComponent();
         Init();
         this.Loaded += new EventHandler(This_Loaded);
 
     }
+
     private async void Init()
     {
         var basepath = FileSystem.Current.CacheDirectory;

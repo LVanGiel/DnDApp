@@ -4,143 +4,116 @@
              x:Class="LVG.DND.Pages.charcreation.RaceSelector"
              Shell.NavBarIsVisible = "False">
     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <Grid ColumnDefinitions="*,*" RowDefinitions="*,40" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+        <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                 <Label 
                 Text="Choose a race"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
-                <Picker x:Name="RacePicker" MinimumWidthRequest="500" HorizontalOptions="FillAndExpand" SelectedIndexChanged="RacePicker_SelectedIndexChanged"/>
-                <Label x:Name="RaceNameLabel" HorizontalOptions="Center" />
+                <Picker x:Name="RacePicker" MinimumWidthRequest="500" HorizontalOptions="CenterAndExpand" SelectedIndexChanged="RacePicker_SelectedIndexChanged"/>
                 <Editor x:Name="RaceBackstoryEditor" IsEnabled="False" TextColor="Black"/>
-                <Label Text="Race Traits"/>
-                <ListView HasUnevenRows="True" x:Name="RaceTraitsList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding Name}"/>
-                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"/>
-                                </VerticalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Ability Score Bonus"/>
-                <ListView HasUnevenRows="True" x:Name="RaceAbilityScoreList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding AbilityScoreName}" Margin="0,0,10,0"/>
-                                    <Label Text="{Binding Bonus}"/>
-                                </HorizontalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Weapon Proficiencies"/>
-                <ListView HasUnevenRows="True" x:Name="RaceWeaponProficienciesList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding Name}"/>
-                                </HorizontalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Item Proficiencies"/>
-                <ListView HasUnevenRows="True" x:Name="RaceItemProficienciesList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding Name}"/>
-                                </HorizontalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <HorizontalStackLayout>
-                    <Label Text="Walking speed:"/>
-                    <Label x:Name="RaceWalkingSpeedLabel" Margin="10,0,10,0"/>
-                    <Label Text="Flying speed:"/>
-                    <Label x:Name="RaceFlyingSpeedLabel" Margin="10,0,10,0"/>
-                </HorizontalStackLayout>
+                
+                <VerticalStackLayout x:Name="RaceItemStack" IsVisible="False">
+                    <Label Text="Choose an item proficiency" HorizontalOptions="CenterAndExpand"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <ListView HasUnevenRows="True" x:Name="RaceItemsList" Grid.Column="0" ItemSelected="RaceItemsList_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"/>
+                                            <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <ListView HasUnevenRows="True" SelectionMode="None" x:Name="RaceSelectedItemsList" Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"/>
+                                            <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="RaceASStack" IsVisible="False">
+                    <Label Text="Take X ability scores"  HorizontalOptions="CenterAndExpand"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <ListView HasUnevenRows="True" x:Name="RaceASList" Grid.Column="0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <ListView HasUnevenRows="True" x:Name="RaceSelectedASList" Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="RaceLanguagesStack" IsVisible="False">
+                    <Label Text="Choose a language" HorizontalOptions="CenterAndExpand"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <ListView HasUnevenRows="True" x:Name="RaceLanguagesList" Grid.Column="0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <ListView HasUnevenRows="True" x:Name="RaceSelectedLanguagesList" Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </VerticalStackLayout>
             </VerticalStackLayout>
 
-            <VerticalStackLayout HorizontalOptions="FillAndExpand" Grid.Row="0" VerticalOptions="FillAndExpand" Grid.Column="1">
+            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Label 
                 Text="Choose a Subrace"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
-                <Picker x:Name="SubRacePicker" MinimumWidthRequest="500" HorizontalOptions="FillAndExpand" SelectedIndexChanged="SubRacePicker_SelectedIndexChanged"/>
+                <Picker x:Name="SubRacePicker" MinimumWidthRequest="500" HorizontalOptions="CenterAndExpand" SelectedIndexChanged="SubRacePicker_SelectedIndexChanged"/>
                 <Label x:Name="SubRaceNameLabel" HorizontalOptions="Center" />
                 <Editor x:Name="SubRaceBackstoryEditor" IsEnabled="False" TextColor="Black"/>
                 <Label Text="Sub Race Traits"/>
-                <ListView HasUnevenRows="True" x:Name="SubRaceTraitsList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding Name}"/>
-                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"/>
-                                </VerticalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Ability Score Bonus"/>
-                <ListView HasUnevenRows="True" x:Name="SubRaceAbilityScoreList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding AbilityScoreName}" Margin="0,0,10,0"/>
-                                    <Label Text="{Binding Bonus}"/>
-                                </HorizontalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Weapon Proficiencies"/>
-                <ListView HasUnevenRows="True" x:Name="SubRaceWeaponProficienciesList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding Name}"/>
-                                </HorizontalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Item Proficiencies"/>
-                <ListView HasUnevenRows="True" x:Name="SubRaceSpellsList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding Name}"/>
-                                    <Label Text="{Binding CastingTime}"/>
-                                    <Label Text="{Binding Range}"/>
-                                    <Label Text="{Binding Duration}"/>
-                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"/>
-                                </VerticalStackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <HorizontalStackLayout>
-                    <Label Text="Walking speed:"/>
-                    <Label x:Name="SubRaceWalkingSpeedLabel" Margin="10,0,10,0"/>
-                    <Label Text="Flying speed:"/>
-                    <Label x:Name="SubRaceFlyingSpeedLabel" Margin="10,0,10,0"/>
-                </HorizontalStackLayout>
+               
             </VerticalStackLayout>
             <Button Text="Next" Clicked="Button_Clicked" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-        </Grid>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

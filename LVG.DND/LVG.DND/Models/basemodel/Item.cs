@@ -10,6 +10,7 @@ namespace LVG.DND.Models.basemodel
     public class Item : Base
     {
         public string Name { get; set; }
+        public string Description { get; set; }
         public MoneyBag Value { get; set; }
         public decimal Weight { get; set; }
         public Item()
