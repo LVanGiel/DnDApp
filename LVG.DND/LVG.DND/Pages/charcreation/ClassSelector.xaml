@@ -12,24 +12,25 @@
             <Picker x:Name="ClassPicker" MinimumWidthRequest="500" HorizontalOptions="FillAndExpand" SelectedIndexChanged="ClassPicker_SelectedIndexChanged"/>
             <Editor x:Name="ClassBackstoryEditor" IsEnabled="False" TextColor="Black"/>
             <Label x:Name="ClassHitDice"/>
+            <Label Text="Choose 2 skill proficiencies"/>
             <Grid ColumnDefinitions="*,*">
-                <ListView HasUnevenRows="True" x:Name="ClassSkillsProficienciesList" Grid.Column="0">
+                <ListView HasUnevenRows="True" x:Name="ClassSkillsProficienciesList" Grid.Column="0" ItemSelected="ClassSkillsProficienciesList_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <VerticalStackLayout>
-                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding}"/>
                                 </VerticalStackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView HasUnevenRows="True" x:Name="ClassSelectedSkillsProficienciesList" Grid.Column="1">
+                <ListView HasUnevenRows="True" x:Name="ClassSelectedSkillsProficienciesList" SelectionMode="None" Grid.Column="1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <VerticalStackLayout>
-                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding}"/>
                                 </VerticalStackLayout>
                             </ViewCell>
                         </DataTemplate>

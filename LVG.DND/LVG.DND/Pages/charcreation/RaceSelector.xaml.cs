@@ -69,6 +69,10 @@ public partial class RaceSelector : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
+        foreach (Item item in selectedItems)
+        {
+            _vm.Character.ItemProficiencies.Add(item.Name);
+        }
         ClassSelector classPage = new ClassSelector(_vm.Character);
         await Navigation.PushAsync(classPage);
     }
@@ -137,13 +141,10 @@ public partial class RaceSelector : ContentPage
         if (selectedItems.Count > 0)
         {
             unSelectedItems.Add(selectedItems[0]);
-            _vm.Character.ItemProficiencies.Remove(selectedItems[0].Name);
             selectedItems = new List<Item>();
         }
         selectedItems.Add((sender as ListView).SelectedItem as Item);
         unSelectedItems.Remove((sender as ListView).SelectedItem as Item);
-
-        _vm.Character.ItemProficiencies.Add(((sender as ListView).SelectedItem as Item).Name);
 
         RaceItemsList.ItemsSource = null;
         RaceSelectedItemsList.ItemsSource = null;
