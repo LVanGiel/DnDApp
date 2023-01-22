@@ -73,6 +73,7 @@ namespace LVG.DND.streaming
                 ItemProficiencies = new List<string> { "Alchemist's supplies" },
                 AbilityScoresProficiencies = new List<string> { SkillNameConstants.Dexterity, SkillNameConstants.Intelligence },
                 SkillProficiencies = new List<string>{ SkillNameConstants.Acrobatics, SkillNameConstants.Arcana, SkillNameConstants.Athletics, SkillNameConstants.History, SkillNameConstants.Insight, SkillNameConstants.Investigation, SkillNameConstants.Religion, SkillNameConstants.Survival },
+                SkillProficienciesCount = 3,
                 MeleeWeaponsChoice = new List<ClassWeaponChoice> 
                 { 
                     new ClassWeaponChoice{ WeaponName = WeaponsConstants.MARTIAL_WEAPON, Count = 1},

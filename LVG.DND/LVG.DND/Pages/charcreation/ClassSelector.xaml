@@ -13,7 +13,7 @@
             <Editor x:Name="ClassBackstoryEditor" IsEnabled="False" TextColor="Black"/>
             <Label x:Name="ClassHitDice"/>
             <Label Text="Choose 2 skill proficiencies"/>
-            <Grid ColumnDefinitions="*,*">
+            <Grid x:Name="ClassSkillGrid" ColumnDefinitions="*,*">
                 <ListView HasUnevenRows="True" x:Name="ClassSkillsProficienciesList" Grid.Column="0" ItemSelected="ClassSkillsProficienciesList_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>

@@ -8,7 +8,7 @@ namespace LVG.DND.Pages.charcreation;
 
 public partial class RaceSelector : ContentPage
 {
-    RaceSelectorViewModel _vm = new RaceSelectorViewModel();
+    CharCreateViewModel _vm = new CharCreateViewModel();
     List<Item> unSelectedItems = new List<Item>();
     List<Item> selectedItems = new List<Item>();
 
@@ -21,7 +21,7 @@ public partial class RaceSelector : ContentPage
         };
     public RaceSelector()
     {
-        RaceSelectorViewModel vm = new RaceSelectorViewModel();
+        CharCreateViewModel vm = new CharCreateViewModel();
         vm.Character = new Character();
         _vm = vm;
         BindingContext = _vm;
@@ -73,7 +73,7 @@ public partial class RaceSelector : ContentPage
         {
             _vm.Character.ItemProficiencies.Add(item.Name);
         }
-        ClassSelector classPage = new ClassSelector(_vm.Character);
+        ClassSelector classPage = new ClassSelector(_vm);
         await Navigation.PushAsync(classPage);
     }
 

@@ -25,7 +25,6 @@ public static class MauiProgram
         builder.Services.AddTransient<DndDice>();
         builder.Services.AddTransient<DndDiceViewModel>();
         builder.Services.AddTransient<CharacterCollection>();
-        builder.Services.AddSingleton<ClassSelectorViewModel>();
 
         return builder.Build();
 	}

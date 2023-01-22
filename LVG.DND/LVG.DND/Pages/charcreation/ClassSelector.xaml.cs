@@ -5,15 +5,12 @@ using Newtonsoft.Json;
 namespace LVG.DND.Pages.charcreation;
 public partial class ClassSelector : ContentPage
 {
-    public ClassSelectorViewModel _vm;
+    public CharCreateViewModel _vm;
     List<string> unSelectedSkills = new List<string>();
     List<string> selectedSkills = new List<string>();
-    public ClassSelector(Character character)
+    public ClassSelector(CharCreateViewModel vm)
     {
-        ClassSelectorViewModel vm = new ClassSelectorViewModel();
-        vm.Classes = new List<CharClass>();
         _vm = vm;
-        _vm.Character = character;
         BindingContext = _vm;
         InitializeComponent();
         Init();
@@ -41,10 +38,6 @@ public partial class ClassSelector : ContentPage
         ClassPicker.ItemsSource = ClassPicker.GetItemsAsArray();
         ClassPicker.SelectedIndex = 0;
     }
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        base.OnNavigatedTo(args);
-    }
     private void ClassPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         string className = (sender as Picker).SelectedItem as string;
@@ -54,6 +47,14 @@ public partial class ClassSelector : ContentPage
         ClassSelectedSkillsProficienciesList.ItemsSource = null;
         unSelectedSkills = activeClass.SkillProficiencies;
         selectedSkills = null;
+        foreach (var item in activeClass.SkillProficiencies)
+        {
+            if (item == "Choice")
+            {
+
+            }
+        }
+        
     }
     private void This_Loaded(object sender, EventArgs e)
     {
@@ -63,7 +64,7 @@ public partial class ClassSelector : ContentPage
     private void ClassSkillsProficienciesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         selectedSkills = selectedSkills == null ? new List<string>() : selectedSkills;
-        if (selectedSkills.Count >= 2)
+        if (selectedSkills.Count >= _vm.Character.Class.SkillProficienciesCount)
         {
             unSelectedSkills.Add(selectedSkills[selectedSkills.Count - 1]);
             selectedSkills.RemoveAt(0);

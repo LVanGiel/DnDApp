@@ -14,6 +14,7 @@ namespace LVG.DND.Models
         public List<string> ItemProficiencies { get; set; }
         public List<string> AbilityScoresProficiencies { get; set; }
         public List<string> SkillProficiencies { get; set; }
+        public int SkillProficienciesCount { get; set; }
         public List<ClassWeaponChoice> MeleeWeaponsChoice { get; set; }
         public List<ClassWeaponChoice> RangedWeaponsChoice { get; set; }
         public List<string> ArmorChoice { get; set; }
