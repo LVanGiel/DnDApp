@@ -1,9 +1,9 @@
 using LVG.DND.Models;
 using LVG.DND.ViewModel;
 
-namespace LVG.DND.Views.charcreation;
+namespace LVG.DND.Pages.charcreation;
 
-public partial class BackgroundSelector : ContentView
+public partial class BackgroundSelector : ContentPage
 {
     BackgroundSelectorViewModel _vm = new BackgroundSelectorViewModel();
     public BackgroundSelector(BackgroundSelectorViewModel vm)

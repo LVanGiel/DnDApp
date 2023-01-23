@@ -27,7 +27,9 @@ namespace LVG.DND.ViewModel
         [ObservableProperty]
         List<int> diceScores = new List<int>();
 
-        //class selections
+        [ObservableProperty]
+        List<Background> backgrounds = new List<Background>();
+
         [ObservableProperty]
         List<CharClass> classes = new List<CharClass>();
 
@@ -36,6 +38,7 @@ namespace LVG.DND.ViewModel
         {
             AddRaces();
             AddClasses();
+            AddBackgrounds();
             Character = character;
         }
         
@@ -51,6 +54,10 @@ namespace LVG.DND.ViewModel
         private async void AddClasses()
         {
             Classes = await new StreamClasses().GetAllClasses();
+        }
+        private async void AddClasses()
+        {
+            Classes = await new StreamBackgrounds().GetAllBackgrounds();
         }
     }
 }

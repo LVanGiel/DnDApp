@@ -75,7 +75,7 @@
     <MauiXaml Update="Views\charcreation\AbilityScores\ASRollInput.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\charcreation\BackgroundSelector.xaml">
+    <MauiXaml Update="Pages\charcreation\BackgroundSelector.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\DicePopup.xaml">
