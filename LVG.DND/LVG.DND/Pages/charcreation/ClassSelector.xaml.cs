@@ -78,4 +78,10 @@ public partial class ClassSelector : ContentPage
         ClassSkillsProficienciesList.ItemsSource = unSelectedSkills;
         ClassSelectedSkillsProficienciesList.ItemsSource = selectedSkills;
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        AbilityScoreCreator AbilityScorePage = new AbilityScoreCreator(_vm);
+        await Navigation.PushAsync(AbilityScorePage);
+    }
 }

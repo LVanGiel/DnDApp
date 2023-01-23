@@ -21,22 +21,22 @@ public partial class CharacterCreationPage : ContentPage
     }
     private void NextStep()
     {
-        switch (step)
-        {
-            case 0:
-                //creationStack.Add(new ClassSelector(new ClassSelectorViewModel()));
-                step++;
-                break;
-            case 1:
-                creationStack.Add(new BackgroundSelector(new BackgroundSelectorViewModel(character)));
-                step++;
-                break;
-            case 2:
-                creationStack.Add(new AbilityScoreCreator(new AbilityScoresViewModel(character)));
-                step++;
-                break;
-            default:
-                break;
-        }
+        //switch (step)
+        //{
+        //    case 0:
+        //        //creationStack.Add(new ClassSelector(new ClassSelectorViewModel()));
+        //        step++;
+        //        break;
+        //    case 1:
+        //        creationStack.Add(new BackgroundSelector(new BackgroundSelectorViewModel(character)));
+        //        step++;
+        //        break;
+        //    case 2:
+        //        creationStack.Add(new AbilityScoreCreator(new AbilityScoresViewModel(character)));
+        //        step++;
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
 }

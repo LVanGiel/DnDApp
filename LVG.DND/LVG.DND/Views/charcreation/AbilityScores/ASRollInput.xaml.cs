@@ -6,12 +6,12 @@ namespace LVG.DND.Views.charcreation.AbilityScores;
 
 public partial class ASRollInput : ContentView
 {
-    AbilityScoresViewModel _vm = new AbilityScoresViewModel();
+    CharCreateViewModel _vm = new CharCreateViewModel();
     List<string> scores = new List<string>();
     List<string> selectedScores = new List<string>();
-    int rollCounter = 0;
     List<string> abilityScoresStrings = new List<string>();
-    public ASRollInput(AbilityScoresViewModel vm)
+    int rollCounter = 0;
+    public ASRollInput(CharCreateViewModel vm)
 	{
         InitializeComponent();
         BindingContext = vm;
@@ -35,7 +35,7 @@ public partial class ASRollInput : ContentView
         abilityBtn.Clicked += new EventHandler(AbilityBtn_Clicked);
 
         var abilityLabel = new Label();
-        abilityLabel.SetBinding(Label.TextProperty, "Character." + ability);
+        abilityLabel.Text = "Add a number to " + ability;
 
         var abilityStack = new HorizontalStackLayout();
         abilityStack.Add(abilityBtn);
@@ -63,7 +63,7 @@ public partial class ASRollInput : ContentView
             dicelist.Add(6);
         }
         var popup = new DicePopup(dicelist, true);
-        var page = this.Parent.Parent.Parent.Parent.Parent as ContentPage;
+        var page = this.Parent.Parent.Parent.Parent as ContentPage;
         var popupResult = await page.ShowPopupAsync(popup);
         if (popupResult is List<int> intResult)
         {

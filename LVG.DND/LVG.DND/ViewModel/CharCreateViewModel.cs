@@ -24,6 +24,9 @@ namespace LVG.DND.ViewModel
         [ObservableProperty]
         List<Item> selectedRaceLanguages = new List<Item>();
 
+        [ObservableProperty]
+        List<int> diceScores = new List<int>();
+
         //class selections
         [ObservableProperty]
         List<CharClass> classes = new List<CharClass>();

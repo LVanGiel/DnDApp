@@ -1,16 +1,15 @@
-using CommunityToolkit.Mvvm.ComponentModel;
 using LVG.DND.Models;
 using LVG.DND.ViewModel;
 using LVG.DND.Views.charcreation.AbilityScores;
 using Newtonsoft.Json;
 
-namespace LVG.DND.Views.charcreation;
+namespace LVG.DND.Pages.charcreation;
 
-public partial class AbilityScoreCreator : ContentView
+public partial class AbilityScoreCreator : ContentPage
 {
 	private bool isRoll;
-    AbilityScoresViewModel _vm;
-    public AbilityScoreCreator(AbilityScoresViewModel vm)
+    CharCreateViewModel _vm;
+    public AbilityScoreCreator(CharCreateViewModel vm)
 	{
 		InitializeComponent();
 		isRoll = false;
@@ -37,5 +36,10 @@ public partial class AbilityScoreCreator : ContentView
             ASStack.Add(new ASManualInput(_vm));
         }
 		isRoll = !isRoll;
+    }
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        AbilityScoreCreator AbilityScorePage = new AbilityScoreCreator(_vm);
+        await Navigation.PushAsync(AbilityScorePage);
     }
 }

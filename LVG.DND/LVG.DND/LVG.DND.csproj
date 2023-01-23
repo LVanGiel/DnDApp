@@ -128,7 +128,7 @@
 	  <MauiXaml Update="Views\characterviews\FeaturesAndTraitsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\AbilityScoreCreator.xaml">
+	  <MauiXaml Update="Pages\charcreation\AbilityScoreCreator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\charcreation\AbilityScores\ASManualInput.xaml">

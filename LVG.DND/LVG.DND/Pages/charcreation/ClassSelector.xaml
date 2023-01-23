@@ -37,7 +37,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <Button Text="Next"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Button Text="Next" Clicked="Button_Clicked"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
