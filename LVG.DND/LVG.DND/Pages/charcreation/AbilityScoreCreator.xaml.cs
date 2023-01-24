@@ -39,7 +39,7 @@ public partial class AbilityScoreCreator : ContentPage
     }
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        AbilityScoreCreator AbilityScorePage = new AbilityScoreCreator(_vm);
-        await Navigation.PushAsync(AbilityScorePage);
+        BackgroundSelector BackgroundPage = new BackgroundSelector(_vm);
+        await Navigation.PushAsync(BackgroundPage);
     }
 }

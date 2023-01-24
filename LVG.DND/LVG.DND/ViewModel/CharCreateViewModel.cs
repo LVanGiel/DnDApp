@@ -46,6 +46,7 @@ namespace LVG.DND.ViewModel
         {
             AddRaces();
             AddClasses();
+            AddBackgrounds();
         }
         private async void AddRaces()
         {
@@ -55,9 +56,9 @@ namespace LVG.DND.ViewModel
         {
             Classes = await new StreamClasses().GetAllClasses();
         }
-        private async void AddClasses()
+        private async void AddBackgrounds()
         {
-            Classes = await new StreamBackgrounds().GetAllBackgrounds();
+            Backgrounds = await new StreamBackgrounds().GetAllBackgrounds();
         }
     }
 }

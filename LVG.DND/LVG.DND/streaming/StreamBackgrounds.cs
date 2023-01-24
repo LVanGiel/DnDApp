@@ -35,6 +35,22 @@ namespace LVG.DND.streaming
             CreateFileCheck(path);
             File.WriteAllText(path, JsonConvert.SerializeObject(background));
         }
+
+        public async Task<List<Background>> GetAllBackgrounds()
+        {
+            List<Background> backgrounds = new List<Background>();
+            var pathString = Path.Combine(basepath, "Data\\Backgrounds\\");
+
+            var charactersPaths = System.IO.Directory.GetFiles(pathString);
+            foreach (var path in charactersPaths)
+            {
+                Background background = new Background();
+                string classString = await File.ReadAllTextAsync(path);
+                background = JsonConvert.DeserializeObject<Background>(classString);
+                backgrounds.Add(background);
+            }
+            return backgrounds;
+        }
         public void AddBackgrounds()
         {
             backgrounds = new List<Background>

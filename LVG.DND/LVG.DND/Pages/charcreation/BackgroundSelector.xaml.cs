@@ -5,8 +5,8 @@ namespace LVG.DND.Pages.charcreation;
 
 public partial class BackgroundSelector : ContentPage
 {
-    BackgroundSelectorViewModel _vm = new BackgroundSelectorViewModel();
-    public BackgroundSelector(BackgroundSelectorViewModel vm)
+    CharCreateViewModel _vm = new CharCreateViewModel();
+    public BackgroundSelector(CharCreateViewModel vm)
 	{
 		InitializeComponent();
         BindingContext = vm;
