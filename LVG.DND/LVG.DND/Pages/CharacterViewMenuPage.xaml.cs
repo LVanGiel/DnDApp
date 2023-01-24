@@ -24,7 +24,7 @@ public partial class CharacterViewMenuPage : ContentPage
 
     private void OnUnloaded(object sender, EventArgs e)
     {
-            AppShell.Current.Items.Remove(_menuConstants.flyoutItem);
+        AppShell.Current.Items.Remove(_menuConstants.flyoutItem);
     }
 
     private void OnLoaded(object sender, EventArgs e)
@@ -35,7 +35,6 @@ public partial class CharacterViewMenuPage : ContentPage
     {
         character = new Character();
         character = await character.GetActiveCharacter();
-        //PageTitle.Text = character.Name;
     }
     private void AddImageButton(string pageName)
     {
