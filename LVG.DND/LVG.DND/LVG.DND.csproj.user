@@ -30,6 +30,9 @@
     <MauiXaml Update="Pages\character\CharacterHome.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\character\CharacterSession.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\DndDice.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -91,6 +94,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\SpellEditPopup.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\StatButton.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\StoryTellingPopup.xaml">
