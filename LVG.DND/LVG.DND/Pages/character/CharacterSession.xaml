@@ -11,7 +11,6 @@
             <views:StatButton x:Name="HealthBtn" ButtonTitle="Health"/>
         </HorizontalStackLayout>
         <Button Text="Start Combat" VerticalOptions="Center"/>
-        <Button Text="Edit Health" VerticalOptions="Center"/>
         <Button Text="Skill Check" VerticalOptions="Center"/>
         <Button Text="Items" VerticalOptions="Center"/>
         <Button Text="Equipment" VerticalOptions="Center"/><!--weapons and armor-->

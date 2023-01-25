@@ -1,3 +1,6 @@
+using LVG.DND.Models;
+using LVG.DND.ViewModel.characterViewModels;
+
 namespace LVG.DND.Pages.character;
 
 public partial class CharacterHome : ContentPage
@@ -10,7 +13,9 @@ public partial class CharacterHome : ContentPage
     private async void SessionBtn_Clicked(object sender, EventArgs e)
     {
         Routing.RegisterRoute(nameof(CharacterSession), typeof(CharacterSession));
-        CharacterSession SessionPage = new CharacterSession();
+        var activeChar = await (new Character()).GetActiveCharacter();
+        var vm = new BaseCharacterViewModel(activeChar);
+        CharacterSession SessionPage = new CharacterSession(vm);
         await Navigation.PushAsync(SessionPage);
     }
 

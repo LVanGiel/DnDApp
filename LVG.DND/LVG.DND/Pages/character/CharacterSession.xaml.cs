@@ -1,16 +1,22 @@
+using LVG.DND.ViewModel.characterViewModels;
+
 namespace LVG.DND.Pages.character;
 
 public partial class CharacterSession : ContentPage
 {
-    public CharacterSession()
+    private BaseCharacterViewModel _vm;
+    public CharacterSession(BaseCharacterViewModel vm)
 	{
 		InitializeComponent();
-		ArmorClassBtn.ButtonStat = "11";
+        _vm = vm;
+        BindingContext = _vm;
+		ArmorClassBtn.ButtonStat = _vm.Character.ArmorPoints.ToString();
 		ArmorClassBtn.ButtonImageUrl = "shield.png";
-        ArmorClassBtn.ButtonClicked = new EventHandler(ArmorClicked);
-    }
-    private async void ArmorClicked(object s, EventArgs e)
-    {
-        await Navigation.PopAsync();
+
+        SpeedBtn.ButtonStat = _vm.Character.BaseSpeed.ToString();
+        SpeedBtn.ButtonImageUrl = "speed.png";
+
+        HealthBtn.ButtonStat = _vm.Character.CurrentHealth.ToString();
+        HealthBtn.ButtonImageUrl = "health.png";
     }
 }
