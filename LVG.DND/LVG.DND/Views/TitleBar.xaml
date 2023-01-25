@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LVG.DND.Views.TitleBar" BackgroundColor="Aqua">
+             x:Class="LVG.DND.Views.TitleBar" BackgroundColor="#804C25">
+    <ContentView.Shadow>
+        <Shadow Brush="Black" Offset="0,0" Radius="20" Opacity="0.8"/>
+    </ContentView.Shadow>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,8 +17,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
-
-        <Button Text="&lt;" Clicked="BackButton_Clicked" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+        <Button Text="&lt;" Clicked="BackButton_Clicked" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" TextColor="Black" FontSize="40" BackgroundColor="Transparent" BorderColor="Transparent"/>
         <Label x:Name="lblName" FontSize="Large" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
 
         <Label x:Name="lblClass" Text="Blood Hunter" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
