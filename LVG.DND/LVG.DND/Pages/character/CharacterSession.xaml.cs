@@ -6,7 +6,7 @@ public partial class CharacterSession : ContentPage
 	{
 		InitializeComponent();
 		ArmorClassBtn.ButtonStat = "11";
-		ArmorClassBtn.ButtonImageUrl = "dice_red10.png";
+		ArmorClassBtn.ButtonImageUrl = "shield.png";
         ArmorClassBtn.ButtonClicked = new EventHandler(ArmorClicked);
     }
     private async void ArmorClicked(object s, EventArgs e)

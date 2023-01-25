@@ -5,10 +5,10 @@
              xmlns:views="clr-namespace:LVG.DND.Views">
     <VerticalStackLayout>
         <views:TitleBar  Margin="0,0,0,20"/>
-        <HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
             <views:StatButton x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/>
-            <!--<views:StatButton x:Name="SpeedBtn" ButtonTitle="Speed"/>
-            <views:StatButton x:Name="HealthBtn" ButtonTitle="Health"/>-->
+            <views:StatButton x:Name="SpeedBtn" ButtonTitle="Speed"/>
+            <views:StatButton x:Name="HealthBtn" ButtonTitle="Health"/>
         </HorizontalStackLayout>
         <Button Text="Start Combat" VerticalOptions="Center"/>
         <Button Text="Edit Health" VerticalOptions="Center"/>

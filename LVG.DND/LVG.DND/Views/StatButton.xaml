@@ -5,7 +5,7 @@
              x:Name="this">
     <Grid RowDefinitions="100,30" WidthRequest="100" BindingContext="{x:Reference this}">
         <Image Grid.Row="0" Source="{Binding ButtonImageUrl}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-        <Label Grid.Row="0" Text="{Binding ButtonStat}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Label Grid.Row="0" Text="{Binding ButtonStat}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="50"/>
         <Label Grid.Row="1" Text="{Binding ButtonTitle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
         <Button x:Name="ThisClicked" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" BorderColor="Transparent"/>
     </Grid>
