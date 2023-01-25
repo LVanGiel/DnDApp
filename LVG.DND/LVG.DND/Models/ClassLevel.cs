@@ -12,7 +12,11 @@ namespace LVG.DND.Models
         public int Level { get; set; }
         public string SpecialSkillDice { get; set; }
         public List<string> SpellChoices { get; set; }
+        public List<string> LevelFeatures { get; set; }
+        public List<string> FeatureChoices { get; set; }
+        public List<string> SubClassChoices { get; set; }
         public int SpellsToLearn { get; set; }
+        public int ProficiencyBonus { get; set; }
         public List<string> ClassSpells { get; set; }
         public List<string> SpellChoicesLevel1 { get; set; }
         public List<string> SpellChoicesLevel2 { get; set; }

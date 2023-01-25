@@ -91,8 +91,25 @@ namespace LVG.DND.streaming
                     {
                         Level = 1,
                         SpecialSkillDice = "1d4",
-                        ClassSpells = new List<string>{"Hunter's Bane", "Blood Maledict"},
+                        LevelFeatures = new List<string>{"Hunter's Bane", "Blood Maledict"},
                         SpellChoices = new List<string>{"Blood Curse of the Anxious", "Blood Curse of Binding", "Blood Curse of Bloated Agony", "Blood Curse of Exposure", "Blood Curse of the Eyeless", "Blood Curse of the Marked", "Blood Curse of the Muddled Mind", "Blood Curse of the Soul Eater"},
+                        SpellsToLearn = 1
+                    },
+                    new ClassLevel
+                    {
+                        Level = 2,
+                        SpecialSkillDice = "1d4",
+                        LevelFeatures = new List<string>{"Fighting Style", "Crimson Rite"},
+                        FeatureChoices  = new List<string>{ "Archery", "Dueling", "Great Weapon Fighting", "Two-Weapon Fighting"},
+                        SpellChoices = new List<string>{ "Rite of the Flame", "Rite of the Frozen", "Rite of the Storm"},
+                        SpellsToLearn = 1
+                    },
+                    new ClassLevel
+                    {
+                        Level = 3,
+                        SpecialSkillDice = "1d4",
+                        ClassSpells = new List<string>{"Blood Hunter Order"},
+                        SubClassChoices = new List<string>{"Order of the Ghostslayer","Order of the Lycan", "Order of the Mutant", "Order of the Profane Soul"},
                         SpellsToLearn = 1
                     }
                 }
