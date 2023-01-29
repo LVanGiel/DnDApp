@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using LVG.DND.ViewModel.characterViewModels;
 using LVG.DND.Views;
 
@@ -11,6 +12,15 @@ public partial class StartCombat : ContentPage
 		InitializeComponent();
         _vm = vm;
         BindingContext = _vm;
+        ArmorClassBtn.ButtonStat = _vm.Character.ArmorPoints.ToString();
+        ArmorClassBtn.ButtonImageUrl = "shield.png";
+
+        SpeedBtn.ButtonStat = _vm.Character.BaseSpeed.ToString();
+        SpeedBtn.ButtonImageUrl = "speed.png";
+
+        HealthBtn.ButtonStat = _vm.Character.CurrentHealth.ToString();
+        HealthBtn.ButtonImageUrl = "health.png";
+        HealthBtn.ButtonClicked += HealthButton_Clicked;
     }
 
     private void SubmitInitiative_Clicked(object sender, EventArgs e)
@@ -28,6 +38,7 @@ public partial class StartCombat : ContentPage
             }
             InitiativeBtn.ButtonStat = (int.Parse(InitativeEntry.Text) + _vm.Character.Initiative).ToString();
         }
+        BattleStack.IsVisible = true;
     }
 
     private void RollChoiceButton_Clicked(object sender, EventArgs e)
@@ -41,5 +52,10 @@ public partial class StartCombat : ContentPage
             InputStack.IsVisible = true;
         }
         ((sender as Button).Parent as VerticalStackLayout).IsVisible = false;
+    }
+    private async void HealthButton_Clicked(object sender, EventArgs e)
+    {
+        EditHealthPopup healthPopup = new EditHealthPopup();
+        await this.ShowPopupAsync(healthPopup);
     }
 }

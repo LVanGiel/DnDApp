@@ -112,6 +112,9 @@
 	  <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\EditHealthPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AddTraitPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -185,6 +188,12 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\Types\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\EditHealthPopup.xaml.cs">
+	    <DependentUpon>EditHealthPopup.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

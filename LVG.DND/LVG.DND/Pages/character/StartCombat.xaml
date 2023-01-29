@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LVG.DND.Pages.character.StartCombat"
              xmlns:views="clr-namespace:LVG.DND.Views"
-             Title="StartCombat">
+             Shell.NavBarIsVisible = "False">
     <VerticalStackLayout>
         <views:TitleBar  Margin="0,0,0,20"/>
         <VerticalStackLayout x:Name="RollChoice">
@@ -20,8 +20,11 @@
             <Entry x:Name="InitativeEntry"/>
             <Button Text="Submit" Clicked="SubmitInitiative_Clicked"/>
         </VerticalStackLayout>
-        <VerticalStackLayout x:Name="BattleStack">
+        <VerticalStackLayout x:Name="BattleStack" IsVisible="False">
             <views:StatButton x:Name="InitiativeBtn" ButtonTitle="Initiative"/>
+            <views:StatButton x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/>
+            <views:StatButton x:Name="SpeedBtn" ButtonTitle="Speed"/>
+            <views:StatButton x:Name="HealthBtn" ButtonTitle="Health"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
