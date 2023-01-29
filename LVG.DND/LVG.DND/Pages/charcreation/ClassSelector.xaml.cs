@@ -54,7 +54,7 @@ public partial class ClassSelector : ContentPage
 
             }
         }
-        
+        SkillProfTxt.Text = $"Choose {activeClass.SkillProficienciesCount} skill proficiencies";
     }
     private void This_Loaded(object sender, EventArgs e)
     {

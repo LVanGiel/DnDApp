@@ -1,3 +1,4 @@
+using LVG.DND.Models;
 using LVG.DND.ViewModel.characterViewModels;
 
 namespace LVG.DND.Pages.character;
@@ -18,5 +19,14 @@ public partial class CharacterSession : ContentPage
 
         HealthBtn.ButtonStat = _vm.Character.CurrentHealth.ToString();
         HealthBtn.ButtonImageUrl = "health.png";
+    }
+
+    private async void CombatButton_Clicked(object sender, EventArgs e)
+    {
+        Routing.RegisterRoute(nameof(StartCombat), typeof(StartCombat));
+        var activeChar = await (new Character()).GetActiveCharacter();
+        var vm = new BaseCharacterViewModel(activeChar);
+        StartCombat SessionPage = new StartCombat(vm);
+        await Navigation.PushAsync(SessionPage);
     }
 }

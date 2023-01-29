@@ -12,7 +12,7 @@
             <Picker x:Name="ClassPicker" MinimumWidthRequest="500" HorizontalOptions="FillAndExpand" SelectedIndexChanged="ClassPicker_SelectedIndexChanged"/>
             <Editor x:Name="ClassBackstoryEditor" IsEnabled="False" TextColor="Black"/>
             <Label x:Name="ClassHitDice"/>
-            <Label Text="Choose 2 skill proficiencies"/>
+            <Label x:Name="SkillProfTxt" Text="Choose 2 skill proficiencies"/>
             <Grid x:Name="ClassSkillGrid" ColumnDefinitions="*,*">
                 <ListView HasUnevenRows="True" x:Name="ClassSkillsProficienciesList" Grid.Column="0" ItemSelected="ClassSkillsProficienciesList_ItemSelected">
                     <ListView.ItemTemplate>
