@@ -9,20 +9,22 @@ namespace LVG.DND.Views;
 
 public partial class EditHealthPopup : Popup
 {
-	public EditHealthPopup()
+	public EditHealthPopup(Character character)
 	{
 		InitializeComponent();
-	}
+        txtHealth.Text=character.CurrentHealth.ToString();
+        txtTempHealth.Text = character.TemporaryHealth.ToString();
+    }
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-		if (txtName.Text == null || txtDescription.Text == null)
+		if (txtHealth.Text == null || txtTempHealth.Text == null)
 		{
 			return;
 		}
-		var result = new Trait();
-		result.Name = txtName.Text;
-		result.Description = txtDescription.Text;
+		var result = new List<string>();
+		result.Add(txtHealth.Text);
+        result.Add(txtTempHealth.Text);
 
 		this.Close(result);
     }

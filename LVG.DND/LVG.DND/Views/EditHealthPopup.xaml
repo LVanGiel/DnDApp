@@ -2,11 +2,14 @@
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                x:Class="LVG.DND.Views.EditHealthPopup"
-               Size="500, 500">
+               Size="500, 500"
+               CanBeDismissedByTappingOutsideOfPopup="False">
     <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
         <VerticalStackLayout>
-            <Entry Text="" x:Name="txtName" WidthRequest="100"/>
-            <Entry Text="" x:Name="txtDescription" WidthRequest="100"/>
+            <Label Text="Current Health" HorizontalOptions="Center"/>
+            <Entry Text="" x:Name="txtHealth" WidthRequest="100"/>
+            <Label Text="Temporary Health" HorizontalOptions="Center"/>
+            <Entry Text="" x:Name="txtTempHealth" WidthRequest="100"/>
             <Button Text="Save" Clicked="Button_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
