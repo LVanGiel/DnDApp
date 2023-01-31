@@ -22,6 +22,9 @@ public partial class StartCombat : ContentPage
         HealthBtn.ButtonStat =  (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
         HealthBtn.ButtonImageUrl = "health.png";
         HealthBtn.ButtonClicked += HealthButton_Clicked;
+
+        AttackBtn.ButtonImageUrl = "attack.png";
+        ItemsBtn.ButtonImageUrl = "items.png";
     }
 
     private void SubmitInitiative_Clicked(object sender, EventArgs e)

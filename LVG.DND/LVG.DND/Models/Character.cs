@@ -17,6 +17,9 @@ namespace LVG.DND.Models
         public int TemporaryHealth { get; set; }
         public int Initiative { get; set; }
         public int BaseSpeed { get; set; }
+        public int FlyingSpeed { get; set; }
+        public int FloatingSpeed { get; set; }
+        public int SwimmingSpeed { get; set; }
         public int Level { get; set; }
         public int ArmorPoints { get; set; }
 

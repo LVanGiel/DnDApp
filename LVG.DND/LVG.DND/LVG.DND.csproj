@@ -66,7 +66,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\attack.png" />
 	  <None Remove="Resources\Images\health.png" />
+	  <None Remove="Resources\Images\items.png" />
 	  <None Remove="Resources\Images\shield.png" />
 	  <None Remove="Resources\Images\speed.png" />
 	  <None Remove="Resources\Images\stone.jpg" />
