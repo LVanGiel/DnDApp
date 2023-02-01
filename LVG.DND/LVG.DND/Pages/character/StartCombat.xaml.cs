@@ -12,6 +12,10 @@ public partial class StartCombat : ContentPage
 		InitializeComponent();
         _vm = vm;
         BindingContext = _vm;
+        Init();
+    }
+    private void Init()
+    {
         ArmorClassBtn.ButtonStat = _vm.Character.ArmorPoints.ToString();
         ArmorClassBtn.ButtonImageUrl = "shield.png";
         ArmorClassBtn.ButtonClicked += ArmorButton_Clicked;
@@ -20,11 +24,13 @@ public partial class StartCombat : ContentPage
         SpeedBtn.ButtonStat = _vm.Character.BaseSpeed.ToString();
         SpeedBtn.ButtonImageUrl = "speed.png";
 
-        HealthBtn.ButtonStat =  (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
+        HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
         HealthBtn.ButtonImageUrl = "health.png";
         HealthBtn.ButtonClicked += HealthButton_Clicked;
 
         AttackBtn.ButtonImageUrl = "attack.png";
+        AttackBtn.ButtonClicked += AttackButton_Clicked;
+
         ItemsBtn.ButtonImageUrl = "items.png";
         SkillsBtn.ButtonImageUrl = "skill.png";
         TraitsBtn.ButtonImageUrl = "trait.png";
@@ -74,5 +80,10 @@ public partial class StartCombat : ContentPage
     {
         EquipmentPage EquipmentPage = new EquipmentPage(_vm);
         await Navigation.PushAsync(EquipmentPage);
+    }
+    private async void AttackButton_Clicked(object sender, EventArgs e)
+    {
+        AttackPage attackPage = new AttackPage(_vm);
+        await Navigation.PushAsync(attackPage);
     }
 }

@@ -98,6 +98,9 @@
 	  <MauiXaml Update="Pages\CharacterViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\AttackPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\CharacterHome.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
