@@ -14,6 +14,7 @@ public partial class StartCombat : ContentPage
         BindingContext = _vm;
         ArmorClassBtn.ButtonStat = _vm.Character.ArmorPoints.ToString();
         ArmorClassBtn.ButtonImageUrl = "shield.png";
+        ArmorClassBtn.ButtonClicked += ArmorButton_Clicked;
         //clicked > check equipment
 
         SpeedBtn.ButtonStat = _vm.Character.BaseSpeed.ToString();
@@ -25,6 +26,9 @@ public partial class StartCombat : ContentPage
 
         AttackBtn.ButtonImageUrl = "attack.png";
         ItemsBtn.ButtonImageUrl = "items.png";
+        SkillsBtn.ButtonImageUrl = "skill.png";
+        TraitsBtn.ButtonImageUrl = "trait.png";
+        SavingBtn.ButtonImageUrl = "dice_red20.png";
     }
 
     private void SubmitInitiative_Clicked(object sender, EventArgs e)
@@ -65,5 +69,10 @@ public partial class StartCombat : ContentPage
         _vm.Character.TemporaryHealth = int.Parse(strings[1]);
         await _vm.Character.SaveCharacter(_vm.Character);
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
+    }
+    private async void ArmorButton_Clicked(object sender, EventArgs e)
+    {
+        EquipmentPage EquipmentPage = new EquipmentPage(_vm);
+        await Navigation.PushAsync(EquipmentPage);
     }
 }

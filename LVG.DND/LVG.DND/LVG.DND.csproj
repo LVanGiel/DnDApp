@@ -70,8 +70,10 @@
 	  <None Remove="Resources\Images\health.png" />
 	  <None Remove="Resources\Images\items.png" />
 	  <None Remove="Resources\Images\shield.png" />
+	  <None Remove="Resources\Images\skill.png" />
 	  <None Remove="Resources\Images\speed.png" />
 	  <None Remove="Resources\Images\stone.jpg" />
+	  <None Remove="Resources\Images\trait.png" />
 	  <None Remove="Resources\Images\unknownPlayer.png" />
 	  <None Remove="Resources\Images\woodtexture.jpg" />
 	  <None Remove="Resources\Raw\JokmirBravarus.txt" />
@@ -100,6 +102,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\CharacterSession.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\EquipmentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\StartCombat.xaml">
