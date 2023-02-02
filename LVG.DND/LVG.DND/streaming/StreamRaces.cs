@@ -6,7 +6,7 @@ namespace LVG.DND.streaming
 {
     internal class StreamRaces : BaseStream
     {
-        List<Race> races = new List<Race>();
+        List<Race> Races = new List<Race>();
         string basepath = FileSystem.Current.AppDataDirectory;
         public StreamRaces()
         {
@@ -14,14 +14,14 @@ namespace LVG.DND.streaming
         }
         private void PushRaces()
         {
-            var pathRaces = Path.Combine(basepath, @"Data\Races\");
-            var pathString = Path.Combine(basepath, @"Data\");
+            var pathRaces = Path.Combine(basepath, @"Data/Races");
+            var pathString = Path.Combine(basepath, @"Data/");
             AddRaces();
 
             System.IO.Directory.CreateDirectory(pathString);
             System.IO.Directory.CreateDirectory(pathRaces);
 
-            foreach (Race race in races)
+            foreach (Race race in Races)
             {
                 CreateRaceFile(race, pathRaces);
             }
@@ -37,7 +37,7 @@ namespace LVG.DND.streaming
         }
         public void AddRaces()
         {
-            races = new List<Race>{
+            Races = new List<Race>{
                 //Dragonborn
                 new Race(){ 
                     Name = "Dragonborn", 
@@ -528,7 +528,7 @@ namespace LVG.DND.streaming
         public async Task<List<Race>> GetAllRaces()
         {
             List<Race> races = new List<Race>();
-            var pathString = Path.Combine(basepath, "Data\\Races\\");
+            var pathString = Path.Combine(basepath, @"Data/Races");
 
             var charactersPaths = System.IO.Directory.GetFiles(pathString);
             foreach (var path in charactersPaths)

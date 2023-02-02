@@ -36,29 +36,11 @@ namespace LVG.DND.ViewModel
 
         public CharCreateViewModel(Character character)
         {
-            AddRaces();
-            AddClasses();
-            AddBackgrounds();
             Character = character;
         }
         
         public CharCreateViewModel()
         {
-            AddRaces();
-            AddClasses();
-            AddBackgrounds();
-        }
-        private async void AddRaces()
-        {
-            Races = await new StreamRaces().GetAllRaces();
-        }
-        private async void AddClasses()
-        {
-            Classes = await new StreamClasses().GetAllClasses();
-        }
-        private async void AddBackgrounds()
-        {
-            Backgrounds = await new StreamBackgrounds().GetAllBackgrounds();
         }
     }
 }

@@ -1,5 +1,6 @@
 using LVG.DND.Models;
 using LVG.DND.Models.basemodel;
+using LVG.DND.streaming;
 using LVG.DND.ViewModel;
 using Newtonsoft.Json;
 using System.Linq;
@@ -54,8 +55,14 @@ public partial class RaceSelector : ContentPage
         SubRacePicker.ItemsSource = SubRacePicker.GetItemsAsArray();
         SubRacePicker.SelectedIndex = 0;
     }
-    private void This_Loaded(object sender, EventArgs e)
+    private async void This_Loaded(object sender, EventArgs e)
     {
+        var raceStream = new StreamRaces();
+        _vm.Races = await raceStream.GetAllRaces();
+        var classStream = new StreamClasses();
+        _vm.Classes = await classStream.GetAllClasses();
+        var backgroundStream = new StreamBackgrounds();
+        _vm.Backgrounds = await backgroundStream.GetAllBackgrounds();
         FillRaceNames();
     }
     private void SubRaceList_ItemSelected(object sender, SelectedItemChangedEventArgs e)

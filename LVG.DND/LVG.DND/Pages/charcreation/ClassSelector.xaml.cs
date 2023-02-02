@@ -13,18 +13,8 @@ public partial class ClassSelector : ContentPage
         _vm = vm;
         BindingContext = _vm;
         InitializeComponent();
-        Init();
         this.Loaded += new EventHandler(This_Loaded);
 
-    }
-
-    private async void Init()
-    {
-        var basepath = FileSystem.Current.CacheDirectory;
-        Character character = new Character();
-        var pathString = Path.Combine(basepath, "temporaryCharacter.txt");
-        var characterString = await File.ReadAllTextAsync(pathString);
-        _vm.Character = JsonConvert.DeserializeObject<Character>(characterString);
     }
     private void FillClassNames()
     {
