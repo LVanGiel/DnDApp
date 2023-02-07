@@ -51,6 +51,9 @@
     <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\SpellsView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\EditHealthPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

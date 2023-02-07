@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LVG.DND.Views.characterviews.CharacterSpellsView">
+             x:Class="LVG.DND.Views.SpellsView">
     <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Button Text="Edit spellslots" Clicked="AddSpellSlotButton_Clicked"></Button>
-            <Button Text="+ spell of cantrip" Clicked="AddSpellButton_Clicked"></Button>
-        </HorizontalStackLayout>
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -25,11 +20,10 @@
             <Label Text="Spell Save DC" Grid.Column="2" Grid.Row="0"/>
             <Label Text="Spell Attack Bonus" Grid.Column="3" Grid.Row="0"/>
 
-            <Entry x:Name="txtSpellClass" Text="{Binding Character.SpellClass}" Placeholder="Spellcasting Class" IsEnabled="False" Grid.Column="0" Grid.Row="1"/>
-            <Entry x:Name="txtSpellAbility"  Text="{Binding Character.CastingAbility}" Placeholder="Spellcasting Ability" IsEnabled="False" Grid.Column="1" Grid.Row="1"/>
-            <Entry x:Name="txtSpellSaveDC"  Text="{Binding Character.SpellSaveDC}" Placeholder="Spell Save DC" IsEnabled="False" Grid.Column="2" Grid.Row="1"/>
-            <Entry x:Name="txtSpellAttackBonus" Text="{Binding Character.SpellAttackBonus}" Placeholder="Spell Attack Bonus" IsEnabled="False" Grid.Column="3" Grid.Row="1"/>
-            <Button x:Name="btnSpellClassEdit" Text="Edit" Clicked="EditSpellClass_Clicked" Grid.Column="4" Grid.Row="1"/>
+            <Label x:Name="txtSpellClass" Text="{Binding Character.SpellClass}" Grid.Column="0" Grid.Row="1"/>
+            <Label x:Name="txtSpellAbility"  Text="{Binding Character.CastingAbility}" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="txtSpellSaveDC"  Text="{Binding Character.SpellSaveDC}" Grid.Column="2" Grid.Row="1"/>
+            <Label x:Name="txtSpellAttackBonus" Text="{Binding Character.SpellAttackBonus}" Grid.Column="3" Grid.Row="1"/>
         </Grid>
         
         <Label Text="Cantrips" VerticalOptions="Center" FontSize="Title"/>
@@ -52,7 +46,6 @@
                                 <Label Text="{Binding Duration}"></Label>
                                 <Editor Text="{Binding Description}" AutoSize="TextChanges" IsEnabled="False" TextColor="Black"></Editor>
                             </VerticalStackLayout>
-                            <Button x:Name="DeleteCantripButton" Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
@@ -98,7 +91,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -144,7 +136,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -190,7 +181,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -236,7 +226,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -282,7 +271,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -328,7 +316,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -374,7 +361,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -420,7 +406,6 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -466,13 +451,11 @@
                                     </HorizontalStackLayout>
                                     <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
                                 </VerticalStackLayout>
-                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </VerticalStackLayout>
-
     </VerticalStackLayout>
 </ContentView>

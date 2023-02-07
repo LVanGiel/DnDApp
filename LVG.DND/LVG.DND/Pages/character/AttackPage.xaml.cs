@@ -2,7 +2,6 @@ using LVG.DND.Models;
 using LVG.DND.streaming;
 using LVG.DND.ViewModel.characterViewModels;
 using LVG.DND.Views;
-using LVG.DND.Views.characterviews;
 
 namespace LVG.DND.Pages.character;
 
@@ -21,7 +20,7 @@ public partial class AttackPage : ContentPage
     {
         if (_vm.Character.Spells.Count > 0 || _vm.Character.Cantrips.Count > 0)
         {
-            CharacterSpellsView spellview = new CharacterSpellsView(_vm);
+            SpellsView spellview = new SpellsView(_vm);
             mainStack.Children.Add(spellview);
         }
     }
