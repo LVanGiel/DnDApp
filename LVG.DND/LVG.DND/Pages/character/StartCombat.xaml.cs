@@ -55,11 +55,12 @@ public partial class StartCombat : ContentPage
         BattleStack.IsVisible = true;
     }
 
-    private void RollChoiceButton_Clicked(object sender, EventArgs e)
+    private async void RollChoiceButton_Clicked(object sender, EventArgs e)
     {
         if ((sender as Button).Text == "Roll in app") 
         {
             RollInApp.IsVisible = true;
+            await InitiativeDiceView.dice.RollDice(20);
         }
         else
         {

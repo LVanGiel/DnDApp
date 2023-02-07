@@ -4,9 +4,10 @@
              x:Class="LVG.DND.Pages.character.AttackPage"
              Title="AttackPage"
              xmlns:views="clr-namespace:LVG.DND.Views"
+             xmlns:characterviews="clr-namespace:LVG.DND.Views.characterviews"
              Shell.NavBarIsVisible = "False">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout x:Name="mainStack">
             <views:TitleBar  Margin="0,0,0,20"/>
             <Label Text="Weapons" FontSize="Title"/>
             <Grid>
@@ -22,7 +23,7 @@
                 <Label Text="Damage" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
                 <Label Text="Damage Type" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
             </Grid>
-            <ListView x:Name="WeaponListView" ItemsSource="{Binding Character.Weapons}">
+            <ListView x:Name="WeaponListView" ItemSelected="WeaponListView_ItemSelected" ItemsSource="{Binding Character.Weapons}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -42,6 +43,23 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Label x:Name="SelectedWeaponLabel" IsVisible="False"/>
+            <VerticalStackLayout x:Name="AttackRollStack" IsVisible="False">
+                <Label Text="Roll a d20"/>
+                <Button Clicked="RollInAppAttack" Text="Roll in the app"/>
+                <views:DiceView x:Name="AttackRollDice" IsVisible="False"/>
+                <VerticalStackLayout x:Name="ManualAttackRollStack">
+                    <Entry x:Name="AttackRollManualEntry"/>
+                    <Button Clicked="SubmitAttackRoll" Text="Submit"/>
+                </VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Label x:Name="TotalAttackRollLabel"/>
+                </HorizontalStackLayout>
+                <VerticalStackLayout x:Name="HitOrMissStack" IsVisible="False">
+                    <Button Text="Hit"/>
+                    <Button Text="Miss"/>
+                </VerticalStackLayout>
             </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
