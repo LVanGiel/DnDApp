@@ -21,16 +21,15 @@
                 <Entry x:Name="InitativeEntry"/>
                 <Button Text="Submit" Clicked="SubmitInitiative_Clicked"/>
             </VerticalStackLayout>
-            <Grid x:Name="BattleStack" VerticalOptions="FillAndExpand" IsVisible="False" RowDefinitions="*,*,*" ColumnDefinitions="*,*,*">
-                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="0" x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="1" x:Name="InitiativeBtn" ButtonTitle="Initiative"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="2" x:Name="HealthBtn" ButtonTitle="Health"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="0" x:Name="AttackBtn" ButtonTitle="Attack"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="1" x:Name="SpeedBtn" ButtonTitle="Speed"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="2" x:Name="ItemsBtn" ButtonTitle="Items"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="0" x:Name="SavingBtn" ButtonTitle="Saving Throws"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="1" x:Name="SkillsBtn" ButtonTitle="Skill Checks"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="2" x:Name="TraitsBtn" ButtonTitle="Traits"/>
+            <Grid x:Name="BattleStack" VerticalOptions="FillAndExpand" IsVisible="False" RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" x:Name="InitiativeBtn" ButtonTitle="Initiative"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" x:Name="HealthBtn" ButtonTitle="Health"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="AttackBtn" ButtonTitle="Attack"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" x:Name="SpeedBtn" ButtonTitle="Speed"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" x:Name="ItemsBtn" ButtonTitle="Items"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="SkillsBtn" ButtonTitle="Skill Checks"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" x:Name="TraitsBtn" ButtonTitle="Traits"/>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

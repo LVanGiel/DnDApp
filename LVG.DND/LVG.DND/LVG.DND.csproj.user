@@ -48,6 +48,9 @@
     <MauiXaml Update="Pages\character\StartCombat.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\character\TraitsPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\DndDice.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

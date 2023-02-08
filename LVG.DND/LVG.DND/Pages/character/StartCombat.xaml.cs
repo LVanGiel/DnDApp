@@ -39,8 +39,7 @@ public partial class StartCombat : ContentPage
         SkillsBtn.ButtonClicked += SkillButton_Clicked;
 
         TraitsBtn.ButtonImageUrl = "trait.png";
-
-        SavingBtn.ButtonImageUrl = "dice_red20.png";
+        TraitsBtn.ButtonClicked += TraitsButton_Clicked;
     }
 
     private void SubmitInitiative_Clicked(object sender, EventArgs e)
@@ -107,5 +106,10 @@ public partial class StartCombat : ContentPage
     {
         SkillCheckPage skillPage = new SkillCheckPage(_vm);
         await Navigation.PushAsync(skillPage);
+    }
+    private async void TraitsButton_Clicked(object sender, EventArgs e)
+    {
+        TraitsPage traitPage = new TraitsPage(_vm);
+        await Navigation.PushAsync(traitPage);
     }
 }

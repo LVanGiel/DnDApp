@@ -122,6 +122,9 @@
 	  <MauiXaml Update="Pages\character\StartCombat.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\TraitsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\DndDice.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

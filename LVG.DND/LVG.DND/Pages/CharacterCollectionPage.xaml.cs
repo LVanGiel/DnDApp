@@ -1,5 +1,6 @@
 using LVG.DND.Models;
 using LVG.DND.Pages.character;
+using LVG.DND.Pages.charcreation;
 using LVG.DND.ViewModel;
 
 namespace LVG.DND.Pages;
@@ -34,6 +35,6 @@ public partial class CharacterCollectionPage : ContentPage
 
     private async void AddCharacterBtn_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(CharacterCreationPage));
+        await Shell.Current.GoToAsync(nameof(RaceSelector));
     }
 }
