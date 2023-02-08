@@ -1,0 +1,15 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="LVG.DND.Views.SpeedPopup"
+               Size="500, 500"
+               xmlns:views="clr-namespace:LVG.DND.Views">
+    <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+            <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="0" x:Name="BaseSpeedBtn" ButtonTitle="Base Speed"/>
+            <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="0" x:Name="FlyingSpeedBtn" ButtonTitle="Flying Speed"/>
+            <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="1" x:Name="FloatingSpeedBtn" ButtonTitle="Floating Speed"/>
+            <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="1" x:Name="SwimmingSpeedBtn" ButtonTitle="Swimming Speed"/>
+        </Grid>
+    </ScrollView>
+</toolkit:Popup>

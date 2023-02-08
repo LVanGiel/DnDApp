@@ -12,9 +12,13 @@ public partial class CharacterSession : ContentPage
 	{
 		InitializeComponent();
         _vm = vm;
+        Init();
         BindingContext = _vm;
-		ArmorClassBtn.ButtonStat = _vm.Character.ArmorPoints.ToString();
-		ArmorClassBtn.ButtonImageUrl = "shield.png";
+    }
+    private void Init()
+    {
+        ArmorClassBtn.ButtonStat = _vm.Character.ArmorPoints.ToString();
+        ArmorClassBtn.ButtonImageUrl = "shield.png";
 
         SpeedBtn.ButtonStat = _vm.Character.BaseSpeed.ToString();
         SpeedBtn.ButtonImageUrl = "speed.png";
@@ -22,6 +26,9 @@ public partial class CharacterSession : ContentPage
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
         HealthBtn.ButtonImageUrl = "health.png";
         HealthBtn.ButtonClicked += HealthButton_Clicked;
+
+        ItemsBtn.ButtonImageUrl = "items.png";
+        ItemsBtn.ButtonClicked += ItemsButton_Clicked;
     }
 
     private async void CombatButton_Clicked(object sender, EventArgs e)
@@ -40,5 +47,10 @@ public partial class CharacterSession : ContentPage
         _vm.Character.TemporaryHealth = int.Parse(strings[1]);
         await _vm.Character.SaveCharacter(_vm.Character);
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
+    }
+    private async void ItemsButton_Clicked(object sender, EventArgs e)
+    {
+        InventoryPage inventoryPage = new InventoryPage(_vm);
+        await Navigation.PushAsync(inventoryPage);
     }
 }

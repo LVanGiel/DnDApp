@@ -33,10 +33,16 @@
     <MauiXaml Update="Pages\character\CharacterHome.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\character\InventoryPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\character\CharacterSession.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\character\EquipmentPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\character\SkillCheckPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\character\StartCombat.xaml">
@@ -49,6 +55,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\SpeedPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\SpellsView.xaml">

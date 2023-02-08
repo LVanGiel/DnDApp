@@ -67,12 +67,15 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\attack.png" />
+	  <None Remove="Resources\Images\floatspeed.png" />
+	  <None Remove="Resources\Images\flying.png" />
 	  <None Remove="Resources\Images\health.png" />
 	  <None Remove="Resources\Images\items.png" />
 	  <None Remove="Resources\Images\shield.png" />
 	  <None Remove="Resources\Images\skill.png" />
 	  <None Remove="Resources\Images\speed.png" />
 	  <None Remove="Resources\Images\stone.jpg" />
+	  <None Remove="Resources\Images\swimspeed.png" />
 	  <None Remove="Resources\Images\trait.png" />
 	  <None Remove="Resources\Images\unknownPlayer.png" />
 	  <None Remove="Resources\Images\woodtexture.jpg" />
@@ -104,10 +107,16 @@
 	  <MauiXaml Update="Pages\character\CharacterHome.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\InventoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\CharacterSession.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\EquipmentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\SkillCheckPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\StartCombat.xaml">
@@ -120,6 +129,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SpeedPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SpellsView.xaml">
@@ -204,6 +216,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\character\InventoryPage.xaml.cs">
+	    <DependentUpon>InventoryPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SpeedPopup.xaml.cs">
+	    <DependentUpon>SpeedPopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\SpellsView.xaml.cs">
 	    <DependentUpon>SpellsView.xaml</DependentUpon>
 	  </Compile>
