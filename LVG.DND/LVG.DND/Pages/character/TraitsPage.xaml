@@ -5,26 +5,29 @@
              xmlns:views="clr-namespace:LVG.DND.Views"
              xmlns:characterviews="clr-namespace:LVG.DND.Views.characterviews"
              Shell.NavBarIsVisible = "False">
-    <VerticalStackLayout>
-        <ListView x:Name="traitList" ItemsSource="{Binding Character.Traits}" SelectionMode="None" HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="40"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Label Text="{Binding Name}" FontSize="Medium" Grid.Column="0" Grid.Row="0" IsEnabled="False" TextColor="Black" HorizontalOptions="Center"/>
-                            <Editor TextColor="Black" Text="{Binding Description}" IsEnabled="False" Grid.Column="0" Grid.Row="1"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <views:TitleBar  Margin="0,0,0,20"/>
+            <ListView x:Name="traitList" ItemsSource="{Binding Character.Traits}" SelectionMode="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Name}" FontSize="Medium" Grid.Column="0" Grid.Row="0" IsEnabled="False" TextColor="Black" HorizontalOptions="Center"/>
+                                <Editor TextColor="Black" Text="{Binding Description}" IsEnabled="False" Grid.Column="0" Grid.Row="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

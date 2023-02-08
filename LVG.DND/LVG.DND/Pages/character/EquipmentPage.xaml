@@ -5,6 +5,7 @@
              Title="EquipmentPage"
              xmlns:views="clr-namespace:LVG.DND.Views"
              Shell.NavBarIsVisible = "False">
+    <ScrollView>
     <VerticalStackLayout>
         <views:TitleBar  Margin="0,0,0,20"/>
         <Label Text="Weapons" FontSize="Title"/>
@@ -174,4 +175,5 @@
             <Button x:Name="btnArmorAdd" Text="Add" Clicked="btnArmorAdd_Clicked" Grid.Column="6"></Button>
         </Grid>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
