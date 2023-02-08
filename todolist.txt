@@ -1,0 +1,1 @@
+Combatpage: Heal (heart displaying health) and take damage (damage icon)
