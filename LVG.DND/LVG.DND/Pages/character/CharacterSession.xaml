@@ -6,14 +6,15 @@
              Shell.NavBarIsVisible = "False">
     <VerticalStackLayout>
         <views:TitleBar  Margin="0,0,0,20"/>
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-            <views:StatButton x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/><!--weapons and armor-->
-            <views:StatButton x:Name="SpeedBtn" ButtonTitle="Speed"/>
-            <views:StatButton x:Name="HealthBtn" ButtonTitle="Health"/>
-        </HorizontalStackLayout>
-        <Button Text="Start Combat" VerticalOptions="Center" Clicked="CombatButton_Clicked"/>
-        <Button Text="Skill Check" VerticalOptions="Center"/>
-        <views:StatButton VerticalOptions="Center" x:Name="ItemsBtn" ButtonTitle="Items"/>
-        <Button Text="Spells" VerticalOptions="Center"/>
+        <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*">
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/><!--weapons and armor-->
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="2" x:Name="SpeedBtn" ButtonTitle="Speed"/>
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="4" x:Name="HealthBtn" ButtonTitle="Health"/>
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0" x:Name="CombatBtn" ButtonTitle="Start Combat"/>
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="2" x:Name="SkillsBtn" ButtonTitle="Skill Check"/>
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="4" VerticalOptions="Center" x:Name="ItemsBtn" ButtonTitle="Items"/>
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="1" x:Name="SpellsBtn" ButtonTitle="Spells"/>
+            <views:StatButton Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="3" x:Name="DamageBtn" ButtonTitle="Take Damage"/>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

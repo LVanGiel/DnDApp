@@ -67,6 +67,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\attack.png" />
+	  <None Remove="Resources\Images\damage.png" />
 	  <None Remove="Resources\Images\floatspeed.png" />
 	  <None Remove="Resources\Images\flying.png" />
 	  <None Remove="Resources\Images\health.png" />
@@ -74,6 +75,7 @@
 	  <None Remove="Resources\Images\shield.png" />
 	  <None Remove="Resources\Images\skill.png" />
 	  <None Remove="Resources\Images\speed.png" />
+	  <None Remove="Resources\Images\spells.png" />
 	  <None Remove="Resources\Images\stone.jpg" />
 	  <None Remove="Resources\Images\swimspeed.png" />
 	  <None Remove="Resources\Images\trait.png" />

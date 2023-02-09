@@ -12,7 +12,7 @@ namespace LVG.DND.Models
         public int DiceSize { get; set; }
         public int DiceCount { get; set; }
         public int AttackBonus { get; set; }
-        public int AbilityScoreBonus { get; set; }
+        public int DamageBonus { get; set; }
         public string DiceWithBonus { get; set; }
         public string DamageType { get; set; }
         public string ExtraInfo { get; set; }

@@ -8,6 +8,7 @@ namespace LVG.DND.Pages.character;
 public partial class AttackPage : ContentPage
 {
     BaseCharacterViewModel _vm;
+    SpellsView spellview;
     public AttackPage(BaseCharacterViewModel vm)
     {
         _vm = vm;
@@ -20,7 +21,7 @@ public partial class AttackPage : ContentPage
     {
         if (_vm.Character.Spells.Count > 0 || _vm.Character.Cantrips.Count > 0)
         {
-            SpellsView spellview = new SpellsView(_vm);
+            spellview = new SpellsView(_vm);
             mainStack.Children.Add(spellview);
         }
     }
@@ -29,11 +30,30 @@ public partial class AttackPage : ContentPage
         WeaponListView.ItemsSource = null;
         WeaponListView.ItemsSource = _vm.Character.Weapons;
     }
-
-    private async void SaveCharacter()
+    private async void RollDamage()
     {
-        RefreshBinding();
-        await _vm.Character.SaveCharacter(_vm.Character);
+        Weapon weapon = WeaponListView.SelectedItem as Weapon;
+        AttackRollDice.IsVisible = true;
+        AttackRollDice.dice.ChangeSize(weapon.DiceSize);
+
+        List<int> damageRolls = new List<int>();
+
+        for (int i = 0; i < weapon.DiceCount; i++)
+        {
+            await AttackRollDice.dice.RollDice(weapon.DiceSize);
+            int result = AttackRollDice.dice.Number;
+            damageRolls.Add(result);
+            Task.Delay(750).Wait();
+        }
+        int damageTotal = 0;
+        foreach (int damage in damageRolls)
+        {
+            damageTotal += damage;
+        }
+        damageTotal += weapon.DamageBonus;
+        TotalAttackRollLabel.Text = $"Total damage: {damageTotal}";
+
+        HitOrMissStack.IsVisible = false;
     }
 
     private void WeaponListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -62,7 +82,9 @@ public partial class AttackPage : ContentPage
         Weapon weapon = WeaponListView.SelectedItem as Weapon;
         (sender as Button).IsVisible = false;
         ManualAttackRollStack.IsVisible = false;
+        WeaponListView.IsVisible = false;
 
+        spellview.IsVisible = false;
         AttackRollDice.IsVisible = true;
         await AttackRollDice.dice.RollDice(20);
 
@@ -73,5 +95,14 @@ public partial class AttackPage : ContentPage
             HitOrMissStack.IsVisible = true;
         }
         AttackRollDice.IsVisible = false;
+        if (AttackRollDice.dice.Number >= 20)
+        {
+            RollDamage();
+        }
+    }
+
+    private void HitClicked(object sender, EventArgs e)
+    {
+        RollDamage();
     }
 }

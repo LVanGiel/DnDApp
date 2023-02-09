@@ -21,7 +21,7 @@ public partial class DiceView : ContentView
         BindingContext = dice;
         RollDice();
     }
-    private async void RollDice()
+    public async void RollDice()
     {
         await dice.RollDice(btnRollDice.ZIndex);
     }

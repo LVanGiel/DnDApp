@@ -40,6 +40,8 @@ public partial class StartCombat : ContentPage
 
         TraitsBtn.ButtonImageUrl = "trait.png";
         TraitsBtn.ButtonClicked += TraitsButton_Clicked;
+
+        DamageBtn.ButtonImageUrl = "damage.png";
     }
 
     private void SubmitInitiative_Clicked(object sender, EventArgs e)
