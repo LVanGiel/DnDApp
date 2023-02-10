@@ -39,8 +39,10 @@ public partial class CharacterSession : ContentPage
         CombatBtn.ButtonClicked += CombatButton_Clicked;
 
         SpellsBtn.ButtonImageUrl = "spells.png";
+        SpellsBtn.ButtonClicked += SpellsButton_Clicked;
 
         DamageBtn.ButtonImageUrl = "damage.png";
+        DamageBtn.ButtonClicked += DamageButton_Clicked;
     }
     private async void ArmorButton_Clicked(object sender, EventArgs e)
     {
@@ -64,8 +66,8 @@ public partial class CharacterSession : ContentPage
     {
         EditHealthPopup healthPopup = new EditHealthPopup(_vm.Character);
         List<string> strings = (await this.ShowPopupAsync(healthPopup)) as List<string>;
-        _vm.Character.CurrentHealth = int.Parse(strings[0]);
-        _vm.Character.TemporaryHealth = int.Parse(strings[1]);
+        _vm.Character.CurrentHealth += int.Parse(strings[0]);
+        _vm.Character.TemporaryHealth += int.Parse(strings[1]);
         await _vm.Character.SaveCharacter(_vm.Character);
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
     }
@@ -78,5 +80,37 @@ public partial class CharacterSession : ContentPage
     {
         SkillCheckPage skillPage = new SkillCheckPage(_vm);
         await Navigation.PushAsync(skillPage);
+    }
+    private async void SpellsButton_Clicked(object sender, EventArgs e)
+    {
+        CharacterSpellsPage spellPage = new CharacterSpellsPage(_vm);
+        await Navigation.PushAsync(spellPage);
+    }
+    private async void DamageButton_Clicked(object sender, EventArgs e)
+    {
+        TakeDamagePopup damagePopup = new TakeDamagePopup(_vm.Character);
+        var popupResult = (await this.ShowPopupAsync(damagePopup))as string;
+        int result = 0;
+        if (popupResult != null)
+        {
+            result = int.Parse(popupResult);
+        }
+
+        if(_vm.Character.TemporaryHealth > 0)
+        {
+            if (_vm.Character.TemporaryHealth >= result)
+            {
+                _vm.Character.TemporaryHealth -= result;
+            }
+            else
+            {
+                result -= _vm.Character.TemporaryHealth;
+                _vm.Character.TemporaryHealth = 0;
+            }
+        }
+        _vm.Character.CurrentHealth -= result;
+
+        await _vm.Character.SaveCharacter(_vm.Character);
+        HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
     }
 }

@@ -23,7 +23,15 @@ public partial class EditHealthPopup : Popup
 			return;
 		}
 		var result = new List<string>();
-		result.Add(txtHealth.Text);
+		if (txtHealth.Text == null)
+		{
+			txtHealth.Text = "0";
+        }
+        if (txtTempHealth.Text == null)
+        {
+            txtTempHealth.Text = "0";
+        }
+        result.Add(txtHealth.Text);
         result.Add(txtTempHealth.Text);
 
 		this.Close(result);

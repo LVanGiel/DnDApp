@@ -42,6 +42,7 @@ public partial class StartCombat : ContentPage
         TraitsBtn.ButtonClicked += TraitsButton_Clicked;
 
         DamageBtn.ButtonImageUrl = "damage.png";
+        DamageBtn.ButtonClicked += DamageButton_Clicked;
     }
 
     private void SubmitInitiative_Clicked(object sender, EventArgs e)
@@ -79,8 +80,8 @@ public partial class StartCombat : ContentPage
     {
         EditHealthPopup healthPopup = new EditHealthPopup(_vm.Character);
         List<string> strings = (await this.ShowPopupAsync(healthPopup)) as List<string>;
-        _vm.Character.CurrentHealth = int.Parse(strings[0]);
-        _vm.Character.TemporaryHealth = int.Parse(strings[1]);
+        _vm.Character.CurrentHealth += int.Parse(strings[0]);
+        _vm.Character.TemporaryHealth += int.Parse(strings[1]);
         await _vm.Character.SaveCharacter(_vm.Character);
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
     }
@@ -113,5 +114,32 @@ public partial class StartCombat : ContentPage
     {
         TraitsPage traitPage = new TraitsPage(_vm);
         await Navigation.PushAsync(traitPage);
+    }
+    private async void DamageButton_Clicked(object sender, EventArgs e)
+    {
+        TakeDamagePopup damagePopup = new TakeDamagePopup(_vm.Character);
+        var popupResult = (await this.ShowPopupAsync(damagePopup)) as string;
+        int result = 0;
+        if (popupResult != null)
+        {
+            result = int.Parse(popupResult);
+        }
+
+        if (_vm.Character.TemporaryHealth > 0)
+        {
+            if (_vm.Character.TemporaryHealth >= result)
+            {
+                _vm.Character.TemporaryHealth -= result;
+            }
+            else
+            {
+                result -= _vm.Character.TemporaryHealth;
+                _vm.Character.TemporaryHealth = 0;
+            }
+        }
+        _vm.Character.CurrentHealth -= result;
+
+        await _vm.Character.SaveCharacter(_vm.Character);
+        HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
     }
 }

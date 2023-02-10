@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Pages.character.CharacterSpellsPage"
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
+    <ScrollView>
+        <VerticalStackLayout>
+            <views:TitleBar  Margin="0,0,0,20"/>
+            <HorizontalStackLayout>
+            <Button Text="Edit spellslots" Clicked="AddSpellSlotButton_Clicked"></Button>
+            <Button Text="+ spell of cantrip" Clicked="AddSpellButton_Clicked"></Button>
+            </HorizontalStackLayout>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="Spellcasting Class" Grid.Column="0" Grid.Row="0"/>
+                <Label Text="Spellcasting Ability" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Spell Save DC" Grid.Column="2" Grid.Row="0"/>
+                <Label Text="Spell Attack Bonus" Grid.Column="3" Grid.Row="0"/>
+
+                <Entry x:Name="txtSpellClass" Text="{Binding Character.SpellClass}" Placeholder="Spellcasting Class" IsEnabled="False" Grid.Column="0" Grid.Row="1"/>
+                <Entry x:Name="txtSpellAbility"  Text="{Binding Character.CastingAbility}" Placeholder="Spellcasting Ability" IsEnabled="False" Grid.Column="1" Grid.Row="1"/>
+                <Entry x:Name="txtSpellSaveDC"  Text="{Binding Character.SpellSaveDC}" Placeholder="Spell Save DC" IsEnabled="False" Grid.Column="2" Grid.Row="1"/>
+                <Entry x:Name="txtSpellAttackBonus" Text="{Binding Character.SpellAttackBonus}" Placeholder="Spell Attack Bonus" IsEnabled="False" Grid.Column="3" Grid.Row="1"/>
+                <Button x:Name="btnSpellClassEdit" Text="Edit" Clicked="EditSpellClass_Clicked" Grid.Column="4" Grid.Row="1"/>
+            </Grid>
+
+            <Label Text="Cantrips" VerticalOptions="Center" FontSize="Title"/>
+            <ListView x:Name="CantripsList" ItemsSource="{Binding Character.Cantrips}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <Label Text="Casting Time"></Label>
+                                    <Label Text="{Binding CastingTime}"></Label>
+                                    <Label Text="Range"></Label>
+                                    <Label Text="{Binding Range}"></Label>
+                                    <Label Text="Duration"></Label>
+                                    <Label Text="{Binding Duration}"></Label>
+                                    <Editor Text="{Binding Description}" AutoSize="TextChanges" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button x:Name="DeleteCantripButton" Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Spells" VerticalOptions="Center" FontSize="Title"/>
+            <VerticalStackLayout x:Name="stacklevel1">
+                <Label Text="Level 1" FontSize="Subtitle"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Spell Slots"></Label>
+                    <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                    <ProgressBar x:Name="SpellSlotsStack1" Progress="{Binding Character.SpellSlotsLevel1}" Grid.Column="1"/>
+                    <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+                </Grid>
+                <ListView x:Name="SpellsList1" HasUnevenRows="True" ItemsSource="{Binding Spells1}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <VerticalStackLayout Grid.Column="0">
+                                        <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                        <HorizontalStackLayout>
+                                            <Label Text="Casting Time"></Label>
+                                            <Label Text="{Binding CastingTime}"></Label>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout>
+                                            <Label Text="Range"></Label>
+                                            <Label Text="{Binding Range}"></Label>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout>
+                                            <Label Text="Duration"></Label>
+                                            <Label Text="{Binding Duration}"></Label>
+                                        </HorizontalStackLayout>
+                                        <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                    </VerticalStackLayout>
+                                    <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout x:Name="stacklevel2">
+            <Label Text="Level 2" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack2" Progress="{Binding Character.SpellSlotsLevel2}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList2" HasUnevenRows="True" ItemsSource="{Binding Spells2}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="stacklevel3">
+            <Label Text="Level 3" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack3" Progress="{Binding Character.SpellSlotsLevel3}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList3" HasUnevenRows="True" ItemsSource="{Binding Spells3}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="stacklevel4">
+            <Label Text="Level 4" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack4" Progress="{Binding Character.SpellSlotsLevel4}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList4" HasUnevenRows="True" ItemsSource="{Binding Spells4}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="stacklevel5">
+            <Label Text="Level 5" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack5" Progress="{Binding Character.SpellSlotsLevel5}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList5" HasUnevenRows="True" ItemsSource="{Binding Spells5}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="stacklevel6">
+            <Label Text="Level 6" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack6" Progress="{Binding Character.SpellSlotsLevel6}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList6" HasUnevenRows="True" ItemsSource="{Binding Spells6}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="stacklevel7">
+            <Label Text="Level 7" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack7" Progress="{Binding Character.SpellSlotsLevel7}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList7" HasUnevenRows="True" ItemsSource="{Binding Spells7}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="stacklevel8">
+            <Label Text="Level 8" FontSize="Subtitle"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Spell Slots"></Label>
+                <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                <ProgressBar x:Name="SpellSlotsStack8" Progress="{Binding Character.SpellSlotsLevel8}" Grid.Column="1"/>
+                <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+            </Grid>
+            <ListView x:Name="SpellsList8" HasUnevenRows="True" ItemsSource="{Binding Spells8}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Casting Time"></Label>
+                                        <Label Text="{Binding CastingTime}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Range"></Label>
+                                        <Label Text="{Binding Range}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Duration"></Label>
+                                        <Label Text="{Binding Duration}"></Label>
+                                    </HorizontalStackLayout>
+                                    <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                </VerticalStackLayout>
+                                <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+
+            <VerticalStackLayout x:Name="stacklevel9">
+                <Label Text="Level 9" FontSize="Subtitle"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Spell Slots"></Label>
+                    <Button Text="-" Grid.Column="0" Clicked="UseSpellSlot_Clicked" />
+                    <ProgressBar x:Name="SpellSlotsStack9" Progress="{Binding Character.SpellSlotsLevel9}" Grid.Column="1"/>
+                    <Button Text="+" Grid.Column="2" Clicked="UnuseSpellSlot_Clicked" />
+                </Grid>
+                <ListView x:Name="SpellsList9" HasUnevenRows="True" ItemsSource="{Binding Spells9}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <VerticalStackLayout Grid.Column="0">
+                                        <Label FontSize="Subtitle" Text="{Binding Name}"></Label>
+                                        <HorizontalStackLayout>
+                                            <Label Text="Casting Time"></Label>
+                                            <Label Text="{Binding CastingTime}"></Label>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout>
+                                            <Label Text="Range"></Label>
+                                            <Label Text="{Binding Range}"></Label>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout>
+                                            <Label Text="Duration"></Label>
+                                            <Label Text="{Binding Duration}"></Label>
+                                        </HorizontalStackLayout>
+                                        <Editor Text="{Binding Description}" IsEnabled="False" TextColor="Black"></Editor>
+                                    </VerticalStackLayout>
+                                    <Button Text="-" Clicked="DeleteSpell_Clicked" Grid.Column="1"></Button>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

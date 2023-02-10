@@ -24,7 +24,7 @@
             <Grid x:Name="BattleStack" VerticalOptions="FillAndExpand" IsVisible="False" RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*,*,*">
                 <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/>
                 <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" x:Name="InitiativeBtn" ButtonTitle="Initiative"/>
-                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" x:Name="HealthBtn" ButtonTitle="Health"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" x:Name="HealthBtn" ButtonTitle="Add Health"/>
                 <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="AttackBtn" ButtonTitle="Attack"/>
                 <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" x:Name="DamageBtn" ButtonTitle="Take Damage"/>
                 <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" x:Name="SpeedBtn" ButtonTitle="Speed"/>

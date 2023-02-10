@@ -109,6 +109,9 @@
 	  <MauiXaml Update="Pages\character\CharacterHome.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\CharacterSpellsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\InventoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -134,6 +137,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TakeDamagePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SpeedPopup.xaml">
@@ -221,8 +227,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\character\CharacterSpellsPage.xaml.cs">
+	    <DependentUpon>CharacterSpellsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\character\InventoryPage.xaml.cs">
 	    <DependentUpon>InventoryPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TakeDamagePopup.xaml.cs">
+	    <DependentUpon>TakeDamagePopup.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\SpeedPopup.xaml.cs">
 	    <DependentUpon>SpeedPopup.xaml</DependentUpon>
