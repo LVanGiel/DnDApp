@@ -8,5 +8,6 @@
         <views:TitleBar  Margin="0,0,0,20"/>
         <Button x:Name="SessionBtn" Text="Start Session" HorizontalOptions="Center" Clicked="SessionBtn_Clicked"/>
         <Button x:Name="SheetBtn" Text="Show/Edit Character Sheet" HorizontalOptions="Center" Clicked="SheetBtn_Clicked"/>
+        <Button x:Name="LevelBtn" Text="Level Up" HorizontalOptions="Center" Clicked="LevelBtn_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -24,4 +24,9 @@ public partial class CharacterHome : ContentPage
         CharacterViewMenuPage SheetPage = new CharacterViewMenuPage();
         await Navigation.PushAsync(SheetPage);
     }
+    private async void LevelBtn_Clicked(object sender, EventArgs e)
+    {
+        CharacterViewMenuPage SheetPage = new CharacterViewMenuPage();
+        await Navigation.PushAsync(SheetPage);
+    }
 }
