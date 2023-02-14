@@ -21,6 +21,7 @@ namespace LVG.DND.Models
         public int FlyingSpeed { get; set; }
         public int FloatingSpeed { get; set; }
         public int SwimmingSpeed { get; set; }
+        public int ClimbingSpeed { get; set; }
         public int Level { get; set; }
         public int ArmorPoints { get; set; }
 
@@ -394,6 +395,9 @@ namespace LVG.DND.Models
             Race = race;
             BaseSpeed = race.BaseWalkingSpeed;
             FlyingSpeed = race.BaseFlyingSpeed;
+            FloatingSpeed = race.BaseFloatingSpeed;
+            SwimmingSpeed = race.BaseSwimmingSpeed != 0 ? race.BaseSwimmingSpeed : race.BaseWalkingSpeed / 2;
+            ClimbingSpeed = race.BaseClimbingSpeed != 0 ? race.BaseClimbingSpeed : race.BaseWalkingSpeed / 2;
             Traits = AddToListDistinct(Traits, race.Traits);
             LanguageProficiencies = AddToListDistinct(LanguageProficiencies, race.Languages);
             WeaponProficiencies = AddToListDistinct(WeaponProficiencies, race.WeaponProficiencies);
@@ -425,6 +429,19 @@ namespace LVG.DND.Models
                         break;
                 }
             }
+            RefreshCharacterProperties();
+        }
+        public void AddSubRace(SubRace subRace)
+        {
+            SubRace = subRace;
+            BaseSpeed = subRace.BaseWalkingSpeed != 0 ? subRace.BaseWalkingSpeed : BaseSpeed;
+            FlyingSpeed = subRace.BaseFlyingSpeed != 0 ? subRace.BaseFlyingSpeed : FlyingSpeed;
+            FloatingSpeed = subRace.BaseFloatingSpeed != 0 ? subRace.BaseFloatingSpeed : FloatingSpeed;
+            SwimmingSpeed = subRace.BaseSwimmingSpeed != 0 ? subRace.BaseSwimmingSpeed : subRace.BaseWalkingSpeed / 2;
+            ClimbingSpeed = subRace.BaseClimbingSpeed != 0 ? subRace.BaseClimbingSpeed : subRace.BaseWalkingSpeed / 2;
+            Traits = AddToListDistinct(Traits, subRace.Traits);
+            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, subRace.Languages);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, subRace.WeaponProficiencies);
             RefreshCharacterProperties();
         }
 
