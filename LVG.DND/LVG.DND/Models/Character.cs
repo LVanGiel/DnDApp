@@ -1,12 +1,13 @@
 ﻿using LVG.DND.AppConstants;
 using LVG.DND.Models.basemodel;
+using LVG.DND.Models.CharacterChoices;
 using LVG.DND.streaming;
-using LVG.DND.Views.characterviews;
 
 namespace LVG.DND.Models
 {
     public class Character : Base
     {
+
         public string Name { get; set; }
         public Dice HitpointDice { get; set; }
 
@@ -215,9 +216,10 @@ namespace LVG.DND.Models
         public List<Trait> Traits { get; set; }
 
         #region StoryTelling
-        public CharClass Class { get; set; }
-        public Race Race { get; set; }
-        public SubRace SubRace { get; set; }
+        public string Class { get; set; }
+        public string SubClass { get; set; }
+        public string Race { get; set; }
+        public string SubRace { get; set; }
         public Background Background { get; set; }
 
         //roleplay stats
@@ -271,6 +273,128 @@ namespace LVG.DND.Models
         {
             return await _stream.LoadCharacter();
         }
+        private List<T> AddToListDistinct<T>(List<T> list1, List<T> list2)
+        {
+            list1.AddRange(list2);
+            return list1.Distinct().ToList();
+        }
+        private void CheckSkillProficiencies(string skill)
+        {
+            switch (skill)
+            {
+                case SkillNameConstants.Strength:
+                    StrengthSave.IsProficient = true;
+                    break;
+                case SkillNameConstants.Dexterity:
+                    DexteritySave.IsProficient = true;
+                    break;
+                case SkillNameConstants.Constitution:
+                    ConstitutionSave.IsProficient = true;
+                    break;
+                case SkillNameConstants.Charisma:
+                    CharismaSave.IsProficient = true;
+                    break;
+                case SkillNameConstants.Wisdom:
+                    WisdomSave.IsProficient = true;
+                    break;
+                case SkillNameConstants.Intelligence:
+                    IntelligenceSave.IsProficient = true;
+                    break;
+
+                case SkillNameConstants.Acrobatics:
+                    Acrobatics.IsProficient = true;
+                    break;
+                case SkillNameConstants.AnimalHandling:
+                    AnimalHandling.IsProficient = true;
+                    break;
+                case SkillNameConstants.Arcana:
+                    Arcana.IsProficient = true;
+                    break;
+                case SkillNameConstants.Athletics:
+                    Athletics.IsProficient = true;
+                    break;
+                case SkillNameConstants.Deception:
+                    Deception.IsProficient = true;
+                    break;
+                case SkillNameConstants.History:
+                    History.IsProficient = true;
+                    break;
+                case SkillNameConstants.Insight:
+                    Insight.IsProficient = true;
+                    break;
+                case SkillNameConstants.Intimidation:
+                    Intimidation.IsProficient = true;
+                    break;
+                case SkillNameConstants.Investigation:
+                    Investigation.IsProficient = true;
+                    break;
+                case SkillNameConstants.Medicine:
+                    Medicine.IsProficient = true;
+                    break;
+                case SkillNameConstants.Nature:
+                    Nature.IsProficient = true;
+                    break;
+                case SkillNameConstants.Perception:
+                    Perception.IsProficient = true;
+                    break;
+                case SkillNameConstants.Performance:
+                    Performance.IsProficient = true;
+                    break;
+                case SkillNameConstants.Persuasion:
+                    Persuasion.IsProficient = true;
+                    break;
+                case SkillNameConstants.Religion:
+                    Religion.IsProficient = true;
+                    break;
+                case SkillNameConstants.SleightOfHand:
+                    SleightOfHand.IsProficient = true;
+                    break;
+                case SkillNameConstants.Stealth:
+                    Stealth.IsProficient = true;
+                    break;
+                case SkillNameConstants.Survival:
+                    Survival.IsProficient = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void RefreshCharacterProperties()
+        {
+
+        }
+        public void AddClass(ClassChoice selectedClass)
+        {
+            HitpointDice = selectedClass.HitDice;
+            Class = selectedClass.Name;
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, selectedClass.WeaponProficiencies);
+            ArmorProficiencies = AddToListDistinct(ArmorProficiencies, selectedClass.ArmorProficiencies);
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, selectedClass.ItemProficiencies);
+            Weapons = AddToListDistinct(Weapons, selectedClass.WeaponsChoices);
+            Armor = AddToListDistinct(Armor, selectedClass.ArmorChoices);
+
+            foreach (var item in selectedClass.AbilityScoresProficiencies)
+            {
+                CheckSkillProficiencies(item);
+            }
+
+            foreach (var item in selectedClass.SkillProficiencies)
+            {
+                CheckSkillProficiencies(item);
+            }
+            RefreshCharacterProperties();
+        }
+        public void AddRace(RaceChoice race)
+        {
+            Race = race.Name;
+            BaseSpeed = race.BaseWalkingSpeed;
+            FlyingSpeed = race.BaseFlyingSpeed;
+            Traits = AddToListDistinct(Traits, race.Traits);
+            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, race.Languages);
+
+        }
+
+        //--------------------------------------------------------------------
         private void LoadProperties()
         {
             Id = Guid.NewGuid();
@@ -345,9 +469,9 @@ namespace LVG.DND.Models
             BagOfHoldingItems = new List<Item>();
             BagOfHoldingMoneyPouch = new MoneyBag();
 
-            Race = new Race();
-            SubRace = new SubRace();
-            Class = new CharClass();
+            Race = "";
+            SubRace = "";
+            Class = "";
         }
         private void FillAbilityScores()
         {

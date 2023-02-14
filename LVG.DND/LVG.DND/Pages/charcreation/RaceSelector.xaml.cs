@@ -67,11 +67,11 @@ public partial class RaceSelector : ContentPage
     }
     private void SubRaceList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-        _vm.Character.SubRace = (sender as ListView).SelectedItem as SubRace;
+        _vm.Character.SubRace = ((sender as ListView).SelectedItem as SubRace).Name;
         var grid = (sender as ListView).Parent as VerticalStackLayout;
 
         string raceName = (grid.Children[0] as Label).Text;
-        _vm.Character.Race = _vm.Races.FirstOrDefault(x => x.Name == raceName);
+        _vm.Character.Race = _vm.Races.FirstOrDefault(x => x.Name == raceName).Name;
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
@@ -88,11 +88,11 @@ public partial class RaceSelector : ContentPage
     {
         string raceName = (sender as Picker).SelectedItem as string;
         Race activeRace = _vm.Races.FirstOrDefault(x => x.Name == raceName);
-        _vm.Character.Race = activeRace;
+        _vm.Character.Race = activeRace.Name;
 
         int choiceCount = 0;
         if (_vm.Character.Race != null 
-            && _vm.Character.Race.Name != "" 
+            && _vm.Character.Race != "" 
             && activeRace.ItemProficiencies != null)
         {
             foreach (string item in activeRace.ItemProficiencies)

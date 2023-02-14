@@ -11,6 +11,7 @@ namespace LVG.DND.Models
     {
         private int level;
         public string Name { get; set; }
+        public int ClassBonus { get; set; }
         public int Bonus { get; set; }
         public string BonusText { get; set; }
         public int Level {

@@ -15,7 +15,7 @@ namespace LVG.DND.Models
         public List<Trait> Traits { get; set; }
         public List<string> WeaponProficiencies { get; set; }
         public List<Spell> SpellsAndCantrips { get; set; }
-        public List<Language> Languages { get; set; }
+        public List<string> Languages { get; set; }
         public int BaseWalkingSpeed { get; set; }
     }
 }

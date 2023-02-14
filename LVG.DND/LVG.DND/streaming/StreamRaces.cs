@@ -52,7 +52,7 @@ namespace LVG.DND.streaming
                         new RaceAbilityScoreBonus{Bonus = 1, AbilityScoreName = "Charisma"}
                     },
                     Traits = new List<Trait>(),
-                    Languages = new List<Language>{ new Language("Common"), new Language("Draconic") },
+                    Languages = new List<string>{ "Common", "Draconic" },
                     Backstory = "",
                     SubRaces = new List<SubRace>{ 
                         new SubRace() {
@@ -213,7 +213,7 @@ namespace LVG.DND.streaming
                         new Trait{Name = "Darkvision", Description = "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray"},
                         new Trait{Name = "Gnome Cunning", Description = "You have advantage on all Intelligence, Wisdom, and Charisma saves against magic"}
                     },
-                    Languages = new List<Language>{ new Language("Common"), new Language("Gnomish") },
+                    Languages = new List<string>{ "Common", "Gnomish" },
                     Backstory = "A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.",
                     SubRaces = new List<SubRace>{
                         new SubRace() {
@@ -274,7 +274,7 @@ namespace LVG.DND.streaming
                         new Trait{Name = "Brave", Description = "You have advantage on saving throws against being frightened"},
                         new Trait{Name = "Nimble", Description = "You can move through the space of any creature that is of a size larger than yours"},
                     },
-                    Languages = new List<Language>{ new Language("Common"), new Language("Halfling") },
+                    Languages = new List<string>{ "Common", "Halfling" },
                     SubRaces = new List<SubRace>{
                         new SubRace() {
                             Name = "Lightfoot",
@@ -315,7 +315,7 @@ namespace LVG.DND.streaming
                         new Trait{Name = "Dwarven Resilience", Description = "You have advantage on saving throws against poison, and you have resistance against poison damage"},
                         new Trait{Name = "Stonecunning", Description = "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus"},
                     },
-                    Languages = new List<Language>{ new Language("Common"), new Language("Dwarvish") },
+                    Languages = new List<string>{ "Common", "Dwarvish" },
                     SubRaces = new List<SubRace>{
                         new SubRace() {
                             Name = "Hill Dwarf",
@@ -356,7 +356,7 @@ namespace LVG.DND.streaming
                          new Trait{Name = "Fey Ancestry", Description = "You have advantage on saving throws against being frightened"},
                          new Trait{Name = "Nimble", Description = "You have advantage on saving throws against being charmed, and magic can't put you to sleep"},
                      },
-                     Languages = new List<Language>{ new Language("Common"), new Language("Elven"), new Language("Choice") },
+                     Languages = new List<string>{ "Common", "Elven", "Choice" },
                      SubRaces = new List<SubRace>{}
                 }
                 #endregion
@@ -381,7 +381,7 @@ namespace LVG.DND.streaming
                     BaseFlyingSpeed = 0,
                     
                     Traits = new List<Trait>{},
-                    Languages = new List<Language>{ new Language("Common"), new Language("Choice") },
+                    Languages = new List<string>{ "Common", "Choice" },
                     SubRaces = new List<SubRace>{}
                }
 
@@ -406,7 +406,7 @@ namespace LVG.DND.streaming
                         new Trait{Name = "Trance", Description = "Elves do not sleep. Instead they meditate deeply, remaining semi-conscious, for 4 hours a day. The Common word for this meditation is \"trance.\" While meditating, you dream after a fashion; such dreams are actually mental exercises that have become reflexive after years of practice. After resting in this way, you gain the same benefit a human would from 8 hours of sleep"},
                         new Trait{Name = "Keen Senses", Description = "You have proficiency in the Perception skill"},
                     },
-                    Languages = new List<Language>{ new Language("Common"), new Language("Elven") },
+                    Languages = new List<string>{ "Common", "Elven" },
                     SubRaces = new List<SubRace>{
                         new SubRace() {
                             Name = "Dark Elf",
@@ -438,7 +438,7 @@ namespace LVG.DND.streaming
                                 new Trait {Name = "High elf Cantrip", Description = "You know one cantrip of your choice from the Wizard spell list. Intelligence is your spellcasting ability for it" },
                             },
                             SpellsAndCantrips = new List<Spell>{ new Spell { Name = "Choice", SpellLevel = 1 } },
-                            Languages = new List<Language>{ new Language { Name = "Choice"} },
+                            Languages = new List<string>{ "Choice" },
                             AbilityScoreBonus = new List<RaceAbilityScoreBonus>{ new RaceAbilityScoreBonus {AbilityScoreName = "Intelligence", Bonus = 1 } }
                         },
                         new SubRace() {
@@ -477,7 +477,7 @@ namespace LVG.DND.streaming
                         new Trait{Name = "Relentless Endurance", Description = "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest"},
                         new Trait{Name = "Savage Attacks", Description = "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit"},
                     },
-                    Languages = new List<Language>{ new Language("Common"), new Language("Orc") },
+                    Languages = new List<string>{ "Common", "Orc" },
                     SubRaces = new List<SubRace>{}
                }
 
@@ -499,7 +499,7 @@ namespace LVG.DND.streaming
                         new Trait{Name = "Darkvision", Description = "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray"},
                         new Trait{Name = "Hellish Resistance", Description = "You have resistance to fire damage"},
                     },
-                    Languages = new List<Language>{ new Language("Common"), new Language("Infernal")},
+                    Languages = new List<string>{ "Common", "Infernal"},
                     SubRaces = new List<SubRace>{
                         new SubRace() {
                             Name = "Default"

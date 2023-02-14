@@ -1,11 +1,10 @@
 ﻿using LVG.DND.Models.basemodel;
 
-namespace LVG.DND.Models
+namespace LVG.DND.Models.CharacterChoices
 {
-    public class Race : Base
+    public class RaceChoice : Base
     {
         public string Name { get; set; }
-        public List<SubRace> SubRaces { get; set; }
         public string AgeInfo { get; set; }
         public string SizeInfo { get; set; }
         public string AlignmentInfo { get; set; }
@@ -18,7 +17,7 @@ namespace LVG.DND.Models
         public List<string> ItemProficiencies { get; set; }
         public List<RaceAbilityScoreBonus> ASBonus { get; set; }
 
-        public Race()
+        public RaceChoice()
         {
             Id = Guid.NewGuid();
         }
