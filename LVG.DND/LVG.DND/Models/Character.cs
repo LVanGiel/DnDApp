@@ -216,10 +216,10 @@ namespace LVG.DND.Models
         public List<Trait> Traits { get; set; }
 
         #region StoryTelling
-        public string Class { get; set; }
-        public string SubClass { get; set; }
-        public string Race { get; set; }
-        public string SubRace { get; set; }
+        public ClassChoice Class { get; set; }
+        public SubClass SubClass { get; set; }
+        public RaceChoice Race { get; set; }
+        public SubRace SubRace { get; set; }
         public Background Background { get; set; }
 
         //roleplay stats
@@ -242,7 +242,7 @@ namespace LVG.DND.Models
 
         #endregion
 
-
+        #region ctor
         Streaming _stream = new Streaming();
         public Character(string name)
         {
@@ -253,6 +253,9 @@ namespace LVG.DND.Models
         {
             LoadProperties();
         }
+        #endregion
+
+        #region CharUpdates
         public async Task SaveCharacter(Character character)
         {
             await _stream.SaveCharacter(character);
@@ -273,6 +276,8 @@ namespace LVG.DND.Models
         {
             return await _stream.LoadCharacter();
         }
+        #endregion
+
         private List<T> AddToListDistinct<T>(List<T> list1, List<T> list2)
         {
             list1.AddRange(list2);
@@ -366,7 +371,7 @@ namespace LVG.DND.Models
         public void AddClass(ClassChoice selectedClass)
         {
             HitpointDice = selectedClass.HitDice;
-            Class = selectedClass.Name;
+            Class = selectedClass;
             WeaponProficiencies = AddToListDistinct(WeaponProficiencies, selectedClass.WeaponProficiencies);
             ArmorProficiencies = AddToListDistinct(ArmorProficiencies, selectedClass.ArmorProficiencies);
             ItemProficiencies = AddToListDistinct(ItemProficiencies, selectedClass.ItemProficiencies);
@@ -386,12 +391,41 @@ namespace LVG.DND.Models
         }
         public void AddRace(RaceChoice race)
         {
-            Race = race.Name;
+            Race = race;
             BaseSpeed = race.BaseWalkingSpeed;
             FlyingSpeed = race.BaseFlyingSpeed;
             Traits = AddToListDistinct(Traits, race.Traits);
             LanguageProficiencies = AddToListDistinct(LanguageProficiencies, race.Languages);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, race.WeaponProficiencies);
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, race.ItemProficiencies);
 
+            foreach (var AS in race.ASBonus)
+            {
+                switch (AS.AbilityScoreName)
+                {
+                    case SkillNameConstants.Strength:
+                        Strength.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Dexterity:
+                        Dexterity.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Constitution:
+                        Constitution.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Charisma:
+                        Charisma.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Wisdom:
+                        Wisdom.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Intelligence:
+                        Intelligence.RaceBonus = AS.Bonus;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            RefreshCharacterProperties();
         }
 
         //--------------------------------------------------------------------
@@ -469,9 +503,10 @@ namespace LVG.DND.Models
             BagOfHoldingItems = new List<Item>();
             BagOfHoldingMoneyPouch = new MoneyBag();
 
-            Race = "";
-            SubRace = "";
-            Class = "";
+            Race = new RaceChoice();
+            SubRace = new SubRace();
+            Class = new ClassChoice();
+            SubClass = new SubClass();
         }
         private void FillAbilityScores()
         {

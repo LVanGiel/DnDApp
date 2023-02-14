@@ -88,7 +88,7 @@ public partial class RaceSelector : ContentPage
     {
         string raceName = (sender as Picker).SelectedItem as string;
         Race activeRace = _vm.Races.FirstOrDefault(x => x.Name == raceName);
-        _vm.Character.Race = activeRace.Name;
+        _vm.Character.Race = activeRace;
 
         int choiceCount = 0;
         if (_vm.Character.Race != null 
