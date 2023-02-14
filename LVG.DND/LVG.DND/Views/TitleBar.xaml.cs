@@ -25,13 +25,13 @@ public partial class TitleBar : ContentView
     private void SetCharacterProperties()
     {
         lblName.Text = character.Name;
-        if (character.Class != null && character.Class != "")
+        if (character.Class != null && character.Class.Name != "")
         {
-            lblClass.Text = character.Class;
+            lblClass.Text = character.Class.Name;
         }
-        if (character.Race != null && character.Race != "")
+        if (character.Race != null && character.Race.Name != "")
         {
-            lblRace.Text = character.Race;
+            lblRace.Text = character.Race.Name;
         }
     }
 

@@ -32,7 +32,7 @@ public partial class ClassSelector : ContentPage
     {
         string className = (sender as Picker).SelectedItem as string;
         CharClass activeClass = _vm.Classes.FirstOrDefault(x => x.Name == className);
-        _vm.Character.Class = activeClass.Name;
+        _vm.Character.Class = activeClass;
         ClassSkillsProficienciesList.ItemsSource = activeClass.SkillProficiencies;
         ClassSelectedSkillsProficienciesList.ItemsSource = null;
         unSelectedSkills = activeClass.SkillProficiencies;
