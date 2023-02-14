@@ -11,6 +11,9 @@ namespace LVG.DND.Models
         public string AlignmentInfo { get; set; }
         public int BaseWalkingSpeed { get; set; }
         public int BaseFlyingSpeed { get; set; }
+        public int BaseFloatingSpeed { get; set; }
+        public int BaseSwimmingSpeed { get; set; }
+        public int BaseClimbingSpeed { get; set; }
         public List<Trait> Traits { get; set; }
         public List<string> Languages { get; set; }
         public string Backstory { get; set; }

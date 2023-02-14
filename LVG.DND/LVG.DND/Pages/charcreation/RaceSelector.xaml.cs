@@ -1,5 +1,6 @@
 using LVG.DND.Models;
 using LVG.DND.Models.basemodel;
+using LVG.DND.Models.CharacterChoices;
 using LVG.DND.streaming;
 using LVG.DND.ViewModel;
 using Newtonsoft.Json;
@@ -67,11 +68,15 @@ public partial class RaceSelector : ContentPage
     }
     private void SubRaceList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-        _vm.Character.SubRace = ((sender as ListView).SelectedItem as SubRace).Name;
+        _vm.Character.SubRace = ((sender as ListView).SelectedItem as SubRace);
         var grid = (sender as ListView).Parent as VerticalStackLayout;
 
         string raceName = (grid.Children[0] as Label).Text;
-        _vm.Character.Race = _vm.Races.FirstOrDefault(x => x.Name == raceName).Name;
+
+        var chosenRace = new RaceChoice();
+        chosenRace.ConvertRace(_vm.Races.FirstOrDefault(x => x.Name == raceName));
+
+        _vm.Character.Race = chosenRace;
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
@@ -88,11 +93,15 @@ public partial class RaceSelector : ContentPage
     {
         string raceName = (sender as Picker).SelectedItem as string;
         Race activeRace = _vm.Races.FirstOrDefault(x => x.Name == raceName);
-        _vm.Character.Race = activeRace;
+
+        var chosenRace = new RaceChoice();
+        chosenRace.ConvertRace(activeRace);
+
+        _vm.Character.Race = chosenRace;
 
         int choiceCount = 0;
         if (_vm.Character.Race != null 
-            && _vm.Character.Race != "" 
+            && _vm.Character.Race.Name != "" 
             && activeRace.ItemProficiencies != null)
         {
             foreach (string item in activeRace.ItemProficiencies)

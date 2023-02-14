@@ -1,4 +1,5 @@
 using LVG.DND.Models;
+using LVG.DND.Models.CharacterChoices;
 using LVG.DND.ViewModel;
 using Newtonsoft.Json;
 
@@ -8,6 +9,7 @@ public partial class ClassSelector : ContentPage
     public CharCreateViewModel _vm;
     List<string> unSelectedSkills = new List<string>();
     List<string> selectedSkills = new List<string>();
+    int skillProficienciesCount = 0;
     public ClassSelector(CharCreateViewModel vm)
     {
         _vm = vm;
@@ -32,19 +34,17 @@ public partial class ClassSelector : ContentPage
     {
         string className = (sender as Picker).SelectedItem as string;
         CharClass activeClass = _vm.Classes.FirstOrDefault(x => x.Name == className);
-        _vm.Character.Class = activeClass;
+
+        var chosenClass = new ClassChoice();
+        chosenClass.ConvertCharClass(activeClass);
+
+        _vm.Character.Class = chosenClass;
         ClassSkillsProficienciesList.ItemsSource = activeClass.SkillProficiencies;
         ClassSelectedSkillsProficienciesList.ItemsSource = null;
         unSelectedSkills = activeClass.SkillProficiencies;
         selectedSkills = null;
-        foreach (var item in activeClass.SkillProficiencies)
-        {
-            if (item == "Choice")
-            {
-
-            }
-        }
         SkillProfTxt.Text = $"Choose {activeClass.SkillProficienciesCount} skill proficiencies";
+        skillProficienciesCount = activeClass.SkillProficienciesCount;
     }
     private void This_Loaded(object sender, EventArgs e)
     {
@@ -54,7 +54,7 @@ public partial class ClassSelector : ContentPage
     private void ClassSkillsProficienciesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         selectedSkills = selectedSkills == null ? new List<string>() : selectedSkills;
-        if (selectedSkills.Count >= _vm.Character.Class.SkillProficienciesCount)
+        if (selectedSkills.Count >= skillProficienciesCount)
         {
             unSelectedSkills.Add(selectedSkills[selectedSkills.Count - 1]);
             selectedSkills.RemoveAt(0);

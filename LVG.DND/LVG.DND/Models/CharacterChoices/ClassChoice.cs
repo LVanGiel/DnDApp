@@ -13,13 +13,22 @@ namespace LVG.DND.Models.CharacterChoices
         public List<string> ItemProficiencies { get; set; }
         public List<string> AbilityScoresProficiencies { get; set; }
         public List<string> SkillProficiencies { get; set; }
-        public int SkillProficienciesCount { get; set; }
         public List<Weapon> WeaponsChoices { get; set; }
         public List<Armor> ArmorChoices { get; set; }
 
         public ClassChoice()
         {
             Id = Guid.NewGuid();
+        }
+        public void ConvertCharClass(CharClass givenClass)
+        {
+            Name = givenClass.Name;
+            ClassLevels = givenClass.ClassLevels;
+            HitDice = givenClass.HitDice;
+            ArmorProficiencies = givenClass.ArmorProficiencies;
+            WeaponProficiencies = givenClass.WeaponProficiencies;
+            ItemProficiencies = givenClass.ItemProficiencies;
+            AbilityScoresProficiencies = givenClass.AbilityScoresProficiencies;
         }
     }
 }

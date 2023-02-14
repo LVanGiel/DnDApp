@@ -376,8 +376,8 @@ namespace LVG.DND.Models
             WeaponProficiencies = AddToListDistinct(WeaponProficiencies, selectedClass.WeaponProficiencies);
             ArmorProficiencies = AddToListDistinct(ArmorProficiencies, selectedClass.ArmorProficiencies);
             ItemProficiencies = AddToListDistinct(ItemProficiencies, selectedClass.ItemProficiencies);
-            Weapons = AddToListDistinct(Weapons, selectedClass.WeaponsChoices);
-            Armor = AddToListDistinct(Armor, selectedClass.ArmorChoices);
+            Weapons.AddRange(selectedClass.WeaponsChoices);
+            Armor.AddRange(selectedClass.ArmorChoices);
 
             foreach (var item in selectedClass.AbilityScoresProficiencies)
             {
@@ -443,6 +443,23 @@ namespace LVG.DND.Models
             LanguageProficiencies = AddToListDistinct(LanguageProficiencies, subRace.Languages);
             WeaponProficiencies = AddToListDistinct(WeaponProficiencies, subRace.WeaponProficiencies);
             RefreshCharacterProperties();
+        }
+        public void AddSubClass()
+        {
+
+        }
+        public void AddBackground(Background background)
+        {
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, background.ItemProficiencies);
+            Items.AddRange(background.Equipment); 
+            Traits = AddToListDistinct(Traits, background.Traits);
+
+
+            foreach (var item in background.SkillProficiencies)
+            {
+                CheckSkillProficiencies(item);
+            }
+            MoneyPouch = background.Money;
         }
 
         //--------------------------------------------------------------------

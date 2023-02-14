@@ -19,9 +19,13 @@ namespace LVG.DND.Models
         public List<Flaw> Flaws { get; set; }
         public List<Ideal> Ideals { get; set; }
         public List<PersonalityTrait> Personalities { get; set; }
-        public List<Skill> SkillProficiencies { get; set; }
+        public Flaw SelectedFlaw { get; set; }
+        public Bond SelectedBond { get; set; }
+        public Ideal SelectedIdeal { get; set; }
+        public PersonalityTrait SelectedPersonalityTrait { get; set; }
+        public List<string> SkillProficiencies { get; set; }
         public List<Item> Equipment { get; set; }
-        public List<Item> ItemProficiencies { get; set; }
+        public List<string> ItemProficiencies { get; set; }
         public MoneyBag Money { get; set; }
         public List<Trait> Traits { get; set; }
     }

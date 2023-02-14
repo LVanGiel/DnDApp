@@ -5,9 +5,6 @@ namespace LVG.DND.Models.CharacterChoices
     public class RaceChoice : Base
     {
         public string Name { get; set; }
-        public string AgeInfo { get; set; }
-        public string SizeInfo { get; set; }
-        public string AlignmentInfo { get; set; }
         public int BaseWalkingSpeed { get; set; }
         public int BaseFlyingSpeed { get; set; }
         public int BaseFloatingSpeed { get; set; }
@@ -23,6 +20,20 @@ namespace LVG.DND.Models.CharacterChoices
         public RaceChoice()
         {
             Id = Guid.NewGuid();
+        }
+        public void ConvertRace(Race race)
+        {
+            Name = race.Name;
+            BaseWalkingSpeed = race.BaseWalkingSpeed;
+            BaseFlyingSpeed = race.BaseFlyingSpeed;
+            BaseFloatingSpeed = race.BaseFloatingSpeed;
+            BaseSwimmingSpeed = race.BaseSwimmingSpeed;
+            BaseClimbingSpeed = race.BaseClimbingSpeed;
+            WeaponProficiencies = race.WeaponProficiencies;
+            ItemProficiencies = race.ItemProficiencies;
+            Traits = race.Traits;
+            Languages = race.Languages;
+            ASBonus = race.ASBonus;
         }
     }
 }
