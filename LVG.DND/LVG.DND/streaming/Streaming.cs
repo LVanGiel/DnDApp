@@ -1,12 +1,6 @@
 ﻿using LVG.DND.Models;
 using LVG.DND.streaming.Base;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LVG.DND.streaming
 {
@@ -52,13 +46,6 @@ namespace LVG.DND.streaming
         {
             var path = Path.Combine(basepath, activeCharacterString);
             CreateFileCheck(path);
-        }
-        private void StreamData()
-        {
-            var racesStream = new StreamRaces();
-            var classStream = new StreamClasses();
-            var armorStream = new StreamArmor();
-            var weaponStream = new StreamWeapons();
         }
 
         public async Task<Character> ChangeCharacter(Character character)

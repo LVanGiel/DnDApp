@@ -1,3 +1,4 @@
+using LVG.DND.AppConstants;
 using LVG.DND.Models;
 using LVG.DND.Models.basemodel;
 using LVG.DND.Models.CharacterChoices;
@@ -58,10 +59,8 @@ public partial class RaceSelector : ContentPage
     }
     private async void This_Loaded(object sender, EventArgs e)
     {
-        var raceStream = new StreamRaces();
-        _vm.Races = await raceStream.GetAllRaces();
-        var classStream = new StreamClasses();
-        _vm.Classes = await classStream.GetAllClasses();
+        _vm.Races = RaceConstants.GetAll();
+        _vm.Classes = ClassConstants.GetAll();
         var backgroundStream = new StreamBackgrounds();
         _vm.Backgrounds = await backgroundStream.GetAllBackgrounds();
         FillRaceNames();

@@ -365,9 +365,50 @@ namespace LVG.DND.Models
                     break;
             }
         }
+        private void UpdateProficiencyBonus(int bonus)
+        {
+            Acrobatics.ProficiencyBonus = Acrobatics.ProficiencyBonus > 0 ? bonus : 0;
+            AnimalHandling.ProficiencyBonus = AnimalHandling.ProficiencyBonus > 0 ? bonus : 0;
+            Arcana.ProficiencyBonus = Arcana.ProficiencyBonus > 0 ? bonus : 0;
+            Athletics.ProficiencyBonus = Athletics.ProficiencyBonus > 0 ? bonus : 0;
+            Deception.ProficiencyBonus = Deception.ProficiencyBonus > 0 ? bonus : 0;
+
+            History.ProficiencyBonus = History.ProficiencyBonus > 0 ? bonus : 0;
+            Insight.ProficiencyBonus = Insight.ProficiencyBonus > 0 ? bonus : 0;
+            Intimidation.ProficiencyBonus = Intimidation.ProficiencyBonus > 0 ? bonus : 0;
+            Investigation.ProficiencyBonus = Investigation.ProficiencyBonus > 0 ? bonus : 0;
+            Medicine.ProficiencyBonus = Medicine.ProficiencyBonus > 0 ? bonus : 0;
+
+            Nature.ProficiencyBonus = Nature.ProficiencyBonus > 0 ? bonus : 0;
+            Perception.ProficiencyBonus = Perception.ProficiencyBonus > 0 ? bonus : 0;
+            Performance.ProficiencyBonus = Performance.ProficiencyBonus > 0 ? bonus : 0;
+            Persuasion.ProficiencyBonus = Persuasion.ProficiencyBonus > 0 ? bonus : 0;
+            SleightOfHand.ProficiencyBonus = SleightOfHand.ProficiencyBonus > 0 ? bonus : 0;
+
+            Stealth.ProficiencyBonus = Stealth.ProficiencyBonus > 0 ? bonus : 0;
+            Survival.ProficiencyBonus = Survival.ProficiencyBonus > 0 ? bonus : 0;
+            Acrobatics.ProficiencyBonus = Acrobatics.ProficiencyBonus > 0 ? bonus : 0;
+        }
         private void RefreshCharacterProperties()
         {
+            Strength.Bonus = Strength.BaseBonus + Strength.RaceBonus + Strength.SubRaceBonus;
+            Dexterity.Bonus = Dexterity.BaseBonus + Dexterity.RaceBonus + Dexterity.SubRaceBonus;
+            Intelligence.Bonus = Intelligence.BaseBonus + Intelligence.RaceBonus + Intelligence.SubRaceBonus;
+            Constitution.Bonus = Constitution.BaseBonus + Constitution.RaceBonus + Constitution.SubRaceBonus;
+            Wisdom.Bonus = Wisdom.BaseBonus + Wisdom.RaceBonus + Wisdom.SubRaceBonus;
+            Charisma.Bonus = Charisma.BaseBonus + Charisma.RaceBonus + Charisma.SubRaceBonus;
 
+            UpdateProficiencyBonus(ProficiencyBonus);
+        }
+        private void LevelUp() 
+        {
+            int level = this.Level + 1;
+            var classLvl = this.Class.ClassLevels.FirstOrDefault(l => l.Level == level);
+
+            foreach (var item in classLvl.LevelFeatures)
+            {
+
+            }
         }
         public void AddClass(ClassChoice selectedClass)
         {
@@ -388,6 +429,9 @@ namespace LVG.DND.Models
             {
                 CheckSkillProficiencies(item);
             }
+
+            LevelUp();
+
             RefreshCharacterProperties();
         }
         public void AddRace(RaceChoice race)
@@ -462,7 +506,7 @@ namespace LVG.DND.Models
             MoneyPouch = background.Money;
         }
 
-        //--------------------------------------------------------------------
+        //-----------------------init------------------------
         private void LoadProperties()
         {
             Id = Guid.NewGuid();
@@ -611,30 +655,6 @@ namespace LVG.DND.Models
             UpdateAbilityScore(Intelligence);
             UpdateAbilityScore(Wisdom);
             UpdateAbilityScore(Charisma);
-        }
-        private void UpdateProficiencyBonus(int bonus)
-        {
-            Acrobatics.ProficiencyBonus = Acrobatics.ProficiencyBonus > 0 ? bonus : 0;
-            AnimalHandling.ProficiencyBonus = AnimalHandling.ProficiencyBonus > 0 ? bonus : 0;
-            Arcana.ProficiencyBonus = Arcana.ProficiencyBonus > 0 ? bonus : 0;
-            Athletics.ProficiencyBonus = Athletics.ProficiencyBonus > 0 ? bonus : 0;
-            Deception.ProficiencyBonus = Deception.ProficiencyBonus > 0 ? bonus : 0;
-
-            History.ProficiencyBonus = History.ProficiencyBonus > 0 ? bonus : 0;
-            Insight.ProficiencyBonus = Insight.ProficiencyBonus > 0 ? bonus : 0;
-            Intimidation.ProficiencyBonus = Intimidation.ProficiencyBonus > 0 ? bonus : 0;
-            Investigation.ProficiencyBonus = Investigation.ProficiencyBonus > 0 ? bonus : 0;
-            Medicine.ProficiencyBonus = Medicine.ProficiencyBonus > 0 ? bonus : 0;
-
-            Nature.ProficiencyBonus = Nature.ProficiencyBonus > 0 ? bonus : 0;
-            Perception.ProficiencyBonus = Perception.ProficiencyBonus > 0 ? bonus : 0;
-            Performance.ProficiencyBonus = Performance.ProficiencyBonus > 0 ? bonus : 0;
-            Persuasion.ProficiencyBonus = Persuasion.ProficiencyBonus > 0 ? bonus : 0;
-            SleightOfHand.ProficiencyBonus = SleightOfHand.ProficiencyBonus > 0 ? bonus : 0;
-
-            Stealth.ProficiencyBonus = Stealth.ProficiencyBonus > 0 ? bonus : 0;
-            Survival.ProficiencyBonus = Survival.ProficiencyBonus > 0 ? bonus : 0;
-            Acrobatics.ProficiencyBonus = Acrobatics.ProficiencyBonus > 0 ? bonus : 0;
         }
     }
 }
