@@ -228,7 +228,7 @@ namespace LVG.DND.AppConstants
         };
                 #endregion
 
-                #region Martial weapons
+       #region Martial weapons
                 public static Weapon BATTLEAXE = new Weapon
                  {
                      IsMartial = true,
