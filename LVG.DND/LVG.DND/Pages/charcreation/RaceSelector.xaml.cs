@@ -96,7 +96,7 @@ public partial class RaceSelector : ContentPage
         var chosenRace = new RaceChoice();
         chosenRace.ConvertRace(activeRace);
 
-        _vm.Character.Race = chosenRace;
+        _vm.Character.AddRace(chosenRace);
 
         int choiceCount = 0;
         if (_vm.Character.Race != null 
@@ -136,7 +136,7 @@ public partial class RaceSelector : ContentPage
         string subRaceName = (sender as Picker).SelectedItem as string;
         SubRace activeSubRace = activeRace.SubRaces.FirstOrDefault(x => x.Name == subRaceName);
 
-        _vm.Character.SubRace = activeSubRace;
+        _vm.Character.AddSubRace(activeSubRace);
 
         if (activeSubRace == null)
         {

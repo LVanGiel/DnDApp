@@ -8,6 +8,29 @@ namespace LVG.DND.Models
     public class Character : Base
     {
 
+        public List<AbilityScore> BaseAbilityScores { get; set; }
+
+        #region StoryTelling
+        public ClassChoice Class { get; set; }
+        public SubClass SubClass { get; set; }
+        public RaceChoice Race { get; set; }
+        public SubRace SubRace { get; set; }
+        public Background Background { get; set; }
+
+        //roleplay stats
+        public int Age { get; set; }
+        public int Weight { get; set; }
+        public int Height { get; set; }
+        public string Hair { get; set; }
+        public string Skin { get; set; }
+        public string Eyes { get; set; }
+
+        public string Alignment { get; set; }
+        public string Backstory { get; set; }
+
+        #endregion
+
+
         public string Name { get; set; }
         public Dice HitpointDice { get; set; }
 
@@ -206,42 +229,12 @@ namespace LVG.DND.Models
         #region inventory
         public MoneyBag MoneyPouch { get; set; }
         public List<Item> Items { get; set; }
-        #endregion
-
-        #region inventory
         public bool HasBagOfHolding { get; set; }
         public MoneyBag BagOfHoldingMoneyPouch { get; set; }
         public List<Item> BagOfHoldingItems { get; set; }
         #endregion
 
         public List<Trait> Traits { get; set; }
-
-        #region StoryTelling
-        public ClassChoice Class { get; set; }
-        public SubClass SubClass { get; set; }
-        public RaceChoice Race { get; set; }
-        public SubRace SubRace { get; set; }
-        public Background Background { get; set; }
-
-        //roleplay stats
-        public int Age { get; set; }
-        public int Weight { get; set; }
-        public int Height { get; set; }
-        public string Hair { get; set; }
-        public string Skin { get; set; }
-        public string Eyes { get; set; }
-
-        //chosen personalities
-        public string ChosenBackground { get; set; }
-        public string ChosenPersonalityTrait { get; set; }
-        public string ChosenIdeal { get; set; }
-        public string ChosenBond { get; set; }
-        public string ChosenFlaw { get; set; }
-
-        public string Alignment { get; set; }
-        public string Backstory { get; set; }
-
-        #endregion
 
         #region ctor
         Streaming _stream = new Streaming();
@@ -278,6 +271,225 @@ namespace LVG.DND.Models
             return await _stream.LoadCharacter();
         }
         #endregion
+
+        public void AddRace(RaceChoice race)
+        {
+            Race = race;
+            /*BaseSpeed = race.BaseWalkingSpeed;
+            FlyingSpeed = race.BaseFlyingSpeed;
+            FloatingSpeed = race.BaseFloatingSpeed;
+            SwimmingSpeed = race.BaseSwimmingSpeed != 0 ? race.BaseSwimmingSpeed : race.BaseWalkingSpeed / 2;
+            ClimbingSpeed = race.BaseClimbingSpeed != 0 ? race.BaseClimbingSpeed : race.BaseWalkingSpeed / 2;
+            Traits = AddToListDistinct(Traits, race.Traits);
+            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, race.Languages);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, race.WeaponProficiencies);
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, race.ItemProficiencies);
+
+            foreach (var AS in race.ASBonus)
+            {
+                switch (AS.AbilityScoreName)
+                {
+                    case SkillNameConstants.Strength:
+                        Strength.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Dexterity:
+                        Dexterity.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Constitution:
+                        Constitution.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Charisma:
+                        Charisma.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Wisdom:
+                        Wisdom.RaceBonus = AS.Bonus;
+                        break;
+                    case SkillNameConstants.Intelligence:
+                        Intelligence.RaceBonus = AS.Bonus;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            RefreshCharacterProperties();*/
+        }
+        public void AddSubRace(SubRace subRace)
+        {
+            SubRace = subRace;
+            /*BaseSpeed = subRace.BaseWalkingSpeed != 0 ? subRace.BaseWalkingSpeed : BaseSpeed;
+            FlyingSpeed = subRace.BaseFlyingSpeed != 0 ? subRace.BaseFlyingSpeed : FlyingSpeed;
+            FloatingSpeed = subRace.BaseFloatingSpeed != 0 ? subRace.BaseFloatingSpeed : FloatingSpeed;
+            SwimmingSpeed = subRace.BaseSwimmingSpeed != 0 ? subRace.BaseSwimmingSpeed : subRace.BaseWalkingSpeed / 2;
+            ClimbingSpeed = subRace.BaseClimbingSpeed != 0 ? subRace.BaseClimbingSpeed : subRace.BaseWalkingSpeed / 2;
+            Traits = AddToListDistinct(Traits, subRace.Traits);
+            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, subRace.Languages);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, subRace.WeaponProficiencies);
+            RefreshCharacterProperties();*/
+        }
+        public void AddClass(ClassChoice selectedClass)
+        {
+            Class = selectedClass;
+        }
+        public void AddBackground(Background background)
+        {
+            Background = background;
+            /*ItemProficiencies = AddToListDistinct(ItemProficiencies, background.ItemProficiencies);
+            Items.AddRange(background.Equipment);
+            Traits = AddToListDistinct(Traits, background.Traits);
+
+
+            foreach (var item in background.SkillProficiencies)
+            {
+                CheckSkillProficiencies(item);
+            }
+            MoneyPouch = background.Money;*/
+        }
+        public void AddInitialAbilityScores(List<AbilityScore> scores)
+        {
+            BaseAbilityScores = scores;
+        }
+        public void CreateCharacter()
+        {
+            Level = 1;
+            WeaponProficiencies.Clear();
+
+            //Race
+            BaseSpeed = Race.BaseWalkingSpeed;
+            FlyingSpeed = Race.BaseFlyingSpeed;
+            FloatingSpeed = Race.BaseFloatingSpeed;
+            SwimmingSpeed = Race.BaseSwimmingSpeed;
+            ClimbingSpeed = Race.BaseClimbingSpeed;
+            Traits = AddToListDistinct(Traits, Race.Traits);
+            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, Race.Languages);
+            WeaponProficiencies= AddToListDistinct(WeaponProficiencies, Race.WeaponProficiencies);
+            ItemProficiencies  =AddToListDistinct(ItemProficiencies, Race.ItemProficiencies);
+            foreach (var asBonus in Race.ASBonus)
+            {
+                switch (asBonus.AbilityScoreName)
+                {
+                    case SkillNameConstants.Strength:
+                        Strength.RaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Intelligence:
+                        Intelligence.RaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Constitution:
+                        Constitution.RaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Wisdom:
+                        Wisdom.RaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Charisma:
+                        Charisma.RaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Dexterity:
+                        Dexterity.RaceBonus = asBonus.Bonus;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //SubRace
+            BaseSpeed = SubRace.BaseWalkingSpeed != 0 ? SubRace.BaseWalkingSpeed : BaseSpeed;
+            FlyingSpeed = SubRace.BaseFlyingSpeed != 0 ? SubRace.BaseFlyingSpeed : FlyingSpeed;
+            FloatingSpeed = SubRace.BaseFloatingSpeed != 0 ? SubRace.BaseFloatingSpeed : FloatingSpeed;
+            SwimmingSpeed = SubRace.BaseSwimmingSpeed != 0 ? SubRace.BaseSwimmingSpeed : SubRace.BaseWalkingSpeed / 2;
+            ClimbingSpeed = SubRace.BaseClimbingSpeed != 0 ? SubRace.BaseClimbingSpeed : SubRace.BaseWalkingSpeed / 2;
+            Traits = AddToListDistinct(Traits, SubRace.Traits);
+            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, SubRace.Languages);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, SubRace.WeaponProficiencies);
+            foreach (var asBonus in SubRace.AbilityScoreBonus)
+            {
+                switch (asBonus.AbilityScoreName)
+                {
+                    case SkillNameConstants.Strength:
+                        Strength.SubRaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Intelligence:
+                        Intelligence.SubRaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Constitution:
+                        Constitution.SubRaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Wisdom:
+                        Wisdom.SubRaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Charisma:
+                        Charisma.SubRaceBonus = asBonus.Bonus;
+                        break;
+                    case SkillNameConstants.Dexterity:
+                        Dexterity.SubRaceBonus = asBonus.Bonus;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //Class
+            HitpointDice = Class.HitDice;
+            ArmorProficiencies = AddToListDistinct(ArmorProficiencies, Class.ArmorProficiencies);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, Class.WeaponProficiencies);
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, Class.ItemProficiencies);
+            Weapons = AddToListDistinct(Weapons, Class.WeaponsChoices);
+            Armor = AddToListDistinct(Armor, Class.ArmorChoices);
+            foreach (var asProf in Class.AbilityScoresProficiencies)
+            {
+                CheckSkillProficiencies(asProf);
+            }
+            foreach (var skillProf in Class.SkillProficiencies)
+            {
+                CheckSkillProficiencies(skillProf);
+            }
+
+            //Background
+            Items = AddToListDistinct(Items, Background.Equipment);
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, Background.ItemProficiencies);
+            MoneyPouch = Background.Money;
+            Traits = AddToListDistinct(Traits, Background.Traits);
+            foreach (var skillProf in Background.SkillProficiencies)
+            {
+                CheckSkillProficiencies(skillProf);
+            }
+
+            //Fill InitialBonuses
+            foreach (var asBonus in BaseAbilityScores)
+            {
+                switch (asBonus.Name)
+                {
+                    case SkillNameConstants.Strength:
+                        Strength.BaseBonus = asBonus.BaseBonus;
+                        break;
+                    case SkillNameConstants.Intelligence:
+                        Intelligence.BaseBonus = asBonus.BaseBonus;
+                        break;
+                    case SkillNameConstants.Constitution:
+                        Constitution.BaseBonus = asBonus.BaseBonus;
+                        break;
+                    case SkillNameConstants.Wisdom:
+                        Wisdom.BaseBonus = asBonus.BaseBonus;
+                        break;
+                    case SkillNameConstants.Charisma:
+                        Charisma.BaseBonus = asBonus.BaseBonus;
+                        break;
+                    case SkillNameConstants.Dexterity:
+                        Dexterity.BaseBonus = asBonus.BaseBonus;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //calculate abilityscores
+            Strength.Level = Strength.RaceBonus + Strength.SubRaceBonus + Strength.BaseBonus;
+
+
+
+            RefreshCharacterProperties();
+        }
+
+
+
 
         private List<T> AddToListDistinct<T>(List<T> list1, List<T> list2)
         {
@@ -400,111 +612,6 @@ namespace LVG.DND.Models
 
             UpdateProficiencyBonus(ProficiencyBonus);
         }
-        private void LevelUp() 
-        {
-            int level = this.Level + 1;
-            var classLvl = this.Class.ClassLevels.FirstOrDefault(l => l.Level == level);
-
-            foreach (var item in classLvl.LevelFeatures)
-            {
-
-            }
-        }
-        public void AddClass(ClassChoice selectedClass)
-        {
-            HitpointDice = selectedClass.HitDice;
-            Class = selectedClass;
-            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, selectedClass.WeaponProficiencies);
-            ArmorProficiencies = AddToListDistinct(ArmorProficiencies, selectedClass.ArmorProficiencies);
-            ItemProficiencies = AddToListDistinct(ItemProficiencies, selectedClass.ItemProficiencies);
-            Weapons.AddRange(selectedClass.WeaponsChoices);
-            Armor.AddRange(selectedClass.ArmorChoices);
-
-            foreach (var item in selectedClass.AbilityScoresProficiencies)
-            {
-                CheckSkillProficiencies(item);
-            }
-
-            foreach (var item in selectedClass.SkillProficiencies)
-            {
-                CheckSkillProficiencies(item);
-            }
-
-            LevelUp();
-
-            RefreshCharacterProperties();
-        }
-        public void AddRace(RaceChoice race)
-        {
-            Race = race;
-            BaseSpeed = race.BaseWalkingSpeed;
-            FlyingSpeed = race.BaseFlyingSpeed;
-            FloatingSpeed = race.BaseFloatingSpeed;
-            SwimmingSpeed = race.BaseSwimmingSpeed != 0 ? race.BaseSwimmingSpeed : race.BaseWalkingSpeed / 2;
-            ClimbingSpeed = race.BaseClimbingSpeed != 0 ? race.BaseClimbingSpeed : race.BaseWalkingSpeed / 2;
-            Traits = AddToListDistinct(Traits, race.Traits);
-            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, race.Languages);
-            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, race.WeaponProficiencies);
-            ItemProficiencies = AddToListDistinct(ItemProficiencies, race.ItemProficiencies);
-
-            foreach (var AS in race.ASBonus)
-            {
-                switch (AS.AbilityScoreName)
-                {
-                    case SkillNameConstants.Strength:
-                        Strength.RaceBonus = AS.Bonus;
-                        break;
-                    case SkillNameConstants.Dexterity:
-                        Dexterity.RaceBonus = AS.Bonus;
-                        break;
-                    case SkillNameConstants.Constitution:
-                        Constitution.RaceBonus = AS.Bonus;
-                        break;
-                    case SkillNameConstants.Charisma:
-                        Charisma.RaceBonus = AS.Bonus;
-                        break;
-                    case SkillNameConstants.Wisdom:
-                        Wisdom.RaceBonus = AS.Bonus;
-                        break;
-                    case SkillNameConstants.Intelligence:
-                        Intelligence.RaceBonus = AS.Bonus;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            RefreshCharacterProperties();
-        }
-        public void AddSubRace(SubRace subRace)
-        {
-            SubRace = subRace;
-            BaseSpeed = subRace.BaseWalkingSpeed != 0 ? subRace.BaseWalkingSpeed : BaseSpeed;
-            FlyingSpeed = subRace.BaseFlyingSpeed != 0 ? subRace.BaseFlyingSpeed : FlyingSpeed;
-            FloatingSpeed = subRace.BaseFloatingSpeed != 0 ? subRace.BaseFloatingSpeed : FloatingSpeed;
-            SwimmingSpeed = subRace.BaseSwimmingSpeed != 0 ? subRace.BaseSwimmingSpeed : subRace.BaseWalkingSpeed / 2;
-            ClimbingSpeed = subRace.BaseClimbingSpeed != 0 ? subRace.BaseClimbingSpeed : subRace.BaseWalkingSpeed / 2;
-            Traits = AddToListDistinct(Traits, subRace.Traits);
-            LanguageProficiencies = AddToListDistinct(LanguageProficiencies, subRace.Languages);
-            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, subRace.WeaponProficiencies);
-            RefreshCharacterProperties();
-        }
-        public void AddSubClass()
-        {
-
-        }
-        public void AddBackground(Background background)
-        {
-            ItemProficiencies = AddToListDistinct(ItemProficiencies, background.ItemProficiencies);
-            Items.AddRange(background.Equipment); 
-            Traits = AddToListDistinct(Traits, background.Traits);
-
-
-            foreach (var item in background.SkillProficiencies)
-            {
-                CheckSkillProficiencies(item);
-            }
-            MoneyPouch = background.Money;
-        }
 
         //-----------------------init------------------------
         private void LoadProperties()
@@ -530,12 +637,8 @@ namespace LVG.DND.Models
             Hair = "";
             Skin = "";
             Eyes = "";
-            ChosenPersonalityTrait = "";
-            ChosenIdeal = "";
-            ChosenFlaw = "";
-            ChosenBond = "";
-            Backstory = "";
             Background = new Background();
+            Level = 0;
         }
         private void FillMoneyPouch()
         {

@@ -38,7 +38,7 @@ public partial class ClassSelector : ContentPage
         var chosenClass = new ClassChoice();
         chosenClass.ConvertCharClass(activeClass);
 
-        _vm.Character.Class = chosenClass;
+        _vm.Character.AddClass(chosenClass);
         ClassSkillsProficienciesList.ItemsSource = activeClass.SkillProficiencies;
         ClassSelectedSkillsProficienciesList.ItemsSource = null;
         unSelectedSkills = activeClass.SkillProficiencies;

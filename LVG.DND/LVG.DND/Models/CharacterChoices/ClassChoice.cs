@@ -11,10 +11,10 @@ namespace LVG.DND.Models.CharacterChoices
         public List<string> ArmorProficiencies { get; set; }
         public List<string> WeaponProficiencies { get; set; }
         public List<string> ItemProficiencies { get; set; }
-        public List<string> AbilityScoresProficiencies { get; set; }
-        public List<string> SkillProficiencies { get; set; }
         public List<Weapon> WeaponsChoices { get; set; }
         public List<Armor> ArmorChoices { get; set; }
+        public List<string> AbilityScoresProficiencies { get; set; }
+        public List<string> SkillProficiencies { get; set; }
 
         public ClassChoice()
         {
