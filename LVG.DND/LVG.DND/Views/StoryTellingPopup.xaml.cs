@@ -38,16 +38,16 @@ public partial class StoryTellingPopup : Popup
                 result = _character.Age.ToString();
                 break;
             case "Personality Trait":
-                result = _character.ChosenPersonalityTrait;
+                result = _character.Background.SelectedPersonalityTrait;
                 break;
             case "Ideal":
-                result = _character.ChosenIdeal;
+                result = _character.Background.SelectedIdeal;
                 break;
             case "Flaw":
-                result = _character.ChosenFlaw;
+                result = _character.Background.SelectedFlaw;
                 break;
             case "Bond":
-                result = _character.ChosenBond;
+                result = _character.Background.SelectedBond;
                 break;
             case "Background":
                 _character.Background = _character.Background == null ? new Background() : _character.Background;

@@ -10,7 +10,6 @@ namespace LVG.DND.streaming
         string basepath = FileSystem.Current.AppDataDirectory;
         public Streaming()
         {
-            StreamData();
             CreateActiveCharacterFile();
         }
 

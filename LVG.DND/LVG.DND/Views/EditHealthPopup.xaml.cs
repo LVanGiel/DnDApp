@@ -31,9 +31,14 @@ public partial class EditHealthPopup : Popup
         {
             txtTempHealth.Text = "0";
         }
+        if (txtMaxHealth.Text == null)
+        {
+            txtMaxHealth.Text = "0";
+        }
         result.Add(txtHealth.Text);
         result.Add(txtTempHealth.Text);
+        result.Add(txtMaxHealth.Text);
 
-		this.Close(result);
+        this.Close(result);
     }
 }

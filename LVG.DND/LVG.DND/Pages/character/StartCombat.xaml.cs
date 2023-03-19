@@ -82,6 +82,8 @@ public partial class StartCombat : ContentPage
         List<string> strings = (await this.ShowPopupAsync(healthPopup)) as List<string>;
         _vm.Character.CurrentHealth += int.Parse(strings[0]);
         _vm.Character.TemporaryHealth += int.Parse(strings[1]);
+        _vm.Character.CurrentHealth += int.Parse(strings[2]) - _vm.Character.MaxHealth;
+        _vm.Character.MaxHealth = int.Parse(strings[2]);
         await _vm.Character.SaveCharacter(_vm.Character);
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
     }

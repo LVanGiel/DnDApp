@@ -6,8 +6,10 @@
                CanBeDismissedByTappingOutsideOfPopup="False">
     <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
         <VerticalStackLayout>
-            <Label Text="Current Health" HorizontalOptions="Center"/>
+            <Label Text="Heal current health" HorizontalOptions="Center"/>
             <Entry Text="" x:Name="txtHealth" WidthRequest="100"/>
+            <Label Text="Add max health" HorizontalOptions="Center"/>
+            <Entry Text="" x:Name="txtMaxHealth" WidthRequest="100"/>
             <Label Text="Temporary Health" HorizontalOptions="Center"/>
             <Entry Text="" x:Name="txtTempHealth" WidthRequest="100"/>
             <Button Text="Save" Clicked="Button_Clicked"/>

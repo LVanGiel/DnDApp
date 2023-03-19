@@ -9,13 +9,13 @@ namespace LVG.DND.Models
     {
 
         public List<AbilityScore> BaseAbilityScores { get; set; }
-
-        #region StoryTelling
         public ClassChoice Class { get; set; }
         public SubClass SubClass { get; set; }
         public RaceChoice Race { get; set; }
         public SubRace SubRace { get; set; }
         public Background Background { get; set; }
+
+        #region StoryTelling
 
         //roleplay stats
         public int Age { get; set; }
@@ -348,11 +348,8 @@ namespace LVG.DND.Models
         {
             BaseAbilityScores = scores;
         }
-        public void CreateCharacter()
+        private void UpdateRaceProps()
         {
-            Level = 1;
-            WeaponProficiencies.Clear();
-
             //Race
             BaseSpeed = Race.BaseWalkingSpeed;
             FlyingSpeed = Race.BaseFlyingSpeed;
@@ -361,8 +358,8 @@ namespace LVG.DND.Models
             ClimbingSpeed = Race.BaseClimbingSpeed;
             Traits = AddToListDistinct(Traits, Race.Traits);
             LanguageProficiencies = AddToListDistinct(LanguageProficiencies, Race.Languages);
-            WeaponProficiencies= AddToListDistinct(WeaponProficiencies, Race.WeaponProficiencies);
-            ItemProficiencies  =AddToListDistinct(ItemProficiencies, Race.ItemProficiencies);
+            WeaponProficiencies = AddToListDistinct(WeaponProficiencies, Race.WeaponProficiencies);
+            ItemProficiencies = AddToListDistinct(ItemProficiencies, Race.ItemProficiencies);
             foreach (var asBonus in Race.ASBonus)
             {
                 switch (asBonus.AbilityScoreName)
@@ -425,7 +422,9 @@ namespace LVG.DND.Models
                         break;
                 }
             }
-
+        }
+        private void UpdateClassProps()
+        {
             //Class
             HitpointDice = Class.HitDice;
             ArmorProficiencies = AddToListDistinct(ArmorProficiencies, Class.ArmorProficiencies);
@@ -441,7 +440,9 @@ namespace LVG.DND.Models
             {
                 CheckSkillProficiencies(skillProf);
             }
-
+        }
+        private void UpdateBackgroundProps()
+        {
             //Background
             Items = AddToListDistinct(Items, Background.Equipment);
             ItemProficiencies = AddToListDistinct(ItemProficiencies, Background.ItemProficiencies);
@@ -451,6 +452,14 @@ namespace LVG.DND.Models
             {
                 CheckSkillProficiencies(skillProf);
             }
+
+        }
+        public void CreateCharacter()
+        {
+            Level = 1;
+            UpdateRaceProps();
+            UpdateClassProps();
+            UpdateBackgroundProps();
 
             //Fill InitialBonuses
             foreach (var asBonus in BaseAbilityScores)
