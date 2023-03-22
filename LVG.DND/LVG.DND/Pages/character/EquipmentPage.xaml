@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Pages.character.EquipmentPage"
+             Title="EquipmentPage"
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
+    <ScrollView>
+    <VerticalStackLayout>
+        <views:TitleBar  Margin="0,0,0,20"/>
+        <Label Text="Weapons" FontSize="Title"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Name" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+            <Label Text="Atk" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+            <Label Text="Damage" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+            <Label Text="Damage Type" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
+        </Grid>
+        <ListView x:Name="WeaponListView" ItemsSource="{Binding Character.Weapons}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="70"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid x:Name="WeaponPresentingStack" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+                                <Label Text="{Binding AttackBonus}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Label Text="{Binding DiceWithBonus}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Label Text="{Binding DamageType}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
+                            </Grid>
+                            <Grid x:Name="WeaponEditStack" IsVisible="False" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry BackgroundColor="White" Text="{Binding Name}" Grid.Column="0"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding AttackBonus}" Grid.Column="1"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding DiceWithBonus}" Grid.Column="2"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding DamageType}" Grid.Column="3"></Entry>
+                            </Grid>
+                            <Button Text="Delete" Clicked="btnWeaponEdit_Clicked" Grid.Column="2"></Button>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid x:Name="WeaponEditStack" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Entry BackgroundColor="White" x:Name="txtWeaponNameAdd" Placeholder="Name"  Grid.Column="0"></Entry>
+            <Entry BackgroundColor="White" Margin="10,0,10,0" WidthRequest="20" x:Name="txtWeaponBonusAttackAdd" Placeholder="Attackroll Bonus"  Grid.Column="1"></Entry>
+            <Entry BackgroundColor="White" Margin="0,0,10,0" WidthRequest="70" x:Name="txtDiceWithBonusAdd" Placeholder="Damage" Grid.Column="2"></Entry>
+            <Entry BackgroundColor="White" Margin="0,0,10,0" WidthRequest="90" x:Name="txtWeaponDamageTypeAdd" Placeholder="Damagetype" Grid.Column="3"></Entry>
+            <Button x:Name="btnWeaponAdd" Text="Add" Clicked="btnWeaponAdd_Clicked" Grid.Column="4"></Button>
+        </Grid>
+
+        <Label Text="Armor" FontSize="Title"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Name" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+            <Label Text="AC" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+            <Label Text="Armor type" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+        </Grid>
+        <ListView x:Name="ArmorListView" ItemsSource="{Binding Character.Armor}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="70"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid x:Name="WeaponPresentingStack" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+                                <Label Text="{Binding ArmorClass}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Label IsVisible="{Binding IsLight}" Text="Light armor" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Label IsVisible="{Binding IsMedium}" Text="Medium armor" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Label IsVisible="{Binding IsHeavy}" Text="Heavy armor" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Label IsVisible="{Binding IsShield}" Text="Shield" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                            </Grid>
+                            <Grid x:Name="ArmorEditStack" IsVisible="False" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry BackgroundColor="White" Text="{Binding Name}" Grid.Column="0"></Entry>
+                                <Entry BackgroundColor="White" Text="{Binding ArmorClass}" Grid.Column="1"></Entry>
+                                <HorizontalStackLayout Grid.Column="2">
+                                    <CheckBox BackgroundColor="White" IsChecked="{Binding IsLight}" ></CheckBox>
+                                    <Label Text="Light armor"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Column="3">
+                                    <CheckBox BackgroundColor="White" IsChecked="{Binding IsMedium}" ></CheckBox>
+                                    <Label Text="Medium armor"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Column="4">
+                                    <CheckBox BackgroundColor="White" IsChecked="{Binding IsHeavy}"></CheckBox>
+                                    <Label Text="Heavy armor"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Column="5">
+                                    <CheckBox BackgroundColor="White" IsChecked="{Binding IsShield}"></CheckBox>
+                                    <Label Text="Shield"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Button Text="Delete" Clicked="btnArmorEdit_Clicked" Grid.Column="2"></Button>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid x:Name="ArmorEditStack" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Entry BackgroundColor="White" x:Name="txtArmorNameAdd" Placeholder="Name"  Grid.Column="0"></Entry>
+            <Entry BackgroundColor="White" x:Name="txtArmorACAdd" Placeholder="AC"  Grid.Column="1"></Entry>
+            <HorizontalStackLayout Grid.Column="2">
+                <CheckBox x:Name="checkLight" BackgroundColor="White"></CheckBox>
+                <Label Text="Light armor"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="3">
+                <CheckBox x:Name="checkMedium" BackgroundColor="White"></CheckBox>
+                <Label Text="Medium armor"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="4">
+                <CheckBox x:Name="checkHeavy" BackgroundColor="White"></CheckBox>
+                <Label Text="Heavy armor"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="5">
+                <CheckBox x:Name="checkShield" BackgroundColor="White"></CheckBox>
+                <Label Text="Shield"/>
+            </HorizontalStackLayout>
+            <Button x:Name="btnArmorAdd" Text="Add" Clicked="btnArmorAdd_Clicked" Grid.Column="6"></Button>
+        </Grid>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

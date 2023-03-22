@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Pages.character.SkillCheckPage"
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
+    <ScrollView>
+        <VerticalStackLayout>
+            <views:TitleBar  Margin="0,0,0,20"/>
+            <HorizontalStackLayout>
+                <Button Text="Strength" Clicked="SavingButton_Clicked"/>
+                <Button Text="Dexterity" Clicked="SavingButton_Clicked"/>
+                <Button Text="Constitution" Clicked="SavingButton_Clicked"/>
+                <Button Text="Intelligence" Clicked="SavingButton_Clicked"/>
+                <Button Text="Wisdom" Clicked="SavingButton_Clicked"/>
+                <Button Text="Charisma" Clicked="SavingButton_Clicked"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout x:Name="buttonStack">
+                <VerticalStackLayout x:Name="strengthStack">
+                    <views:StatButton x:Name="StrengthBtn" ButtonTitle="Strength"/>
+                    <views:StatButton x:Name="AthleticsBtn" ButtonTitle="Athletics"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="dexStack">
+                    <views:StatButton x:Name="DexterityBtn" ButtonTitle="Dexterity"/>
+                    <views:StatButton x:Name="AcrobaticsBtn" ButtonTitle="Acrobatics"/>
+                    <views:StatButton x:Name="SleightOfHandBtn" ButtonTitle="SleightOfHand"/>
+                    <views:StatButton x:Name="StealthBtn" ButtonTitle="Stealth"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="constStack">
+                    <views:StatButton x:Name="ConstitutionBtn" ButtonTitle="Constitution"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="intelStack">
+                    <views:StatButton x:Name="IntelligenceBtn" ButtonTitle="Intelligence"/>
+                    <views:StatButton x:Name="ArcanaBtn" ButtonTitle="Arcana"/>
+                    <views:StatButton x:Name="HistoryBtn" ButtonTitle="History"/>
+                    <views:StatButton x:Name="InvestigationBtn" ButtonTitle="Investigation"/>
+                    <views:StatButton x:Name="NatureBtn" ButtonTitle="Nature"/>
+                    <views:StatButton x:Name="ReligionBtn" ButtonTitle="Religion"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="wisStack">
+                    <views:StatButton x:Name="WisdomBtn" ButtonTitle="Wisdom"/>
+                    <views:StatButton x:Name="AnimalHandlingBtn" ButtonTitle="AnimalHandling"/>
+                    <views:StatButton x:Name="InsightBtn" ButtonTitle="Insight"/>
+                    <views:StatButton x:Name="MedicineBtn" ButtonTitle="Medicine"/>
+                    <views:StatButton x:Name="PerceptionBtn" ButtonTitle="Perception"/>
+                    <views:StatButton x:Name="SurvivalBtn" ButtonTitle="Survival"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="charStack">
+                    <views:StatButton x:Name="CharismaBtn" ButtonTitle="Charisma"/>
+                    <views:StatButton x:Name="DeceptionBtn" ButtonTitle="Deception"/>
+                    <views:StatButton x:Name="IntimidationBtn" ButtonTitle="Intimidation"/>
+                    <views:StatButton x:Name="PerformanceBtn" ButtonTitle="Performance"/>
+                    <views:StatButton x:Name="PersuasionBtn" ButtonTitle="Persuasion"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="resultStack" IsVisible="false">
+                <Label Text="Skill check result" HorizontalOptions="Center"/>
+                <Label x:Name="resultLabel" FontSize="100" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

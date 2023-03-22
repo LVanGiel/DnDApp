@@ -3,6 +3,7 @@ using LVG.DND.Pages;
 using LVG.DND.Pages.character;
 using LVG.DND.ViewModel.characterViewModels;
 using LVG.DND.Views;
+using LVG.DND.Pages.charcreation;
 
 namespace LVG.DND;
 
@@ -18,5 +19,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(CharacterViewPage), typeof(CharacterViewPage));
         Routing.RegisterRoute(nameof(CharacterCollectionPage), typeof(CharacterCollectionPage));
         Routing.RegisterRoute(nameof(CharacterHome), typeof(CharacterHome));
+        Routing.RegisterRoute(nameof(RaceSelector), typeof(RaceSelector));
+        Routing.RegisterRoute(nameof(ClassSelector), typeof(ClassSelector));
     }
 }

@@ -6,6 +6,7 @@ using LVG.DND.streaming;
 using LVG.DND.ViewModel.characterViewModels;
 using LVG.DND.Views;
 using LVG.DND.Views.characterviews;
+using LVG.DND.Pages.charcreation;
 
 namespace LVG.DND;
 
@@ -25,7 +26,7 @@ public partial class MainPage : ContentPage
 	}
     private async void OnCharClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(CharacterCreationPage));
+        await Shell.Current.GoToAsync(nameof(RaceSelector));
     }
     private async void OnTestClicked(object sender, EventArgs e)
     {

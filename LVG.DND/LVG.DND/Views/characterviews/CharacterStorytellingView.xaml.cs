@@ -43,16 +43,16 @@ public partial class CharacterStorytellingView : ContentView
                 _character.Age = int.Parse(text);
                 break;
             case "Personality Trait":
-                _character.ChosenPersonalityTrait = text;
+                _character.Background.SelectedPersonalityTrait = text;
                 break;
             case "Ideal":
-                _character.ChosenIdeal = text;
+                _character.Background.SelectedIdeal = text;
                 break;
             case "Flaw":
-                _character.ChosenFlaw = text;
+                _character.Background.SelectedFlaw = text;
                 break;
             case "Bond":
-                _character.ChosenBond = text;
+                _character.Background.SelectedBond = text;
                 break;
             case "Background":
                 _character.Background = _character.Background == null ? new Background() : _character.Background;

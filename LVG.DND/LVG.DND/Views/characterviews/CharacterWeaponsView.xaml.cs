@@ -49,13 +49,17 @@ public partial class CharacterWeaponsView : ContentView
             Name = txtWeaponNameAdd.Text,
             AttackBonus = int.Parse(txtWeaponBonusAttackAdd.Text),
             DamageType = txtWeaponDamageTypeAdd.Text,
-            DiceWithBonus = txtDiceWithBonusAdd.Text
-        };
+            DiceCount = int.Parse(txtDiceCount.Text),
+            DiceSize = int.Parse(txtDiceSize.Text),
+            DamageBonus = int.Parse(txtDamageBonus.Text)
+    };
         _vm.Character.Weapons.Add(weapon);
         SaveCharacter();
         txtWeaponNameAdd.Text = "";
         txtWeaponBonusAttackAdd.Text = "";
         txtWeaponDamageTypeAdd.Text = "";
-        txtDiceWithBonusAdd.Text = "";
+        txtDamageBonus.Text = "";
+        txtDiceSize.Text = "";
+        txtDiceCount.Text = "";
     }
 }

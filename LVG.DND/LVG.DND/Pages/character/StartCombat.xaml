@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LVG.DND.Pages.character.StartCombat"
+             xmlns:views="clr-namespace:LVG.DND.Views"
+             Shell.NavBarIsVisible = "False">
+    <ScrollView>
+        <VerticalStackLayout>
+            <views:TitleBar  Margin="0,0,0,20"/>
+            <VerticalStackLayout x:Name="RollChoice">
+                <Button Text="Roll in app" Clicked="RollChoiceButton_Clicked"/>
+                <Button Text="Roll with real dice" Clicked="RollChoiceButton_Clicked"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="RollInApp" IsVisible="False">
+                <Label Text="Roll for initiative"/>
+                <views:DiceView x:Name="InitiativeDiceView"/>
+                <Button Text="Submit" Clicked="SubmitInitiative_Clicked"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="InputStack" IsVisible="False">
+                <Label Text="Input for initiative"/>
+                <Entry x:Name="InitativeEntry"/>
+                <Button Text="Submit" Clicked="SubmitInitiative_Clicked"/>
+            </VerticalStackLayout>
+            <Grid x:Name="BattleStack" VerticalOptions="FillAndExpand" IsVisible="False" RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ArmorClassBtn" ButtonTitle="Armor Class"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" x:Name="InitiativeBtn" ButtonTitle="Initiative"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" x:Name="HealthBtn" ButtonTitle="Add Health"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="AttackBtn" ButtonTitle="Attack"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" x:Name="DamageBtn" ButtonTitle="Take Damage"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" x:Name="SpeedBtn" ButtonTitle="Speed"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ItemsBtn" ButtonTitle="Items"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" x:Name="SkillsBtn" ButtonTitle="Skill Checks"/>
+                <views:StatButton VerticalOptions="Center" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" x:Name="TraitsBtn" ButtonTitle="Traits"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

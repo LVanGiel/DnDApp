@@ -66,7 +66,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\attack.png" />
+	  <None Remove="Resources\Images\damage.png" />
+	  <None Remove="Resources\Images\floatspeed.png" />
+	  <None Remove="Resources\Images\flying.png" />
+	  <None Remove="Resources\Images\health.png" />
+	  <None Remove="Resources\Images\items.png" />
+	  <None Remove="Resources\Images\shield.png" />
+	  <None Remove="Resources\Images\skill.png" />
+	  <None Remove="Resources\Images\speed.png" />
+	  <None Remove="Resources\Images\spells.png" />
+	  <None Remove="Resources\Images\stone.jpg" />
+	  <None Remove="Resources\Images\swimspeed.png" />
+	  <None Remove="Resources\Images\trait.png" />
 	  <None Remove="Resources\Images\unknownPlayer.png" />
+	  <None Remove="Resources\Images\woodtexture.jpg" />
 	  <None Remove="Resources\Raw\JokmirBravarus.txt" />
 	</ItemGroup>
 
@@ -89,7 +103,31 @@
 	  <MauiXaml Update="Pages\CharacterViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\AttackPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\character\CharacterHome.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\CharacterSpellsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\InventoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\CharacterSession.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\EquipmentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\SkillCheckPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\StartCombat.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\character\TraitsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\DndDice.xaml">
@@ -99,6 +137,18 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddSpellSlotPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TakeDamagePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SpeedPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SpellsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EditHealthPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddTraitPopup.xaml">
@@ -128,7 +178,7 @@
 	  <MauiXaml Update="Views\characterviews\FeaturesAndTraitsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\AbilityScoreCreator.xaml">
+	  <MauiXaml Update="Pages\charcreation\AbilityScoreCreator.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\charcreation\AbilityScores\ASManualInput.xaml">
@@ -137,13 +187,13 @@
 	  <MauiXaml Update="Views\charcreation\AbilityScores\ASRollInput.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\BackgroundSelector.xaml">
+	  <MauiXaml Update="Pages\charcreation\BackgroundSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\ClassSelector.xaml">
+	  <MauiXaml Update="Pages\charcreation\ClassSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\charcreation\RaceSelector.xaml">
+	  <MauiXaml Update="Pages\charcreation\RaceSelector.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DicePopup.xaml">
@@ -161,6 +211,9 @@
 	  <MauiXaml Update="Views\SpellEditPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\StatButton.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\StoryTellingPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -171,6 +224,27 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\Types\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\character\CharacterSpellsPage.xaml.cs">
+	    <DependentUpon>CharacterSpellsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\character\InventoryPage.xaml.cs">
+	    <DependentUpon>InventoryPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TakeDamagePopup.xaml.cs">
+	    <DependentUpon>TakeDamagePopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SpeedPopup.xaml.cs">
+	    <DependentUpon>SpeedPopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SpellsView.xaml.cs">
+	    <DependentUpon>SpellsView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\EditHealthPopup.xaml.cs">
+	    <DependentUpon>EditHealthPopup.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

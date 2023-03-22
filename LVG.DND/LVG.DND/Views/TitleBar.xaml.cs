@@ -25,6 +25,14 @@ public partial class TitleBar : ContentView
     private void SetCharacterProperties()
     {
         lblName.Text = character.Name;
+        if (character.Class != null && character.Class.Name != "")
+        {
+            lblClass.Text = character.Class.Name;
+        }
+        if (character.Race != null && character.Race.Name != "")
+        {
+            lblRace.Text = character.Race.Name;
+        }
     }
 
     private async void BackButton_Clicked(object sender, EventArgs e)

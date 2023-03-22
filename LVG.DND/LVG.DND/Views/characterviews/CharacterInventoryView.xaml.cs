@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui.Views;
 using LVG.DND.Models;
+using LVG.DND.Models.basemodel;
 using LVG.DND.streaming;
 using LVG.DND.ViewModel.characterViewModels;
 
@@ -48,7 +49,7 @@ public partial class CharacterInventoryView : ContentView
         }
         var item = new Item();
         item.Name = txtNameAdd.Text;
-        item.Value = txtValueAdd.Text;
+        //item.Value = txtValueAdd.Text;
         _vm.Character.Items.Add(item);
         await _vm.Character.SaveCharacter(_vm.Character);
         ReloadBindings();
@@ -70,7 +71,7 @@ public partial class CharacterInventoryView : ContentView
 
         var item = new Item();
         item.Name = txtBagOfHoldingNameAdd.Text;
-        item.Value = txtBagOfHoldingValueAdd.Text;
+        //item.Value = txtBagOfHoldingValueAdd.Text;
         _vm.Character.BagOfHoldingItems.Add(item);
         await _vm.Character.SaveCharacter(_vm.Character);
         ReloadBindings();

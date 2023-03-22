@@ -5,8 +5,8 @@ namespace LVG.DND.Views.charcreation.AbilityScores;
 
 public partial class ASManualInput : ContentView
 {
-    AbilityScoresViewModel _vm = new AbilityScoresViewModel();
-    public ASManualInput(AbilityScoresViewModel vm)
+    CharCreateViewModel _vm = new CharCreateViewModel();
+    public ASManualInput(CharCreateViewModel vm)
 	{
         InitializeComponent();
         BindingContext = vm;

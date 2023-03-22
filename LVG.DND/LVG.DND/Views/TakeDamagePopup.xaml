@@ -1,0 +1,14 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="LVG.DND.Views.TakeDamagePopup"
+               Size="500, 500"
+               CanBeDismissedByTappingOutsideOfPopup="False">
+    <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+        <VerticalStackLayout>
+            <Label Text="Damage" HorizontalOptions="Center"/>
+            <Entry Text="" x:Name="txtHealth" WidthRequest="100"/>
+            <Button Text="Take Damage" Clicked="Button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</toolkit:Popup>

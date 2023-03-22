@@ -7,14 +7,24 @@ using System.Threading.Tasks;
 
 namespace LVG.DND.Models
 {
-    public class Weapon : Base
+    public class Weapon : Item
     {
-        public string Name { get; set; }
-        public Dice Dice { get; set; }
+        public int DiceSize { get; set; }
+        public int DiceCount { get; set; }
         public int AttackBonus { get; set; }
-        public int AbilityScoreBonus { get; set; }
+        public int DamageBonus { get; set; }
         public string DiceWithBonus { get; set; }
         public string DamageType { get; set; }
+        public string ExtraInfo { get; set; }
+        public bool IsMartial { get; set; }
+        public bool IsRanged { get; set; }
+        public string AmmoType { get; set; }
+        public bool IsTwohanded { get; set; }
+        public bool IsThrown { get; set; }
+        public string Range { get; set; }
+        public bool HasReach { get; set; }
+        public bool IsVersatile { get; set; }
+        public int VersatileDice { get; set; }
         public Weapon()
         {
             Id = Guid.NewGuid();
