@@ -12,8 +12,9 @@ public partial class EditHealthPopup : Popup
 	public EditHealthPopup(Character character)
 	{
 		InitializeComponent();
-        txtHealth.Text=character.CurrentHealth.ToString();
-        txtTempHealth.Text = character.TemporaryHealth.ToString();
+        lblCurrentHealth.Text = character.CurrentHealth.ToString();
+        lblTempHealth.Text = character.TemporaryHealth.ToString();
+        lblMaxHealth.Text = character.MaxHealth.ToString();
     }
 
     private void Button_Clicked(object sender, EventArgs e)

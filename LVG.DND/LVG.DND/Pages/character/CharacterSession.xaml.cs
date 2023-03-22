@@ -66,8 +66,11 @@ public partial class CharacterSession : ContentPage
     {
         EditHealthPopup healthPopup = new EditHealthPopup(_vm.Character);
         List<string> strings = (await this.ShowPopupAsync(healthPopup)) as List<string>;
-        _vm.Character.CurrentHealth += int.Parse(strings[0]);
-        _vm.Character.TemporaryHealth += int.Parse(strings[1]);
+        _vm.Character.CurrentHealth += strings[0] != "" ? int.Parse(strings[0]) : 0;
+        _vm.Character.TemporaryHealth += strings[1] != "" ? int.Parse(strings[1]) : 0;
+        _vm.Character.CurrentHealth += (strings[2] != "" && int.Parse(strings[2]) >= 0) 
+                                        ? int.Parse(strings[2]) : 0;
+        _vm.Character.MaxHealth += strings[2] != "" ? int.Parse(strings[2]) : 0;
         await _vm.Character.SaveCharacter(_vm.Character);
         HealthBtn.ButtonStat = (_vm.Character.CurrentHealth + _vm.Character.TemporaryHealth).ToString();
     }

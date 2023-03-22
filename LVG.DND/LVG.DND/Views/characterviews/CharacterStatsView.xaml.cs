@@ -93,7 +93,10 @@ public partial class CharacterStatsView : ContentView
     }
     private async void txtTemporaryHp_Completed(object sender, EventArgs e)
     {
-        await _vm.Character.SaveCharacter(_vm.Character);
+        if (this.IsLoaded)
+        {
+            await _vm.Character.SaveCharacter(_vm.Character);
+        }
     }
     private async void DeathSaveFailButton_Clicked(object sender, EventArgs e)
     {
