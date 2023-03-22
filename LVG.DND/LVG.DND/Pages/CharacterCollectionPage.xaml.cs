@@ -1,6 +1,7 @@
 using LVG.DND.Models;
 using LVG.DND.Pages.character;
 using LVG.DND.Pages.charcreation;
+using LVG.DND.streaming;
 using LVG.DND.ViewModel;
 
 namespace LVG.DND.Pages;
@@ -14,6 +15,8 @@ public partial class CharacterCollectionPage : ContentPage
         BindingContext = _vm;
         InitializeComponent();
         init();
+        var streaming = new Streaming();
+        streaming.SaveJokmir();
     }
 	private async void init()
 	{
